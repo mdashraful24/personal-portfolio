@@ -1,13 +1,23 @@
 import AboutMe from "../components/AboutMe";
 import HeroSection from "../components/HeroSection";
 import ProjectsShowcase from "../components/ProjectsShowcase";
+import Skills from "../components/Skills";
 
 const Home = () => {
     return (
         <div>
-            <HeroSection />
-            <AboutMe />
-            <ProjectsShowcase />
+            <section id="#">
+                <HeroSection />
+            </section>
+            <section id="about">
+                <AboutMe />
+            </section>
+            <section id="skills">
+                <Skills />
+            </section>
+            <section id="projects">
+                <ProjectsShowcase />
+            </section>
         </div>
     );
 };

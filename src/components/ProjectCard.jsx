@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
-
 const ProjectCard = ({ title, description, techStack, demoLink, codeLink, image }) => {
     return (
-        <motion.div
-            className="shadow-xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl flex flex-col h-full"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-        >
+        <div className="shadow-xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl flex flex-col h-full">
             {/* Image Section */}
-            <div className="relative w-full h-64 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}>
-                <div className="absolute inset-0 bg-black opacity-30"></div>
+            <div>
+                <img src={image} alt={title} className="w-full h-64" />
             </div>
 
             {/* Content Section */}
@@ -45,7 +38,7 @@ const ProjectCard = ({ title, description, techStack, demoLink, codeLink, image 
                     </a>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 

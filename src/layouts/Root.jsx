@@ -1,14 +1,17 @@
 import { Outlet } from "react-router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Home from "../pages/Home";
 
 const Root = () => {
     return (
         <div className="min-h-screen">
-            <header>
+            <header className="mb-16">
                 <Navbar></Navbar>
             </header>
-            <Outlet></Outlet>
+            <main>
+                <Home></Home>
+            </main>
             <footer>
                 <Footer />
             </footer>
