@@ -1,0 +1,233 @@
+[
+    {
+        "id": 1,
+        "title": "Learn Hive",
+        "description": "LearnHive is a MERN stack platform designed to enhance interactions between educational institutions, tutors, and students, making skill learning and class management more efficient and accessible. It offers features for course management, personalized dashboards, and a user-friendly environment for managing educational content.",
+        "frontend": [
+            {
+                "name": "React",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            },
+            {
+                "name": "React Router",
+                "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+            },
+            {
+                "name": "Tailwind CSS",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            },
+            {
+                "name": "DaisyUI",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            },
+            {
+                "name": "React Icons",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            }
+        ],
+        "backend": [
+            {
+                "name": "Firebase",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+            },
+            {
+                "name": "JWT",
+                "icon": "https://jwt.io/img/pic_logo.svg"
+            },
+            {
+                "name": "Node.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            },
+            {
+                "name": "Express.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            },
+            {
+                "name": "MongoDB (Atlas)",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+            }
+        ],
+        "handling": [
+            {
+                "name": "Cloudinary",
+                "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+            },
+            {
+                "name": "Stripe",
+                "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+            }
+        ],
+        "development": [
+            {
+                "name": "Vite",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+            },
+            {
+                "name": "Vercel",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+            }
+        ],
+        "demoLink": "https://learnhive-4ed81.web.app/",
+        "codeLink": "https://github.com/mdashraful24/Learn-hive-client",
+        "image": "https://i.ibb.co.com/wZVSgzSt/Screenshot-27.png",
+        "challenges": [
+            "Ensuring secure payment handling with Stripe, including managing different payment methods and currencies.",
+            "Dealing with integration issues between Cloudinary for image uploading and ensuring that files are optimized for faster loading times.",
+            "Testing payments with real transaction data in a secure and controlled manner.",
+            "Handling potential API limits or restrictions for both Stripe and Cloudinary services."
+        ],
+        "futurePlans": [
+            "Add video content for tutorials and lessons to enhance the learning experience.",
+            "Implement invoice generation as a downloadable PDF after successful payment.",
+            "Introduce engaging animations on various pages using AOS or custom animations for a dynamic UI.",
+            "Implement Axios interceptors for better error handling and token management in API requests.",
+            "Add a universal search bar to the navbar for easier navigation and content discovery across all class pages.",
+            "Integrate infinite scroll on class pages to load content dynamically as users scroll down.",
+            "Implement SSLCOMMERZ for testing payments with real transaction data in a secure and controlled manner."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Race Trackers",
+        "description": "The RaceTrackers is a comprehensive platform designed to simplify the organization and participation process for marathon events. By connecting event organizers with participants, the system fosters seamless communication and efficient management of events.",
+        "frontend": [
+            {
+                "name": "React",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            },
+            {
+                "name": "React Router",
+                "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+            },
+            {
+                "name": "Tailwind CSS",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            },
+            {
+                "name": "DaisyUI",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            },
+            {
+                "name": "React Icons",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            }
+        ],
+        "backend": [
+            {
+                "name": "Firebase",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+            },
+            {
+                "name": "JWT",
+                "icon": "https://jwt.io/img/pic_logo.svg"
+            },
+            {
+                "name": "Node.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            },
+            {
+                "name": "Express.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            },
+            {
+                "name": "MongoDB (Atlas)",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+            }
+        ],
+        "handling": [],
+        "development": [
+            {
+                "name": "Vite",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+            },
+            {
+                "name": "Vercel",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+            }
+        ],
+        "demoLink": "https://marathonproject-2a4f2.web.app/",
+        "codeLink": "https://github.com/mdashraful24/race-trackers-client",
+        "image": "https://i.ibb.co.com/rWhHRQL/Screenshot-30.png",
+        "challenges": [
+            "Search by Title: Handling the search functionality server-side using MongoDB $regex for case-insensitive matching.",
+            "Countdown Timer: Implementing a real-time countdown on marathon details page with react-countdown-circle-timer.",
+            "JWT Authentication: Ensuring token validity for secure private routes.",
+            "Sorting Marathons: Implementing sorting functionality for the marathons page using MongoDB's sort method."
+        ],
+        "futurePlans": [
+            "Use alternative Tailwind CSS libraries like Mamba UI, ShadCN, Chakra UI, or Flowbite.",
+            "Add unique features to differentiate the project, such as a rating system or recommendations for marathons.",
+            "Implement pagination on the marathon page to improve user experience by displaying 6-9 marathons per page."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "CrowdCube",
+        "description": "CrowdCube is a modern crowdfunding platform that empowers individuals and organizations to raise funds for diverse projects, ideas, or causes. Whether it's personal needs (such as medical expenses), creative endeavors (like filmmaking or app development), or entrepreneurial ventures (such as launching a startup), CrowdCube connects backers with fundraisers through a seamless and engaging experience.",
+        "frontend": [
+            {
+                "name": "React",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            },
+            {
+                "name": "React Router",
+                "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+            },
+            {
+                "name": "Tailwind CSS",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            },
+            {
+                "name": "DaisyUI",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            },
+            {
+                "name": "React Icons",
+                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+            }
+        ],
+        "backend": [
+            {
+                "name": "Firebase",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+            },
+            {
+                "name": "Node.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            },
+            {
+                "name": "Express.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            },
+            {
+                "name": "MongoDB (Atlas)",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+            }
+        ],
+        "handling": [],
+        "development": [
+            {
+                "name": "Vite",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+            },
+            {
+                "name": "Vercel",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+            }
+        ],
+        "demoLink": "https://crowdcube-c99dd.web.app/",
+        "codeLink": "https://github.com/mdashraful24/crowd-cube-client",
+        "image": "https://i.ibb.co.com/S4dPxQrw/Screenshot-28.png",
+        "challenges": [
+            "Implementing a dark/light theme toggle for the homepage.",
+            "Implementing animation libraries: React Simple Typewriter, React Awesome Reveal, React Tooltip.",
+            "Added a sort button to all campaign pages to sort campaigns in ascending or descending order by 'minimum donation amount'.",
+            "If the time limit has expired, you will not be able to add the campaign to the donation collection on the details page; instead, you will be able to display a message/toast/model."
+        ],
+        "futurePlans": [
+            "Add unique features to differentiate the project, such as a rating system or recommendations",
+            "Dealing with integration between Cloudinary for image uploading.",
+            "Testing payments with real transaction data in a secure and controlled manner."
+        ]
+    }
+]

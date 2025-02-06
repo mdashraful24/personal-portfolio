@@ -19,11 +19,11 @@ const Skills = () => {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
     return (
-        <div ref={ref} className="container mx-auto px-6 pt-16">
+        <div ref={ref} className="container max-w-7xl mx-auto px-5 py-16 lg:py-20">
             {/* Section Title */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
-                <p className="mt-2">
+                <h2 className="text-4xl md:text-5xl font-bold">Skills</h2>
+                <p className="mt-4 text-lg text-gray-600 ">
                     Technologies I use to build modern and scalable web applications.
                 </p>
             </div>
@@ -35,7 +35,7 @@ const Skills = () => {
                         key={index}
                         initial={{ opacity: 0, y: 50 }}
                         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                        transition={{ duration: 0.1, delay: index * 0.3 }}
+                        transition={{ duration: 0.0, delay: index * 0.2 }}
                         className="flex flex-col items-center p-4 shadow-lg rounded-xl transition transform hover:-translate-y-2 hover:shadow-xl"
                     >
                         <div className="text-5xl">{skill.icon}</div>
