@@ -8,11 +8,11 @@ const HeroSection = ({ onHireMeClick }) => {
                 {/* left side */}
                 <div className="md:w-1/2 text-center md:text-left space-y-5 md:space-y-7">
                     <div>
-                        <div className="text-xl md:text-2xl lg:text-5xl font-bold space-y-2 lg:space-y-4">
-                            <h1>
-                                Hi, I'm Ashraful Islam Ratul.
+                        <div className="font-bold space-y-2 lg:space-y-4">
+                            <h1 className="text-xl md:text-2xl lg:text-4xl">
+                                Hi, I'm Ashraful Islam Ratul
                             </h1>
-                            <h1>I'm Web Developer</h1>
+                            <h3 className="text-xl">Web Developer</h3>
                         </div>
                     </div>
                     <p className="md:text-lg md:my-5">A web developer creates modern websites.</p>
