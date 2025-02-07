@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="bg-gray-900 text-white text-center py-10 mt-10">
             <div className="flex justify-center">
-                <img src={logo} alt="ratul" className="w-32 rounded-xl" />
+                <img src={logo} alt="ratul" className="w-32 rounded-md" />
             </div>
 
             {/* Social Icons */}
