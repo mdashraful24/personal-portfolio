@@ -15,7 +15,8 @@ const HeroSection = ({ onHireMeClick }) => {
                             <h3 className="text-xl">Web Developer</h3>
                         </div>
                     </div>
-                    <p className="md:text-lg md:my-5">A web developer creates modern websites.</p>
+                    <p className="w-2/3 md:text-lg md:my-5">Passionate Web Developer dedicated to building responsive, user-friendly, and efficient web applications using the latest technologies.</p>
+                    {/* <p className="md:text-lg md:my-5">A web developer creates modern websites.</p> */}
 
                     {/* Social Icons */}
                     <div className="flex justify-center md:justify-start items-center gap-6">
