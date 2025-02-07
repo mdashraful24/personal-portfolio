@@ -52,7 +52,7 @@ const Home = () => {
     };
 
     return (
-        <div className="bg-gradient-to-b from-red-50 to-white">
+        <div className="">
             <section id="home">
                 <HeroSection onHireMeClick={handleHireMeClick} />
             </section>
