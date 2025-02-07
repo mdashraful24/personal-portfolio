@@ -144,7 +144,7 @@ const Skills = () => {
         <div ref={ref} className="container max-w-7xl mx-auto px-5 lg:pt-12">
             {/* Section Title */}
             <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold">Skills</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
                 <p className="mt-4 md:text-lg text-gray-600">
                     Technologies and tools I use to build modern and scalable web applications.
                 </p>

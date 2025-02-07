@@ -35,7 +35,7 @@ const ContactSection = () => {
         <div className="pt-16 md:pt-28">
             <div className="bg-gradient-to-b from-red-50 to-white py-10 md:py-10 px-6 md:px-12">
                 <div>
-                    <h1 className="text-4xl md:text-5xl text-center font-bold mb-10">Contact</h1>
+                    <h1 className="text-3xl md:text-4xl text-center font-bold mb-10">Contact</h1>
                 </div>
                 <div className="container max-w-6xl mx-auto">
                     {/* Info Cards */}

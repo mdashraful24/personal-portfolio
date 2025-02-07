@@ -57,7 +57,7 @@ const Navbar = () => {
             <li>
                 <a
                     onClick={() => handleSectionClick("home")}
-                    className={location.pathname === "/" && activeSection === "home" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "home" ? "lg:text-blue-500 lg:font-bold" : ""}
                 >
                     Home
                 </a>
@@ -65,7 +65,7 @@ const Navbar = () => {
             <li>
                 <a
                     onClick={() => handleSectionClick("about")}
-                    className={location.pathname === "/" && activeSection === "about" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "about" ? "lg:text-blue-500 lg:font-bold" : ""}
                 >
                     About
                 </a>
@@ -73,7 +73,7 @@ const Navbar = () => {
             <li>
                 <a
                     onClick={() => handleSectionClick("skills")}
-                    className={location.pathname === "/" && activeSection === "skills" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "skills" ? "lg:text-blue-500 lg:font-bold" : ""}
                 >
                     Skills
                 </a>
@@ -81,7 +81,7 @@ const Navbar = () => {
             <li>
                 <a
                     onClick={() => handleSectionClick("projects")}
-                    className={location.pathname === "/" && activeSection === "projects" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "projects" ? "lg:text-blue-500 lg:font-bold" : ""}
                 >
                     Projects
                 </a>
@@ -89,7 +89,7 @@ const Navbar = () => {
             <li>
                 <a
                     onClick={() => handleSectionClick("contact")}
-                    className={location.pathname === "/" && activeSection === "contact" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "contact" ? "lg:text-blue-500 lg:font-bold" : ""}
                 >
                     Contact
                 </a>
