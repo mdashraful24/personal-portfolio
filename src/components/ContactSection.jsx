@@ -21,7 +21,7 @@ const ContactSection = () => {
             publicKey: "lea3REjeCm7cxlorD",
         }).then(
             () => {
-                setStatus("Message sent successfully!");
+                setStatus("Email sent successfully!");
                 form.current.reset();
             },
             (error) => {
@@ -99,7 +99,7 @@ const ContactSection = () => {
                                 ></textarea>
                                 <button type="submit" className="btn relative overflow-hidden bg-blue-600 text-white text-lg font-medium transition-all duration-300 ease-in-out
                                 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0">
-                                    <span className="relative z-10">Send Message</span>
+                                    <span className="relative z-10">Send Email</span>
                                 </button>
                             </form>
 
