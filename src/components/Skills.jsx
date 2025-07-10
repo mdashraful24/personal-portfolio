@@ -1,160 +1,68 @@
-// import { motion } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
-// import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
-// import { RiTailwindCssFill } from "react-icons/ri";
-// import { SiExpress } from "react-icons/si";
-// import { SiMongodb } from "react-icons/si";
-// import { SiC } from "react-icons/si";
-// import { SiCplusplus } from "react-icons/si";
-// import { SiPostman } from "react-icons/si";
-// import { VscVscode } from "react-icons/vsc";
+import React, { useEffect } from 'react';
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs } from "react-icons/fa";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus } from "react-icons/si";
+import { Chart } from 'react-google-charts';
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
-// const skills = [
-//     { category: "Frontend", name: "HTML", icon: <FaHtml5 className="text-orange-600" />, level: "90%" },
-//     { category: "Frontend", name: "CSS", icon: <FaCss3Alt className="text-blue-600" />, level: "85%" },
-//     { category: "Frontend", name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" />, level: "80%" },
-//     { category: "Frontend", name: "React", icon: <FaReact className="text-blue-400" />, level: "85%" },
-//     { category: "Frontend", name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-cyan-500" />, level: "80%" },
-//     { category: "Backend", name: "Node.js", icon: <FaNodeJs className="text-green-600" />, level: "80%" },
-//     { category: "Backend", name: "Express.js", icon: <SiExpress className="text-gray-700" />, level: "75%" },
-//     { category: "Backend", name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: "85%" },
-//     { category: "Languages", name: "C", icon: <SiC className="text-blue-500" />, level: "70%" },
-//     { category: "Languages", name: "C++", icon: <SiCplusplus className="text-blue-700" />, level: "75%" },
-//     { category: "Tools", name: "VS Code", icon: <VscVscode className="text-blue-600" />, level: "95%" },
-//     { category: "Tools", name: "GitHub", icon: <FaGithub className="text-gray-900" />, level: "90%" },
-//     { category: "Tools", name: "Postman", icon: <SiPostman className="text-orange-500" />, level: "80%" }
-// ];
-
-// const Skills = () => {
-//     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-
-//     return (
-//         <div ref={ref} className="container max-w-7xl mx-auto px-5 md:py-16 lg:pt-16">
-//             {/* Section Title */}
-//             <div className="text-center mb-12">
-//                 <h2 className="text-4xl md:text-5xl font-bold">Skills</h2>
-//                 <p className="mt-4 md:text-lg text-gray-600">
-//                     Technologies and tools I use to build modern and scalable web applications.
-//                 </p>
-//             </div>
-
-//             {/* Skills Grid */}
-//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-//                 {skills.map((skill, index) => (
-//                     <motion.div
-//                         key={index}
-//                         initial={{ opacity: 0, y: 50 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-//                         transition={{ duration: 0.4, delay: index * 0.1 }}
-//                         className="p-6 shadow-lg rounded-xl bg-gradient-to-r from-gray-100 to-white transition transform hover:-translate-y-2 hover:shadow-xl"
-//                     >
-//                         <div className="flex items-center space-x-4">
-//                             <div className="text-5xl">{skill.icon}</div>
-//                             <h4 className="text-xl font-semibold">{skill.name}</h4>
-//                         </div>
-//                         <div className="mt-3 h-3 w-full bg-gray-200 rounded-full">
-//                             <motion.div
-//                                 initial={{ width: "0%" }}
-//                                 animate={{ width: inView ? skill.level : "0%" }}
-//                                 transition={{ duration: 1 }}
-//                                 className="h-full bg-blue-500 rounded-full"
-//                             ></motion.div>
-//                         </div>
-//                         <p className="text-sm mt-1 text-gray-600">{skill.level} proficiency</p>
-//                     </motion.div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Skills;
-
-
-
-
-
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { SiExpress, SiMongodb, SiC, SiCplusplus, SiPostman } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-
-const frontendSkills = [
-    { name: "HTML", icon: <FaHtml5 className="text-orange-600" />, level: "90%" },
-    { name: "CSS", icon: <FaCss3Alt className="text-blue-600" />, level: "87%" },
-    { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" />, level: "80%" },
-    { name: "React", icon: <FaReact className="text-blue-400" />, level: "85%" },
-    { name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-cyan-500" />, level: "90%" }
+const skills = [
+    { name: "HTML", level: 85, icon: <FaHtml5 className="text-orange-500 text-4xl" />, color: "bg-orange-100 border-orange-500" },
+    { name: "CSS", level: 80, icon: <FaCss3Alt className="text-blue-500 text-4xl" />, color: "bg-blue-100 border-blue-500" },
+    { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-cyan-500 text-4xl" />, color: "bg-cyan-100 border-cyan-500" },
+    { name: "DaisyUI", level: 60, icon: <SiDaisyui className="text-purple-500 text-4xl" />, color: "bg-purple-100 border-purple-500" },
+    { name: "JavaScript", level: 70, icon: <FaJs className="text-yellow-500 text-4xl" />, color: "bg-yellow-100 border-yellow-500" },
+    { name: "React", level: 75, icon: <FaReact className="text-blue-400 text-4xl" />, color: "bg-blue-100 border-blue-400" },
+    { name: "Node.js", level: 40, icon: <FaNodeJs className="text-green-500 text-4xl" />, color: "bg-green-100 border-green-500" },
+    { name: "Express.js", level: 40, icon: <SiExpress className="text-gray-700 text-4xl" />, color: "bg-gray-100 border-gray-700" },
+    { name: "MongoDB Atlas", level: 30, icon: <FaDatabase className="text-green-600 text-4xl" />, color: "bg-green-100 border-green-600" },
+    { name: "C", level: 80, icon: <SiC className="text-blue-600 text-4xl" />, color: "bg-blue-100 border-blue-600" },
+    { name: "C++", level: 85, icon: <SiCplusplus className="text-indigo-500 text-4xl" />, color: "bg-indigo-100 border-indigo-500" }
 ];
-
-const backendSkills = [
-    { name: "Node.js", icon: <FaNodeJs className="text-green-600" />, level: "80%" },
-    { name: "Express.js", icon: <SiExpress className="text-gray-700" />, level: "75%" },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: "85%" }
-];
-
-const tools = [
-    { name: "VS Code", icon: <VscVscode className="text-blue-600" />, level: "95%" },
-    { name: "GitHub", icon: <FaGithub className="text-gray-900" />, level: "90%" },
-    { name: "Postman", icon: <SiPostman className="text-orange-500" />, level: "70%" }
-];
-
-const programmingLanguages = [
-    { name: "C", icon: <SiC className="text-blue-500" />, level: "95%" },
-    { name: "C++", icon: <SiCplusplus className="text-blue-700" />, level: "95%" }
-];
-
-const SkillsSection = ({ title, skills }) => (
-    <div className="mb-8">
-        <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-                <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="p-6 shadow-lg rounded-xl bg-gradient-to-r from-gray-100 to-white transition transform hover:-translate-y-2 hover:shadow-xl"
-                >
-                    <div className="flex items-center space-x-4">
-                        <div className="text-5xl">{skill.icon}</div>
-                        <h4 className="text-xl font-semibold">{skill.name}</h4>
-                    </div>
-                    <div className="mt-3 h-2 w-full bg-gray-200 rounded-full">
-                        <motion.div
-                            initial={{ width: "0%" }}
-                            animate={{ width: skill.level }}
-                            transition={{ duration: 1 }}
-                            className="h-full bg-blue-500 rounded-full"
-                        ></motion.div>
-                    </div>
-                    <p className="text-sm mt-1 text-gray-600">{skill.level} proficiency</p>
-                </motion.div>
-            ))}
-        </div>
-    </div>
-);
 
 const Skills = () => {
-    const { ref } = useInView({ triggerOnce: true, threshold: 0.2 });
+    useEffect(() => {
+        AOS.init({ duration: 500, once: true });
+    }, []);
+
+    const data = [
+        ["Skill", "Proficiency"],
+        ...skills.map(skill => [skill.name, skill.level])
+    ];
+
+    const options = {
+        // title: "My Skills",
+        pieHole: 0.4,
+        is3D: false,
+    };
 
     return (
-        <div ref={ref} className="container max-w-7xl mx-auto px-5 lg:pt-12">
-            {/* Section Title */}
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
-                <p className="mt-4 md:text-lg text-gray-600">
-                    Technologies and tools I use to build modern and scalable web applications.
-                </p>
+        <div className="container max-w-7xl mx-auto px-5 text-center pb-8 md:py-8">
+            <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
+            <Chart
+                chartType="PieChart"
+                width="100%"
+                height="400px"
+                data={data}
+                options={options}
+            />
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                {skills.map((skill, index) => (
+                    <div
+                        key={index}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                        data-aos-anchor-placement="top-bottom"
+                        className={`p-6 rounded-xl border shadow-md transition transform hover:scale-105 ${skill.color}`}
+                    >
+                        <div className="flex flex-col items-center">
+                            <div className="w-16 h-16 flex items-center justify-center rounded-full shadow-lg bg-white">
+                                {skill.icon}
+                            </div>
+                            <p className="mt-4 text-lg font-semibold text-gray-800">{skill.name}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
-
-            {/* Separated Skill Sections */}
-            <SkillsSection title="Frontend Development" skills={frontendSkills} />
-            <SkillsSection title="Backend Development" skills={backendSkills} />
-            <SkillsSection title="Programming Languages" skills={programmingLanguages} />
-            <SkillsSection title="Tools & Platforms" skills={tools} />
         </div>
     );
 };
@@ -167,50 +75,67 @@ export default Skills;
 
 
 
-// import { motion } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
-// import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs } from "react-icons/fa";
-// import { SiTailwindcss, SiExpress, SiMongodb } from "react-icons/si";
+// import { useEffect } from 'react';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+
+// import html from '../../src/assets/icons/html.png';
+// import css from '../../src/assets/icons/css.png';
+// import javascript from '../../src/assets/icons/JavaScript.png';
+// import react from '../../src/assets/icons/react.png';
+// import nodejs from '../../src/assets/icons/node.png';
+// import mongodb from '../../src/assets/icons/mongodb.png';
+// import tailwind from '../../src/assets/icons/tailwind.png';
+// import daisyui from '../../src/assets/icons/daisyui.png';
+// import express from '../../src/assets/icons/expressjs.png';
+// import c from '../../src/assets/icons/c.png';
+// import cplus from '../../src/assets/icons/cpp.png';
 
 // const skills = [
-//     { name: "HTML", icon: <FaHtml5 className="text-orange-600" /> },
-//     { name: "CSS", icon: <FaCss3Alt className="text-blue-600" /> },
-//     { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500" /> },
-//     { name: "React", icon: <FaReact className="text-blue-400" /> },
-//     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500" /> },
-//     { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
-//     { name: "Express.js", icon: <SiExpress className="text-gray-700" /> },
-//     { name: "MongoDB Atlas", icon: <SiMongodb className="text-green-500" /> }
+//     { name: 'HTML', logo: html },
+//     { name: 'CSS', logo: css },
+//     { name: 'React', logo: react },
+//     { name: 'Tailwind CSS', logo: tailwind },
+//     { name: 'DaisyUI', logo: daisyui },
+//     { name: 'JavaScript', logo: javascript },
+//     { name: 'Node.js', logo: nodejs },
+//     { name: 'Express.js', logo: express },
+//     { name: 'MongoDB (Atlas)', logo: mongodb },
+//     { name: 'C', logo: c },
+//     { name: 'C++', logo: cplus },
 // ];
 
 // const Skills = () => {
-//     // Hook to track when the component is in view
-//     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+// useEffect(() => {
+//     AOS.init({ duration: 500, once: true });
+// }, []);
 
 //     return (
-//         <div ref={ref} className="container max-w-7xl mx-auto px-5 md:py-16 lg:pt-16">
-//             {/* Section Title */}
-//             <div className="text-center mb-12">
-//                 <h2 className="text-4xl md:text-5xl font-bold">Skills</h2>
-//                 <p className="mt-4 md:text-lg text-gray-600 ">
-//                     Technologies I use to build modern and scalable web applications.
-//                 </p>
-//             </div>
+//         <div className="bg-gradient-to-r from-gray-100 to-white py-16">
+//             <div className="container max-w-7xl mx-auto px-5">
+//                 {/* Section Title */}
+//                 <div className="text-center mb-12">
+//                     <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
+//                     {/* <p className="mt-4 md:text-lg text-gray-600">
+//                         Technologies I use to build modern and scalable web applications.
+//                     </p> */}
+//                 </div>
 
-//             {/* Skills Grid */}
-//             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
-//                 {skills.map((skill, index) => (
-//                     <motion.div
-//                         key={index}
-//                         initial={{ opacity: 0, y: 50 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-//                         transition={{ duration: 0.0, delay: index * 0.2 }}
-//                         className="flex flex-col items-center p-4 shadow-lg rounded-xl transition transform hover:-translate-y-2 hover:shadow-xl"
-//                     >
-//                         <div className="text-5xl">{skill.icon}</div>
-//                         <p className="mt-3 text-lg">{skill.name}</p>
-//                     </motion.div>
-//                 ))}
+//                 {/* Skills Grid */}
+//                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
+//                     {skills.map((skill, index) => (
+//                         <div
+// key={index}
+// data-aos="fade-up"
+// data-aos-delay={index * 100}
+// data-aos-anchor-placement="top-bottom"
+//                             className="flex flex-col items-center p-6 bg-white rounded-lg shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2"
+//                         >
+//                             <img src={skill.logo} alt={skill.name} className="w-16 h-16 mb-4" />
+//                             <h3 className="text-xl font-semibold text-gray-800">{skill.name}</h3>
+//                         </div>
+//                     ))}
+//                 </div>
 //             </div>
 //         </div>
 //     );
