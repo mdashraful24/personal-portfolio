@@ -180,10 +180,6 @@
             {
                 "name": "DaisyUI",
                 "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
-            },
-            {
-                "name": "React Icons",
-                "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
             }
         ],
         "backend": [
@@ -228,6 +224,75 @@
             "Add unique features to differentiate the project, such as a rating system or recommendations",
             "Dealing with integration between Cloudinary for image uploading.",
             "Testing payments with real transaction data in a secure and controlled manner."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Task Manager Application",
+        "description": "This Neumorphic Task Manager is a sleek and interactive web application that streamlines daily task management. It enables users to seamlessly create, update, delete, and reorder tasks using an intuitive drag-and-drop interface. The tasks are smartly organized into three stages: To-Do, In Progress, and Done. Built with a soft, neumorphic design aesthetic, it ensures both functionality and a visually engaging user experience.",
+        "frontend": [
+            {
+                "name": "React",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            },
+            {
+                "name": "React Router",
+                "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+            },
+            {
+                "name": "Tailwind CSS",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            },
+            {
+                "name": "DaisyUI",
+                "icon": "https://i.ibb.co/2M3CCPb/daisyui-logo.png"
+            },
+            {
+                "name": "React DnD",
+                "icon": "https://avatars.githubusercontent.com/u/25307599?s=200&v=4"
+            }
+        ],
+        "backend": [
+            {
+                "name": "Firebase",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+            },
+            {
+                "name": "Node.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            },
+            {
+                "name": "Express.js",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+            },
+            {
+                "name": "MongoDB (Atlas)",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+            }
+        ],
+        "handling": [],
+        "development": [
+            {
+                "name": "Vite",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+            },
+            {
+                "name": "Vercel",
+                "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+            }
+        ],
+        "demoLink": "https://neumorphictaskmanager.web.app/",
+        "codeLink": "https://github.com/mdashraful24/neumorphic-task-management-app-client",
+        "image": "https://drive.google.com/file/d/1BylRZzneKWSa1UiO_HUQ3DKvu1hTH9tK/view?usp=sharing",
+        "challenges": [
+            "Integrating seamless drag-and-drop interactions across categories.",
+            "Ensuring real-time UI updates with task state changes.",
+            "Maintaining a consistent neumorphic theme while ensuring accessibility."
+        ],
+        "futurePlans": [
+            "Add user authentication with role-based access.",
+            "Implement due dates and notification reminders.",
+            "Enable collaboration features for team-based task boards."
         ]
     }
 ]

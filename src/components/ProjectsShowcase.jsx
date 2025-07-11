@@ -75,7 +75,7 @@ const ProjectsShowcase = () => {
                 <h2 className="text-3xl md:text-4xl font-bold">My Projects</h2>
                 <p className="mt-4 md:text-lg">Here are some of the projects I've worked on.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-6">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.id}
