@@ -105,10 +105,10 @@ const Navbar = () => {
 
     return (
         <div className="fixed top-0 left-0 w-full z-50 bg-base-100 shadow-md">
-            <div className="navbar container max-w-7xl mx-auto">
+            <div className="navbar container max-w-7xl mx-auto lg:px-2 lg:py-0">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost md:hidden" onClick={toggleDropdown}>
+                        <div tabIndex={0} role="button" className="btn btn-ghost md:hidden pl-0" onClick={toggleDropdown}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -147,7 +147,7 @@ const Navbar = () => {
                         )}
                     </div>
                     <a onClick={() => handleSectionClick("home")}>
-                        <img src={logo} alt="" className="w-32 lg:w-52" />
+                        <img src={logo} alt="" className="w-32 lg:w-44" />
                     </a>
                 </div>
                 <div className="navbar-center hidden md:flex">
@@ -157,7 +157,7 @@ const Navbar = () => {
                     <a
                         href="/resume.pdf"
                         download="Resume_Ashraful_Islam_Ratul.pdf"
-                        className="bg-blue-600 md:text-lg font-medium px-3 lg:px-5 py-1 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+                        className="bg-blue-600 md:text-lg font-medium px-3 lg:px-5 py-1 text-white rounded-md shadow-md hover:bg-blue-700 transition"
                     >
                         Resume
                     </a>
