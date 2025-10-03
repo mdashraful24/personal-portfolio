@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs } from "react-icons/fa";
 import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus } from "react-icons/si";
 import { Chart } from 'react-google-charts';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import { BiLogoPostgresql } from 'react-icons/bi';
 
 const skills = [
     { name: "HTML", level: 85, icon: <FaHtml5 className="text-orange-500 text-4xl" />, color: "bg-orange-100 border-orange-500" },
@@ -13,8 +14,9 @@ const skills = [
     { name: "JavaScript", level: 70, icon: <FaJs className="text-yellow-500 text-4xl" />, color: "bg-yellow-100 border-yellow-500" },
     { name: "React", level: 75, icon: <FaReact className="text-blue-400 text-4xl" />, color: "bg-blue-100 border-blue-400" },
     { name: "Node.js", level: 40, icon: <FaNodeJs className="text-green-500 text-4xl" />, color: "bg-green-100 border-green-500" },
-    { name: "Express.js", level: 40, icon: <SiExpress className="text-gray-700 text-4xl" />, color: "bg-gray-100 border-gray-700" },
-    { name: "MongoDB Atlas", level: 30, icon: <FaDatabase className="text-green-600 text-4xl" />, color: "bg-green-100 border-green-600" },
+    { name: "Express.js", level: 40, icon: <SiExpress className="text-gray-700 text-4xl" />, color: "bg-gray-100 border-gray-500" },
+    { name: "MongoDB Atlas", level: 30, icon: <FaDatabase className="text-green-600 text-4xl" />, color: "bg-green-100 border-green-500" },
+    { name: "PostgreSQL", level: 30, icon: <BiLogoPostgresql className="text-sky-700 text-4xl" />, color: "bg-sky-100 border-sky-500" },
     { name: "C", level: 80, icon: <SiC className="text-blue-600 text-4xl" />, color: "bg-blue-100 border-blue-600" },
     { name: "C++", level: 85, icon: <SiCplusplus className="text-indigo-500 text-4xl" />, color: "bg-indigo-100 border-indigo-500" }
 ];
@@ -36,7 +38,7 @@ const Skills = () => {
     };
 
     return (
-        <div className="container max-w-7xl mx-auto px-5 text-center pb-8 md:py-8">
+        <div className="container max-w-7xl mx-auto px-4 text-center pb-8 md:py-8">
             <h2 className="text-3xl md:text-4xl font-bold">Skills</h2>
             <Chart
                 chartType="PieChart"

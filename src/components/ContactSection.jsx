@@ -33,23 +33,23 @@ const ContactSection = () => {
 
     return (
         <div className="pt-16 md:pt-28">
-            <div className="bg-gradient-to-b from-red-50 to-white py-10 md:py-10 px-6 md:px-12">
+            <div className="bg-gradient-to-b from-red-50 to-white py-10 md:py-10 px-4">
                 <div>
                     <h1 className="text-3xl md:text-4xl text-center font-bold mb-10">Contact</h1>
                 </div>
-                <div className="container max-w-6xl mx-auto">
+                <div className="container max-w-[77rem] mx-auto">
                     {/* Info Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
                         <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
                             <FaPhoneAlt className="text-blue-500 text-3xl mb-2" />
-                            <p className="text-lg font-semibold">+880 1825-532252</p>
+                            <p className="font-semibold">+880 1825-532252</p>
                             <p className="text-sm">Contact me via Phone.</p>
                             {/* <p className="text-sm">Monday - Sunday from 7am - 12am</p> */}
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
                             <FaWhatsapp className="text-blue-500 text-3xl mb-2" />
-                            <p className="text-lg font-semibold">+880 1825-532252</p>
+                            <p className="font-semibold">+880 1825-532252</p>
                             <p className="text-sm">Contact me via WhatsApp.</p>
                         </div>
 
@@ -61,7 +61,7 @@ const ContactSection = () => {
 
                         <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
                             <FaEnvelope className="text-blue-500 text-3xl mb-2" />
-                            <p className="text-lg font-semibold break-all w-full text-center">
+                            <p className="font-semibold break-all w-full text-center">
                                 mdashrafulislam2882@gmail.com
                             </p>
                             <p className="text-sm">Contact me anytime!</p>

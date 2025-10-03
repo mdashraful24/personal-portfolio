@@ -2,14 +2,14 @@
 
 const AboutMe = () => {
     return (
-        <div className="container max-w-7xl mx-auto px-5 py-16 md:py-24">
+        <div className="container max-w-7xl mx-auto px-4 py-16 md:py-24">
             <div className="mx-auto text-center space-y-5">
                 <h1 className="text-3xl md:text-4xl font-bold md:mb-6">
                     About Me
                 </h1>
                 <div className="md:text-lg space-y-5">
                     <p className="text-justify leading-relaxed">
-                        I am a passionate web developer with expertise in <span className="font-semibold">HTML, CSS, JavaScript, React.js, Tailwind CSS, Node.js, Express.js, and MongoDB (Atlas).</span> I have completed 20+ projects, building dynamic and scalable web applications. Currently, I am mastering <span className="font-semibold text-blue-600">Next.js</span> to build high-performance full-stack applications. Alongside my development work, I am a final-year B.Sc. Engineering student at Daffodil International University, specializing in Information and Communication Engineering.
+                        I am a passionate web developer with expertise in <span className="font-semibold">HTML, CSS, JavaScript, React.js, Tailwind CSS, Node.js, Express.js, and MongoDB (Atlas).</span> I have completed 20+ projects, building dynamic and scalable web applications. Currently, I am mastering <strong className="text-blue-600">Next.js</strong> to build high-performance full-stack applications. Alongside my development work, I am a final-year B.Sc. Engineering student at Daffodil International University, specializing in Information and Communication Engineering.
                     </p>
                     <p className="text-justify leading-relaxed">
                         My programming journey began in 2022 with C and C++, but in 2024, I fully dived into web development, where I discovered my passion for creating interactive and scalable applications. Because development is my goal. I enjoy working on challenging and interesting projects, always striving to improve performance and user experience.

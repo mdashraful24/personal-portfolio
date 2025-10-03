@@ -105,7 +105,7 @@ const Navbar = () => {
 
     return (
         <div className="fixed top-0 left-0 w-full z-50 bg-base-100 shadow-md">
-            <div className="navbar container max-w-7xl mx-auto lg:px-2 lg:py-0">
+            <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden pl-0" onClick={toggleDropdown}>
@@ -146,8 +146,11 @@ const Navbar = () => {
                             </>
                         )}
                     </div>
-                    <a onClick={() => handleSectionClick("home")}>
-                        <img src={logo} alt="" className="w-32 lg:w-44" />
+                    <a
+                        onClick={() => handleSectionClick("home")}
+                        className="cursor-pointer"
+                    >
+                        <img src={logo} alt="" className="w-40" />
                     </a>
                 </div>
                 <div className="navbar-center hidden md:flex">
