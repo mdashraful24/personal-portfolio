@@ -134,7 +134,12 @@
                 "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
             }
         ],
-        "handling": [],
+        "handling": [
+            {
+                "name": "Cloudinary",
+                "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+            }
+        ],
         "development": [
             {
                 "name": "Vite",
@@ -200,7 +205,12 @@
                 "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
             }
         ],
-        "handling": [],
+        "handling": [
+            {
+                "name": "Cloudinary",
+                "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+            }
+        ],
         "development": [
             {
                 "name": "Vite",
@@ -270,7 +280,12 @@
                 "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
             }
         ],
-        "handling": [],
+        "handling": [
+            {
+                "name": "Database",
+                "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+            }
+        ],
         "development": [
             {
                 "name": "Vite",

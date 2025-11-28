@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../src/assets/logo2.png';
 
@@ -63,7 +63,7 @@ const Navbar = () => {
             <li className="text-center">
                 <a
                     onClick={() => handleSectionClick("home")}
-                    className={location.pathname === "/" && activeSection === "home" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "home" ? "md:text-blue-600 md:font-bold border-b-4 border-blue-600 pb-1" : "font-medium"}
                 >
                     Home
                 </a>
@@ -71,7 +71,7 @@ const Navbar = () => {
             <li className="text-center">
                 <a
                     onClick={() => handleSectionClick("about")}
-                    className={location.pathname === "/" && activeSection === "about" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "about" ? "md:text-blue-600 md:font-bold border-b-4 border-blue-600 pb-1" : "font-medium"}
                 >
                     About
                 </a>
@@ -79,7 +79,7 @@ const Navbar = () => {
             <li className="text-center">
                 <a
                     onClick={() => handleSectionClick("skills")}
-                    className={location.pathname === "/" && activeSection === "skills" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "skills" ? "md:text-blue-600 md:font-bold border-b-4 border-blue-600 pb-1" : "font-medium"}
                 >
                     Skills
                 </a>
@@ -87,7 +87,7 @@ const Navbar = () => {
             <li className="text-center">
                 <a
                     onClick={() => handleSectionClick("projects")}
-                    className={location.pathname === "/" && activeSection === "projects" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "projects" ? "md:text-blue-600 md:font-bold border-b-4 border-blue-600 pb-1" : "font-medium"}
                 >
                     Projects
                 </a>
@@ -95,7 +95,7 @@ const Navbar = () => {
             <li className="text-center">
                 <a
                     onClick={() => handleSectionClick("contact")}
-                    className={location.pathname === "/" && activeSection === "contact" ? "md:text-blue-500 md:font-bold" : ""}
+                    className={location.pathname === "/" && activeSection === "contact" ? "md:text-blue-600 md:font-bold border-b-4 border-blue-600 pb-1" : "font-medium"}
                 >
                     Contact
                 </a>
@@ -150,18 +150,21 @@ const Navbar = () => {
                         onClick={() => handleSectionClick("home")}
                         className="cursor-pointer"
                     >
-                        <img src={logo} alt="" className="w-40" />
+                        <img src={logo} alt="" className="w-36 lg:w-40" />
                     </a>
                 </div>
                 <div className="navbar-center hidden md:flex">
-                    <ul className="menu menu-horizontal px-1 lg:text-lg">{navLinks}</ul>
+                    <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">{navLinks}</ul>
                 </div>
                 <div className="navbar-end md:pr-3 lg:mr-0">
                     <a
                         href="/resume.pdf"
-                        download="Resume_Ashraful_Islam_Ratul.pdf"
-                        className="bg-blue-600 md:text-lg font-medium px-3 lg:px-5 py-1 text-white rounded-md shadow-md hover:bg-blue-700 transition"
+                        download="Resume by Ashraful Islam Ratul.pdf"
+                        className="group flex items-center gap-2 px-4 py-1.5 bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors relative overflow-hidden active:scale-[0.98]"
                     >
+                        <span
+                            className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
+                        />
                         Resume
                     </a>
                 </div>

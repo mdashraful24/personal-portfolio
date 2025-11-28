@@ -76,28 +76,28 @@ const ContactSection = () => {
                             <h2 className="text-2xl font-bold mb-4">Get In Touch</h2>
                             <div className="w-16 border-b-2 border-red-500 mb-4"></div>
 
-                            <form ref={form} onSubmit={sendEmail} className="space-y-4">
+                            <form ref={form} onSubmit={sendEmail} className="space-y-7">
                                 <input
                                     type="text"
                                     name="user_name"
                                     placeholder="Enter your name"
                                     required
-                                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1"
+                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
                                 />
                                 <input
                                     type="email"
                                     name="user_email"
                                     placeholder="Enter email address"
                                     required
-                                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-1"
+                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
                                 />
                                 <textarea
                                     name="message"
                                     placeholder="Enter your message"
                                     required
-                                    className="w-full p-3 border rounded-lg h-28 focus:outline-none focus:ring-1"
+                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
                                 ></textarea>
-                                <button type="submit" className="btn relative overflow-hidden bg-blue-600 text-white text-lg font-medium transition-all duration-300 ease-in-out
+                                <button type="submit" className="relative px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-white text-lg font-medium transition-all duration-300 ease-in-out
                                 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0">
                                     <span className="relative z-10">Send Email</span>
                                 </button>
