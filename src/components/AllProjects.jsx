@@ -18,7 +18,7 @@ const AllProjects = () => {
     }, []);
 
     return (
-        <div id="projects" className="container max-w-7xl mx-auto min-h-screen py-10">
+        <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 py-10">
             <Helmet>
                 <title>All Projects || Ashraful Islam Ratul</title>
             </Helmet>
@@ -27,7 +27,7 @@ const AllProjects = () => {
                 <h2 className="text-3xl md:text-4xl font-bold">All Projects</h2>
                 <p className="mt-4 md:text-lg max-w-lg mx-auto">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.id}

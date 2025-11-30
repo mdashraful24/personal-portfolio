@@ -12,7 +12,7 @@ const ContactSection = () => {
         const formData = new FormData(form.current);
         const formObject = Object.fromEntries(formData.entries());
 
-        console.log("Form Data:", formObject); // Log form data
+        // console.log("Form Data:", formObject);
 
         emailjs.sendForm(
             "service_ysqveka",
@@ -32,8 +32,8 @@ const ContactSection = () => {
     };
 
     return (
-        <div className="pt-16 md:pt-28">
-            <div className="bg-gradient-to-b from-red-50 to-white py-10 md:py-10 px-4">
+        <div className="">
+            <div className="bg-gradient-to-b from-red-50 to-white px-4 py-10 md:py-20">
                 <div>
                     <h1 className="text-3xl md:text-4xl text-center font-bold mb-10">Contact</h1>
                 </div>

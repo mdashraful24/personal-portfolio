@@ -4,8 +4,8 @@ import img from '../../src/assets//image/img.png';
 const HeroSection = ({ onHireMeClick }) => {
     return (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50">
-            <div className="container mx-auto px-3 pt-10 md:py-40">
-                <div className="flex flex-col-reverse md:flex-row items-center md:justify-around lg:justify-center gap-5 lg:gap-24 pb-10">
+            <div className="container mx-auto px-4 py-10 md:py-20 lg:py-32 xl:py-40">
+                <div className="flex flex-col-reverse md:flex-row items-center md:justify-around lg:justify-center gap-5 lg:gap-24">
                     {/* left side */}
                     <div className="md:w-1/2 text-center md:text-left space-y-5 md:space-y-7">
                         <div>
