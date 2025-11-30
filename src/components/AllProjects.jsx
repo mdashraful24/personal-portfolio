@@ -38,16 +38,16 @@ const AllProjects = () => {
 
             <div className="container mx-auto text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold">All Projects</h2>
-                <p className="mt-4 md:text-lg max-w-xl mx-auto">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                <p className="mt-4 md:text-lg mx-auto">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
 
                 {/* Tab Navigation */}
                 <div className="flex justify-center mt-6 mb-8">
                     <div className="bg-white shadow-sm border rounded-xl p-1 flex gap-3">
                         <button
                             onClick={() => setActiveTab("all")}
-                            className={`px-3 py-2.5 rounded-lg text-sm font-medium transition ${activeTab === "all"
-                                ? "bg-blue-600 text-white shadow-sm"
-                                : "text-gray-600 bg-gray-100 hover:bg-blue-100"
+                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "all"
+                                ? "bg-blue-600 text-white font-semibold"
+                                : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
                             All Projects ({allProjects.length})
@@ -55,9 +55,9 @@ const AllProjects = () => {
 
                         <button
                             onClick={() => setActiveTab("personal")}
-                            className={`px-3 py-2.5 rounded-lg text-sm font-medium transition ${activeTab === "personal"
-                                ? "bg-blue-600 text-white shadow-sm"
-                                : "text-gray-600 bg-gray-100 hover:bg-blue-100"
+                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "personal"
+                                ? "bg-blue-600 text-white font-semibold"
+                                : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
                             Personal ({myProjects.length})
@@ -65,9 +65,9 @@ const AllProjects = () => {
 
                         <button
                             onClick={() => setActiveTab("team")}
-                            className={`px-3 py-2.5 rounded-lg text-sm font-medium transition ${activeTab === "team"
-                                ? "bg-blue-600 text-white shadow-sm"
-                                : "text-gray-600 bg-gray-100 hover:bg-blue-100"
+                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "team"
+                                ? "bg-blue-600 text-white font-semibold"
+                                : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
                             Team ({teamProjects.length})
