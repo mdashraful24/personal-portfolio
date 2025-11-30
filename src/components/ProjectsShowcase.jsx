@@ -4,18 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const ProjectsShowcase = () => {
-    const [projects, setProjects] = useState([]);
+    const [myProjects, setMyProjects] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch("/projects.json")
             .then(response => response.json())
-            .then(data => setProjects(data))
+            .then(data => {
+                // Only set myProjects, ignore team projects
+                setMyProjects(data["my-project"] || []);
+            })
             .catch(error => console.error("Error fetching projects:", error));
     }, []);
 
-    // Get only first 3 projects
-    const displayedProjects = projects.slice(0, 3);
+    // Get only first 3 personal projects
+    const displayedMyProjects = myProjects.slice(0, 3);
 
     const handleViewMoreClick = () => {
         navigate("/all-projects");
@@ -29,7 +32,7 @@ const ProjectsShowcase = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {/* First 2 regular project cards */}
-                {displayedProjects.slice(0, 2).map((project) => (
+                {displayedMyProjects.slice(0, 2).map((project) => (
                     <ProjectCard
                         key={project.id}
                         id={project.id}
@@ -39,19 +42,20 @@ const ProjectsShowcase = () => {
                         demoLink={project.demoLink}
                         codeLink={project.codeLink}
                         image={project.image}
+                        type="personal"
                     />
                 ))}
 
                 {/* Third card as View More - Full card overlay */}
-                {displayedProjects[2] && (
+                {displayedMyProjects[2] && (
                     <div
-                        className="shadow-md rounded-2xl overflow-hidden flex flex-col h-full cursor-pointer relative"
+                        className="rounded-2xl shadow hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col h-full cursor-pointer relative"
                         onClick={handleViewMoreClick}
                     >
                         {/* Background Image */}
                         <img
-                            src={displayedProjects[2].image}
-                            alt={displayedProjects[2].title}
+                            src={displayedMyProjects[2].image}
+                            alt={displayedMyProjects[2].title}
                             className="w-full h-full object-cover absolute inset-0 brightness-50"
                         />
 
@@ -66,7 +70,7 @@ const ProjectsShowcase = () => {
                         <div className="opacity-0">
                             <div className="h-72"></div>
                             <div className="p-6 flex flex-grow justify-between items-center">
-                                <h3 className="text-xl font-bold">{displayedProjects[2].title}</h3>
+                                <h3 className="text-xl font-bold">{displayedMyProjects[2].title}</h3>
                                 <button className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium">
                                     <FaArrowRightLong />
                                 </button>

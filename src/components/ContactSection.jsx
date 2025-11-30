@@ -37,7 +37,7 @@ const ContactSection = () => {
                 <div>
                     <h1 className="text-3xl md:text-4xl text-center font-bold mb-10">Contact</h1>
                 </div>
-                <div className="container max-w-[77rem] mx-auto">
+                <div className="container max-w-[78rem] mx-auto">
                     {/* Info Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
                         <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
@@ -97,7 +97,7 @@ const ContactSection = () => {
                                     required
                                     className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
                                 ></textarea>
-                                
+
                                 <button type="submit" className="relative px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-white text-lg font-medium transition-all duration-300 ease-in-out
                                 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0">
                                     <span className="relative z-10">Send Email</span>

@@ -156,16 +156,12 @@ const Navbar = () => {
                 <div className="navbar-center hidden md:flex">
                     <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">{navLinks}</ul>
                 </div>
-                <div className="navbar-end md:pr-3 lg:mr-0">
+                <div className="navbar-end md:pr-2 lg:mr-0">
                     <a
                         href="/resume.pdf"
                         download="Resume by Ashraful Islam Ratul.pdf"
-                        className="group flex items-center gap-2 px-4 py-1.5 bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors relative overflow-hidden active:scale-[0.98]"
-                    >
-                        <span
-                            className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
-                        />
-                        Resume
+                        className="relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]">
+                        <span className="relative z-10">Resume</span>
                     </a>
                 </div>
             </div>

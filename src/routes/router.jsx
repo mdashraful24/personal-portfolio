@@ -25,8 +25,11 @@ const router = createBrowserRouter([
                     try {
                         const res = await fetch("/projects.json");
                         if (!res.ok) throw new Error('Failed to fetch projects');
-                        const projects = await res.json();
-                        const project = projects.find(project => project.id === Number(params.id));
+                        const data = await res.json();
+
+                        // Combine both personal and team projects for details page
+                        const allProjects = [...data["my-project"], ...data["team-project"]];
+                        const project = allProjects.find(project => project.id === Number(params.id));
 
                         if (!project) {
                             throw new Response("Project Not Found", { status: 404 });

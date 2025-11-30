@@ -60,10 +60,10 @@ const ProjectDetails = () => {
             {/* Header with Background */}
             <div className="relative border-b border-gray-700">
                 <div className="container max-w-7xl mx-auto px-4 py-10">
-                    <div className="flex flex-col lg:flex-row gap-8 items-start">
+                    <div className="flex flex-col lg:flex-row gap-5 md:gap-8 items-start">
                         {/* Project Image */}
-                        <div className="w-full lg:w-2/5">
-                            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-700 transform transition-transform duration-500">
+                        <div className="w-full lg:max-w-lg"> {/* lg:w-2/5 */}
+                            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-700 transform transition-transform duration-500 lg:hover:scale-105">
                                 <img
                                     src={project.image}
                                     alt={project.title}
@@ -73,10 +73,10 @@ const ProjectDetails = () => {
                         </div>
 
                         {/* Project Info */}
-                        <div className="w-full lg:w-3/5">
+                        <div className="w-full lg:max-w-3xl"> {/* lg:w-3/5 */}
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-2 h-7 md:h-9 bg-blue-700 rounded-full"></div>
-                                <h1 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                                <div className="w-1.5 h-8 bg-blue-700 rounded-full"></div>
+                                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                                     {project.title}
                                 </h1>
                             </div>
@@ -91,19 +91,25 @@ const ProjectDetails = () => {
                                     href={project.demoLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-4 py-2 md:py-3 bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors relative overflow-hidden active:scale-[0.98]"
+                                    //     className="group flex items-center gap-2 px-4 py-2 md:py-3 bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors relative overflow-hidden active:scale-[0.98]"
+                                    // >
+                                    //     <span
+                                    //         className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
+                                    //     />
+                                    //     <FaExternalLinkAlt />
+                                    //     <span className="font-semibold">Live Demo</span>
+                                    className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
                                 >
-                                    <span
-                                        className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
-                                    />
-                                    <FaExternalLinkAlt />
-                                    <span className="font-semibold">Live Demo</span>
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        <FaExternalLinkAlt />
+                                        <span className="font-semibold">Live Demo</span>
+                                    </span>
                                 </a>
                                 <a
                                     href={project.codeLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-4 py-2 md:py-3 bg-black text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
+                                    className="group flex items-center gap-2 px-3 py-2 bg-black text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
                                 >
                                     <span
                                         className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
@@ -187,7 +193,7 @@ const ProjectDetails = () => {
                                         <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                                             <FaPalette /> Frontend Stack
                                         </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.frontend.map((tech, index) => (
                                                 <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
@@ -203,7 +209,7 @@ const ProjectDetails = () => {
                                         <h4 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
                                             <FaDatabase /> Backend Stack
                                         </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.backend.map((tech, index) => (
                                                 <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
@@ -220,7 +226,7 @@ const ProjectDetails = () => {
                                             {hasStripe ? <FaCreditCard /> : <FaImages />}
                                             {hasStripe ? " Payment & Media" : " Media Handling"}
                                         </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.handling.map((tech, index) => (
                                                 <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
@@ -244,8 +250,8 @@ const ProjectDetails = () => {
                         </h3>
                         <div className="space-y-4">
                             {project.challenges.map((challenge, index) => (
-                                <div key={index} className="flex gap-4 p-6 bg-gray-700 rounded-lg border-l-4 border-yellow-400 hover:bg-gray-600 transition-colors">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-yellow-400 text-gray-900 rounded-full flex items-center justify-center font-bold">
+                                <div key={index} className="flex gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-yellow-400 hover:bg-gray-600 transition-colors">
+                                    <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center font-bold">
                                         {index + 1}
                                     </div>
                                     <p className="text-gray-300 leading-relaxed">{challenge}</p>
@@ -264,7 +270,7 @@ const ProjectDetails = () => {
                         </h3>
                         <div className="grid gap-4">
                             {project.futurePlans.map((plan, index) => (
-                                <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group">
+                                <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-green-400 hover:bg-gray-600 transition-colors group">
                                     <div className="w-3 h-3 bg-green-400 rounded-full group-hover:scale-150 transition-transform"></div>
                                     <p className="text-gray-300 flex-1">{plan}</p>
                                     <div className="text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
