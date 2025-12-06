@@ -1,18 +1,16 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsappSquare, FaWhatsapp } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 
 const ContactSection = () => {
     const form = useRef();
-    const [status, setStatus] = useState("");
+    const [status, setStatus] = useState({ type: "", message: "" });
+    const [isLoading, setIsLoading] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
-
-        const formData = new FormData(form.current);
-        const formObject = Object.fromEntries(formData.entries());
-
-        // console.log("Form Data:", formObject);
+        setIsLoading(true);
+        setStatus({ type: "", message: "" });
 
         emailjs.sendForm(
             "service_ysqveka",
@@ -21,123 +19,265 @@ const ContactSection = () => {
             publicKey: "lea3REjeCm7cxlorD",
         }).then(
             () => {
-                setStatus("Email sent successfully!");
+                setStatus({
+                    type: "success",
+                    message: "Message sent successfully! I'll get back to you soon."
+                });
                 form.current.reset();
+                setIsLoading(false);
             },
             (error) => {
-                setStatus("Failed to send message. Please try again.");
+                setStatus({
+                    type: "error",
+                    message: "Failed to send message. Please try again or use alternative contact methods."
+                });
                 console.error('Email sending error:', error.text);
+                setIsLoading(false);
             }
         );
     };
 
+    const contactInfo = [
+        {
+            icon: <FaPhoneAlt className="text-xl" />,
+            title: "Phone",
+            details: "+880 1825-532252",
+            description: "Call me directly",
+            color: "from-blue-500 to-cyan-500",
+            link: "tel:+8801825532252",
+            bgColor: "bg-blue-50"
+        },
+        {
+            icon: <FaWhatsapp className="text-xl" />,
+            title: "WhatsApp",
+            details: "+880 1825-532252",
+            description: "Message me on WhatsApp",
+            color: "from-green-500 to-emerald-500",
+            link: "https://wa.me/8801825532252",
+            bgColor: "bg-green-50"
+        },
+        {
+            icon: <FaEnvelope className="text-xl" />,
+            title: "Email",
+            details: "mdashrafulislam2882@gmail.com",
+            description: "Send me an email",
+            color: "from-red-500 to-pink-500",
+            link: "mailto:mdashrafulislam2882@gmail.com",
+            bgColor: "bg-red-50"
+        }
+    ];
+
+    const socialLinks = [
+        {
+            icon: <FaGithub className="text-lg" />,
+            label: "GitHub",
+            url: "https://github.com/mdashraful24",
+            color: "hover:bg-gray-600 hover:text-white",
+            iconColor: "text-black"
+        },
+        {
+            icon: <FaLinkedin className="text-lg" />,
+            label: "LinkedIn",
+            url: "https://www.linkedin.com/in/ashraful-islam-ratul/",
+            color: "hover:bg-blue-600 hover:text-white",
+            iconColor: "text-blue-600"
+        },
+        {
+            icon: <FaFacebook className="text-lg" />,
+            label: "Facebook",
+            url: "https://www.facebook.com/ashraful.islam.ratul2k",
+            color: "hover:bg-blue-500 hover:text-white",
+            iconColor: "text-blue-500"
+        }
+    ];
+
     return (
-        <div className="">
-            <div className="bg-gradient-to-b from-red-50 to-white px-4 py-10 md:py-20">
-                <div>
-                    <h1 className="text-3xl md:text-4xl text-center font-bold mb-10">Contact</h1>
-                </div>
+        <div className="relative overflow-hidden">
+            {/* Background Decoration */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-red-50"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20"></div>
+
+            <div className="relative px-4 py-16 md:py-20">
                 <div className="container max-w-[78rem] mx-auto">
-                    {/* Info Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
-                        <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
-                            <FaPhoneAlt className="text-blue-500 text-3xl mb-2" />
-                            <p className="font-semibold">+880 1825-532252</p>
-                            <p className="text-sm">Contact me via Phone.</p>
-                            {/* <p className="text-sm">Monday - Sunday from 7am - 12am</p> */}
-                        </div>
-
-                        <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
-                            <FaWhatsapp className="text-blue-500 text-3xl mb-2" />
-                            <p className="font-semibold">+880 1825-532252</p>
-                            <p className="text-sm">Contact me via WhatsApp.</p>
-                        </div>
-
-                        {/* <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
-                            <FaMapMarkerAlt className="text-red-500 text-3xl mb-2" />
-                            <p className="text-lg font-semibold">Dhaka, Bangladesh</p>
-                            <p className="text-sm">YKSG-2, DSC, Ashulia, Savar</p>
-                        </div> */}
-
-                        <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-black text-center">
-                            <FaEnvelope className="text-blue-500 text-3xl mb-2" />
-                            <p className="font-semibold break-all w-full text-center">
-                                mdashrafulislam2882@gmail.com
-                            </p>
-                            <p className="text-sm">Contact me anytime!</p>
-                        </div>
-
+                    {/* Header */}
+                    <div className="text-center mb-10">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-3">
+                            Get In Touch
+                        </h1>
+                        <p className="text-lg max-w-2xl mx-auto">
+                            Have a project in mind? Let's collaborate and bring your ideas to life.
+                        </p>
                     </div>
 
-                    {/* Contact Form & Message */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Contact Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        {contactInfo.map((info, index) => (
+                            <a
+                                key={index}
+                                href={info.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group"
+                            >
+                                <div key={index} className="flex flex-col">
+                                    <div className={`${info.bgColor} rounded-xl p-4 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col flex-grow`}>
+                                        <div className="flex items-start gap-4">
+                                            <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0`}>
+                                                {info.icon}
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-bold text-lg mb-1">{info.title}</h3>
+                                                <p className="font-medium break-all">{info.details}</p>
+                                                <p className="text-sm mt-2">{info.description}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Main Content */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Contact Form */}
-                        <div className="bg-white md:col-span-2 p-8 rounded-2xl shadow-md">
-                            <h2 className="text-2xl font-bold mb-4">Get In Touch</h2>
-                            <div className="w-16 border-b-2 border-red-500 mb-4"></div>
+                        <div className="lg:col-span-2">
+                            <div className="bg-white rounded-xl shadow-lg border p-6">
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="p-2 bg-blue-100 rounded-lg">
+                                        <FaPaperPlane className="text-blue-600 text-xl" />
+                                    </div>
+                                    <h2 className="text-2xl font-bold">Send Me a Message</h2>
+                                </div>
 
-                            <form ref={form} onSubmit={sendEmail} className="space-y-7">
-                                <input
-                                    type="text"
-                                    name="user_name"
-                                    placeholder="Enter your name"
-                                    required
-                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
-                                />
-                                <input
-                                    type="email"
-                                    name="user_email"
-                                    placeholder="Enter email address"
-                                    required
-                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
-                                />
-                                <textarea
-                                    name="message"
-                                    placeholder="Enter your message"
-                                    required
-                                    className="w-full p-3 border border-blue-500 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-600 focus:ring-blue-600 placeholder:text-black"
-                                ></textarea>
+                                <form ref={form} onSubmit={sendEmail} className="space-y-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div>
+                                            <label className="block text-sm font-medium mb-2">
+                                                Your Name *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="user_name"
+                                                placeholder="Enter your name"
+                                                required
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium mb-2">
+                                                Email Address *
+                                            </label>
+                                            <input
+                                                type="email"
+                                                name="user_email"
+                                                placeholder="xyz@example.com"
+                                                required
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-2">
+                                            Your Message *
+                                        </label>
+                                        <textarea
+                                            name="message"
+                                            placeholder="Enter your message..."
+                                            rows="6"
+                                            required
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-gray-600 resize-none"
+                                        ></textarea>
+                                    </div>
 
-                                <button type="submit" className="relative px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-white text-lg font-medium transition-all duration-300 ease-in-out
-                                before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0">
-                                    <span className="relative z-10">Send Email</span>
-                                </button>
-                            </form>
+                                    {/* Status Message */}
+                                    {status.message && (
+                                        <div className={`flex items-center gap-3 p-4 rounded-xl ${status.type === "success"
+                                            ? "bg-green-50 text-green-700 border border-green-200"
+                                            : "bg-red-50 text-red-700 border border-red-200"
+                                            }`}>
+                                            {status.type === "success" ? (
+                                                <FaCheckCircle className="text-green-500 text-xl" />
+                                            ) : (
+                                                <FaExclamationCircle className="text-red-500 text-xl" />
+                                            )}
+                                            <p className="font-medium">{status.message}</p>
+                                        </div>
+                                    )}
 
-                            {/* Status Message */}
-                            {status && <p className="mt-3 text-base text-green-600">{status}</p>}
+                                    <button
+                                        type="submit"
+                                        disabled={isLoading}
+                                        className="relative w-full md:w-auto px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+                                    >
+                                        <div className="flex items-center justify-center gap-2">
+                                            {isLoading ? (
+                                                <>
+                                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                    <span>Sending...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <span>Send Message</span>
+                                                    <FaPaperPlane className="group-hover:translate-x-1 transition-transform" />
+                                                </>
+                                            )}
+                                        </div>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
 
-                        {/* Message Me Section */}
-                        <div className="bg-white p-8 rounded-2xl shadow-md">
-                            <h2 className="text-2xl font-bold mb-4">Contact me in another way</h2>
-                            <div className="w-16 border-b-2 border-red-500 mb-4"></div>
-                            <p className="text-sm">
-                                If you prefer to contact us in another way, please feel free to reach out via <strong>Facebook, GitHub</strong> or <strong>LinkedIn</strong>. I'm happy to assist you!
-                            </p>
-
-                            {/* Social Icons */}
-                            <div className="flex space-x-4 mt-4 text-xl text-gray-600">
-                                <a href="https://github.com/mdashraful24" target="_blank" rel="noopener noreferrer">
-                                    <FaGithub className="hover:text-black cursor-pointer" />
-                                </a>
-
-                                <a href="https://www.linkedin.com/in/ashraful-islam-ratul/" target="_blank" rel="noopener noreferrer">
-                                    <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
-                                </a>
-
-                                <a href="https://www.facebook.com/ashraful.islam.ratul2k" target="_blank" rel="noopener noreferrer">
-                                    <FaFacebook className="hover:text-blue-500 cursor-pointer" />
-                                </a>
+                        {/* Social & Location Info */}
+                        <div className="space-y-5">
+                            {/* Social Links */}
+                            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 text-white">
+                                <h3 className="text-xl font-bold mb-1">Connect With Me</h3>
+                                <p className="text-gray-300 mb-4">
+                                    Follow my journey and see what I'm working on.
+                                </p>
+                                <div className="flex items-center gap-3">
+                                    {socialLinks.map((social, index) => (
+                                        <a
+                                            key={index}
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`p-2 rounded-xl bg-white/10 transition-all duration-300 ${social.color}`}
+                                        >
+                                            <div className={`p-2 rounded-lg bg-gray-50 ${social.iconColor}`}>
+                                                {social.icon}
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div className="mt-8">
-                                <div className="flex items-center gap-1">
-                                    <FaMapMarkerAlt className="text-red-600 text-xl" />
-                                    <h3 className="text-xl font-semibold text-gray-800">Address: </h3>
+                            {/* Location */}
+                            <div className="bg-white rounded-xl shadow-lg border p-4">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className="p-2 bg-red-100 rounded-lg">
+                                        <FaMapMarkerAlt className="text-red-600" />
+                                    </div>
+                                    <h3 className="text-lg font-bold">Location</h3>
                                 </div>
-                                <p className="text-md mt-2">YKSG-2, DSC, Ashulia, Savar</p>
-                                <p className="text-lg">Dhaka, Bangladesh</p>
+                                <div className="space-y-1 text-sm">
+                                    <p className="font-medium">Dhaka, Bangladesh</p>
+                                    <p>YKSG-2, DSC, Ashulia, Savar</p>
+                                </div>
+                                <div className="mt-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
+                                    <p className="text-sm text-blue-700">
+                                        <span className="font-semibold">Remote Work:</span> Available for remote collaborations worldwide.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Quick Note */}
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-100 shadow">
+                                <h4 className="font-bold mb-2">Quick Response</h4>
+                                <p className="text-sm">
+                                    I typically respond within 24 hours. For urgent matters, please use the phone or WhatsApp.
+                                </p>
                             </div>
                         </div>
                     </div>

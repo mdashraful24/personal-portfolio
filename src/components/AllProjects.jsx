@@ -45,32 +45,32 @@ const AllProjects = () => {
                     <div className="bg-white shadow-sm border rounded-xl p-1 flex gap-3">
                         <button
                             onClick={() => setActiveTab("all")}
-                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "all"
+                            className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "all"
                                 ? "bg-blue-600 text-white font-semibold"
                                 : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
-                            All Projects ({allProjects.length})
+                            All Projects <span className="hidden md:block">({allProjects.length})</span>
                         </button>
 
                         <button
                             onClick={() => setActiveTab("personal")}
-                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "personal"
+                            className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "personal"
                                 ? "bg-blue-600 text-white font-semibold"
                                 : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
-                            Personal ({myProjects.length})
+                            Personal <span className="hidden md:block">({myProjects.length})</span>
                         </button>
 
                         <button
                             onClick={() => setActiveTab("team")}
-                            className={`px-3 py-2.5 rounded-lg text-sm transition ${activeTab === "team"
+                            className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "team"
                                 ? "bg-blue-600 text-white font-semibold"
                                 : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
-                            Team ({teamProjects.length})
+                            Team <span className="hidden md:block">({teamProjects.length})</span>
                         </button>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import logo from '../../src/assets/logo2.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white text-center py-5 mt-10">
+        <footer className="bg-black text-white text-center py-5">
             <div className="flex justify-center">
                 <img src={logo} alt="ratul" className="w-32 rounded-md" />
             </div>
