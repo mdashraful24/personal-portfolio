@@ -39,6 +39,15 @@ const ContactSection = () => {
 
     const contactInfo = [
         {
+            icon: <FaEnvelope className="text-xl" />,
+            title: "Email",
+            details: "mdashrafulislam2882@gmail.com",
+            description: "Send me an email",
+            color: "from-red-500 to-pink-500",
+            link: "mailto:mdashrafulislam2882@gmail.com",
+            bgColor: "bg-red-50"
+        },
+        {
             icon: <FaPhoneAlt className="text-xl" />,
             title: "Phone",
             details: "+880 1825-532252",
@@ -55,15 +64,6 @@ const ContactSection = () => {
             color: "from-green-500 to-emerald-500",
             link: "https://wa.me/8801825532252",
             bgColor: "bg-green-50"
-        },
-        {
-            icon: <FaEnvelope className="text-xl" />,
-            title: "Email",
-            details: "mdashrafulislam2882@gmail.com",
-            description: "Send me an email",
-            color: "from-red-500 to-pink-500",
-            link: "mailto:mdashrafulislam2882@gmail.com",
-            bgColor: "bg-red-50"
         }
     ];
 
@@ -111,7 +111,7 @@ const ContactSection = () => {
                     </div>
 
                     {/* Contact Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
                         {contactInfo.map((info, index) => (
                             <a
                                 key={index}
@@ -121,13 +121,13 @@ const ContactSection = () => {
                                 className="group"
                             >
                                 <div key={index} className="flex flex-col">
-                                    <div className={`${info.bgColor} rounded-xl p-4 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col flex-grow`}>
+                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border border-gray-100 transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow`}>
                                         <div className="flex items-start gap-4">
                                             <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0`}>
                                                 {info.icon}
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <h3 className="font-bold text-lg mb-1">{info.title}</h3>
+                                                <h3 className="font-bold text-lg">{info.title}</h3>
                                                 <p className="font-medium break-all">{info.details}</p>
                                                 <p className="text-sm mt-2">{info.description}</p>
                                             </div>
@@ -142,7 +142,7 @@ const ContactSection = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Contact Form */}
                         <div className="lg:col-span-2">
-                            <div className="bg-white rounded-xl shadow-lg border p-6">
+                            <div className="bg-white rounded-xl shadow border p-6">
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="p-2 bg-blue-100 rounded-lg">
                                         <FaPaperPlane className="text-blue-600 text-xl" />
@@ -208,18 +208,18 @@ const ContactSection = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="relative w-full md:w-auto px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+                                        className="relative w-full md:w-auto px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
                                     >
                                         <div className="flex items-center justify-center gap-2">
                                             {isLoading ? (
                                                 <>
                                                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                                    <span>Sending...</span>
+                                                    <span className="relative z-10">Sending...</span>
                                                 </>
                                             ) : (
                                                 <>
-                                                    <span>Send Message</span>
-                                                    <FaPaperPlane className="group-hover:translate-x-1 transition-transform" />
+                                                    <span className="relative z-10">Send Message</span>
+                                                        <FaPaperPlane className="relative z-10 group-hover:translate-x-1 transition-transform" />
                                                 </>
                                             )}
                                         </div>
@@ -229,7 +229,7 @@ const ContactSection = () => {
                         </div>
 
                         {/* Social & Location Info */}
-                        <div className="space-y-5">
+                        <div className="space-y-4">
                             {/* Social Links */}
                             <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 text-white">
                                 <h3 className="text-xl font-bold mb-1">Connect With Me</h3>
@@ -254,7 +254,7 @@ const ContactSection = () => {
                             </div>
 
                             {/* Location */}
-                            <div className="bg-white rounded-xl shadow-lg border p-4">
+                            <div className="bg-white rounded-xl drop-shadow border p-4">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="p-2 bg-red-100 rounded-lg">
                                         <FaMapMarkerAlt className="text-red-600" />
@@ -273,7 +273,7 @@ const ContactSection = () => {
                             </div>
 
                             {/* Quick Note */}
-                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-100 shadow">
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-100 drop-shadow">
                                 <h4 className="font-bold mb-2">Quick Response</h4>
                                 <p className="text-sm">
                                     I typically respond within 24 hours. For urgent matters, please use the phone or WhatsApp.

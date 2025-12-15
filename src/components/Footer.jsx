@@ -3,13 +3,13 @@ import logo from '../../src/assets/logo2.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white text-center py-5">
+        <footer className="bg-black text-white text-center py-3">
             <div className="flex justify-center">
-                <img src={logo} alt="ratul" className="w-32 rounded-md" />
+                <img src={logo} alt="ratul" className="w-28 rounded-md" />
             </div>
 
             {/* Social Icons */}
-            <div className="flex justify-center gap-6 mt-6 text-xl">
+            <div className="flex justify-center gap-6 mt-4 text-xl">
                 <a
                     href="https://github.com/mdashraful24"
                     target="_blank"
@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <p className="mt-4 text-sm text-gray-400">
+            <p className="mt-3 text-sm text-gray-400">
                 © {new Date().getFullYear()} Ratul. All rights reserved.
             </p>
         </footer>
