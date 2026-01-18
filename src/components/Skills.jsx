@@ -240,13 +240,13 @@ const Skills = () => {
                                         <h3 className="text-xl font-bold text-center transition-colors duration-300">
                                             {skill.name}
                                         </h3>
-                                        <p className="text-sm text-center my-3 flex-grow">
+                                        <p className="text-sm text-center my-2 flex-grow">
                                             {skill.description}
                                         </p>
 
                                         {/* Category Tag */}
                                         <div className="flex justify-center mt-auto">
-                                            <span className={`inline-block px-3 py-1.5 text-xs font-semibold rounded-full capitalize border 
+                                            <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full capitalize border 
                                             ${skill.category === "frontend" ? "bg-blue-100 text-blue-600 border-blue-200" :
                                                     skill.category === "backend" ? "bg-green-100 text-green-600 border-green-200" :
                                                         skill.category === "database" ? "bg-purple-100 text-purple-600 border-purple-200" :
