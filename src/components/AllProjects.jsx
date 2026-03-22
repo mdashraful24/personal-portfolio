@@ -5,11 +5,12 @@ import { Helmet } from "react-helmet-async";
 const AllProjects = () => {
     const [myProjects, setMyProjects] = useState([]);
     const [teamProjects, setTeamProjects] = useState([]);
+    const [clientProjects, setClientProjects] = useState([]);
     const [activeTab, setActiveTab] = useState("all");
 
     // Scroll to top when the component mounts
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo(0, 0);
     }, []);
 
     useEffect(() => {
@@ -18,17 +19,20 @@ const AllProjects = () => {
             .then(data => {
                 setMyProjects(data["my-project"] || []);
                 setTeamProjects(data["team-project"] || []);
+                setClientProjects(data["client-project"] || []);
             })
             .catch(error => console.error("Error fetching projects:", error));
     }, []);
 
-    const allProjects = [...myProjects, ...teamProjects];
+    const allProjects = [...myProjects, ...teamProjects, ...clientProjects];
 
     const filteredProjects = activeTab === "all"
         ? allProjects
         : activeTab === "personal"
             ? myProjects
-            : teamProjects;
+            : activeTab === "team"
+                ? teamProjects
+                : clientProjects;
 
     return (
         <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 py-10">
@@ -71,6 +75,16 @@ const AllProjects = () => {
                                 }`}
                         >
                             Team <span className="hidden md:block">({teamProjects.length})</span>
+                        </button>
+
+                        <button
+                            onClick={() => setActiveTab("client")}
+                            className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "client"
+                                ? "bg-blue-600 text-white font-semibold"
+                                : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
+                                }`}
+                        >
+                            Client <span className="hidden md:block">({clientProjects.length})</span>
                         </button>
                     </div>
                 </div>

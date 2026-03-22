@@ -523,5 +523,76 @@
             ],
             "stack": "MERN Stack"
         }
+    ],
+    "client-project": [
+        {
+            "id": 101,
+            "title": "Smart Irrigation",
+            "description": "Smart Irrigation is a responsive React application built with Vite that provides an interface for monitoring weather conditions, fields, crops, and irrigation requirements. The project is currently under active development.",
+            "frontend": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Router",
+                    "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "Lucide Icons",
+                    "icon": "https://lucide.dev/logo.dark.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "i18next",
+                    "icon": "https://www.i18next.com/~gitbook/image?url=https%3A%2F%2F286188001-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-L9iS6Wm2hynS5H9Gj7j%252Favatar.png%3Fgeneration%3D1523462254548780%26alt%3Dmedia&width=32&dpr=1&quality=100&sign=8c4f54cf&sv=2"
+                }
+            ],
+            "backend": [],
+            "handling": [
+                {
+                    "name": "Apache Server",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg"
+                },
+                {
+                    "name": ".htaccess",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg"
+                }
+            ],
+            "development": [
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "GitHub",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                }
+            ],
+            "demoLink": "http://203.190.12.136/smart_irrigation_system",
+            "codeLink": "https://github.com/mdashraful24/smart-irrigation-client",
+            "image": "https://i.ibb.co.com/Fb3K5NqY/Screenshot-2026-03-22-194843.png",
+            "challenges": [
+                "Configuring Apache .htaccess to properly handle React Router routes and prevent 404 errors on page refresh",
+                "Implementing i18next for Bangla and English language toggling with persistent user preference",
+                "Setting up Vite base path for deployment in subdirectory (/smart_irrigation_system/)",
+                "Managing Firebase environment variables between development and production securely",
+                "Optimizing performance with code splitting for users with slower internet connections"
+            ],
+            "futurePlans": [
+                "Add complete Bangla language support with proper translations",
+                "Implement offline support with service workers for PWA functionality",
+                "Add interactive maps for field visualization",
+                "Create PDF report generation for irrigation data",
+                "Implement push notifications for weather alerts"
+            ]
+        }
     ]
 }

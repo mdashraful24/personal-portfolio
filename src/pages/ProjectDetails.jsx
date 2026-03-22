@@ -12,9 +12,14 @@ const ProjectDetails = () => {
     }, []);
 
     // Check if Stripe is available in the handling array
-    const hasStripe = project.handling?.some(tech =>
+    const hasStripe = project?.handling?.some(tech =>
         tech.name.toLowerCase().includes('stripe')
     );
+
+    // Helper functions to check if data exists and is not empty
+    const hasData = (data) => {
+        return data && Array.isArray(data) && data.length > 0;
+    };
 
     if (!project) {
         return (
@@ -28,28 +33,32 @@ const ProjectDetails = () => {
         );
     }
 
-    const TechCategory = ({ title, techs, icon, color }) => (
-        <div className="bg-gray-800 rounded-lg p-6 border-l-4" style={{ borderLeftColor: color }}>
-            <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg" style={{ backgroundColor: color + '20' }}>
-                    {icon}
+    const TechCategory = ({ title, techs, icon, color }) => {
+        if (!hasData(techs)) return null;
+
+        return (
+            <div className="bg-gray-800 rounded-lg p-6 border-l-4" style={{ borderLeftColor: color }}>
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-lg" style={{ backgroundColor: color + '20' }}>
+                        {icon}
+                    </div>
+                    <h4 className="text-lg font-semibold text-white">{title}</h4>
                 </div>
-                <h4 className="text-lg font-semibold text-white">{title}</h4>
+                <div className="flex flex-wrap gap-2">
+                    {techs.map((tech, index) => (
+                        <span
+                            key={index}
+                            className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium"
+                            style={{ backgroundColor: color + '20', color: color }}
+                        >
+                            <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
+                            {tech.name}
+                        </span>
+                    ))}
+                </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-                {techs?.map((tech, index) => (
-                    <span
-                        key={index}
-                        className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium"
-                        style={{ backgroundColor: color + '20', color: color }}
-                    >
-                        <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
-                        {tech.name}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <div className="pb-10">
@@ -62,18 +71,21 @@ const ProjectDetails = () => {
                 <div className="container max-w-7xl mx-auto px-4 py-10">
                     <div className="flex flex-col lg:flex-row gap-5 md:gap-8 items-start">
                         {/* Project Image */}
-                        <div className="w-full lg:max-w-lg"> {/* lg:w-2/5 */}
-                            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-700 transform transition-transform duration-500 lg:hover:scale-105">
+                        <div className="w-full lg:max-w-lg">
+                            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-700 transform transition-transform duration-500">
                                 <img
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        e.target.src = "https://via.placeholder.com/600x400?text=No+Image";
+                                    }}
                                 />
                             </div>
                         </div>
 
                         {/* Project Info */}
-                        <div className="w-full lg:max-w-3xl"> {/* lg:w-3/5 */}
+                        <div className="w-full lg:max-w-3xl">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-1.5 h-8 bg-blue-700 rounded-full"></div>
                                 <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
@@ -87,36 +99,33 @@ const ProjectDetails = () => {
 
                             {/* Action Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                <a
-                                    href={project.demoLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    //     className="group flex items-center gap-2 px-4 py-2 md:py-3 bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors relative overflow-hidden active:scale-[0.98]"
-                                    // >
-                                    //     <span
-                                    //         className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
-                                    //     />
-                                    //     <FaExternalLinkAlt />
-                                    //     <span className="font-semibold">Live Demo</span>
-                                    className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
-                                >
-                                    <span className="relative z-10 flex items-center gap-2">
-                                        <FaExternalLinkAlt />
-                                        <span className="font-semibold">Live Demo</span>
-                                    </span>
-                                </a>
-                                <a
-                                    href={project.codeLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-3 py-2 bg-black text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
-                                >
-                                    <span
-                                        className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
-                                    />
-                                    <FaGithub />
-                                    <span className="font-semibold">Source Code</span>
-                                </a>
+                                {project.demoLink && (
+                                    <a
+                                        href={project.demoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
+                                    >
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            <FaExternalLinkAlt />
+                                            <span className="font-semibold">Live Demo</span>
+                                        </span>
+                                    </a>
+                                )}
+                                {project.codeLink && (
+                                    <a
+                                        href={project.codeLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex items-center gap-2 px-3 py-2 bg-black text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
+                                    >
+                                        <span
+                                            className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
+                                        />
+                                        <FaGithub />
+                                        <span className="font-semibold">Source Code</span>
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -127,18 +136,24 @@ const ProjectDetails = () => {
             <div className="border-b border-gray-700 bg-gray-800 sticky top-0 z-10">
                 <div className="container max-w-7xl mx-auto px-4">
                     <div className="flex overflow-x-auto">
-                        {["overview", "technology", "challenges", "future"].map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-4 font-medium whitespace-nowrap border-b-4 transition-all duration-300 ${activeTab === tab
-                                    ? "border-blue-400 text-blue-300"
-                                    : "border-transparent text-gray-400 hover:text-gray-300"
-                                    }`}
-                            >
-                                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                            </button>
-                        ))}
+                        {["overview", "technology", "challenges", "future"].map((tab) => {
+                            // Only show tabs that have content
+                            if (tab === "challenges" && !hasData(project.challenges)) return null;
+                            if (tab === "future" && !hasData(project.futurePlans)) return null;
+
+                            return (
+                                <button
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`px-6 py-4 font-medium whitespace-nowrap border-b-4 transition-all duration-300 ${activeTab === tab
+                                        ? "border-blue-400 text-blue-300"
+                                        : "border-transparent text-gray-400 hover:text-gray-300"
+                                        }`}
+                                >
+                                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -155,15 +170,19 @@ const ProjectDetails = () => {
                                 icon={<FaPalette className="text-blue-400" />}
                                 color="#60a5fa"
                             />
-                            <TechCategory
-                                title="Backend & Database"
-                                techs={project.backend}
-                                icon={<FaServer className="text-green-400" />}
-                                color="#34d399"
-                            />
 
-                            {/* Conditional Title for Payment/Media Section */}
-                            {project.handling && project.handling.length > 0 && (
+                            {/* Backend & Database - Only show if data exists */}
+                            {hasData(project.backend) && (
+                                <TechCategory
+                                    title="Backend & Database"
+                                    techs={project.backend}
+                                    icon={<FaServer className="text-green-400" />}
+                                    color="#34d399"
+                                />
+                            )}
+
+                            {/* Media/Payment Handling - Only show if data exists */}
+                            {hasData(project.handling) && (
                                 <TechCategory
                                     title={hasStripe ? "Payment & Media" : "Media Handling"}
                                     techs={project.handling}
@@ -172,13 +191,26 @@ const ProjectDetails = () => {
                                 />
                             )}
 
-                            <TechCategory
-                                title="Development & Deployment"
-                                techs={project.development}
-                                icon={<FaCloud className="text-orange-400" />}
-                                color="#fb923c"
-                            />
+                            {/* Development & Deployment - Only show if data exists */}
+                            {hasData(project.development) && (
+                                <TechCategory
+                                    title="Development & Deployment"
+                                    techs={project.development}
+                                    icon={<FaCloud className="text-orange-400" />}
+                                    color="#fb923c"
+                                />
+                            )}
                         </div>
+
+                        {/* Show message if no categories have data */}
+                        {!hasData(project.frontend) &&
+                            !hasData(project.backend) &&
+                            !hasData(project.handling) &&
+                            !hasData(project.development) && (
+                                <div className="text-center py-12">
+                                    <p className="text-gray-400">No technical details available for this project.</p>
+                                </div>
+                            )}
                     </div>
                 )}
 
@@ -188,7 +220,7 @@ const ProjectDetails = () => {
                         <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
                             <h3 className="text-2xl font-bold mb-6 text-white">Technical Architecture</h3>
                             <div className="space-y-6">
-                                {project.frontend && (
+                                {hasData(project.frontend) && (
                                     <div>
                                         <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                                             <FaPalette /> Frontend Stack
@@ -204,7 +236,7 @@ const ProjectDetails = () => {
                                     </div>
                                 )}
 
-                                {project.backend && (
+                                {hasData(project.backend) && (
                                     <div>
                                         <h4 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
                                             <FaDatabase /> Backend Stack
@@ -220,7 +252,7 @@ const ProjectDetails = () => {
                                     </div>
                                 )}
 
-                                {project.handling && (
+                                {hasData(project.handling) && (
                                     <div>
                                         <h4 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
                                             {hasStripe ? <FaCreditCard /> : <FaImages />}
@@ -236,13 +268,21 @@ const ProjectDetails = () => {
                                         </div>
                                     </div>
                                 )}
+
+                                {!hasData(project.frontend) &&
+                                    !hasData(project.backend) &&
+                                    !hasData(project.handling) && (
+                                        <div className="text-center py-8">
+                                            <p className="text-gray-400">No technology details available.</p>
+                                        </div>
+                                    )}
                             </div>
                         </div>
                     </div>
                 )}
 
                 {/* Challenges Tab */}
-                {activeTab === "challenges" && project.challenges && (
+                {activeTab === "challenges" && hasData(project.challenges) && (
                     <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
                         <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                             <FaLightbulb className="text-yellow-400" />
@@ -262,7 +302,7 @@ const ProjectDetails = () => {
                 )}
 
                 {/* Future Plans Tab */}
-                {activeTab === "future" && project.futurePlans && (
+                {activeTab === "future" && hasData(project.futurePlans) && (
                     <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
                         <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                             <FaCode className="text-green-400" />
