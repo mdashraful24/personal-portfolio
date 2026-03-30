@@ -107,11 +107,25 @@ const Navbar = () => {
         <div className="fixed top-0 left-0 w-full z-50 bg-base-100 shadow-md">
             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
                 <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost md:hidden pl-0" onClick={toggleDropdown}>
+                    <a
+                        onClick={() => handleSectionClick("home")}
+                        className="cursor-pointer"
+                    >
+                        <img src={logo} alt="" className="w-40 lg:w-48" />
+                    </a>
+                </div>
+                <div className="navbar-center hidden md:flex">
+                    <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">
+                        {navLinks}
+                    </ul>
+                </div>
+                <div className="navbar-end lg:pr-2">
+                    {/* Mobile menu button */}
+                    <div className="dropdown md:hidden">
+                        <div tabIndex={0} role="button" className="btn btn-ghost pr-0.5" onClick={toggleDropdown}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
+                                className="h-6 w-6"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -146,21 +160,13 @@ const Navbar = () => {
                             </>
                         )}
                     </div>
-                    <a
-                        onClick={() => handleSectionClick("home")}
-                        className="cursor-pointer"
-                    >
-                        <img src={logo} alt="" className="w-36 lg:w-40" />
-                    </a>
-                </div>
-                <div className="navbar-center hidden md:flex">
-                    <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">{navLinks}</ul>
-                </div>
-                <div className="navbar-end md:pr-2 lg:mr-0">
+
+                    {/* Resume button */}
                     <a
                         href="/resume.pdf"
                         download="Resume by Ashraful Islam Ratul.pdf"
-                        className="relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]">
+                        className="hidden md:inline-block relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
+                    >
                         <span className="relative z-10">Resume</span>
                     </a>
                 </div>
