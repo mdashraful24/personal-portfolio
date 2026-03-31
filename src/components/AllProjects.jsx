@@ -37,7 +37,7 @@ const AllProjects = () => {
     return (
         <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 py-10">
             <Helmet>
-                <title>All Projects || Ashraful Islam Ratul</title>
+                <title>All Projects | Ashraful Islam Ratul</title>
             </Helmet>
 
             <div className="container mx-auto text-center mb-8">

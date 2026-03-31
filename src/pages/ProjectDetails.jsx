@@ -63,7 +63,7 @@ const ProjectDetails = () => {
     return (
         <div className="pb-10">
             <Helmet>
-                <title>{project.title} || Ashraful Islam Ratul</title>
+                <title>{project.title} | Ashraful Islam Ratul</title>
             </Helmet>
 
             {/* Header with Background */}
