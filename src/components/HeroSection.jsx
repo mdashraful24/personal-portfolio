@@ -3,20 +3,20 @@ import img from '../../src/assets//image/img.png';
 
 const HeroSection = ({ onHireMeClick }) => {
     return (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50">
-            <div className="container mx-auto px-4 py-10 md:py-20 lg:py-32 xl:py-40">
-                <div className="flex flex-col-reverse md:flex-row items-center md:justify-around lg:justify-center gap-5 lg:gap-24">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 lg:h-[calc(100vh-4rem)]">
+            <div className="container mx-auto px-4 py-10 md:py-20 lg:py-0">
+                <div className="flex flex-col-reverse md:flex-row lg:h-[calc(100vh-4rem)] items-center md:justify-around lg:justify-center gap-5 lg:gap-24">
                     {/* left side */}
-                    <div className="md:w-1/2 text-center md:text-left space-y-5 md:space-y-7">
+                    <div className="md:w-1/2 text-center md:text-left">
                         <div>
-                            <div className="font-bold space-y-2 lg:space-y-4">
-                                <h1 className="text-2xl lg:text-4xl">
+                            <div className="space-y-2 lg:space-y-4">
+                                <h1 className="text-2xl lg:text-4xl font-bold">
                                     Hi, I'm Ashraful Islam Ratul
                                 </h1>
-                                <h3 className="text-xl lg:text-2xl">Web Developer</h3>
+                                <h3 className="text-lg lg:text-2xl font-medium">Web Developer</h3>
                             </div>
                         </div>
-                        <p className="w-full max-w-xl md:my-5">Passionate Web Developer dedicated to building responsive, user-friendly, and efficient web applications using the latest technologies.</p>
+                        <p className="w-full max-w-xl mt-5 mb-8">Passionate Web Developer dedicated to building responsive, user-friendly, and efficient web applications using the latest technologies.</p>
                         {/* <p className="md:text-lg md:my-5">A web developer creates modern websites.</p> */}
 
                         {/* CTA Buttons */}

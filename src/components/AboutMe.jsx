@@ -2,7 +2,7 @@
 
 const AboutMe = () => {
     return (
-        <div className="container max-w-7xl mx-auto px-4 py-10 md:py-20 lg:py-32 xl:py-40">
+        <div className="container max-w-7xl mx-auto px-4 py-10 md:py-20">
             <div className="mx-auto text-center space-y-5">
                 <h1 className="text-3xl md:text-4xl font-bold md:mb-6">
                     About Me

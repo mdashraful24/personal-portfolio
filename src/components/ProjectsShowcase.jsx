@@ -1,82 +1,157 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong, FaFolderOpen, FaCode, FaUsers, FaLaptopCode } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const ProjectsShowcase = () => {
     const [myProjects, setMyProjects] = useState([]);
+    const [teamProjects, setTeamProjects] = useState([]);
+    const [clientProjects, setClientProjects] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch("/projects.json")
             .then(response => response.json())
             .then(data => {
-                // Only set myProjects, ignore team projects
                 setMyProjects(data["my-project"] || []);
+                setTeamProjects(data["team-project"] || []);
+                setClientProjects(data["client-project"] || []);
             })
             .catch(error => console.error("Error fetching projects:", error));
     }, []);
 
-    // Get only first 3 personal projects
     const displayedMyProjects = myProjects.slice(0, 3);
+    const displayedTeamProjects = teamProjects.slice(0, 2);
+    const displayedClientProjects = clientProjects.slice(0, 1);
+
+    const allDisplayedProjects = [
+        ...displayedMyProjects.map(project => ({ ...project, type: "personal" })),
+        ...displayedTeamProjects.map(project => ({ ...project, type: "team" })),
+        ...displayedClientProjects.map(project => ({ ...project, type: "client" }))
+    ];
 
     const handleViewMoreClick = () => {
         navigate("/all-projects");
     };
 
+    const totalProjects = myProjects.length + teamProjects.length + clientProjects.length;
+    const totalTechStacks = 15;
+
     return (
-        <div id="projects" className="container max-w-7xl mx-auto px-4 py-10 md:py-20 lg:py-32 xl:py-40">
-            <div className="container mx-auto text-center mb-10 md:mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold">My Projects</h2>
-                <p className="mt-4 md:text-lg">Here are some of the projects I've worked on.</p>
+        <div id="projects" className="container max-w-7xl mx-auto px-4 py-10 lg:py-20">
+            <div className="container mx-auto text-center mb-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className="text-3xl md:text-4xl font-bold">
+                        My Projects
+                    </h2>
+                    <p className="mt-4 text-gray-600 md:text-lg">
+                        Here are some of the projects I've worked on.
+                    </p>
+                </motion.div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {/* First 2 regular project cards */}
-                {displayedMyProjects.slice(0, 2).map((project) => (
-                    <ProjectCard
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {allDisplayedProjects.slice(0, 5).map((project, index) => (
+                    <motion.div
                         key={project.id}
-                        id={project.id}
-                        title={project.title}
-                        description={project.description}
-                        techStack={project.techStack}
-                        demoLink={project.demoLink}
-                        codeLink={project.codeLink}
-                        image={project.image}
-                        type="personal"
-                    />
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        <ProjectCard
+                            id={project.id}
+                            title={project.title}
+                            description={project.description}
+                            techStack={project.techStack}
+                            demoLink={project.demoLink}
+                            codeLink={project.codeLink}
+                            image={project.image}
+                            type={project.type}
+                        />
+                    </motion.div>
                 ))}
 
-                {/* Third card as View More - Full card overlay */}
-                {displayedMyProjects[2] && (
-                    <div
-                        className="rounded-2xl shadow hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col h-full cursor-pointer relative"
+                {/* Animated View All Card */}
+                {allDisplayedProjects[5] && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="relative rounded-2xl overflow-hidden cursor-pointer h-full min-h-[25rem] bg-white shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
                         onClick={handleViewMoreClick}
                     >
-                        {/* Background Image */}
-                        <img
-                            src={displayedMyProjects[2].image}
-                            alt={displayedMyProjects[2].title}
-                            className="w-full h-full object-cover absolute inset-0 brightness-50"
-                        />
-
-                        {/* Full Card Overlay */}
-                        <div className="absolute inset-0 bg-black bg-opacity-20 flex flex-col items-center justify-center p-6 text-center">
-                            <div className="text-white">
-                                <h3 className="text-2xl font-medium">View All Projects</h3>
-                            </div>
+                        {/* Animated Gradient Border */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl p-[2px]">
+                            <div className="absolute inset-0 bg-white rounded-2xl"></div>
                         </div>
 
-                        {/* Original card content (hidden but maintains layout) */}
-                        <div className="opacity-0">
-                            <div className="h-72"></div>
-                            <div className="p-6 flex flex-grow justify-between items-center">
-                                <h3 className="text-xl font-bold">{displayedMyProjects[2].title}</h3>
-                                <button className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium">
-                                    <FaArrowRightLong />
-                                </button>
+                        {/* Content Container */}
+                        <div className="relative h-full flex flex-col items-center justify-center p-5 text-center bg-white rounded-2xl">
+                            {/* Animated Icon */}
+                            <div className="mb-6 relative">
+                                <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl animate-pulse opacity-30"></div>
+                                <div className="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform rotate-0 group-hover:rotate-12 transition-transform duration-500">
+                                    <FaFolderOpen className="w-10 h-10 text-white" />
+                                </div>
                             </div>
+
+                            {/* Title with Counter */}
+                            <div className="mb-8">
+                                <h3 className="text-3xl font-bold text-gray-800 mb-2">
+                                    {totalProjects}+
+                                </h3>
+                                <p className="text-lg font-semibold text-gray-700">
+                                    Projects Completed
+                                </p>
+                            </div>
+
+                            {/* Project Categories Stats */}
+                            <div className="grid grid-cols-3 gap-4 w-full max-w-xs mb-6">
+                                <div className="text-center">
+                                    <div className="flex items-center justify-center mb-2">
+                                        <FaLaptopCode className="w-5 h-5 text-blue-500" />
+                                    </div>
+                                    <div className="text-xl font-bold">{myProjects.length}</div>
+                                    <div className="text-xs text-gray-600">Personal</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="flex items-center justify-center mb-2">
+                                        <FaUsers className="w-5 h-5 text-green-500" />
+                                    </div>
+                                    <div className="text-xl font-bold">{teamProjects.length}</div>
+                                    <div className="text-xs text-gray-600">Team</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="flex items-center justify-center mb-2">
+                                        <FaCode className="w-5 h-5 text-purple-500" />
+                                    </div>
+                                    <div className="text-xl font-bold">{clientProjects.length}</div>
+                                    <div className="text-xs text-gray-600">Client</div>
+                                </div>
+                            </div>
+
+                            {/* Additional Info */}
+                            <p className="text-sm mb-7">
+                                + {totalTechStacks}+ technologies used across all projects
+                            </p>
+
+                            {/* Explore Button */}
+                            <button
+                                className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 text-white font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn"
+                            >
+                                <span>Explore All Projects</span>
+                                <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                            </button>
                         </div>
-                    </div>
+                    </motion.div>
                 )}
             </div>
         </div>
