@@ -228,7 +228,7 @@ const projectsData = {
         },
         {
             "id": 3,
-            "title": "CrowdCube",
+            "title": "Crowd Cube",
             "description": "CrowdCube is a modern crowdfunding platform that empowers individuals and organizations to raise funds for diverse projects, ideas, or causes. Whether it's personal needs (such as medical expenses), creative endeavors (like filmmaking or app development), or entrepreneurial ventures (such as launching a startup), CrowdCube connects backers with fundraisers through a seamless and engaging experience.",
             "frontend": [
                 {
@@ -435,7 +435,7 @@ const projectsData = {
     "team-project": [
         {
             "id": 51,
-            "title": "AI integrated Smart Mentoring System (SMS)",
+            "title": "Smart Mentoring System (SMS)",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",
             "frontend": [
                 {
@@ -655,7 +655,7 @@ const projectsData = {
                 }
             ],
             "demoLink": "https://catering-connects.netlify.app",
-            "codeLink": "https://github.com/mdashraful24/caco-client",
+            "codeLink": "https://github.com/sabbirsolid/catering-connects",
             "image": "/assets/project-cover/catering-connect.png",
             "challenges": [
                 "Real-time booking and scheduling management",
