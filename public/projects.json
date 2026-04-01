@@ -72,9 +72,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "Stripe",
+                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                }
+            ],
             "demoLink": "https://learnhive-4ed81.web.app/",
             "codeLink": "https://github.com/mdashraful24/Learn-hive-client",
-            "image": "/src/assets/project cover/learn-hive.png",
+            "image": "../src/assets/project cover/learn-hive.png",
             "challenges": [
                 "Ensuring secure payment handling with Stripe, including managing different payment methods and currencies.",
                 "Dealing with integration issues between Cloudinary for image uploading and ensuring that files are optimized for faster loading times.",
@@ -159,9 +185,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "JWT",
+                    "icon": "https://jwt.io/img/pic_logo.svg"
+                }
+            ],
             "demoLink": "https://marathonproject-2a4f2.web.app/",
             "codeLink": "https://github.com/mdashraful24/race-trackers-client",
-            "image": "/src/assets/project cover/race-trackers.png",
+            "image": "../src/assets/project cover/race-trackers.png",
             "challenges": [
                 "Search by Title: Handling the search functionality server-side using MongoDB $regex for case-insensitive matching.",
                 "Countdown Timer: Implementing a real-time countdown on marathon details page with react-countdown-circle-timer.",
@@ -234,9 +286,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "Cloudinary",
+                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                }
+            ],
             "demoLink": "https://crowdcube-c99dd.web.app/",
             "codeLink": "https://github.com/mdashraful24/crowd-cube-client",
-            "image": "/src/assets/project cover/crowd-cube.png",
+            "image": "../src/assets/project cover/crowd-cube.png",
             "challenges": [
                 "Implementing a dark/light theme toggle for the homepage.",
                 "Implementing animation libraries: React Simple Typewriter, React Awesome Reveal, React Tooltip.",
@@ -313,9 +391,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "React DnD",
+                    "icon": "https://avatars.githubusercontent.com/u/25307599?s=200&v=4"
+                }
+            ],
             "demoLink": "https://neumorphictaskmanager.web.app/",
             "codeLink": "https://github.com/mdashraful24/neumorphic-task-management-app-client",
-            "image": "/src/assets/project cover/task-manager.png",
+            "image": "../src/assets/project cover/task-manager.png",
             "challenges": [
                 "Integrating seamless drag-and-drop interactions across categories.",
                 "Ensuring real-time UI updates with task state changes.",
@@ -401,9 +505,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "PostgreSQL",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                },
+                {
+                    "name": "JWT",
+                    "icon": "https://jwt.io/img/pic_logo.svg"
+                },
+                {
+                    "name": "Twilio",
+                    "icon": "https://www.vectorlogo.zone/logos/twilio/twilio-ar21.svg"
+                }
+            ],
             "demoLink": "https://smart-mentoring-system.netlify.app",
             "codeLink": "https://github.com/sabbirsolid/smart-mentoring-system",
-            "image": "/src/assets/project cover/smart-mentoring-system-sms.png",
+            "image": "../src/assets/project cover/smart-mentoring-system-sms.png",
             "challenges": [
                 "Implementing JWT-based user authentication from scratch",
                 "Developing real-time messaging across multiple user groups",
@@ -498,9 +628,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "SSLCommerz",
+                    "icon": "https://logo.clearbit.com/sslcommerz.com"
+                }
+            ],
             "demoLink": "View Site",
             "codeLink": "https://github.com/mdashraful24/caco-client",
-            "image": "/src/assets/project cover/catering-connect.png",
+            "image": "../src/assets/project cover/catering-connect.png",
             "challenges": [
                 "Real-time booking and scheduling management",
                 "Secure payment integration with SSLCommerz",
@@ -576,9 +732,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "i18next",
+                    "icon": "https://www.i18next.com/~gitbook/image?url=https%3A%2F%2F286188001-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-L9iS6Wm2hynS5H9Gj7j%252Favatar.png%3Fgeneration%3D1523462254548780%26alt%3Dmedia&width=32&dpr=1&quality=100&sign=8c4f54cf&sv=2"
+                },
+                {
+                    "name": "Apache Server",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                }
+            ],
             "demoLink": "http://203.190.12.136/smart_irrigation_system",
             "codeLink": "https://github.com/mdashraful24/smart-irrigation-client",
-            "image": "/src/assets/project cover/smart-irrigation.png",
+            "image": "../src/assets/project cover/smart-irrigation.png",
             "challenges": [
                 "Configuring Apache .htaccess to properly handle React Router routes and prevent 404 errors on page refresh",
                 "Implementing i18next for Bangla and English language toggling with persistent user preference",
@@ -654,9 +836,35 @@
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                 }
             ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "OpenAI GPT API",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "API Integration",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Context Management",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                }
+            ],
             "demoLink": "https://admission-bot.netlify.app",
             "codeLink": "https://github.com/mdashraful24/admission-bot-client",
-            "image": "/src/assets/project cover/diu-admission-bot.png",
+            "image": "../src/assets/project cover/diu-admission-bot.png",
             "challenges": [
                 "Configuring OpenAI API to maintain conversation context across multiple messages while keeping token usage efficient",
                 "Implementing topic filtering logic to automatically decline non-admission questions and redirect users to relevant admission topics",

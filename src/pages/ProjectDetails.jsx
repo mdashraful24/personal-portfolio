@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { FaExternalLinkAlt, FaGithub, FaServer, FaDatabase, FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette, FaMobile, FaImages } from "react-icons/fa";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { FaExternalLinkAlt, FaGithub, FaServer, FaDatabase, FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette, FaMobile, FaImages, FaArrowLeft } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
 const ProjectDetails = () => {
     const project = useLoaderData();
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState("overview");
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo(0, 0);
     }, []);
 
     // Check if Stripe is available in the handling array
@@ -61,14 +62,25 @@ const ProjectDetails = () => {
     };
 
     return (
-        <div className="pb-10">
+        <div className="pt-8 pb-16">
             <Helmet>
                 <title>{project.title} | Ashraful Islam Ratul</title>
             </Helmet>
 
+            {/* Back Button */}
+            <div className="container max-w-7xl mx-auto px-4 mb-6">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="group flex items-center gap-2 px-4 py-1.5 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 text-gray-300 hover:text-white"
+                >
+                    <FaArrowLeft className="transform group-hover:-translate-x-1 transition-transform duration-300" />
+                    <span>Back</span>
+                </button>
+            </div>
+
             {/* Header with Background */}
             <div className="relative border-b border-gray-700">
-                <div className="container max-w-7xl mx-auto px-4 py-10">
+                <div className="container max-w-7xl mx-auto px-4 pb-10">
                     <div className="flex flex-col lg:flex-row gap-5 md:gap-8 items-start">
                         {/* Project Image */}
                         <div className="w-full lg:max-w-lg">

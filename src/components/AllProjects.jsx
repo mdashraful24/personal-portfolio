@@ -8,9 +8,9 @@ const AllProjects = () => {
     const [clientProjects, setClientProjects] = useState([]);
     const [activeTab, setActiveTab] = useState("all");
 
-    // Scroll to top when the component mounts
     useEffect(() => {
         window.scrollTo(0, 0);
+        // window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
 
     useEffect(() => {
@@ -24,18 +24,23 @@ const AllProjects = () => {
             .catch(error => console.error("Error fetching projects:", error));
     }, []);
 
-    const allProjects = [...myProjects, ...teamProjects, ...clientProjects];
+    // Helper function to get projects with their type
+    const getAllProjectsWithType = () => {
+        return [
+            ...myProjects.map(project => ({ ...project, type: "personal" })),
+            ...teamProjects.map(project => ({ ...project, type: "team" })),
+            ...clientProjects.map(project => ({ ...project, type: "client" }))
+        ];
+    };
+
+    const allProjectsWithType = getAllProjectsWithType();
 
     const filteredProjects = activeTab === "all"
-        ? allProjects
-        : activeTab === "personal"
-            ? myProjects
-            : activeTab === "team"
-                ? teamProjects
-                : clientProjects;
+        ? allProjectsWithType
+        : allProjectsWithType.filter(project => project.type === activeTab);
 
     return (
-        <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 py-10">
+        <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 pt-10 pb-16">
             <Helmet>
                 <title>All Projects | Ashraful Islam Ratul</title>
             </Helmet>
@@ -54,7 +59,7 @@ const AllProjects = () => {
                                 : "bg-gray-100 hover:bg-blue-100 font-medium shadow-inner"
                                 }`}
                         >
-                            All Projects <span className="hidden md:block">({allProjects.length})</span>
+                            All Projects <span className="hidden md:block">({allProjectsWithType.length})</span>
                         </button>
 
                         <button
@@ -98,10 +103,16 @@ const AllProjects = () => {
                         title={project.title}
                         description={project.description}
                         techStack={project.techStack}
+                        topTech={project.topTech}
+                        frontend={project.frontend}
+                        backend={project.backend}
+                        handling={project.handling}
+                        development={project.development}
                         demoLink={project.demoLink}
                         codeLink={project.codeLink}
+                        githubUrl={project.codeLink}
                         image={project.image}
-                        type={project.technologies ? "team" : "personal"}
+                        type={project.type}
                     />
                 ))}
             </div>

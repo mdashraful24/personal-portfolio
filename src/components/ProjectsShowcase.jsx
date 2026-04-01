@@ -50,7 +50,7 @@ const ProjectsShowcase = () => {
                     <h2 className="text-3xl md:text-4xl font-bold">
                         My Projects
                     </h2>
-                    <p className="mt-4 text-gray-600 md:text-lg">
+                    <p className="mt-4 md:text-lg">
                         Here are some of the projects I've worked on.
                     </p>
                 </motion.div>
@@ -70,8 +70,15 @@ const ProjectsShowcase = () => {
                             title={project.title}
                             description={project.description}
                             techStack={project.techStack}
+                            topTech={project.topTech}
+                            frontend={project.frontend}
+                            backend={project.backend}
+                            handling={project.handling}
+                            development={project.development}
                             demoLink={project.demoLink}
+                            // liveUrl={project.demoLink}
                             codeLink={project.codeLink}
+                            githubUrl={project.codeLink}
                             image={project.image}
                             type={project.type}
                         />
@@ -139,7 +146,7 @@ const ProjectsShowcase = () => {
                             </div>
 
                             {/* Additional Info */}
-                            <p className="text-sm mb-7">
+                            <p className="text-sm text-gray-600 mb-7">
                                 + {totalTechStacks}+ technologies used across all projects
                             </p>
 
