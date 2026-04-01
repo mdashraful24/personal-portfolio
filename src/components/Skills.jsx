@@ -1,44 +1,16 @@
-import { useEffect, useState } from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel } from "react-icons/si";
+import { useEffect } from 'react';
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma } from "react-icons/fa";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva } from "react-icons/si";
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { VscVscode } from "react-icons/vsc";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-// Define icon colors based on technology
-const getIconColor = (name) => {
-    switch (name) {
-        case "HTML": return "text-orange-500";
-        case "CSS": return "text-blue-500";
-        case "Tailwind CSS": return "text-cyan-500";
-        case "DaisyUI": return "text-purple-500";
-        case "React": return "text-cyan-400";
-        case "Node.js": return "text-green-500";
-        case "Express": return "text-gray-600";
-        case "MongoDB": return "text-green-600";
-        case "PostgreSQL": return "text-sky-500";
-        case "JavaScript": return "text-yellow-500";
-        case "C": return "text-blue-600";
-        case "C++": return "text-indigo-500";
-        default: return "text-gray-600";
-    }
-};
-
-const getToolIconColor = (name) => {
-    switch (name) {
-        case "GitHub": return "text-gray-900";
-        case "VS Code": return "text-blue-600";
-        case "Netlify": return "text-green-500";
-        case "Vercel": return "text-black";
-        default: return "text-gray-600";
-    }
-};
+import { Server, FileCode, Code2, Wrench, Palette } from 'lucide-react';
 
 const skills = [
     {
         id: 1,
-        name: "HTML",
+        name: "HTML5",
         category: "frontend",
         color: "from-orange-500 to-orange-700",
         bgColor: "bg-orange-500/10",
@@ -46,7 +18,7 @@ const skills = [
     },
     {
         id: 2,
-        name: "CSS",
+        name: "CSS3",
         category: "frontend",
         color: "from-blue-500 to-blue-700",
         bgColor: "bg-blue-500/10",
@@ -117,6 +89,14 @@ const skills = [
         description: "Dynamic web programming"
     },
     {
+        id: 13,
+        name: "TypeScript",
+        category: "language",
+        color: "from-blue-600 to-blue-800",
+        bgColor: "bg-blue-600/10",
+        description: "Typed JavaScript superset"
+    },
+    {
         id: 11,
         name: "C",
         category: "language",
@@ -141,10 +121,76 @@ const tools = [
     { id: 4, name: "Vercel", description: "Full-stack Deployment" },
 ];
 
-const Skills = () => {
-    const [activeCategory, setActiveCategory] = useState("all");
-    const [filteredSkills, setFilteredSkills] = useState(skills);
+const designTools = [
+    { id: 1, name: "Figma", description: "UI/UX Design" },
+    { id: 2, name: "Canva", description: "Graphic Design" },
+];
 
+// Helper function to get icon based on skill name
+const getIcon = (skillName) => {
+    switch (skillName) {
+        case "HTML5": return <FaHtml5 className="text-orange-400 text-xl" />;
+        case "CSS3": return <FaCss3Alt className="text-blue-400 text-xl" />;
+        case "Tailwind CSS": return <SiTailwindcss className="text-cyan-400 text-xl" />;
+        case "DaisyUI": return <SiDaisyui className="text-purple-400 text-xl" />;
+        case "React": return <FaReact className="text-cyan-400 text-xl" />;
+        case "Node.js": return <FaNodeJs className="text-green-400 text-xl" />;
+        case "Express": return <SiExpress className="text-gray-300 text-xl" />;
+        case "MongoDB": return <FaDatabase className="text-green-400 text-xl" />;
+        case "PostgreSQL": return <BiLogoPostgresql className="text-sky-400 text-xl" />;
+        case "JavaScript": return <FaJs className="text-yellow-400 text-xl" />;
+        case "TypeScript": return <SiTypescript className="text-blue-500 text-xl" />;
+        case "C": return <SiC className="text-blue-400 text-xl" />;
+        case "C++": return <SiCplusplus className="text-blue-400 text-xl" />;
+        default: return null;
+    }
+};
+
+const getToolIcon = (toolName) => {
+    switch (toolName) {
+        case "GitHub": return <FaGithub className="text-gray-300 text-xl" />;
+        case "VS Code": return <VscVscode className="text-blue-400 text-xl" />;
+        case "Netlify": return <SiNetlify className="text-green-400 text-xl" />;
+        case "Vercel": return <SiVercel className="text-white text-xl" />;
+        default: return null;
+    }
+};
+
+const getDesignToolIcon = (toolName) => {
+    switch (toolName) {
+        case "Figma": return <FaFigma className="text-purple-400 text-xl" />;
+        case "Canva": return <SiCanva className="text-teal-400 text-xl" />;
+        default: return null;
+    }
+};
+
+const SkillCard = ({ title, icon, items }) => {
+    return (
+        <div className="bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 transition-all duration-300">
+            {/* Title */}
+            <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#2f2f38] p-3 rounded-xl shadow-inner">
+                    {icon}
+                </div>
+                <h2 className="text-xl font-semibold text-[#e8e8ea]">{title}</h2>
+            </div>
+
+            {/* Icons Row */}
+            <div className="flex flex-wrap gap-6">
+                {items.map((item, i) => (
+                    <div key={i} className="flex flex-col items-center text-gray-300 text-xs">
+                        <div className="bg-[#2f2f38] p-3 rounded-lg shadow">
+                            {item.icon}
+                        </div>
+                        <span className="mt-2">{item.name}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const Skills = () => {
     useEffect(() => {
         AOS.init({
             duration: 500,
@@ -153,26 +199,45 @@ const Skills = () => {
         });
     }, []);
 
-    useEffect(() => {
-        if (activeCategory === "all") {
-            setFilteredSkills(skills);
-        } else {
-            setFilteredSkills(skills.filter(skill => skill.category === activeCategory));
-        }
-    }, [activeCategory]);
+    // Organize skills by category for the card layout
+    const frontendSkills = skills
+        .filter(skill => skill.category === "frontend")
+        .map(skill => ({
+            name: skill.name.toUpperCase(),
+            icon: getIcon(skill.name)
+        }));
 
-    // // Category filter buttons
-    // const categories = [
-    //     { id: "all", label: "All", color: "bg-gray-100 text-gray-800 hover:bg-gray-200" },
-    //     { id: "frontend", label: "Frontend", color: "bg-blue-100 text-blue-800 hover:bg-blue-200" },
-    //     { id: "backend", label: "Backend", color: "bg-green-100 text-green-800 hover:bg-green-200" },
-    //     { id: "database", label: "Database", color: "bg-purple-100 text-purple-800 hover:bg-purple-200" },
-    //     { id: "language", label: "Languages", color: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" },
-    // ];
+    const backendSkills = skills
+        .filter(skill => skill.category === "backend" || skill.category === "database")
+        .map(skill => ({
+            name: skill.name.toUpperCase(),
+            icon: getIcon(skill.name)
+        }));
 
+    const coreSkills = skills
+        .filter(skill => skill.category === "language")
+        .map(skill => ({
+            name: skill.name.toUpperCase(),
+            icon: getIcon(skill.name)
+        }));
+
+    const toolsSkills = tools.map(tool => ({
+        name: tool.name.toUpperCase(),
+        icon: getToolIcon(tool.name),
+        description: tool.description
+    }));
+
+    const designSkills = designTools.map(tool => ({
+        name: tool.name.toUpperCase(),
+        icon: getDesignToolIcon(tool.name),
+        description: tool.description
+    }));
+
+    // bg-[#2f2f38]
     return (
         <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-10 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
+                {/* Header Section */}
                 <div className="text-center mb-10" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
                     <p className="md:text-lg max-w-3xl mx-auto leading-relaxed">
@@ -180,120 +245,42 @@ const Skills = () => {
                     </p>
                 </div>
 
-                {/* Category Filter */}
-                {/* <div className="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat.id}
-                            onClick={() => setActiveCategory(cat.id)}
-                            className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-300 ${activeCategory === cat.id
-                                    ? cat.id === "all" ? "bg-gray-800 text-white shadow-lg"
-                                        : cat.id === "frontend" ? "bg-blue-600 text-white shadow-lg"
-                                            : cat.id === "backend" ? "bg-green-600 text-white shadow-lg"
-                                                : cat.id === "database" ? "bg-purple-600 text-white shadow-lg"
-                                                    : "bg-yellow-600 text-white shadow-lg"
-                                    : cat.color
-                                }`}
-                        >
-                            {cat.label}
-                        </button>
-                    ))}
-                </div> */}
+                {/* Skills Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
+                    {/* Frontend Card */}
+                    <SkillCard
+                        title="Frontend"
+                        icon={<Code2 className="text-[#83838c] text-xl" />}
+                        items={frontendSkills}
+                    />
 
-                {/* Skills Grid - Fixed Height Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
-                    {filteredSkills.map((skill, index) => (
-                        <div
-                            key={skill.id}
-                            data-aos="zoom-in"
-                            data-aos-delay={index * 50}
-                            className="group"
-                        >
-                            <div className="relative h-full bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 flex flex-col">
+                    {/* Backend & DB Card */}
+                    <SkillCard
+                        title="Backend & DB"
+                        icon={<Server className="text-[#83838c] text-xl" />}
+                        items={backendSkills}
+                    />
 
-                                {/* Skill Content */}
-                                <div className="p-5 flex-grow flex flex-col">
-                                    {/* Icon Container */}
-                                    <div className="relative mb-3 flex-shrink-0">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-50"></div>
-                                        <div className="relative flex items-center justify-center w-16 h-16 mx-auto bg-gradient-to-br from-gray-50 to-white drop-shadow rounded-2xl shadow-sm border border-gray-100">
-                                            <div className={`${getIconColor(skill.name)} transform group-hover:scale-110 transition-transform duration-300`}>
-                                                {/* Render icons directly with size */}
-                                                {skill.name === "HTML" && <FaHtml5 size={32} />}
-                                                {skill.name === "CSS" && <FaCss3Alt size={32} />}
-                                                {skill.name === "Tailwind CSS" && <SiTailwindcss size={32} />}
-                                                {skill.name === "DaisyUI" && <SiDaisyui size={32} />}
-                                                {skill.name === "React" && <FaReact size={32} />}
-                                                {skill.name === "Node.js" && <FaNodeJs size={32} />}
-                                                {skill.name === "Express" && <SiExpress size={32} />}
-                                                {skill.name === "MongoDB" && <FaDatabase size={32} />}
-                                                {skill.name === "PostgreSQL" && <BiLogoPostgresql size={32} />}
-                                                {skill.name === "JavaScript" && <FaJs size={32} />}
-                                                {skill.name === "C" && <SiC size={32} />}
-                                                {skill.name === "C++" && <SiCplusplus size={32} />}
-                                            </div>
-                                        </div>
-                                    </div>
+                    {/* Languages Card */}
+                    <SkillCard
+                        title="Languages"
+                        icon={<FileCode className="text-[#83838c] text-xl" />}
+                        items={coreSkills}
+                    />
 
-                                    {/* Skill Info */}
-                                    <div className="flex-grow flex flex-col">
-                                        <h3 className="text-xl font-bold text-center transition-colors duration-300">
-                                            {skill.name}
-                                        </h3>
-                                        <p className="text-sm text-center my-2 flex-grow">
-                                            {skill.description}
-                                        </p>
+                    {/* Tools & Platforms Card */}
+                    <SkillCard
+                        title="Tools & Platforms"
+                        icon={<Wrench className="text-[#83838c] text-xl" />}
+                        items={toolsSkills}
+                    />
 
-                                        {/* Category Tag */}
-                                        <div className="flex justify-center mt-auto">
-                                            <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full capitalize border 
-                                            ${skill.category === "frontend" ? "bg-blue-100 text-blue-600 border-blue-200" :
-                                                    skill.category === "backend" ? "bg-green-100 text-green-600 border-green-200" :
-                                                        skill.category === "database" ? "bg-purple-100 text-purple-600 border-purple-200" :
-                                                            "bg-yellow-100 text-yellow-600 border-yellow-200"
-                                                }`}>
-                                                {skill.category}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Tools Section */}
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {tools.map((tool, index) => (
-                            <div
-                                key={tool.id}
-                                data-aos="zoom-in"
-                                data-aos-delay={index * 100}
-                                className="group"
-                            >
-                                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 text-center transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 flex flex-col">
-
-                                    <div className="relative mb-3 flex-shrink-0">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-50"></div>
-                                        <div className="relative w-16 h-16 mx-auto bg-gradient-to-br from-gray-50 to-white drop-shadow rounded-2xl flex items-center justify-center shadow-sm border border-gray-100">
-                                            <div className={`${getToolIconColor(tool.name)} group-hover:scale-110 transition-all duration-500`}>
-                                                {tool.name === "GitHub" && <FaGithub size={32} />}
-                                                {tool.name === "VS Code" && <VscVscode size={32} />}
-                                                {tool.name === "Netlify" && <SiNetlify size={32} />}
-                                                {tool.name === "Vercel" && <SiVercel size={32} />}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex-grow flex flex-col">
-                                        <h3 className="text-lg font-bold mb-3">{tool.name}</h3>
-                                        <p className="text-sm">{tool.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    {/* UI/UX & Design Card */}
+                    <SkillCard
+                        title="UI/UX & Design"
+                        icon={<Palette className="text-[#83838c] text-xl" />}
+                        items={designSkills}
+                    />
                 </div>
             </div>
         </div>
@@ -309,6 +296,310 @@ export default Skills;
 
 
 
+
+// import { useEffect, useState } from 'react';
+// import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub } from "react-icons/fa";
+// import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel } from "react-icons/si";
+// import { BiLogoPostgresql } from 'react-icons/bi';
+// import { VscVscode } from "react-icons/vsc";
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+
+// // Define icon colors based on technology
+// const getIconColor = (name) => {
+//     switch (name) {
+//         case "HTML": return "text-orange-500";
+//         case "CSS": return "text-blue-500";
+//         case "Tailwind CSS": return "text-cyan-500";
+//         case "DaisyUI": return "text-purple-500";
+//         case "React": return "text-cyan-400";
+//         case "Node.js": return "text-green-500";
+//         case "Express": return "text-gray-600";
+//         case "MongoDB": return "text-green-600";
+//         case "PostgreSQL": return "text-sky-500";
+//         case "JavaScript": return "text-yellow-500";
+//         case "C": return "text-blue-600";
+//         case "C++": return "text-indigo-500";
+//         default: return "text-gray-600";
+//     }
+// };
+
+// const getToolIconColor = (name) => {
+//     switch (name) {
+//         case "GitHub": return "text-gray-900";
+//         case "VS Code": return "text-blue-600";
+//         case "Netlify": return "text-green-500";
+//         case "Vercel": return "text-black";
+//         default: return "text-gray-600";
+//     }
+// };
+
+// const skills = [
+//     {
+//         id: 1,
+//         name: "HTML",
+//         category: "frontend",
+//         color: "from-orange-500 to-orange-700",
+//         bgColor: "bg-orange-500/10",
+//         description: "Semantic markup for web structure"
+//     },
+//     {
+//         id: 2,
+//         name: "CSS",
+//         category: "frontend",
+//         color: "from-blue-500 to-blue-700",
+//         bgColor: "bg-blue-500/10",
+//         description: "Styling and layout for web pages"
+//     },
+//     {
+//         id: 3,
+//         name: "Tailwind CSS",
+//         category: "frontend",
+//         color: "from-cyan-500 to-cyan-700",
+//         bgColor: "bg-cyan-500/10",
+//         description: "Utility-first CSS framework"
+//     },
+//     {
+//         id: 4,
+//         name: "DaisyUI",
+//         category: "frontend",
+//         color: "from-purple-500 to-pink-700",
+//         bgColor: "bg-purple-500/10",
+//         description: "Component library for Tailwind"
+//     },
+//     {
+//         id: 6,
+//         name: "React",
+//         category: "frontend",
+//         color: "from-blue-400 to-cyan-600",
+//         bgColor: "bg-blue-500/10",
+//         description: "Component-based UI library"
+//     },
+//     {
+//         id: 7,
+//         name: "Node.js",
+//         category: "backend",
+//         color: "from-green-500 to-green-700",
+//         bgColor: "bg-green-500/10",
+//         description: "JavaScript runtime environment"
+//     },
+//     {
+//         id: 8,
+//         name: "Express",
+//         category: "backend",
+//         color: "from-gray-600 to-gray-800",
+//         bgColor: "bg-gray-500/10",
+//         description: "Web application framework"
+//     },
+//     {
+//         id: 9,
+//         name: "MongoDB",
+//         category: "database",
+//         color: "from-green-600 to-green-800",
+//         bgColor: "bg-green-600/10",
+//         description: "NoSQL database"
+//     },
+//     {
+//         id: 10,
+//         name: "PostgreSQL",
+//         category: "database",
+//         color: "from-sky-500 to-sky-700",
+//         bgColor: "bg-sky-500/10",
+//         description: "Relational database system"
+//     },
+//     {
+//         id: 5,
+//         name: "JavaScript",
+//         category: "language",
+//         color: "from-yellow-500 to-yellow-700",
+//         bgColor: "bg-yellow-500/10",
+//         description: "Dynamic web programming"
+//     },
+//     {
+//         id: 11,
+//         name: "C",
+//         category: "language",
+//         color: "from-blue-600 to-blue-800",
+//         bgColor: "bg-blue-600/10",
+//         description: "System programming language"
+//     },
+//     {
+//         id: 12,
+//         name: "C++",
+//         category: "language",
+//         color: "from-indigo-500 to-purple-700",
+//         bgColor: "bg-indigo-500/10",
+//         description: "Object-oriented programming"
+//     }
+// ];
+
+// const tools = [
+//     { id: 1, name: "GitHub", description: "Version Control" },
+//     { id: 2, name: "VS Code", description: "Code Editor" },
+//     { id: 3, name: "Netlify", description: "Static Deployment" },
+//     { id: 4, name: "Vercel", description: "Full-stack Deployment" },
+// ];
+
+// const Skills = () => {
+//     const [activeCategory, setActiveCategory] = useState("all");
+//     const [filteredSkills, setFilteredSkills] = useState(skills);
+
+//     useEffect(() => {
+//         AOS.init({
+//             duration: 500,
+//             once: true,
+//             offset: 100
+//         });
+//     }, []);
+
+//     useEffect(() => {
+//         if (activeCategory === "all") {
+//             setFilteredSkills(skills);
+//         } else {
+//             setFilteredSkills(skills.filter(skill => skill.category === activeCategory));
+//         }
+//     }, [activeCategory]);
+
+//     // // Category filter buttons
+//     // const categories = [
+//     //     { id: "all", label: "All", color: "bg-gray-100 text-gray-800 hover:bg-gray-200" },
+//     //     { id: "frontend", label: "Frontend", color: "bg-blue-100 text-blue-800 hover:bg-blue-200" },
+//     //     { id: "backend", label: "Backend", color: "bg-green-100 text-green-800 hover:bg-green-200" },
+//     //     { id: "database", label: "Database", color: "bg-purple-100 text-purple-800 hover:bg-purple-200" },
+//     //     { id: "language", label: "Languages", color: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200" },
+//     // ];
+
+//     return (
+//         <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-10 lg:py-20">
+//             <div className="container max-w-7xl mx-auto px-4">
+//                 <div className="text-center mb-10" data-aos="fade-up">
+//                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
+//                     <p className="md:text-lg max-w-3xl mx-auto leading-relaxed">
+//                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.
+//                     </p>
+//                 </div>
+
+//                 {/* Category Filter */}
+//                 {/* <div className="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
+//                     {categories.map((cat) => (
+//                         <button
+//                             key={cat.id}
+//                             onClick={() => setActiveCategory(cat.id)}
+//                             className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-300 ${activeCategory === cat.id
+//                                     ? cat.id === "all" ? "bg-gray-800 text-white shadow-lg"
+//                                         : cat.id === "frontend" ? "bg-blue-600 text-white shadow-lg"
+//                                             : cat.id === "backend" ? "bg-green-600 text-white shadow-lg"
+//                                                 : cat.id === "database" ? "bg-purple-600 text-white shadow-lg"
+//                                                     : "bg-yellow-600 text-white shadow-lg"
+//                                     : cat.color
+//                                 }`}
+//                         >
+//                             {cat.label}
+//                         </button>
+//                     ))}
+//                 </div> */}
+
+//                 {/* Skills Grid - Fixed Height Cards */}
+//                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
+//                     {filteredSkills.map((skill, index) => (
+//                         <div
+//                             key={skill.id}
+//                             data-aos="zoom-in"
+//                             data-aos-delay={index * 50}
+//                             className="group"
+//                         >
+//                             <div className="relative h-full bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 flex flex-col">
+
+//                                 {/* Skill Content */}
+//                                 <div className="p-5 flex-grow flex flex-col">
+//                                     {/* Icon Container */}
+//                                     <div className="relative mb-3 flex-shrink-0">
+//                                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-50"></div>
+//                                         <div className="relative flex items-center justify-center w-16 h-16 mx-auto bg-gradient-to-br from-gray-50 to-white drop-shadow rounded-2xl shadow-sm border border-gray-100">
+//                                             <div className={`${getIconColor(skill.name)} transform group-hover:scale-110 transition-transform duration-300`}>
+//                                                 {/* Render icons directly with size */}
+//                                                 {skill.name === "HTML" && <FaHtml5 size={32} />}
+//                                                 {skill.name === "CSS" && <FaCss3Alt size={32} />}
+//                                                 {skill.name === "Tailwind CSS" && <SiTailwindcss size={32} />}
+//                                                 {skill.name === "DaisyUI" && <SiDaisyui size={32} />}
+//                                                 {skill.name === "React" && <FaReact size={32} />}
+//                                                 {skill.name === "Node.js" && <FaNodeJs size={32} />}
+//                                                 {skill.name === "Express" && <SiExpress size={32} />}
+//                                                 {skill.name === "MongoDB" && <FaDatabase size={32} />}
+//                                                 {skill.name === "PostgreSQL" && <BiLogoPostgresql size={32} />}
+//                                                 {skill.name === "JavaScript" && <FaJs size={32} />}
+//                                                 {skill.name === "C" && <SiC size={32} />}
+//                                                 {skill.name === "C++" && <SiCplusplus size={32} />}
+//                                             </div>
+//                                         </div>
+//                                     </div>
+
+//                                     {/* Skill Info */}
+//                                     <div className="flex-grow flex flex-col">
+//                                         <h3 className="text-xl font-bold text-center transition-colors duration-300">
+//                                             {skill.name}
+//                                         </h3>
+//                                         <p className="text-sm text-center my-2 flex-grow">
+//                                             {skill.description}
+//                                         </p>
+
+//                                         {/* Category Tag */}
+//                                         <div className="flex justify-center mt-auto">
+//                                             <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full capitalize border 
+//                                             ${skill.category === "frontend" ? "bg-blue-100 text-blue-600 border-blue-200" :
+//                                                     skill.category === "backend" ? "bg-green-100 text-green-600 border-green-200" :
+//                                                         skill.category === "database" ? "bg-purple-100 text-purple-600 border-purple-200" :
+//                                                             "bg-yellow-100 text-yellow-600 border-yellow-200"
+//                                                 }`}>
+//                                                 {skill.category}
+//                                             </span>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                     ))}
+//                 </div>
+
+//                 {/* Tools Section */}
+//                 <div data-aos="fade-up" data-aos-delay="200">
+//                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+//                         {tools.map((tool, index) => (
+//                             <div
+//                                 key={tool.id}
+//                                 data-aos="zoom-in"
+//                                 data-aos-delay={index * 100}
+//                                 className="group"
+//                             >
+//                                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 text-center transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 flex flex-col">
+
+//                                     <div className="relative mb-3 flex-shrink-0">
+//                                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-50"></div>
+//                                         <div className="relative w-16 h-16 mx-auto bg-gradient-to-br from-gray-50 to-white drop-shadow rounded-2xl flex items-center justify-center shadow-sm border border-gray-100">
+//                                             <div className={`${getToolIconColor(tool.name)} group-hover:scale-110 transition-all duration-500`}>
+//                                                 {tool.name === "GitHub" && <FaGithub size={32} />}
+//                                                 {tool.name === "VS Code" && <VscVscode size={32} />}
+//                                                 {tool.name === "Netlify" && <SiNetlify size={32} />}
+//                                                 {tool.name === "Vercel" && <SiVercel size={32} />}
+//                                             </div>
+//                                         </div>
+//                                     </div>
+
+//                                     <div className="flex-grow flex flex-col">
+//                                         <h3 className="text-lg font-bold mb-3">{tool.name}</h3>
+//                                         <p className="text-sm">{tool.description}</p>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Skills;
 
 
 // import { useEffect } from 'react';
