@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { Helmet } from "react-helmet-async";
+import projectsData from '../data/projects.js';
 
 const AllProjects = () => {
     const [myProjects, setMyProjects] = useState([]);
@@ -14,14 +15,9 @@ const AllProjects = () => {
     }, []);
 
     useEffect(() => {
-        fetch("/projects.json")
-            .then(response => response.json())
-            .then(data => {
-                setMyProjects(data["my-project"] || []);
-                setTeamProjects(data["team-project"] || []);
-                setClientProjects(data["client-project"] || []);
-            })
-            .catch(error => console.error("Error fetching projects:", error));
+        setMyProjects(projectsData["my-project"] || []);
+        setTeamProjects(projectsData["team-project"] || []);
+        setClientProjects(projectsData["client-project"] || []);
     }, []);
 
     // Helper function to get projects with their type

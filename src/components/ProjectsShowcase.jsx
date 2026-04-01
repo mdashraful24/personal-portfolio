@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRightLong, FaFolderOpen, FaCode, FaUsers, FaLaptopCode } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import projectsData from '../data/projects.js';
 
 const ProjectsShowcase = () => {
     const [myProjects, setMyProjects] = useState([]);
@@ -11,14 +12,9 @@ const ProjectsShowcase = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/projects.json")
-            .then(response => response.json())
-            .then(data => {
-                setMyProjects(data["my-project"] || []);
-                setTeamProjects(data["team-project"] || []);
-                setClientProjects(data["client-project"] || []);
-            })
-            .catch(error => console.error("Error fetching projects:", error));
+        setMyProjects(projectsData["my-project"] || []);
+        setTeamProjects(projectsData["team-project"] || []);
+        setClientProjects(projectsData["client-project"] || []);
     }, []);
 
     const displayedMyProjects = myProjects.slice(0, 3);

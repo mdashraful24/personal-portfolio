@@ -4,6 +4,7 @@ import ProjectDetails from "../pages/ProjectDetails";
 import Home from "../pages/Home";
 import ErrorPage from "../shared/ErrorPage";
 import AllProjects from "../components/AllProjects";
+import projectsData from '../data/projects.js';
 
 const router = createBrowserRouter([
     {
@@ -23,9 +24,7 @@ const router = createBrowserRouter([
                 element: <ProjectDetails />,
                 loader: async ({ params }) => {
                     try {
-                        const res = await fetch("/projects.json");
-                        if (!res.ok) throw new Error('Failed to fetch projects');
-                        const data = await res.json();
+                        const data = projectsData;
 
                         const allProjects = [
                             ...(data["my-project"] || []),
@@ -55,11 +54,8 @@ const router = createBrowserRouter([
                     </div>
                 </div>
             }
-        ]
-    },
-    {
-        path: "*",
-        element: <ErrorPage />
+        ],
+        errorElement: <ErrorPage />
     }
 ]);
 

@@ -8,22 +8,11 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
     const [imageError, setImageError] = useState(false);
 
     useEffect(() => {
-        const loadImage = async () => {
-            try {
-                if (image && image.includes('../src/')) {
-                    const imagePath = image.replace('../src/', '');
-                    const importedImage = await import(`../${imagePath}`);
-                    setImageSrc(importedImage.default);
-                } else if (image) {
-                    setImageSrc(image);
-                }
-            } catch (error) {
-                console.error('Error loading image:', error);
-                setImageError(true);
-            }
-        };
-
-        loadImage();
+        if (image) {
+            setImageSrc(image);
+        } else {
+            setImageError(true);
+        }
     }, [image]);
 
     // Get badge based on project type

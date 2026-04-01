@@ -1,4 +1,4 @@
-{
+const projectsData = {
     "my-project": [
         {
             "id": 1,
@@ -100,7 +100,7 @@
             ],
             "demoLink": "https://learnhive-4ed81.web.app/",
             "codeLink": "https://github.com/mdashraful24/Learn-hive-client",
-            "image": "../src/assets/project cover/learn-hive.png",
+            "image": "/assets/project-cover/learn-hive.png",
             "challenges": [
                 "Ensuring secure payment handling with Stripe, including managing different payment methods and currencies.",
                 "Dealing with integration issues between Cloudinary for image uploading and ensuring that files are optimized for faster loading times.",
@@ -213,7 +213,7 @@
             ],
             "demoLink": "https://marathonproject-2a4f2.web.app/",
             "codeLink": "https://github.com/mdashraful24/race-trackers-client",
-            "image": "../src/assets/project cover/race-trackers.png",
+            "image": "/assets/project-cover/race-trackers.png",
             "challenges": [
                 "Search by Title: Handling the search functionality server-side using MongoDB $regex for case-insensitive matching.",
                 "Countdown Timer: Implementing a real-time countdown on marathon details page with react-countdown-circle-timer.",
@@ -314,7 +314,7 @@
             ],
             "demoLink": "https://crowdcube-c99dd.web.app/",
             "codeLink": "https://github.com/mdashraful24/crowd-cube-client",
-            "image": "../src/assets/project cover/crowd-cube.png",
+            "image": "/assets/project-cover/crowd-cube.png",
             "challenges": [
                 "Implementing a dark/light theme toggle for the homepage.",
                 "Implementing animation libraries: React Simple Typewriter, React Awesome Reveal, React Tooltip.",
@@ -419,7 +419,7 @@
             ],
             "demoLink": "https://neumorphictaskmanager.web.app/",
             "codeLink": "https://github.com/mdashraful24/neumorphic-task-management-app-client",
-            "image": "../src/assets/project cover/task-manager.png",
+            "image": "/assets/project-cover/task-manager.png",
             "challenges": [
                 "Integrating seamless drag-and-drop interactions across categories.",
                 "Ensuring real-time UI updates with task state changes.",
@@ -533,7 +533,7 @@
             ],
             "demoLink": "https://smart-mentoring-system.netlify.app",
             "codeLink": "https://github.com/sabbirsolid/smart-mentoring-system",
-            "image": "../src/assets/project cover/smart-mentoring-system-sms.png",
+            "image": "/assets/project-cover/smart-mentoring-system-sms.png",
             "challenges": [
                 "Implementing JWT-based user authentication from scratch",
                 "Developing real-time messaging across multiple user groups",
@@ -654,9 +654,9 @@
                     "icon": "https://logo.clearbit.com/sslcommerz.com"
                 }
             ],
-            "demoLink": "View Site",
+            "demoLink": "https://catering-connects.netlify.app",
             "codeLink": "https://github.com/mdashraful24/caco-client",
-            "image": "../src/assets/project cover/catering-connect.png",
+            "image": "/assets/project-cover/catering-connect.png",
             "challenges": [
                 "Real-time booking and scheduling management",
                 "Secure payment integration with SSLCommerz",
@@ -760,7 +760,7 @@
             ],
             "demoLink": "http://203.190.12.136/smart_irrigation_system",
             "codeLink": "https://github.com/mdashraful24/smart-irrigation-client",
-            "image": "../src/assets/project cover/smart-irrigation.png",
+            "image": "/assets/project-cover/smart-irrigation.png",
             "challenges": [
                 "Configuring Apache .htaccess to properly handle React Router routes and prevent 404 errors on page refresh",
                 "Implementing i18next for Bangla and English language toggling with persistent user preference",
@@ -864,7 +864,7 @@
             ],
             "demoLink": "https://admission-bot.netlify.app",
             "codeLink": "https://github.com/mdashraful24/admission-bot-client",
-            "image": "../src/assets/project cover/diu-admission-bot.png",
+            "image": "/assets/project-cover/diu-admission-bot.png",
             "challenges": [
                 "Configuring OpenAI API to maintain conversation context across multiple messages while keeping token usage efficient",
                 "Implementing topic filtering logic to automatically decline non-admission questions and redirect users to relevant admission topics",
@@ -882,4 +882,6 @@
             ]
         }
     ]
-}
+};
+
+export default projectsData;
