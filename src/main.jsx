@@ -9,7 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router}></RouterProvider>
+      <div className='font-montserrat'>
+        <RouterProvider router={router}></RouterProvider>
+      </div>
     </HelmetProvider>
-  </StrictMode>,
+  </StrictMode>
 )

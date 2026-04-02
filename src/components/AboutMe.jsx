@@ -13,11 +13,11 @@ const AboutMe = () => {
                     </p>
 
                     <p>
-                        I am now a full-stack web developer skilled in HTML, CSS, JavaScript, TypeScript, React.js, Tailwind CSS, Node.js, Express.js, MongoDB and PostgreSQL. I’ve completed <strong>20+</strong> projects, creating responsive and user-friendly web applications.
+                        I am now a full-stack web developer skilled in HTML, CSS, JavaScript, TypeScript, React.js, Tailwind CSS, Node.js, Express.js, MongoDB and PostgreSQL. I’ve completed <strong className="text-blue-700">20+</strong> projects, creating responsive and user-friendly web applications.
                     </p>
 
                     <p>
-                        I have recently completed TypeScript and am currently learning <strong>Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                        I have recently completed TypeScript and am currently learning <strong className="text-blue-700">Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                     </p>
 
                     {/* <p>
