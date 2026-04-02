@@ -235,7 +235,7 @@ const Skills = () => {
 
     // bg-[#2f2f38]
     return (
-        <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-10 lg:py-20">
+        <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-7 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-10" data-aos="fade-up">

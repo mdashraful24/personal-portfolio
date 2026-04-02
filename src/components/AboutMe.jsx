@@ -2,7 +2,7 @@
 
 const AboutMe = () => {
     return (
-        <div className="container max-w-7xl mx-auto px-4 py-10 md:py-20">
+        <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-20">
             <div className="text-center space-y-5">
                 <h1 className="text-3xl md:text-4xl font-bold md:mb-6">
                     About Me
@@ -20,8 +20,12 @@ const AboutMe = () => {
                         I have recently completed TypeScript and am currently learning <strong>Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                     </p>
 
-                    <p>
+                    {/* <p>
                         I am passionate about continuous learning and strive to build efficient, user-centric solutions that solve real-world problems.
+                    </p> */}
+
+                    <p>
+                        Beyond coding, I enjoy playing cricket and exploring new places, which help me stay refreshed and inspired. I strongly believe in continuous learning and adapting to new technologies. My goal is to build seamless, efficient, and user-centric applications that solve real-world problems.
                     </p>
                 </div>
             </div>
