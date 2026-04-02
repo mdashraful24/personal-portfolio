@@ -1,0 +1,18 @@
+/* Orbit animation for solar system effect */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-orbit {
+    animation: orbit 20s linear infinite;
+}
+
+.group:hover .animate-orbit {
+    animation-play-state: paused;
+}
