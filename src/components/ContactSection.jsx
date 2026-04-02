@@ -98,7 +98,7 @@ const ContactSection = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20"></div>
 
-            <div className="relative px-4 py-7 lg:py-20">
+            <div className="relative px-4 pt-7 pb-14 lg:py-20">
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
                     <div className="text-center mb-10">

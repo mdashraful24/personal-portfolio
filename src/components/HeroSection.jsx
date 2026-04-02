@@ -34,7 +34,7 @@ const HeroSection = ({ onHireMeClick }) => {
                                     Ashraful Islam Ratul
                                 </p>
                             </h1>
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow">
                                     <FaCode className="text-blue-500 text-sm" />
                                     <span className="text-sm font-medium text-gray-700">Web Developer</span>
@@ -79,7 +79,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         {/* Social Links with Labels */}
                         <div className="flex flex-col items-center lg:items-start gap-4 pt-4">
                             <p className="text-sm text-gray-600">Connect with me:</p>
-                            <div className="flex gap-4">
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 <a
                                     href="https://github.com/mdashraful24"
                                     target="_blank"
