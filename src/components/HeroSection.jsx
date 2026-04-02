@@ -11,7 +11,7 @@ const HeroSection = ({ onHireMeClick }) => {
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl"></div>
 
-            <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-4 py-14 md:py-16 lg:py-0 relative z-10">
+            <div className="container max-w-7xl mx-auto px-4 py-14 md:py-16 lg:py-0 relative z-10">
                 <div className="flex flex-col-reverse lg:flex-row lg:min-h-[calc(100vh-4rem)] items-center justify-between gap-16">
                     {/* LEFT SIDE - Content */}
                     <div className="w-full lg:w-auto text-center lg:text-left space-y-6 md:space-y-8 px-0">
@@ -120,11 +120,11 @@ const HeroSection = ({ onHireMeClick }) => {
                     {/* RIGHT SIDE - Profile Image with Badge */}
                     <div className="flex justify-center items-center relative group">
                         {/* Decorative rings - grayscale initially, color on group hover */}
-                        <div className="absolute w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full border-2 border-gray-300 grayscale group-hover:grayscale-0 group-hover:border-blue-600 transition-all duration-700"></div>
+                        <div className="absolute w-[292px] h-[292px] md:w-[362px] md:h-[362px] lg:w-[432px] lg:h-[432px] rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 transition-all duration-700"></div>
 
                         {/* Solar system orbiting icon - spins around the image, stops on group hover */}
                         <div className="absolute w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-full animate-orbit group-hover:animation-none">
-                            <div className="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <div className="absolute top-6 md:top-7 lg:top-6 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                 <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-2 md:p-2.5 shadow-lg">
                                     <FaCode className="text-white text-sm md:text-base" />
                                 </div>

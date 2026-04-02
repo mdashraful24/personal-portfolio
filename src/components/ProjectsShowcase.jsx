@@ -35,7 +35,7 @@ const ProjectsShowcase = () => {
     const totalTechStacks = 15;
 
     return (
-        <div id="projects" className="container max-w-7xl mx-auto px-4 py-7 lg:py-20">
+        <div id="projects" className="container max-w-7xl mx-auto px-4 py-6 lg:py-20">
             <div className="container mx-auto text-center mb-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
