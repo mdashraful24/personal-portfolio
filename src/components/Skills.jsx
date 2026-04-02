@@ -166,7 +166,7 @@ const getDesignToolIcon = (toolName) => {
 
 const SkillCard = ({ title, icon, items }) => {
     return (
-        <div className="bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 transition-all duration-300">
+        <div className="bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 transition-all duration-500">
             {/* Title */}
             <div className="flex items-center gap-3 mb-6">
                 <div className="bg-[#2f2f38] p-3 rounded-xl shadow-inner">
