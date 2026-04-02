@@ -142,7 +142,7 @@ const ContactSection = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Contact Form */}
                         <div className="lg:col-span-2">
-                            <div className="bg-white rounded-xl shadow border p-6">
+                            <div className="bg-white rounded-xl shadow border p-4">
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="p-2 bg-blue-100 rounded-lg">
                                         <FaPaperPlane className="text-blue-600 text-xl" />
@@ -266,14 +266,14 @@ const ContactSection = () => {
                                     {/* <p>YKSG-2, DSC, Ashulia, Savar</p> */}
                                 </div>
                                 <div className="mt-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
-                                    <p className="text-sm text-blue-700">
-                                        <span className="font-semibold">Remote Work:</span> Available for remote collaborations worldwide.
+                                    <p className="text-sm">
+                                        <span className="font-semibold text-blue-600">Remote Work:</span> Available for remote collaborations worldwide.
                                     </p>
                                 </div>
                             </div>
 
                             {/* Quick Note */}
-                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-100 drop-shadow">
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100 drop-shadow">
                                 <h4 className="font-bold mb-2">Quick Response</h4>
                                 <p className="text-sm">
                                     I typically respond within 24 hours. For urgent matters, please use the phone or WhatsApp.
