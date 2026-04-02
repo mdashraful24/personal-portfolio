@@ -3,49 +3,28 @@
 const AboutMe = () => {
     return (
         <div className="container max-w-7xl mx-auto px-4 py-10 md:py-20">
-            <div className="mx-auto text-center space-y-5">
+            <div className="text-center space-y-5">
                 <h1 className="text-3xl md:text-4xl font-bold md:mb-6">
                     About Me
                 </h1>
-                <div className="md:text-lg space-y-5">
-                    <p className="text-justify leading-relaxed">
-                        I am a passionate web developer with expertise in <span className="font-semibold">HTML, CSS, JavaScript, React.js, Tailwind CSS, Node.js, Express.js, and MongoDB (Atlas).</span> I have completed 20+ projects, building dynamic and scalable web applications. Currently, I am mastering <strong className="text-blue-600">Next.js</strong> to build high-performance full-stack applications. Alongside my development work, I am a final-year B.Sc. Engineering student at Daffodil International University, specializing in Information and Communication Engineering.
+                <div className="md:text-lg text-justify leading-relaxed space-y-5">
+                    <p>
+                        My programming journey began in 2022 with C and C++, but in 2024 I transitioned into web development—where I discovered my passion for building interactive and scalable applications. Since then, I’ve focused on improving performance, scalability, and user experience through hands-on projects.
                     </p>
-                    <p className="text-justify leading-relaxed">
-                        My programming journey began in 2022 with C and C++, but in 2024, I fully dived into web development, where I discovered my passion for creating interactive and scalable applications. Because development is my goal. I enjoy working on challenging and interesting projects, always striving to improve performance and user experience.
+
+                    <p>
+                        I am now a full-stack web developer skilled in HTML, CSS, JavaScript, TypeScript, React.js, Tailwind CSS, Node.js, Express.js, MongoDB and PostgreSQL. I’ve completed <strong>20+</strong> projects, creating responsive and user-friendly web applications.
                     </p>
-                    <p className="text-justify leading-relaxed">
-                        Beyond coding, I love playing Cricket and exploring new places, which keep me refreshed and inspired. I believe in continuous learning, as every day offers new opportunities to improve and explore emerging technologies. My goal is to craft seamless, user-friendly applications that solve real-world problems.
+
+                    <p>
+                        I have recently completed TypeScript and am currently learning <strong>Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                    </p>
+
+                    <p>
+                        I am passionate about continuous learning and strive to build efficient, user-centric solutions that solve real-world problems.
                     </p>
                 </div>
             </div>
-
-            {/* <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-10 lg:gap-16">
-                Left Side
-                <div className="w-60 h-60 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                    <img
-                        src={img}
-                        alt="ratul"
-                        className="relative w-full h-full object-cover rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
-                    />
-                </div>
-
-                Right Side
-                <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-                    <h1 className="text-4xl md:text-5xl font-bold">
-                        About Me
-                    </h1>
-                    <p className="text-justify leading-relaxed">
-                        I am a passionate web developer with expertise in <span className="font-semibold">HTML, CSS, JavaScript, React.js, Tailwind CSS, Node.js, Express.js, and MongoDB (Atlas).</span> Currently, I am mastering <span className="font-semibold text-blue-600">Next.js</span> to build high-performance full-stack applications. Alongside my development work, I am a final-year B.Sc. Engineering student at Daffodil International University, specializing in Information and Communication Engineering.
-                    </p>
-                    <p className="text-justify leading-relaxed">
-                        My programming journey began in 2022 with C and C++, but in 2024, I fully dived into web development, where I discovered my passion for creating interactive and scalable applications. Because development is my goal. I enjoy working on challenging and interesting projects, always striving to improve performance and user experience.
-                    </p>
-                    <p className="text-justify leading-relaxed">
-                        Beyond coding, I love playing Cricket and exploring new places, which keep me refreshed and inspired. I believe in continuous learning, as every day offers new opportunities to improve and explore emerging technologies. My goal is to craft seamless, user-friendly applications that solve real-world problems. 🚀
-                    </p>
-                </div>
-            </div> */}
         </div>
     );
 };
