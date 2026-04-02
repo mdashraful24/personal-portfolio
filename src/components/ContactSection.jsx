@@ -263,7 +263,7 @@ const ContactSection = () => {
                                 </div>
                                 <div className="space-y-1 text-sm">
                                     <p className="font-medium">Dhaka, Bangladesh</p>
-                                    <p>YKSG-2, DSC, Ashulia, Savar</p>
+                                    {/* <p>YKSG-2, DSC, Ashulia, Savar</p> */}
                                 </div>
                                 <div className="mt-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
                                     <p className="text-sm text-blue-700">
