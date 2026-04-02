@@ -1,4 +1,186 @@
-/* Orbit animation for solar system effect */
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide In Left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide In Right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale {
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Blur In */
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+.animate-blur-in {
+    animation: blurIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+.animate-rotate-in {
+    animation: rotateIn 0.6s ease-out forwards;
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Float Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Orbit Animation */
 @keyframes orbit {
     from {
         transform: rotate(0deg);
@@ -15,4 +197,151 @@
 
 .group:hover .animate-orbit {
     animation-play-state: paused;
+}
+
+@keyframes pulseOpenGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(78, 246, 59, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+.animate-pulse-glow-open {
+    animation: pulseOpenGlow 1s infinite;
+}
+
+/* Bounce Animation for Scroll Indicator */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* Stagger Children Animations */
+.stagger-children>* {
+    opacity: 0;
+}
+
+.stagger-children>*:nth-child(1) {
+    animation: fadeUp 0.5s ease-out 0.1s forwards;
+}
+
+.stagger-children>*:nth-child(2) {
+    animation: fadeUp 0.5s ease-out 0.2s forwards;
+}
+
+.stagger-children>*:nth-child(3) {
+    animation: fadeUp 0.5s ease-out 0.3s forwards;
+}
+
+.stagger-children>*:nth-child(4) {
+    animation: fadeUp 0.5s ease-out 0.4s forwards;
+}
+
+.stagger-children>*:nth-child(5) {
+    animation: fadeUp 0.5s ease-out 0.5s forwards;
+}
+
+.stagger-children>*:nth-child(6) {
+    animation: fadeUp 0.5s ease-out 0.6s forwards;
+}
+
+.stagger-children>*:nth-child(7) {
+    animation: fadeUp 0.5s ease-out 0.7s forwards;
+}
+
+.stagger-children>*:nth-child(8) {
+    animation: fadeUp 0.5s ease-out 0.8s forwards;
+}
+
+/* Delay Classes */
+.delay-100 {
+    animation-delay: 0.1s !important;
+}
+
+.delay-200 {
+    animation-delay: 0.2s !important;
+}
+
+.delay-300 {
+    animation-delay: 0.3s !important;
+}
+
+.delay-400 {
+    animation-delay: 0.4s !important;
+}
+
+.delay-500 {
+    animation-delay: 0.5s !important;
+}
+
+.delay-600 {
+    animation-delay: 0.6s !important;
+}
+
+.delay-700 {
+    animation-delay: 0.7s !important;
+}
+
+.delay-800 {
+    animation-delay: 0.8s !important;
+}
+
+/* Hover Animations */
+.hover-scale:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-fade-in,
+    .animate-fade-up,
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-scale,
+    .animate-blur-in,
+    .animate-rotate-in,
+    .animate-bounce-in,
+    .stagger-children>* {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animate-float,
+    .animate-orbit,
+    .animate-pulse-glow,
+    .animate-pulse-glow-open,
+    .animate-bounce {
+        animation: none !important;
+    }
 }
