@@ -238,7 +238,7 @@ const Skills = () => {
         <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-7 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
-                <div className="text-center mb-10" data-aos="fade-up">
+                <div className="text-center mb-8" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
                     <p className="md:text-lg max-w-3xl mx-auto leading-relaxed">
                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.

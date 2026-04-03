@@ -102,7 +102,7 @@ const ContactSection = () => {
             <div className="relative px-4 pt-7 pb-14 lg:py-20">
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
-                    <div className="text-center mb-6 md:mb-8 stagger-header">
+                    <div className="text-center mb-8 stagger-header">
                         <h1 className="text-3xl md:text-4xl font-bold mb-2 animate-fade-up">
                             Get In Touch
                         </h1>
