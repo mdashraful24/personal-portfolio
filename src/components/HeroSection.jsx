@@ -60,7 +60,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             <a
                                 href="/CV by Ashraful Islam Ratul.pdf"
                                 download="CV by Ashraful Islam Ratul.pdf"
-                                className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group"
+                                className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     <FaDownload className="group-hover:animate-bounce" />
@@ -69,7 +69,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             </a>
                             <button
                                 onClick={onHireMeClick}
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 hover:bg-blue-50 hover:shadow-md hover:scale-105 active:scale-95"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-blue-600 text-blue-600 font-semibold transition-all duration-300 hover:bg-blue-50 hover:shadow-md active:scale-95"
                             >
                                 <FaBriefcase className="text-sm" />
                                 Hire Me
@@ -118,13 +118,13 @@ const HeroSection = ({ onHireMeClick }) => {
                     </div>
 
                     {/* RIGHT SIDE - Profile Image with Badge */}
-                    <div className="flex justify-center items-center relative group animate-blur-in lg:mr-6">
+                    <div className="flex justify-center items-center relative group animate-blur-in lg:mr-9">
                         {/* Decorative rings - grayscale initially, color on group hover */}
-                        <div className="absolute w-[292px] h-[292px] md:w-[362px] md:h-[362px] lg:w-[432px] lg:h-[432px] rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 transition-all duration-700 animate-rotate-in"></div>
+                        <div className="absolute w-[310px] h-[310px] md:w-[380px] md:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 transition-all duration-700 animate-rotate-in"></div>
 
                         {/* Solar system orbiting icon - spins around the image, stops on group hover */}
                         <div className="absolute w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-full animate-orbit group-hover:animation-none">
-                            <div className="absolute top-6 md:top-7 lg:top-6 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <div className="absolute top-4 md:top-5 lg:top-4 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                 <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-2 md:p-2.5 shadow-lg animate-pulse-glow">
                                     <FaCode className="text-white text-sm md:text-base" />
                                 </div>
@@ -143,7 +143,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             </div>
 
                             {/* Open to Work Badge */}
-                            <div className="absolute -bottom-2 -right-2 z-20 animate-bounce-in delay-300">
+                            <div className="absolute -bottom-1 -right-2 z-20 animate-bounce-in delay-300">
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-green-400 rounded-full blur-md opacity-60 animate-pulse"></div>
                                     <div className="relative bg-[#2f2f38] rounded-full p-1 shadow-lg hover:scale-110 transition-transform duration-300">
