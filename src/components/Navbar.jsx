@@ -95,11 +95,10 @@ const Navbar = () => {
                             }`}
                     >
                         {item.label}
-                        <span className={`absolute left-1/2 bottom-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
-                            transition-all duration-300 ease-out
+                        <span className={`absolute left-1/2 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 transition-all duration-300 ease-out
                             ${isItemActive(item)
-                                ? '-translate-x-1/2 opacity-100'
-                                : 'w-0 -translate-x-1/2 opacity-0 group-hover:w-full group-hover:opacity-100'
+                                ? 'w-full -translate-x-1/2 opacity-100'
+                                : 'w-0 -translate-x-1/2 opacity-0 group-hover:bg-gradient-to-l group-hover:w-full group-hover:opacity-100'
                             }`} />
                     </a>
                 </li>
@@ -270,7 +269,7 @@ export default Navbar;
 //                             }`}
 //                     >
 //                         {item.label}
-//                         <span className={`absolute left-1/2 bottom-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+//                         <span className={`absolute left-1/2 bottom-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 //                             transition-all duration-300 ease-out
 //                             ${location.pathname === "/" && activeSection === item.id
 //                                 ? '-translate-x-1/2 opacity-100'
@@ -368,7 +367,7 @@ export default Navbar;
 // //                     }`}
 // //             >
 // //                 Home
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 // //                         transform transition-transform duration-300 origin-left
 // //                         ${location.pathname === "/" && activeSection === "home"
 // //                         ? "scale-x-100"
@@ -386,7 +385,7 @@ export default Navbar;
 // //                     }`}
 // //             >
 // //                 About
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 // //                         transform transition-transform duration-300 origin-left
 // //                         ${location.pathname === "/" && activeSection === "about"
 // //                         ? "scale-x-100"
@@ -404,7 +403,7 @@ export default Navbar;
 // //                     }`}
 // //             >
 // //                 Skills
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 // //                         transform transition-transform duration-300 origin-left
 // //                         ${location.pathname === "/" && activeSection === "skills"
 // //                         ? "scale-x-100"
@@ -422,7 +421,7 @@ export default Navbar;
 // //                     }`}
 // //             >
 // //                 Projects
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 // //                         transform transition-transform duration-300 origin-left
 // //                         ${location.pathname === "/" && activeSection === "projects"
 // //                         ? "scale-x-100"
@@ -440,7 +439,7 @@ export default Navbar;
 // //                     }`}
 // //             >
 // //                 Contact
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 
+// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
 // //                         transform transition-transform duration-300 origin-left
 // //                         ${location.pathname === "/" && activeSection === "contact"
 // //                         ? "scale-x-100"
