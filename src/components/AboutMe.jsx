@@ -3,11 +3,11 @@
 const AboutMe = () => {
     return (
         <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-20">
-            <div className="text-center space-y-5">
-                <h1 className="text-3xl md:text-4xl font-bold md:mb-6">
+            <div className=" space-y-5">
+                <h1 className="text-3xl md:text-4xl text-center font-bold md:mb-6">
                     About Me
                 </h1>
-                <div className="md:text-lg text-justify leading-relaxed space-y-5">
+                <div className="md:text-lg leading-relaxed space-y-5">
                     <p>
                         My programming journey began in 2022 with C and C++, but in 2024 I transitioned into web development—where I discovered my passion for building interactive and scalable applications. Since then, I’ve focused on improving performance, scalability, and user experience through hands-on projects.
                     </p>
