@@ -1,3 +1,186 @@
+/* Initial state - hidden */
+.contact-section .header-title,
+.contact-section .header-subtitle,
+.contact-section .contact-card,
+.contact-section .form-container,
+.contact-section .info-sidebar>* {
+    opacity: 0;
+}
+
+/* Header animations */
+.contact-section .header-title {
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.contact-section .header-subtitle {
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s, transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s;
+}
+
+/* Contact Cards */
+.contact-section .contact-card {
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.contact-section .contact-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.contact-section .contact-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.contact-section .contact-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* Form Container */
+.contact-section .form-container {
+    transform: translateX(-40px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s, transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s;
+}
+
+/* Info Sidebar Items */
+.contact-section .social-card {
+    transform: translateX(40px);
+    transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s;
+}
+
+.contact-section .location-card {
+    transform: translateX(40px);
+    transition: opacity 0.5s ease-out 0.3s, transform 0.5s ease-out 0.3s;
+}
+
+.contact-section .quick-note {
+    transform: translateX(40px);
+    transition: opacity 0.5s ease-out 0.5s, transform 0.5s ease-out 0.5s;
+}
+
+/* Form Inner Elements */
+.contact-section .input-field,
+.contact-section .textarea-field,
+.contact-section .submit-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.contact-section .input-field:nth-of-type(1) {
+    transition-delay: 0.1s;
+}
+
+.contact-section .input-field:nth-of-type(2) {
+    transition-delay: 0.2s;
+}
+
+.contact-section .textarea-field {
+    transition-delay: 0.3s;
+}
+
+.contact-section .submit-button {
+    transition-delay: 0.4s;
+}
+
+/* Social Icons */
+.contact-section .social-icon {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.contact-section .social-icon:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.contact-section .social-icon:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.contact-section .social-icon:nth-child(3) {
+    transition-delay: 0.35s;
+}
+
+/* Location Icon */
+.contact-section .location-icon {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease-out 0.2s, transform 0.4s ease-out 0.2s;
+}
+
+.contact-section .location-title {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.4s ease-out 0.25s, transform 0.4s ease-out 0.25s;
+}
+
+/* Quick Note inner elements */
+.contact-section .quick-note h4,
+.contact-section .quick-note p {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.contact-section .quick-note h4 {
+    transition-delay: 0.35s;
+}
+
+.contact-section .quick-note p {
+    transition-delay: 0.45s;
+}
+
+/* Form Icon and Title */
+.contact-section .form-icon {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-out 0.05s, transform 0.5s ease-out 0.05s;
+}
+
+.contact-section .form-title {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s;
+}
+
+/* Active state - show all elements */
+.contact-section.animate-section-in .header-title,
+.contact-section.animate-section-in .header-subtitle,
+.contact-section.animate-section-in .contact-card,
+.contact-section.animate-section-in .form-container,
+.contact-section.animate-section-in .info-sidebar>*,
+.contact-section.animate-section-in .input-field,
+.contact-section.animate-section-in .textarea-field,
+.contact-section.animate-section-in .submit-button,
+.contact-section.animate-section-in .social-icon,
+.contact-section.animate-section-in .location-icon,
+.contact-section.animate-section-in .location-title,
+.contact-section.animate-section-in .quick-note h4,
+.contact-section.animate-section-in .quick-note p,
+.contact-section.animate-section-in .form-icon,
+.contact-section.animate-section-in .form-title {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Ensure background floating animations continue */
+.bg-float {
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
 /* Pulse Glow */
 @keyframes pulseGlowBlue {
     0% {

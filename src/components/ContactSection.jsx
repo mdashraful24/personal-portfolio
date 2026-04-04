@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import './css/ContactSection.css'
@@ -7,6 +7,43 @@ const ContactSection = () => {
     const form = useRef();
     const [status, setStatus] = useState({ type: "", message: "" });
     const [isLoading, setIsLoading] = useState(false);
+    const [hasAnimated, setHasAnimated] = useState(false);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const currentSection = sectionRef.current;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                // When section comes into view and animation hasn't run yet
+                if (entry.isIntersecting && !hasAnimated) {
+                    setHasAnimated(true);
+                    // Add a class to the section to trigger CSS animations
+                    if (currentSection) {
+                        currentSection.classList.add('animate-section-in');
+                    }
+                    // Optional: Disconnect observer after animation triggers to save resources
+                    // observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.2,
+                rootMargin: "0px 0px -100px 0px",
+            }
+        );
+
+        if (currentSection) {
+            observer.observe(currentSection);
+        }
+
+        // Cleanup observer on component unmount
+        return () => {
+            if (currentSection) {
+                observer.unobserve(currentSection);
+            }
+        };
+    }, [hasAnimated]);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -93,20 +130,23 @@ const ContactSection = () => {
     ];
 
     return (
-        <div className="relative overflow-hidden animate-fade-in">
+        <div
+            ref={sectionRef}
+            className="relative overflow-hidden contact-section"
+        >
             {/* Background Decoration */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-red-50"></div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20 animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20 animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20 bg-float" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20 bg-float" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
 
             <div className="relative px-4 pt-7 pb-14 lg:py-20">
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
                     <div className="text-center mb-8 stagger-header">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-2 animate-fade-up">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-2 header-title">
                             Get In Touch
                         </h1>
-                        <p className="md:text-lg max-w-2xl mx-auto animate-fade-up delay-200">
+                        <p className="md:text-lg max-w-2xl mx-auto header-subtitle">
                             Have a project in mind? Let's collaborate and bring your ideas to life.
                         </p>
                     </div>
@@ -119,19 +159,19 @@ const ContactSection = () => {
                                 href={info.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group animate-scale delay-100"
-                                style={{ animationDelay: `${index * 0.1 + 0.1}s` }}
+                                className="group contact-card"
+                                style={{ transitionDelay: `${index * 0.1}s` }}
                             >
                                 <div className="flex flex-col">
-                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border border-gray-100 transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow md:hover:scale-105`}>
+                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border border-gray-100 transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow md:hover:scale-105 contact-card-inner`}>
                                         <div className="flex items-start gap-4">
-                                            <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0 transition-all duration-300  group-hover:scale-110`}>
+                                            <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0 transition-all duration-300 group-hover:scale-110 contact-icon`}>
                                                 {info.icon}
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <h3 className="font-bold text-lg">{info.title}</h3>
-                                                <p className="font-medium break-all">{info.details}</p>
-                                                <p className="text-sm mt-2">{info.description}</p>
+                                                <h3 className="font-bold text-lg contact-title">{info.title}</h3>
+                                                <p className="font-medium break-all contact-details">{info.details}</p>
+                                                <p className="text-sm mt-2 contact-description">{info.description}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -143,18 +183,18 @@ const ContactSection = () => {
                     {/* Main Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Contact Form */}
-                        <div className="lg:col-span-2 animate-slide-left delay-200">
-                            <div className="bg-white rounded-xl shadow border p-4 transition-all duration-300 hover:shadow-lg">
+                        <div className="lg:col-span-2 form-container">
+                            <div className="bg-white rounded-xl shadow border p-4 transition-all duration-300 hover:shadow-lg form-card">
                                 <div className="flex items-center gap-3 mb-5">
-                                    <div className="p-2 bg-blue-100 rounded-lg animate-pulse-glow-blue">
+                                    <div className="animate-pulse-glow-blue p-2 bg-blue-100 rounded-lg form-icon">
                                         <FaPaperPlane className="text-blue-600 text-xl" />
                                     </div>
-                                    <h2 className="text-2xl font-bold">Send Me a Message</h2>
+                                    <h2 className="text-2xl font-bold form-title">Send Me a Message</h2>
                                 </div>
 
                                 <form ref={form} onSubmit={sendEmail} className="space-y-5">
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                        <div className="animate-fade-up delay-300">
+                                        <div className="input-field">
                                             <label className="block text-sm font-medium mb-2">
                                                 Your Name <strong className="text-red-500">*</strong>
                                             </label>
@@ -166,7 +206,7 @@ const ContactSection = () => {
                                                 className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-gray-600 hover:border-blue-300"
                                             />
                                         </div>
-                                        <div className="animate-fade-up delay-400">
+                                        <div className="input-field">
                                             <label className="block text-sm font-medium mb-2">
                                                 Email Address <strong className="text-red-500">*</strong>
                                             </label>
@@ -179,7 +219,7 @@ const ContactSection = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div className="animate-fade-up delay-500">
+                                    <div className="textarea-field">
                                         <label className="block text-sm font-medium mb-2">
                                             Your Message <strong className="text-red-500">*</strong>
                                         </label>
@@ -195,13 +235,13 @@ const ContactSection = () => {
                                     {/* Status Message */}
                                     {status.message && (
                                         <div className={`flex items-center gap-3 p-4 rounded-xl ${status.type === "success"
-                                            ? "bg-green-50 text-green-700 border border-green-200 animate-slide-right"
-                                            : "bg-red-50 text-red-700 border border-red-200 animate-slide-left"
+                                            ? "bg-green-50 text-green-700 border border-green-200"
+                                            : "bg-red-50 text-red-700 border border-red-200"
                                             }`}>
                                             {status.type === "success" ? (
-                                                <FaCheckCircle className="text-green-500 text-xl animate-scale" />
+                                                <FaCheckCircle className="text-green-500 text-xl" />
                                             ) : (
-                                                <FaExclamationCircle className="text-red-500 text-xl animate-scale" />
+                                                <FaExclamationCircle className="text-red-500 text-xl" />
                                             )}
                                             <p className="font-medium">{status.message}</p>
                                         </div>
@@ -210,7 +250,7 @@ const ContactSection = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="relative w-full md:w-auto px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group animate-fade-up delay-600"
+                                        className="relative w-full md:w-auto px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group submit-button"
                                     >
                                         <div className="flex items-center justify-center gap-2">
                                             {isLoading ? (
@@ -231,22 +271,22 @@ const ContactSection = () => {
                         </div>
 
                         {/* Social & Location Info */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 info-sidebar">
                             {/* Social Links */}
-                            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 text-white animate-slide-right delay-200">
-                                <h3 className="text-xl font-bold mb-1">Connect With Me</h3>
-                                <p className="text-gray-300 mb-4">
+                            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-4 text-white social-card">
+                                <h3 className="text-xl font-bold mb-1 social-title">Connect With Me</h3>
+                                <p className="text-gray-300 mb-4 social-description">
                                     Follow my journey and see what I'm working on.
                                 </p>
-                                <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`p-2 rounded-xl bg-white/10 transition-all duration-300 ${social.color} md:hover:scale-110`}
-                                            style={{ animationDelay: `${index * 0.1 + 0.3}s` }}
+                                            className={`p-2 rounded-xl bg-white/10 transition-all duration-300 ${social.color} md:hover:scale-110 social-icon`}
+                                            style={{ transitionDelay: `${index * 0.1}s` }}
                                         >
                                             <div className={`p-2 rounded-lg bg-gray-50 ${social.iconColor} transition-all duration-300`}>
                                                 {social.icon}
@@ -257,12 +297,12 @@ const ContactSection = () => {
                             </div>
 
                             {/* Location */}
-                            <div className="bg-white rounded-xl drop-shadow border p-4 animate-slide-right transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <div className="bg-white rounded-xl drop-shadow border p-4 location-card">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 bg-red-100 rounded-lg animate-pulse-glow-red">
+                                    <div className="animate-pulse-glow-red p-2 bg-red-100 rounded-lg location-icon">
                                         <FaMapMarkerAlt className="text-red-600" />
                                     </div>
-                                    <h3 className="text-lg font-bold">Location</h3>
+                                    <h3 className="text-lg font-bold location-title">Location</h3>
                                 </div>
                                 <div className="space-y-1 text-sm">
                                     <p className="font-medium">Dhaka, Bangladesh</p>
@@ -275,7 +315,7 @@ const ContactSection = () => {
                             </div>
 
                             {/* Quick Note */}
-                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100 drop-shadow animate-slide-right delay-400 transition-all duration-300 hover:shadow-lg hover:scale-105">
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100 drop-shadow quick-note">
                                 <h4 className="font-bold mb-2">Quick Response</h4>
                                 <p className="text-sm">
                                     I typically respond within 24 hours. For urgent matters, please use the phone or WhatsApp.
