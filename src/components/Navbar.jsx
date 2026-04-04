@@ -42,16 +42,21 @@ const Navbar = () => {
         return () => observer.disconnect();
     }, [location.pathname]);
 
-    const scrollToSection = (id) => {
+    const scrollToSection = (id, isSmooth = true) => {
         navigate("/");
 
         setTimeout(() => {
             const element = document.getElementById(id);
             if (element) {
-                window.scrollTo({
-                    top: element.offsetTop - 70,
-                    behavior: "smooth",
-                });
+                if (isSmooth) {
+                    window.scrollTo({
+                        top: element.offsetTop - 70,
+                        behavior: "smooth",
+                    });
+                } else {
+                    // Instant scroll without smooth behavior
+                    window.scrollTo(0, element.offsetTop - 70);
+                }
             }
         }, 100);
     };
@@ -59,12 +64,31 @@ const Navbar = () => {
     const handleSectionClick = (id, path, isSection) => {
         if (isSection) {
             if (location.pathname === "/") {
-                scrollToSection(id);
+                scrollToSection(id, true); // Smooth scroll for nav items
             } else {
-                scrollToSection(id);
+                scrollToSection(id, true); // Smooth scroll for nav items
             }
         } else {
             navigate(path);
+        }
+        setDropdownOpen(false);
+    };
+
+    // Special handler for logo click - instant scroll
+    const handleLogoClick = () => {
+        if (location.pathname === "/") {
+            const element = document.getElementById("home");
+            if (element) {
+                window.scrollTo(0, element.offsetTop - 70); // Instant scroll
+            }
+        } else {
+            navigate("/");
+            setTimeout(() => {
+                const element = document.getElementById("home");
+                if (element) {
+                    window.scrollTo(0, element.offsetTop - 70); // Instant scroll
+                }
+            }, 100);
         }
         setDropdownOpen(false);
     };
@@ -111,10 +135,10 @@ const Navbar = () => {
             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
                 <div className="navbar-start">
                     <a
-                        onClick={() => handleSectionClick("home", "/", true)}
+                        onClick={handleLogoClick}
                         className="cursor-pointer"
                     >
-                        <img src={logo} alt="" className="w-40 lg:w-48" />
+                        <img src={logo} alt="Logo" className="w-40 lg:w-48" />
                     </a>
                 </div>
                 <div className="navbar-center hidden md:flex">
@@ -186,6 +210,7 @@ export default Navbar;
 
 
 
+// Smooth scrolling to home
 // import { useEffect, useState } from "react";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import logo from '../../src/assets/logo2.png';
@@ -196,13 +221,15 @@ export default Navbar;
 //     const navigate = useNavigate();
 //     const location = useLocation();
 
-//     // Define nav items in an array
+//     // Define nav items with support for both section scrolling and route paths
 //     const navItems = [
-//         { id: "home", label: "Home" },
-//         { id: "about", label: "About" },
-//         { id: "skills", label: "Skills" },
-//         { id: "projects", label: "Projects" },
-//         { id: "contact", label: "Contact" }
+//         { id: "home", label: "Home", path: "/", isSection: true },
+//         { id: "about", label: "About", path: "/", isSection: true },
+//         { id: "skills", label: "Skills", path: "/", isSection: true },
+//         { id: "projects", label: "Projects", path: "/", isSection: true },
+//         { id: "contact", label: "Contact", path: "/", isSection: true },
+//         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
+//         // ...(!user ? [{ id: "login", label: "Login", path: "/login", isSection: false }] : [])
 //     ];
 
 //     useEffect(() => {
@@ -242,11 +269,15 @@ export default Navbar;
 //         }, 100);
 //     };
 
-//     const handleSectionClick = (id) => {
-//         if (location.pathname === "/") {
-//             scrollToSection(id);
+//     const handleSectionClick = (id, path, isSection) => {
+//         if (isSection) {
+//             if (location.pathname === "/") {
+//                 scrollToSection(id);
+//             } else {
+//                 scrollToSection(id);
+//             }
 //         } else {
-//             scrollToSection(id);
+//             navigate(path);
 //         }
 //         setDropdownOpen(false);
 //     };
@@ -255,25 +286,32 @@ export default Navbar;
 //         setDropdownOpen(!dropdownOpen);
 //     };
 
+//     // Check if a nav item is active
+//     const isItemActive = (item) => {
+//         if (item.isSection) {
+//             return location.pathname === "/" && activeSection === item.id;
+//         }
+//         return location.pathname === item.path;
+//     };
+
 //     // Single navLinksStyle using map
 //     const navLinksStyle = (
 //         <>
 //             {navItems.map((item) => (
 //                 <li key={item.id} className="text-center group">
 //                     <a
-//                         onClick={() => handleSectionClick(item.id)}
+//                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
 //                         className={`relative inline-block pb-1 transition-colors duration-300 cursor-pointer
-//                             ${location.pathname === "/" && activeSection === item.id
+//                             ${isItemActive(item)
 //                                 ? "text-blue-600 font-semibold"
 //                                 : "text-gray-700 hover:text-blue-600"
 //                             }`}
 //                     >
 //                         {item.label}
-//                         <span className={`absolute left-1/2 bottom-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-//                             transition-all duration-300 ease-out
-//                             ${location.pathname === "/" && activeSection === item.id
-//                                 ? '-translate-x-1/2 opacity-100'
-//                                 : 'w-0 -translate-x-1/2 opacity-0 group-hover:w-full group-hover:opacity-100'
+//                         <span className={`absolute left-1/2 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 transition-all duration-300 ease-out
+//                             ${isItemActive(item)
+//                                 ? 'w-full -translate-x-1/2 opacity-100'
+//                                 : 'w-0 -translate-x-1/2 opacity-0 group-hover:bg-gradient-to-l group-hover:w-full group-hover:opacity-100'
 //                             }`} />
 //                     </a>
 //                 </li>
@@ -286,7 +324,7 @@ export default Navbar;
 //             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
 //                 <div className="navbar-start">
 //                     <a
-//                         onClick={() => handleSectionClick("home")}
+//                         onClick={() => handleSectionClick("home", "/", true)}
 //                         className="cursor-pointer"
 //                     >
 //                         <img src={logo} alt="" className="w-40 lg:w-48" />
@@ -354,98 +392,3 @@ export default Navbar;
 // };
 
 // export default Navbar;
-// // // Modern Underline Animation with Gradient
-// // const navLinksStyle = (
-// //     <>
-// //         <li className="text-center group">
-// //             <a
-// //                 onClick={() => handleSectionClick("home")}
-// //                 className={`relative inline-block pb-1 transition-all duration-300 cursor-pointer
-// //                         ${location.pathname === "/" && activeSection === "home"
-// //                         ? "text-blue-600 font-semibold"
-// //                         : "text-gray-700 hover:text-blue-600"
-// //                     }`}
-// //             >
-// //                 Home
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-// //                         transform transition-transform duration-300 origin-left
-// //                         ${location.pathname === "/" && activeSection === "home"
-// //                         ? "scale-x-100"
-// //                         : "scale-x-0 group-hover:scale-x-100"
-// //                     }`} />
-// //             </a>
-// //         </li>
-// //         <li className="text-center group">
-// //             <a
-// //                 onClick={() => handleSectionClick("about")}
-// //                 className={`relative inline-block pb-1 transition-all duration-300 cursor-pointer
-// //                         ${location.pathname === "/" && activeSection === "about"
-// //                         ? "text-blue-600 font-semibold"
-// //                         : "text-gray-700 hover:text-blue-600"
-// //                     }`}
-// //             >
-// //                 About
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-// //                         transform transition-transform duration-300 origin-left
-// //                         ${location.pathname === "/" && activeSection === "about"
-// //                         ? "scale-x-100"
-// //                         : "scale-x-0 group-hover:scale-x-100"
-// //                     }`} />
-// //             </a>
-// //         </li>
-// //         <li className="text-center group">
-// //             <a
-// //                 onClick={() => handleSectionClick("skills")}
-// //                 className={`relative inline-block pb-1 transition-all duration-300 cursor-pointer
-// //                         ${location.pathname === "/" && activeSection === "skills"
-// //                         ? "text-blue-600 font-semibold"
-// //                         : "text-gray-700 hover:text-blue-600"
-// //                     }`}
-// //             >
-// //                 Skills
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-// //                         transform transition-transform duration-300 origin-left
-// //                         ${location.pathname === "/" && activeSection === "skills"
-// //                         ? "scale-x-100"
-// //                         : "scale-x-0 group-hover:scale-x-100"
-// //                     }`} />
-// //             </a>
-// //         </li>
-// //         <li className="text-center group">
-// //             <a
-// //                 onClick={() => handleSectionClick("projects")}
-// //                 className={`relative inline-block pb-1 transition-all duration-300 cursor-pointer
-// //                         ${location.pathname === "/" && activeSection === "projects"
-// //                         ? "text-blue-600 font-semibold"
-// //                         : "text-gray-700 hover:text-blue-600"
-// //                     }`}
-// //             >
-// //                 Projects
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-// //                         transform transition-transform duration-300 origin-left
-// //                         ${location.pathname === "/" && activeSection === "projects"
-// //                         ? "scale-x-100"
-// //                         : "scale-x-0 group-hover:scale-x-100"
-// //                     }`} />
-// //             </a>
-// //         </li>
-// //         <li className="text-center group">
-// //             <a
-// //                 onClick={() => handleSectionClick("contact")}
-// //                 className={`relative inline-block pb-1 transition-all duration-300 cursor-pointer
-// //                         ${location.pathname === "/" && activeSection === "contact"
-// //                         ? "text-blue-600 font-semibold"
-// //                         : "text-gray-700 hover:text-blue-600"
-// //                     }`}
-// //             >
-// //                 Contact
-// //                 <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-blue-600
-// //                         transform transition-transform duration-300 origin-left
-// //                         ${location.pathname === "/" && activeSection === "contact"
-// //                         ? "scale-x-100"
-// //                         : "scale-x-0 group-hover:scale-x-100"
-// //                     }`} />
-// //             </a>
-// //         </li>
-// //     </>
-// // );
