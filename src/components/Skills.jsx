@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma } from "react-icons/fa";
 import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva } from "react-icons/si";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -164,40 +164,83 @@ const getDesignToolIcon = (toolName) => {
     }
 };
 
-const SkillCard = ({ title, icon, items }) => {
-    return (
-        <div className="bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 transition-all duration-500">
-            {/* Title */}
-            <div className="flex items-center gap-3 mb-6">
-                <div className="bg-[#2f2f38] p-3 rounded-xl shadow-inner">
-                    {icon}
-                </div>
-                <h2 className="text-xl font-semibold text-[#e8e8ea]">{title}</h2>
-            </div>
-
-            {/* Icons Row */}
-            <div className="flex flex-wrap gap-6">
-                {items.map((item, i) => (
-                    <div key={i} className="flex flex-col items-center text-gray-300 text-xs">
-                        <div className="bg-[#2f2f38] p-3 rounded-lg shadow">
-                            {item.icon}
-                        </div>
-                        <span className="mt-2">{item.name}</span>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
 const Skills = () => {
+    const [visibleCards, setVisibleCards] = useState([false, false, false, false, false]);
+    const [visibleItems, setVisibleItems] = useState({});
+    const sectionRef = useRef(null);
+    const hasAnimated = useRef(false);
+
     useEffect(() => {
         AOS.init({
             duration: 500,
             once: true,
             offset: 100
         });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting && !hasAnimated.current) {
+                    hasAnimated.current = true;
+                    // Animate cards one by one with 50ms delay
+                    visibleCards.forEach((_, cardIndex) => {
+                        setTimeout(() => {
+                            setVisibleCards(prev => {
+                                const newState = [...prev];
+                                newState[cardIndex] = true;
+                                return newState;
+                            });
+                        }, cardIndex * 50); // 50ms delay between cards
+                    });
+                }
+            },
+            {
+                threshold: 0.2,
+                rootMargin: "0px 0px -100px 0px"
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
     }, []);
+
+    // When a card becomes visible, start animating its items
+    useEffect(() => {
+        visibleCards.forEach((isVisible, cardIndex) => {
+            if (isVisible && !visibleItems[cardIndex]) {
+                // Get the number of items in this card
+                let itemCount = 0;
+                if (cardIndex === 0) itemCount = frontendSkills.length;
+                else if (cardIndex === 1) itemCount = backendSkills.length;
+                else if (cardIndex === 2) itemCount = coreSkills.length;
+                else if (cardIndex === 3) itemCount = toolsSkills.length;
+                else if (cardIndex === 4) itemCount = designSkills.length;
+
+                // Animate items one by one with 40ms delay
+                for (let i = 0; i < itemCount; i++) {
+                    setTimeout(() => {
+                        setVisibleItems(prev => ({
+                            ...prev,
+                            [`${cardIndex}-${i}`]: true
+                        }));
+                    }, i * 40); // 40ms delay between each item
+                }
+
+                // Mark that items for this card have started animating
+                setVisibleItems(prev => ({
+                    ...prev,
+                    [cardIndex]: true
+                }));
+            }
+        });
+    }, [visibleCards]);
 
     // Organize skills by category for the card layout
     const frontendSkills = skills
@@ -233,9 +276,16 @@ const Skills = () => {
         description: tool.description
     }));
 
-    // bg-[#2f2f38]
+    const allSkillCards = [
+        { title: "Frontend", icon: <Code2 className="text-[#83838c] text-xl" />, items: frontendSkills },
+        { title: "Backend & DB", icon: <Server className="text-[#83838c] text-xl" />, items: backendSkills },
+        { title: "Languages", icon: <FileCode className="text-[#83838c] text-xl" />, items: coreSkills },
+        { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] text-xl" />, items: toolsSkills },
+        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] text-xl" />, items: designSkills }
+    ];
+
     return (
-        <div className="bg-gradient-to-br from-slate-50 to-gray-100 py-7 lg:py-20">
+        <div ref={sectionRef} className="bg-gradient-to-br from-slate-50 to-gray-100 py-7 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-8" data-aos="fade-up">
@@ -246,41 +296,49 @@ const Skills = () => {
                 </div>
 
                 {/* Skills Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
-                    {/* Frontend Card */}
-                    <SkillCard
-                        title="Frontend"
-                        icon={<Code2 className="text-[#83838c] text-xl" />}
-                        items={frontendSkills}
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {allSkillCards.map((card, cardIndex) => (
+                        <div
+                            key={cardIndex}
+                            className={`bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 transition-all duration-700 hover:scale-105 ${visibleCards[cardIndex]
+                                    ? 'opacity-100 translate-y-0'
+                                    : 'opacity-0 translate-y-12'
+                                }`}
+                            style={{
+                                transitionDelay: `${cardIndex * 50}ms`,
+                                transitionProperty: 'opacity, transform, box-shadow'
+                            }}
+                        >
+                            {/* Title */}
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="bg-[#2f2f38] p-3 rounded-xl shadow-inner">
+                                    {card.icon}
+                                </div>
+                                <h2 className="text-xl font-semibold text-[#e8e8ea]">{card.title}</h2>
+                            </div>
 
-                    {/* Backend & DB Card */}
-                    <SkillCard
-                        title="Backend & DB"
-                        icon={<Server className="text-[#83838c] text-xl" />}
-                        items={backendSkills}
-                    />
-
-                    {/* Languages Card */}
-                    <SkillCard
-                        title="Languages"
-                        icon={<FileCode className="text-[#83838c] text-xl" />}
-                        items={coreSkills}
-                    />
-
-                    {/* Tools & Platforms Card */}
-                    <SkillCard
-                        title="Tools & Platforms"
-                        icon={<Wrench className="text-[#83838c] text-xl" />}
-                        items={toolsSkills}
-                    />
-
-                    {/* UI/UX & Design Card */}
-                    <SkillCard
-                        title="UI/UX & Design"
-                        icon={<Palette className="text-[#83838c] text-xl" />}
-                        items={designSkills}
-                    />
+                            {/* Icons Row with individual item delays */}
+                            <div className="flex flex-wrap gap-6">
+                                {card.items.map((item, itemIndex) => (
+                                    <div
+                                        key={itemIndex}
+                                        className={`flex flex-col items-center text-gray-300 text-xs transition-all duration-500 ${visibleItems[`${cardIndex}-${itemIndex}`]
+                                                ? 'opacity-100 translate-y-0 scale-100'
+                                                : 'opacity-0 translate-y-4 scale-95'
+                                            }`}
+                                        style={{
+                                            transitionDelay: `${itemIndex * 40}ms`
+                                        }}
+                                    >
+                                        <div className="bg-[#2f2f38] p-3 rounded-lg shadow">
+                                            {item.icon}
+                                        </div>
+                                        <span className="mt-2">{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
