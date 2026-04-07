@@ -1,5 +1,9 @@
 # Personal Portfolio Project
 
+<div align="center">
+  <img height="500" src="https://drive.google.com/uc?export=view&id=1T1B6P4xJZgsaY971ythTk9yfRJjIxLX-" />
+</div>
+
 A modern, responsive, and visually appealing personal portfolio built with **React**, **Vite**, **Tailwind CSS**, and **DaisyUI**. It highlights your skills, projects, and experiences in a dynamic and interactive format.
 
 ## Features
