@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../src/assets/logo2.png';
+import { Download } from "lucide-react";
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("");
@@ -192,8 +193,9 @@ const Navbar = () => {
                     <a
                         href="/resume.pdf"
                         download="Resume by Ashraful Islam Ratul.pdf"
-                        className="hidden md:inline-block relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
+                        className="hidden md:inline-flex items-center gap-2 relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
                     >
+                        <Download size={16} className="relative z-10" />
                         <span className="relative z-10">Resume</span>
                     </a>
                 </div>

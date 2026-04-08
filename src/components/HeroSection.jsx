@@ -2,6 +2,7 @@ import { FaDownload, FaFacebook, FaGithub, FaLinkedin, FaBriefcase, FaCode, FaGr
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import img from '../../src/assets//image/img.png';
 import './css/HeroSection.css'
+import { Download } from "lucide-react";
 
 const HeroSection = ({ onHireMeClick }) => {
     return (
@@ -63,7 +64,7 @@ const HeroSection = ({ onHireMeClick }) => {
                                 className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    <FaDownload className="group-hover:animate-bounce" />
+                                    <Download size={18} className="group-hover:animate-bounce" />
                                     Download CV
                                 </span>
                             </a>
