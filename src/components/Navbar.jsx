@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from '../../src/assets/logo2.png';
+import logo from '../../src/assets/logo3.png';
 import { Download } from "lucide-react";
 
 const Navbar = () => {
@@ -132,7 +132,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 bg-base-100 shadow-md">
+        <div className="fixed top-0 left-0 w-full z-50 bg-base-100/60 backdrop-blur-md shadow-md">
             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
                 <div className="navbar-start">
                     <a
