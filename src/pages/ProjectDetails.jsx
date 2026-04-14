@@ -62,7 +62,7 @@ const ProjectDetails = () => {
     };
 
     return (
-        <div className="pt-8 pb-16">
+        <div className="min-h-screen pt-8 pb-16">
             <Helmet>
                 <title>{project.title} | Ashraful Islam Ratul</title>
             </Helmet>
