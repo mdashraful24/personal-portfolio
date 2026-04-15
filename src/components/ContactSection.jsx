@@ -82,6 +82,16 @@ const ContactSection = () => {
             borderColor: "border-red-100 dark:border-gray-700"
         },
         {
+            icon: <FaWhatsapp className="text-xl" />,
+            title: "WhatsApp",
+            details: "+880 1825-532252",
+            description: "Message me on WhatsApp",
+            color: "from-green-500 to-emerald-500",
+            link: "https://wa.me/8801825532252",
+            bgColor: "bg-green-50 dark:bg-gray-800",
+            borderColor: "border-green-100 dark:border-gray-700"
+        },
+        {
             icon: <FaPhoneAlt className="text-xl" />,
             title: "Phone",
             details: "+880 1825-532252",
@@ -91,16 +101,6 @@ const ContactSection = () => {
             bgColor: "bg-blue-50 dark:bg-gray-800",
             borderColor: "border-blue-100 dark:border-gray-700"
         },
-        {
-            icon: <FaWhatsapp className="text-xl" />,
-            title: "WhatsApp",
-            details: "+880 1825-532252",
-            description: "Message me on WhatsApp",
-            color: "from-green-500 to-emerald-500",
-            link: "https://wa.me/8801825532252",
-            bgColor: "bg-green-50 dark:bg-gray-800",
-            borderColor: "border-green-100 dark:border-gray-700"
-        }
     ];
 
     const socialLinks = [
@@ -164,7 +164,7 @@ const ContactSection = () => {
                                 style={{ transitionDelay: `${index * 0.1}s` }}
                             >
                                 <div className="flex flex-col">
-                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border ${info.borderColor} transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow md:hover:scale-105 contact-card-inner dark:bg-gray-800 dark:border-gray-700`}>
+                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border ${info.borderColor} transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow contact-card-inner dark:bg-gray-800 dark:border-gray-700`}>
                                         <div className="flex items-start gap-4">
                                             <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0 transition-all duration-300 group-hover:scale-110 contact-icon`}>
                                                 {info.icon}
@@ -248,25 +248,27 @@ const ContactSection = () => {
                                         </div>
                                     )}
 
-                                    <button
-                                        type="submit"
-                                        disabled={isLoading}
-                                        className="relative w-full md:w-auto px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group submit-button"
-                                    >
-                                        <div className="flex items-center justify-center gap-2">
-                                            {isLoading ? (
-                                                <>
-                                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                                    <span className="relative z-10">Sending...</span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <span className="relative z-10">Send Message</span>
-                                                    <FaPaperPlane className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                                </>
-                                            )}
-                                        </div>
-                                    </button>
+                                    <div className="flex justify-end">
+                                        <button
+                                            type="submit"
+                                            disabled={isLoading}
+                                            className="relative w-full md:w-auto px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group submit-button"
+                                        >
+                                            <div className="flex items-center justify-center gap-2">
+                                                {isLoading ? (
+                                                    <>
+                                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                        <span className="relative z-10">Sending...</span>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <span className="relative z-10">Send Message</span>
+                                                        <FaPaperPlane className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                    </>
+                                                )}
+                                            </div>
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

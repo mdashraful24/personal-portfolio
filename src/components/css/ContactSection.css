@@ -102,7 +102,7 @@
     transition-delay: 0.35s;
 }
 
-/* Location Icon */
+/* Location */
 .contact-section .location-icon {
     opacity: 0;
     transform: scale(0.8);
@@ -115,7 +115,7 @@
     transition: opacity 0.4s ease-out 0.25s, transform 0.4s ease-out 0.25s;
 }
 
-/* Quick Note inner elements */
+/* Quick Note */
 .contact-section .quick-note h4,
 .contact-section .quick-note p {
     opacity: 0;
@@ -131,7 +131,7 @@
     transition-delay: 0.45s;
 }
 
-/* Form Icon and Title */
+/* Form Icon & Title */
 .contact-section .form-icon {
     opacity: 0;
     transform: scale(0.8);
@@ -144,7 +144,7 @@
     transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s;
 }
 
-/* Active state - show all elements */
+/* Active state */
 .contact-section.animate-section-in .header-title,
 .contact-section.animate-section-in .header-subtitle,
 .contact-section.animate-section-in .contact-card,
@@ -164,7 +164,7 @@
     transform: translate(0) scale(1);
 }
 
-/* Ensure background floating animations continue */
+/* Floating background */
 .bg-float {
     animation: float 8s ease-in-out infinite;
 }
@@ -173,7 +173,7 @@
 
     0%,
     100% {
-        transform: translateY(0px) translateX(0px);
+        transform: translateY(0) translateX(0);
     }
 
     50% {
@@ -181,7 +181,7 @@
     }
 }
 
-/* Pulse Glow */
+/* Glow Effects */
 @keyframes pulseGlowBlue {
     0% {
         box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
@@ -216,4 +216,16 @@
 
 .animate-pulse-glow-red {
     animation: pulseGlowRed 2s infinite;
+}
+
+/* Button Animation */
+.contact-section .submit-button {
+    transition:
+        opacity 0.5s ease-out,
+        transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+}
+
+/* Zoom-out click effect */
+.contact-section .submit-button:active {
+    transform: translateY(0) scale(0.88);
 }
