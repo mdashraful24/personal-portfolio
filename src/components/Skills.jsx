@@ -300,7 +300,7 @@ const Skills = () => {
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 dark:border-gray-700 transition-all duration-700 hover:scale-105 ${visibleCards[cardIndex]
+                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 dark:border-gray-700 transition-all duration-300 dark:duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.5)] dark:hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
                                 ? 'opacity-100 translate-y-0'
                                 : 'opacity-0 translate-y-12'
                                 }`}
@@ -333,7 +333,7 @@ const Skills = () => {
                                         <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-lg shadow">
                                             {item.icon}
                                         </div>
-                                        <span className="mt-2">{item.name}</span>
+                                        <span className="dark:text-gray-300 dark:font-bold mt-2">{item.name}</span>
                                     </div>
                                 ))}
                             </div>

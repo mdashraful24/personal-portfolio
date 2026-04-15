@@ -7,7 +7,7 @@ import { Download } from "lucide-react";
 // dark: bg - gradient - to - br dark: from - gray - 900 dark: via - gray - 800 dark: to - gray - 900
 const HeroSection = ({ onHireMeClick }) => {
     return (
-        <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:bg-gradient-to-br dark:from-black dark:via-black dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
+        <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:bg-gradient-to-br dark:from-black dark:via-gray-800 dark:to-gray-950 lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
             {/* Background decorative elements - Hidden in dark mode */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
