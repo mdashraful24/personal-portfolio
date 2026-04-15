@@ -3,7 +3,7 @@
 const AboutMe = () => {
     return (
         <div className="dark:bg-black">
-            <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-20">
+            <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-24">
                 <div className="space-y-5">
                     <h1 className="text-3xl md:text-4xl text-center font-bold md:mb-6 dark:text-white">
                         About Me

@@ -34,7 +34,7 @@ const AllProjects = () => {
         : allProjectsWithType.filter(project => project.type === activeTab);
 
     return (
-        <div className="dark:bg-black">
+        <div className="dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900">
             <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 pt-10 pb-16">
                 <Helmet>
                     <title>All Projects | Ashraful Islam Ratul</title>

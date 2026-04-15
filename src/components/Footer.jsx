@@ -3,7 +3,7 @@ import { ArrowDownRight } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-black p-4">
+        <footer className="bg-black dark:bg-gray-900 p-4">
             <div className="container max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 lg:px-4">
                 {/* Copyright */}
                 <p className="text-sm text-gray-400">
@@ -16,17 +16,25 @@ const Footer = () => {
                         href="https://www.linkedin.com/in/ashraful-islam-ratul/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 group cursor-pointer hover:text-blue-400"
                     >
-                        LinkedIn <ArrowDownRight size={20} className="-rotate-90" />
+                        LinkedIn
+                        <ArrowDownRight
+                            size={20}
+                            className="-rotate-90 transition-transform duration-300 group-hover:-translate-y-1"
+                        />
                     </a>
                     <a
                         href="https://github.com/mdashraful24"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 group cursor-pointer hover:text-blue-400"
                     >
-                        Github <ArrowDownRight size={20} className="-rotate-90" />
+                        Github
+                        <ArrowDownRight
+                            size={20}
+                            className="-rotate-90 transition-transform duration-300 group-hover:-translate-y-1"
+                        />
                     </a>
                 </div>
             </div>

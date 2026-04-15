@@ -163,9 +163,9 @@ const Navbar = () => {
             </div>
 
             {/* Bottom Section */}
-            <div className="p-6 border-t border-gray-300 dark:border-gray-700 space-y-4 bg-white dark:bg-gray-900">
-                <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-gray-50 dark:bg-gray-800">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
+            <div className="p-6 border-t border-gray-300 dark:border-gray-700 space-y-4 bg-white dark:bg-gray-900 shadow-lg dark:shadow-[0_30px_50px_rgba(59,130,246,0.5)]">
+                <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-slate-300 dark:bg-gray-800">
+                    <span className="text-black dark:text-gray-300">Theme</span>
                     <DarkLightTheme />
                 </div>
 
@@ -201,7 +201,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end lg:pr-2 md:gap-3 lg:gap-6">
+                <div className="navbar-end md:gap-3 lg:gap-6">
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMobileMenuOpen(true)}
