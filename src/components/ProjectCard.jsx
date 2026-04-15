@@ -22,37 +22,35 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                 return {
                     icon: <FaUser className="w-3 h-3" />,
                     text: 'Personal Project',
-                    color: 'bg-blue-100 text-blue-700 border-blue-200'
+                    color: 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/90 dark:text-blue-200 dark:border-blue-800'
                 };
             case 'team':
                 return {
                     icon: <FaUsers className="w-3 h-3" />,
                     text: 'Team Project',
-                    color: 'bg-green-100 text-green-700 border-green-200'
+                    color: 'bg-green-100 text-green-700 border-green-200 dark:bg-green-900/90 dark:text-green-300 dark:border-green-800'
                 };
             case 'client':
                 return {
                     icon: <FaBriefcase className="w-3 h-3" />,
                     text: 'Client Project',
-                    color: 'bg-purple-100 text-purple-700 border-purple-200'
+                    color: 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/90 dark:text-purple-100 dark:border-purple-800'
                 };
             default:
                 return {
                     icon: <FaUser className="w-3 h-3" />,
                     text: 'Project',
-                    color: 'bg-gray-100 text-gray-700 border-gray-200'
+                    color: 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700'
                 };
         }
     };
 
     // Get technologies to display - prioritize topTech if available
     const getTechnologiesToDisplay = () => {
-        // If topTech is provided and is an array, use it
         if (topTech && Array.isArray(topTech) && topTech.length > 0) {
             return topTech;
         }
 
-        // Fallback: collect all technologies from different categories
         const allTechs = [];
 
         if (frontend && Array.isArray(frontend)) {
@@ -68,7 +66,6 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
             allTechs.push(...development);
         }
 
-        // If techStack is provided as simple array, use that as fallback
         if (allTechs.length === 0 && techStack && Array.isArray(techStack)) {
             return techStack.map(tech => ({ name: tech, icon: null }));
         }
@@ -80,10 +77,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
     const badge = getTypeBadge();
 
     return (
-        <div className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full">
+        <div className="group relative bg-white dark:bg-black rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full">
 
             {/* Image Container with Gradient Overlay */}
-            <div className="relative overflow-hidden h-56 flex-shrink-0 bg-gray-100">
+            <div className="relative overflow-hidden h-56 flex-shrink-0 bg-gray-100 dark:bg-gray-700">
                 {!imageError && imageSrc ? (
                     <img
                         src={imageSrc}
@@ -91,10 +88,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                 ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
                         <div className="text-center">
                             <div className="text-4xl mb-2">🖼️</div>
-                            <p className="text-sm text-gray-500">Preview not available</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Preview not available</p>
                         </div>
                     </div>
                 )}
@@ -104,7 +101,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Project Type Badge */}
                 <div className="absolute top-3 left-3">
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border ${badge.color}`}> {/* backdrop-blur-sm bg-opacity-90 */}
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border ${badge.color}`}>
                         {badge.icon}
                         {badge.text}
                     </span>
@@ -117,10 +114,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                             href={githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-white rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-200 hover:scale-110"
+                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <FaGithub size={16} className="text-gray-700" />
+                            <FaGithub size={16} className="text-gray-700 dark:text-gray-300" />
                         </a>
                     )}
                     {demoLink && demoLink !== "View Site" && (
@@ -128,10 +125,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                             href={demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-white rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-200 hover:scale-110"
+                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <FaExternalLinkAlt size={14} className="text-gray-700" />
+                            <FaExternalLinkAlt size={14} className="text-gray-700 dark:text-gray-300" />
                         </a>
                     )}
                 </div>
@@ -141,7 +138,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
             <div className="p-5 flex flex-col flex-grow">
                 {/* Title with accent line */}
                 <div className="mb-3">
-                    <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-1">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
                         {title}
                     </h3>
                     <div className="w-12 h-0.5 bg-blue-500 mt-2 group-hover:w-16 transition-all duration-300" />
@@ -149,41 +146,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Description */}
                 {description && (
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 leading-relaxed">
                         {description}
                     </p>
                 )}
-
-                {/* Technology Stack Section - Show top 5 techs from topTech */}
-                {/* {technologies && technologies.length > 0 && (
-                    <div className="mb-5">
-                        <div className="flex flex-wrap gap-2">
-                            {technologies.slice(0, 5).map((tech, index) => (
-                                <div
-                                    key={index}
-                                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-md bg-gray-100 text-gray-600"
-                                >
-                                    {tech.icon && (
-                                        <img
-                                            src={tech.icon}
-                                            alt={tech.name}
-                                            className="w-4 h-4 object-contain"
-                                            onError={(e) => {
-                                                e.target.style.display = 'none';
-                                            }}
-                                        />
-                                    )}
-                                    <span>{tech.name}</span>
-                                </div>
-                            ))}
-                            {technologies.length > 5 && (
-                                <span className="px-2.5 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded-md">
-                                    +{technologies.length - 5}
-                                </span>
-                            )}
-                        </div>
-                    </div>
-                )} */}
 
                 {/* View Details Button */}
                 <div className="mt-auto">
@@ -192,7 +158,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                             className="
                                 w-full flex items-center justify-between
                                 py-3 px-5 rounded-xl
-                                bg-gradient-to-r from-gray-900 to-gray-800
+                                bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800
                                 text-white font-medium text-sm
                                 hover:from-blue-600 hover:to-blue-700
                                 transition-all duration-300

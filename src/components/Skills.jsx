@@ -148,10 +148,10 @@ const getIcon = (skillName) => {
 
 const getToolIcon = (toolName) => {
     switch (toolName) {
-        case "GitHub": return <FaGithub className="text-gray-300 text-xl" />;
+        case "GitHub": return <FaGithub className="text-gray-300 dark:text-gray-400 text-xl" />;
         case "VS Code": return <VscVscode className="text-blue-400 text-xl" />;
         case "Netlify": return <SiNetlify className="text-green-400 text-xl" />;
-        case "Vercel": return <SiVercel className="text-white text-xl" />;
+        case "Vercel": return <SiVercel className="text-white dark:text-gray-300 text-xl" />;
         default: return null;
     }
 };
@@ -277,20 +277,20 @@ const Skills = () => {
     }));
 
     const allSkillCards = [
-        { title: "Frontend", icon: <Code2 className="text-[#83838c] text-xl" />, items: frontendSkills },
-        { title: "Backend & DB", icon: <Server className="text-[#83838c] text-xl" />, items: backendSkills },
-        { title: "Languages", icon: <FileCode className="text-[#83838c] text-xl" />, items: coreSkills },
-        { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] text-xl" />, items: toolsSkills },
-        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] text-xl" />, items: designSkills }
+        { title: "Frontend", icon: <Code2 className="text-[#83838c] dark:text-gray-400 text-xl" />, items: frontendSkills },
+        { title: "Backend & DB", icon: <Server className="text-[#83838c] dark:text-gray-400 text-xl" />, items: backendSkills },
+        { title: "Languages", icon: <FileCode className="text-[#83838c] dark:text-gray-400 text-xl" />, items: coreSkills },
+        { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] dark:text-gray-400 text-xl" />, items: toolsSkills },
+        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] dark:text-gray-400 text-xl" />, items: designSkills }
     ];
 
     return (
-        <div ref={sectionRef} className="bg-gradient-to-br from-slate-50 to-gray-100 py-7 lg:py-20">
+        <div ref={sectionRef} className="bg-gradient-to-br from-slate-50 to-gray-100 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-8" data-aos="fade-up">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
-                    <p className="md:text-lg max-w-3xl mx-auto leading-relaxed">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Skills & Technologies</h2>
+                    <p className="md:text-lg max-w-3xl mx-auto leading-relaxed dark:text-gray-300">
                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.
                     </p>
                 </div>
@@ -300,21 +300,21 @@ const Skills = () => {
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`bg-[#3b3b45] rounded-2xl p-6 shadow-lg border border-gray-600/20 transition-all duration-700 hover:scale-105 ${visibleCards[cardIndex]
-                                    ? 'opacity-100 translate-y-0'
-                                    : 'opacity-0 translate-y-12'
+                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 dark:border-gray-700 transition-all duration-700 hover:scale-105 ${visibleCards[cardIndex]
+                                ? 'opacity-100 translate-y-0'
+                                : 'opacity-0 translate-y-12'
                                 }`}
                             style={{
-                                transitionDelay: `${cardIndex * 50}ms`,
+                                transitionDelay: `${cardIndex * 90}ms`,
                                 transitionProperty: 'opacity, transform, box-shadow'
                             }}
                         >
                             {/* Title */}
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#2f2f38] p-3 rounded-xl shadow-inner">
+                                <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-xl shadow-inner">
                                     {card.icon}
                                 </div>
-                                <h2 className="text-xl font-semibold text-[#e8e8ea]">{card.title}</h2>
+                                <h2 className="text-xl font-semibold text-[#e8e8ea] dark:text-white">{card.title}</h2>
                             </div>
 
                             {/* Icons Row with individual item delays */}
@@ -322,15 +322,15 @@ const Skills = () => {
                                 {card.items.map((item, itemIndex) => (
                                     <div
                                         key={itemIndex}
-                                        className={`flex flex-col items-center text-gray-300 text-xs transition-all duration-500 ${visibleItems[`${cardIndex}-${itemIndex}`]
-                                                ? 'opacity-100 translate-y-0 scale-100'
-                                                : 'opacity-0 translate-y-4 scale-95'
+                                        className={`flex flex-col items-center text-gray-300 dark:text-gray-400 text-xs transition-all duration-500 ${visibleItems[`${cardIndex}-${itemIndex}`]
+                                            ? 'opacity-100 translate-y-0 scale-100'
+                                            : 'opacity-0 translate-y-4 scale-95'
                                             }`}
                                         style={{
                                             transitionDelay: `${itemIndex * 40}ms`
                                         }}
                                     >
-                                        <div className="bg-[#2f2f38] p-3 rounded-lg shadow">
+                                        <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-lg shadow">
                                             {item.icon}
                                         </div>
                                         <span className="mt-2">{item.name}</span>

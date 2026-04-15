@@ -53,7 +53,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         </div>
 
                         {/* Description */}
-                        <p className="w-full max-w-xl lg:text-lg leading-relaxed animate-fade-up delay-200 text-gray-600 dark:text-gray-400">
+                        <p className="w-full max-w-xl mx-auto lg:text-lg leading-relaxed animate-fade-up delay-200 text-gray-600 dark:text-gray-300">
                             Full-stack developer focused on crafting clean UIs and solid backend logic. I create responsive, user-friendly applications backed by scalable systems and well-structured databases.
                         </p>
 
@@ -80,7 +80,7 @@ const HeroSection = ({ onHireMeClick }) => {
 
                         {/* Social Links with Labels */}
                         <div className="flex flex-col items-center lg:items-start gap-4 pt-4 animate-fade-up delay-400">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">Connect with me:</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-300">Connect with me:</p>
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 <a
                                     href="https://github.com/mdashraful24"

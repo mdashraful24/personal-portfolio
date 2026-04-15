@@ -187,10 +187,10 @@ const Navbar = () => {
     );
 
     return (
-        <div className="fixed top-0 left-0 w-full z-50 bg-base-100/80 backdrop-blur-md shadow-md">
-            <div className="navbar container max-w-7xl mx-auto px-4 lg:px-2 lg:py-0">
+        <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-black backdrop-blur-md shadow-md">
+            <div className="navbar container max-w-7xl mx-auto px-4 lg:pl-4 lg:py-0">
                 <div className="navbar-start">
-                    <a onClick={handleLogoClick} className="cursor-pointer">
+                    <a onClick={handleLogoClick} className="cursor-pointer dark:bg-white dark:rounded-xl">
                         <img src={logo} alt="Logo" className="w-40 lg:w-48" />
                     </a>
                 </div>
@@ -221,7 +221,7 @@ const Navbar = () => {
                             /> */}
 
                             {/* Drawer */}
-                            <div className="fixed right-0 top-0 bottom-0 w-full max-w-sm shadow-2xl z-50 transform transition-transform duration-300 ease-out md:hidden animate-slideInRight">
+                            <div className="fixed right-0 top-0 bottom-0 w-full shadow-2xl z-50 transform transition-transform duration-300 ease-out md:hidden animate-slideInRight">
                                 {mobileNavLinks}
                             </div>
                         </>

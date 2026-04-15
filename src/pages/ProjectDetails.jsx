@@ -62,7 +62,7 @@ const ProjectDetails = () => {
     };
 
     return (
-        <div className="min-h-screen pt-8 pb-16">
+        <div className="dark:bg-black min-h-screen pt-8 pb-16">
             <Helmet>
                 <title>{project.title} | Ashraful Islam Ratul</title>
             </Helmet>
@@ -129,7 +129,7 @@ const ProjectDetails = () => {
                                         href={project.codeLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group flex items-center gap-2 px-3 py-2 bg-black text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
+                                        className="group flex items-center gap-2 px-3 py-2 bg-gray-900 dark:bg-gray-800 text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
                                     >
                                         <span
                                             className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
