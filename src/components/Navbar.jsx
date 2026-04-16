@@ -113,7 +113,9 @@ const Navbar = () => {
     const desktopNavLinks = (
         <>
             {navItems.map((item) => (
-                <li key={item.id} className="text-center group">
+                // <li key={item.id} className="text-center group"></li>
+                <li key={item.id} className={`text-center group ${item.id === "contact" ? "hidden lg:block" : ""
+                    }`}>
                     <a
                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
                         className={`relative inline-block pb-1 transition-colors duration-300 cursor-pointer
