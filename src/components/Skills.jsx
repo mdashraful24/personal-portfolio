@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva } from "react-icons/si";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe } from "react-icons/si";
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { VscVscode } from "react-icons/vsc";
+import { Server, FileCode, Code2, Wrench, Palette, Plug } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Server, FileCode, Code2, Wrench, Palette } from 'lucide-react';
 
 const skills = [
     {
@@ -111,6 +111,22 @@ const skills = [
         color: "from-indigo-500 to-purple-700",
         bgColor: "bg-indigo-500/10",
         description: "Object-oriented programming"
+    },
+    {
+        id: 14,
+        name: "Firebase",
+        category: "service",
+        color: "from-yellow-500 to-yellow-700",
+        bgColor: "bg-yellow-500/10",
+        description: "Backend-as-a-Service platform"
+    },
+    {
+        id: 15,
+        name: "Stripe",
+        category: "service",
+        color: "from-purple-500 to-purple-700",
+        bgColor: "bg-purple-500/10",
+        description: "Payment processing platform"
     }
 ];
 
@@ -142,6 +158,8 @@ const getIcon = (skillName) => {
         case "TypeScript": return <SiTypescript className="text-blue-500 text-xl" />;
         case "C": return <SiC className="text-blue-400 text-xl" />;
         case "C++": return <SiCplusplus className="text-blue-400 text-xl" />;
+        case "Firebase": return <SiFirebase className="text-yellow-400 text-xl" />;
+        case "Stripe": return <SiStripe className="text-purple-400 text-xl" />;
         default: return null;
     }
 };
@@ -165,7 +183,7 @@ const getDesignToolIcon = (toolName) => {
 };
 
 const Skills = () => {
-    const [visibleCards, setVisibleCards] = useState([false, false, false, false, false]);
+    const [visibleCards, setVisibleCards] = useState([false, false, false, false, false, false]);
     const [visibleItems, setVisibleItems] = useState({});
     const sectionRef = useRef(null);
     const hasAnimated = useRef(false);
@@ -220,8 +238,9 @@ const Skills = () => {
                 if (cardIndex === 0) itemCount = frontendSkills.length;
                 else if (cardIndex === 1) itemCount = backendSkills.length;
                 else if (cardIndex === 2) itemCount = coreSkills.length;
-                else if (cardIndex === 3) itemCount = toolsSkills.length;
-                else if (cardIndex === 4) itemCount = designSkills.length;
+                else if (cardIndex === 3) itemCount = servicesSkills.length;
+                else if (cardIndex === 4) itemCount = toolsSkills.length;
+                else if (cardIndex === 5) itemCount = designSkills.length;
 
                 // Animate items one by one with 40ms delay
                 for (let i = 0; i < itemCount; i++) {
@@ -276,12 +295,21 @@ const Skills = () => {
         description: tool.description
     }));
 
+    const servicesSkills = skills
+        .filter(skill => skill.category === "service")
+        .map(skill => ({
+            name: skill.name.toUpperCase(),
+            icon: getIcon(skill.name),
+            description: skill.description
+        }));
+
     const allSkillCards = [
         { title: "Frontend", icon: <Code2 className="text-[#83838c] dark:text-gray-400 text-xl" />, items: frontendSkills },
         { title: "Backend & DB", icon: <Server className="text-[#83838c] dark:text-gray-400 text-xl" />, items: backendSkills },
         { title: "Languages", icon: <FileCode className="text-[#83838c] dark:text-gray-400 text-xl" />, items: coreSkills },
+        { title: "Services", icon: <Plug className="text-[#83838c] dark:text-gray-400 text-xl" />, items: servicesSkills },
         { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] dark:text-gray-400 text-xl" />, items: toolsSkills },
-        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] dark:text-gray-400 text-xl" />, items: designSkills }
+        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] dark:text-gray-400 text-xl" />, items: designSkills },
     ];
 
     return (
@@ -306,7 +334,7 @@ const Skills = () => {
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 dark:border-gray-700 transition-all duration-300 dark:duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.5)] dark:hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
+                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:duration-500 dark:hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
                                 ? 'opacity-100 translate-y-0'
                                 : 'opacity-0 translate-y-12'
                                 }`}
