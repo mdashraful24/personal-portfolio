@@ -5,9 +5,13 @@ const AboutMe = () => {
         <div className="dark:bg-black">
             <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-24">
                 <div className="space-y-5">
-                    <h1 className="text-3xl md:text-4xl text-center font-bold md:mb-6 dark:text-white">
-                        About Me
-                    </h1>
+                    <div className="flex items-center justify-center md:mb-6">
+                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                            About Me
+                        </span>
+                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                    </div>
                     <div className="md:text-lg leading-relaxed space-y-5 dark:text-gray-300">
                         <p>
                             My programming journey began in 2022 with C and C++, but in 2024 I transitioned into web development—where I discovered my passion for building interactive and scalable applications. Since then, I've focused on improving performance, scalability, and user experience through hands-on projects.

@@ -41,11 +41,17 @@ const AllProjects = () => {
                 </Helmet>
 
                 <div className="container mx-auto text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-bold dark:text-white">All Projects</h2>
-                    <p className="mt-4 md:text-lg mx-auto dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                    <div className="flex items-center justify-center mb-4">
+                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                            All Projects
+                        </span>
+                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                    </div>
+                    <p className="md:text-lg mx-auto dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
 
                     {/* Tab Navigation */}
-                    <div className="flex justify-center mt-6 mb-8">
+                    <div className="flex justify-center my-8">
                         <div className="bg-white dark:bg-gray-800 shadow-sm border dark:border-gray-700 rounded-xl p-1 flex gap-3">
                             <button
                                 onClick={() => setActiveTab("all")}

@@ -44,10 +44,14 @@ const ProjectsShowcase = () => {
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold dark:text-white">
-                            My Projects
-                        </h2>
-                        <p className="mt-4 md:text-lg dark:text-gray-300">
+                        <div className="flex items-center justify-center mb-4">
+                            <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                                My Projects
+                            </span>
+                            <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        </div>
+                        <p className="md:text-lg dark:text-gray-300">
                             Here are some of the projects I've worked on.
                         </p>
                     </motion.div>

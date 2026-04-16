@@ -289,7 +289,13 @@ const Skills = () => {
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-8" data-aos="fade-up">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Skills & Technologies</h2>
+                    <div className="flex items-center justify-center mb-4">
+                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                            Skills & Technologies
+                        </span>
+                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                    </div>
                     <p className="md:text-lg max-w-3xl mx-auto leading-relaxed dark:text-gray-300">
                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.
                     </p>

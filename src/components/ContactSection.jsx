@@ -144,9 +144,13 @@ const ContactSection = () => {
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
                     <div className="text-center mb-8 stagger-header">
-                        <h1 className="text-3xl md:text-4xl font-bold mb-2 header-title dark:text-white">
-                            Get In Touch
-                        </h1>
+                        <div className="flex items-center justify-center mb-4">
+                            <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                                Get In Touch
+                            </span>
+                            <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        </div>
                         <p className="md:text-lg max-w-2xl mx-auto header-subtitle dark:text-gray-300">
                             Have a project in mind? Let's collaborate and bring your ideas to life.
                         </p>
