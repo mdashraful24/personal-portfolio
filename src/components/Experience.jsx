@@ -23,7 +23,7 @@ const Experience = () => {
     return ( // from-[#0a0a1a] to-[#0f0f23]
         <div id="experience" className="bg-gradient-to-br from-white to-[#0f0f23]/20 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20">
             {/* Header */}
-            <div className="flex flex-col items-center text-center mb-10">
+            <div className="flex flex-col items-center text-center mb-10 px-4">
                 <div className="flex items-center mb-4">
                     <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
