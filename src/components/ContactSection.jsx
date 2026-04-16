@@ -105,7 +105,7 @@ const ContactSection = () => {
 
     const socialLinks = [
         {
-            icon: <FaGithub className="text-lg" />,
+            icon: <FaGithub className="text-2xl" />,
             label: "GitHub",
             url: "https://github.com/mdashraful24",
             color: "hover:bg-gray-600 hover:text-white",
@@ -113,7 +113,7 @@ const ContactSection = () => {
             bgColor: "bg-white/10 dark:bg-gray-700"
         },
         {
-            icon: <FaLinkedin className="text-lg" />,
+            icon: <FaLinkedin className="text-2xl" />,
             label: "LinkedIn",
             url: "https://www.linkedin.com/in/ashraful-islam-ratul/",
             color: "hover:bg-blue-600 hover:text-white",
@@ -121,7 +121,7 @@ const ContactSection = () => {
             bgColor: "bg-white/10 dark:bg-gray-700"
         },
         {
-            icon: <FaFacebook className="text-lg" />,
+            icon: <FaFacebook className="text-2xl" />,
             label: "Facebook",
             url: "https://www.facebook.com/ashraful.islam.ratul2k",
             color: "hover:bg-blue-500 hover:text-white",
@@ -295,7 +295,7 @@ const ContactSection = () => {
                                             className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon`}
                                             style={{ transitionDelay: `${index * 0.1}s` }}
                                         >
-                                            <div className={`p-2 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
+                                            <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
                                                 {social.icon}
                                             </div>
                                         </a>
