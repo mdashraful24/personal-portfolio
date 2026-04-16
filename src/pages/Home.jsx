@@ -31,11 +31,12 @@
 
 
 import { useRef } from "react";
-import AboutMe from "../components/AboutMe";
-import ContactSection from "../components/ContactSection";
 import HeroSection from "../components/HeroSection";
-import ProjectsShowcase from "../components/ProjectsShowcase";
+import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
+import ProjectsShowcase from "../components/ProjectsShowcase";
+import Experience from "../components/Experience";
+import ContactSection from "../components/ContactSection";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
@@ -66,6 +67,9 @@ const Home = () => {
             </section>
             <section id="skills">
                 <Skills />
+            </section>
+            <section id="experience">
+                <Experience />
             </section>
             <section id="projects">
                 <ProjectsShowcase />

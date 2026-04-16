@@ -435,7 +435,11 @@ const projectsData = {
     "team-project": [
         {
             "id": 51,
+            "duration": "Jan 2025 - Present",
             "title": "Smart Mentoring System (SMS)",
+            "organization": "Developed for Daffodil International University",
+            "location": "Birulia, Savar, Dhaka-1216, Bangladesh",
+            "projectType": "Team Project",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",
             "frontend": [
                 {
@@ -547,22 +551,39 @@ const projectsData = {
                 "Strengthen security with SSL, monitoring, and optional penetration testing",
                 "Full Integration with Academic Systems"
             ],
-            "technologies": [
-                "React.js",
-                "Node.js",
-                "Express.js",
-                "PostgreSQL",
-                "JWT",
-                "Bcrypt",
-                "Base64",
-                "Twilio",
-                "Nodemailer"
+            // "technologies": [
+            //     "React.js",
+            //     "Node.js",
+            //     "Express.js",
+            //     "PostgreSQL",
+            //     "JWT",
+            //     "Bcrypt",
+            //     "Base64",
+            //     "Twilio",
+            //     "Nodemailer"
+            // ],
+            "shortDescription": "An AI-powered mentoring platform offering real-time communication and smart recommendations. It includes secure JWT-based authentication, instant two-way messaging for groups and discussions, automated email/SMS alerts, a role-based analytics dashboard, and a heatmap-based system to recommend the best mentors.",
+            "responsibilities": [
+                "Leading a full-fledged project and development team of 3 members",
+                "Building the project's core features and architecture",
+                "Optimizing application performance",
+                "Mentoring others developers and conducting code reviews"
+            ],
+            "achievements": [
+                "Real-time 2-way communication between mentors and students",
+                "AI - based recommendations using student performance data",
+                "Early identification of at - risk students",
+                "Improved engagement and performance tracking"
             ],
             "stack": "PERN Stack"
         },
         {
             "id": 52,
+            "duration": "Jun 2024 - Dec 2025",
             "title": "Catering Connect (CaCo)",
+            "organization": "Startup Project",
+            "location": "Remote",
+            "projectType": "Team Project",
             "description": "A modern catering service platform connecting customers with professional catering services. Features include booking & scheduling with real-time order management, service provider dashboard for caterers to manage schedules and orders, and secure online transactions.",
             "frontend": [
                 {
@@ -607,7 +628,7 @@ const projectsData = {
                 },
                 {
                     "name": "SSLCommerz",
-                    "icon": "https://logo.clearbit.com/sslcommerz.com"
+                    "icon": "https://sslcommerz.com/wp-content/uploads/2021/11/logo.png"
                 },
                 {
                     "name": "ImgBB",
@@ -651,7 +672,7 @@ const projectsData = {
                 },
                 {
                     "name": "SSLCommerz",
-                    "icon": "https://logo.clearbit.com/sslcommerz.com"
+                    "icon": "https://sslcommerz.com/wp-content/uploads/2021/11/logo.png"
                 }
             ],
             "demoLink": "https://catering-connects.netlify.app",
@@ -669,13 +690,27 @@ const projectsData = {
                 "Expand to mobile application",
                 "Add advanced filtering and search capabilities"
             ],
-            "technologies": [
-                "React.js",
-                "Node.js",
-                "Express.js",
-                "MongoDB",
-                "Firebase",
-                "SSLCommerz"
+            // "technologies": [
+            //     "React.js",
+            //     "Node.js",
+            //     "Express.js",
+            //     "MongoDB",
+            //     "Firebase",
+            //     "SSLCommerz"
+            // ],
+            "shortDescription": "A modern catering service platform connecting customers with professional catering services. Features include booking & scheduling with real-time order management, service provider dashboard for caterers to manage schedules and orders, and secure online transactions.",
+            "responsibilities": [
+                "Led full frontend development of a MERN catering platform",
+                "Built real - time booking, scheduling, and order features",
+                "Created responsive UI using CSS3 and Tailwind CSS",
+                "Supported backend integration for smooth data flow",
+                "Participated in debugging, testing, and improving application performance"
+            ],
+            "achievements": [
+                "Successfully delivered a fully functional team - based web application",
+                "Implemented real - time order and scheduling workflow",
+                "Integrated secure payment system for smooth transactions",
+                "Contributed to building a scalable and maintainable system architecture"
             ],
             "stack": "MERN Stack"
         }

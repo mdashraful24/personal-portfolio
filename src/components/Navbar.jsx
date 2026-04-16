@@ -15,6 +15,7 @@ const Navbar = () => {
         { id: "home", label: "Home", path: "/", isSection: true },
         { id: "about", label: "About", path: "/", isSection: true },
         { id: "skills", label: "Skills", path: "/", isSection: true },
+        { id: "experience", label: "Experience", path: "/", isSection: true },
         { id: "projects", label: "Projects", path: "/", isSection: true },
         { id: "contact", label: "Contact", path: "/", isSection: true },
         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
