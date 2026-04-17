@@ -41,7 +41,7 @@ const skills = [
         description: "Component library for Tailwind"
     },
     {
-        id: 6,
+        id: 5,
         name: "React",
         category: "frontend",
         color: "from-blue-400 to-cyan-600",
@@ -49,7 +49,7 @@ const skills = [
         description: "Component-based UI library"
     },
     {
-        id: 7,
+        id: 6,
         name: "Node.js",
         category: "backend",
         color: "from-green-500 to-green-700",
@@ -57,7 +57,7 @@ const skills = [
         description: "JavaScript runtime environment"
     },
     {
-        id: 8,
+        id: 7,
         name: "Express",
         category: "backend",
         color: "from-gray-600 to-gray-800",
@@ -65,7 +65,7 @@ const skills = [
         description: "Web application framework"
     },
     {
-        id: 9,
+        id: 8,
         name: "MongoDB",
         category: "database",
         color: "from-green-600 to-green-800",
@@ -73,7 +73,7 @@ const skills = [
         description: "NoSQL database"
     },
     {
-        id: 10,
+        id: 9,
         name: "PostgreSQL",
         category: "database",
         color: "from-sky-500 to-sky-700",
@@ -81,7 +81,7 @@ const skills = [
         description: "Relational database system"
     },
     {
-        id: 5,
+        id: 10,
         name: "JavaScript",
         category: "language",
         color: "from-yellow-500 to-yellow-700",
@@ -89,7 +89,7 @@ const skills = [
         description: "Dynamic web programming"
     },
     {
-        id: 13,
+        id: 11,
         name: "TypeScript",
         category: "language",
         color: "from-blue-600 to-blue-800",
@@ -97,7 +97,7 @@ const skills = [
         description: "Typed JavaScript superset"
     },
     {
-        id: 11,
+        id: 12,
         name: "C",
         category: "language",
         color: "from-blue-600 to-blue-800",
@@ -105,7 +105,7 @@ const skills = [
         description: "System programming language"
     },
     {
-        id: 12,
+        id: 13,
         name: "C++",
         category: "language",
         color: "from-indigo-500 to-purple-700",

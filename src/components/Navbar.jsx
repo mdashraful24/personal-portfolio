@@ -194,7 +194,7 @@ const Navbar = () => {
             <div className="navbar container max-w-7xl mx-auto px-4 lg:pl-4 lg:py-0">
                 <div className="navbar-start">
                     <a onClick={handleLogoClick} className="cursor-pointer dark:bg-white dark:rounded-xl">
-                        <img src={logo} alt="Logo" className="w-32 md:w-40 lg:w-48" />
+                        <img src={logo} alt="Logo" className="w-32 md:w-40" />
                     </a>
                 </div>
 

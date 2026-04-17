@@ -1,31 +1,133 @@
-@keyframes fadeIn {
-    from {
+/* Initial hidden state for all animated elements */
+#experience .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When section is in view, all elements become visible */
+#experience.in-view .animate-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different animation directions */
+#experience .fade-in-left {
+    transform: translateX(-30px);
+}
+
+#experience.in-view .fade-in-left {
+    transform: translateX(0);
+}
+
+#experience .fade-in-right {
+    transform: translateX(30px);
+}
+
+#experience.in-view .fade-in-right {
+    transform: translateX(0);
+}
+
+#experience .scale-in {
+    transform: scale(0.95);
+}
+
+#experience.in-view .scale-in {
+    transform: scale(1);
+}
+
+/* Staggered delays for different elements */
+#experience .delay-1 {
+    transition-delay: 0.05s;
+}
+
+#experience .delay-2 {
+    transition-delay: 0.1s;
+}
+
+#experience .delay-3 {
+    transition-delay: 0.15s;
+}
+
+#experience .delay-4 {
+    transition-delay: 0.2s;
+}
+
+#experience .delay-5 {
+    transition-delay: 0.25s;
+}
+
+#experience .delay-6 {
+    transition-delay: 0.3s;
+}
+
+#experience .delay-7 {
+    transition-delay: 0.35s;
+}
+
+#experience .delay-8 {
+    transition-delay: 0.4s;
+}
+
+/* Content change animation when clicking different experience */
+@keyframes slideInContent {
+    0% {
         opacity: 0;
         transform: translateX(-20px);
     }
 
-    to {
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-.animate-fadeIn {
-    animation: fadeIn 0.5s ease-out;
+.experience-content-wrapper {
+    animation: slideInContent 0.4s ease-out forwards;
 }
 
+/* Card hover effects */
+.glow-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+/* Pulse animation for active indicator */
 @keyframes pulse {
 
     0%,
     100% {
         opacity: 1;
+        transform: scale(1);
     }
 
     50% {
         opacity: 0.5;
+        transform: scale(0.8);
     }
 }
 
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    #experience .animate-on-scroll,
+    .experience-content-wrapper,
+    .glow-card {
+        transition: none;
+        animation: none;
+    }
+
+    #experience .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
 }
