@@ -7,7 +7,7 @@ const AboutMe = () => {
                 <div className="space-y-5">
                     <div className="flex items-center justify-center md:mb-6">
                         <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
-                        <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                        <span className="px-6 text-3xl md:text-4xl text-center font-bold dark:text-white">
                             About Me
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
