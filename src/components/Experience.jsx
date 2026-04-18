@@ -58,7 +58,7 @@ const Experience = () => {
         <div
             ref={sectionRef}
             id="experience"
-            className="bg-gradient-to-br from-white to-[#0f0f23]/20 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20"
+            className="bg-gradient-to-br from-white to-[#0f0f23]/20 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20 overflow-hidden"
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section - Animated */}
