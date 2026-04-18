@@ -58,7 +58,7 @@ const Experience = () => {
         <div
             ref={sectionRef}
             id="experience"
-            className="bg-gradient-to-br from-white to-[#0f0f23]/20 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20 overflow-hidden"
+            className="bg-gradient-to-br from-white to-[#0f0f23]/20 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20 overflow-hidden lg:overflow-visible"
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section - Animated */}
@@ -75,7 +75,7 @@ const Experience = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-8">
                     {/* LEFT SIDE Content - Full Content Animation */}
                     <div className="order-2 lg:order-1">
                         {activeExp && (
@@ -223,10 +223,18 @@ const Experience = () => {
                                     >
                                         <div className="p-5">
                                             {/* Duration Badge */}
-                                            <div className="mb-3">
+                                            <div className="flex items-center justify-between gap-2 mb-3">
                                                 <span className="inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm font-semibold text-blue-400 border border-blue-500/20">
                                                     {exp.duration}
                                                 </span>
+
+                                                {/* Active Indicator */}
+                                                {activeExperience === index && (
+                                                    <div className="flex items-center gap-3 text-sm text-blue-400">
+                                                        <div className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse-glow"></div>
+                                                        <span>Currently viewing</span>
+                                                    </div>
+                                                )}
                                             </div>
 
                                             {/* Title & Organization */}
@@ -279,14 +287,6 @@ const Experience = () => {
                                                     </div>
                                                 );
                                             })()}
-
-                                            {/* Active Indicator */}
-                                            {activeExperience === index && (
-                                                <div className="mt-3 flex items-center gap-2 text-sm text-blue-400">
-                                                    <div className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse"></div>
-                                                    <span>Currently viewing</span>
-                                                </div>
-                                            )}
                                         </div>
                                     </GlowCard>
                                 </div>

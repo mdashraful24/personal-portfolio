@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Git checkout
+# git status --ignored
+
+# Optional npm
+# npm uninstall react-toastify --legacy-peer-deps

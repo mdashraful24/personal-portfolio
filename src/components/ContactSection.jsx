@@ -203,7 +203,7 @@ const ContactSection = () => {
                                             <div className="flex-1 min-w-0">
                                                 <h3 className="font-bold text-lg contact-title dark:text-white">{info.title}</h3>
                                                 <p className="font-medium break-all contact-details dark:text-gray-300">{info.details}</p>
-                                                <p className="text-sm mt-2 contact-description dark:text-gray-400">{info.description}</p>
+                                                <p className="text-sm mt-1 contact-description dark:text-gray-400">{info.description}</p>
                                             </div>
                                         </div>
                                     </div>
