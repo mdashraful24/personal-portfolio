@@ -114,10 +114,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                             href={githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <FaGithub size={16} className="text-gray-700 dark:text-gray-300" />
+                            <FaGithub size={16} className="text-gray-700 dark:text-white" />
                         </a>
                     )}
                     {demoLink && demoLink !== "View Site" && (
@@ -125,10 +125,10 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                             href={demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-110"
+                            className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <FaExternalLinkAlt size={14} className="text-gray-700 dark:text-gray-300" />
+                            <FaExternalLinkAlt size={14} className="text-gray-700 dark:text-white" />
                         </a>
                     )}
                 </div>
