@@ -104,7 +104,7 @@ const ProjectsShowcase = () => {
                             <div className="relative h-full flex flex-col items-center justify-center p-5 text-center bg-white dark:bg-gray-900 rounded-2xl">
                                 {/* Animated Icon */}
                                 <div className="mb-6 relative">
-                                    <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl animate-pulse opacity-30"></div>
+                                    <div className="absolute inset-0 bg-blue-500 rounded-full blur-lg animate-pulse opacity-30"></div>
                                     <div className="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform rotate-0 group-hover:rotate-12 transition-transform duration-500">
                                         <FaFolderOpen className="w-10 h-10 text-white" />
                                     </div>
