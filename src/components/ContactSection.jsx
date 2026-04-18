@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import './css/ContactSection.css'
 
@@ -46,15 +47,28 @@ const ContactSection = () => {
         setStatus({ type: "", message: "" });
 
         emailjs.sendForm(
-            "service_ysqveka",
-            "template_uuljs7u",
+            import.meta.env.VITE_SERVICE_ID,
+            import.meta.env.VITE_TEMPLATE_ID,
             form.current, {
-            publicKey: "lea3REjeCm7cxlorD",
+            publicKey: import.meta.env.VITE_PUBLIC_KEY,
         }).then(
             () => {
                 setStatus({
                     type: "success",
                     message: "Message sent successfully! I'll get back to you soon."
+                });
+                toast.success("Message sent successfully! I'll get back to you soon.", {
+                    style: {
+                        background: '#16a34a',
+                        color: '#fff',
+                        // fontWeight: '500',
+                        padding: '10px 16px',
+                        borderRadius: '12px',
+                    },
+                    iconTheme: {
+                        primary: '#fff',
+                        secondary: '#16a34a',
+                    },
                 });
                 form.current.reset();
                 setIsLoading(false);
@@ -64,7 +78,20 @@ const ContactSection = () => {
                     type: "error",
                     message: "Failed to send message. Please try again or use alternative contact methods."
                 });
-                console.error('Email sending error:', error.text);
+                toast.error("Failed to send message. Please try again.", {
+                    style: {
+                        background: '#dc2626',
+                        color: '#fff',
+                        // fontWeight: '500',
+                        padding: '10px 16px',
+                        borderRadius: '12px',
+                    },
+                    iconTheme: {
+                        primary: '#fff',
+                        secondary: '#dc2626',
+                    },
+                });
+                // console.error('Email sending error:', error.text);
                 setIsLoading(false);
             }
         );
@@ -197,8 +224,8 @@ const ContactSection = () => {
                                     <h2 className="text-2xl font-bold form-title dark:text-white">Send Me a Message</h2>
                                 </div>
 
-                                <form ref={form} onSubmit={sendEmail} className="space-y-5">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <form ref={form} onSubmit={sendEmail}>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                                         <div className="input-field">
                                             <label className="block text-sm font-medium mb-2 dark:text-gray-300">
                                                 Your Name <strong className="text-red-500">*</strong>
@@ -239,20 +266,20 @@ const ContactSection = () => {
 
                                     {/* Status Message */}
                                     {status.message && (
-                                        <div className={`flex items-center gap-3 p-4 rounded-xl ${status.type === "success"
-                                            ? "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800"
-                                            : "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800"
+                                        <div className={`flex items-center gap-2 px-3 py-2 rounded-xl mt-2 ${status.type === "success"
+                                            ? "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800"
+                                            : "bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400 border-l-4 border-red-500 dark:border-red-800"
                                             }`}>
                                             {status.type === "success" ? (
-                                                <FaCheckCircle className="text-green-500 dark:text-green-400 text-xl" />
+                                                <FaCheckCircle className="text-green-500 dark:text-green-400 text-lg hidden md:block" />
                                             ) : (
-                                                <FaExclamationCircle className="text-red-500 dark:text-red-400 text-xl" />
+                                                <FaExclamationCircle className="text-red-500 dark:text-red-400 text-lg hidden md:block" />
                                             )}
                                             <p className="font-medium">{status.message}</p>
                                         </div>
                                     )}
 
-                                    <div className="flex justify-end">
+                                    <div className="flex justify-end mt-5">
                                         <button
                                             type="submit"
                                             disabled={isLoading}
