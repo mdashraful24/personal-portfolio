@@ -15,3 +15,17 @@
 .animate-slideInRight {
     animation: slideInRight 0.2s ease-out;
 }
+
+
+/* ⚠️ Project Details */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Subtle fade effect on edges to indicate scrollable content */
+.hide-scrollbar {
+    mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}

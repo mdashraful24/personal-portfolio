@@ -19,7 +19,7 @@ const ProjectsShowcase = () => {
         setWorkingProjects(projectsData["working-project"] || []);
     }, []);
 
-    const displayedMyProjects = myProjects.slice(0, 3);
+    const displayedMyProjects = myProjects.slice(0, 2);
     const displayedTeamProjects = teamProjects.slice(0, 2);
     const displayedClientProjects = clientProjects.slice(0, 1);
     const displayedWorkingProjects = workingProjects.slice(0, 1);
