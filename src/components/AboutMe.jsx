@@ -2,7 +2,7 @@
 
 const AboutMe = () => {
     return (
-        <div className="dark:bg-black">
+        <div className="bg-gray-100 dark:bg-black">
             <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-24">
                 <div className="space-y-5">
                     <div className="flex items-center justify-center md:mb-6">

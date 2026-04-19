@@ -111,8 +111,8 @@ const ProjectDetails = () => {
     // Define available tabs
     const availableTabs = [
         { id: "overview", label: "Overview", icon: <FaStar className="text-yellow-400" />, condition: true },
-        { id: "technology", label: "Tech Stack", icon: <FaCode className="text-blue-400" />, condition: true },
-        { id: "challenges", label: "Challenges", icon: <FaTools className="text-orange-400" />, condition: hasData(project.challenges) },
+        { id: "technology", label: "Tech Stack", icon: <FaTools className="text-blue-400" />, condition: true },
+        { id: "challenges", label: "Challenges", icon: <FaLightbulb className="text-orange-400" />, condition: hasData(project.challenges) },
         { id: "future", label: "Roadmap", icon: <FaRocket className="text-green-400" />, condition: hasData(project.futurePlans) }
     ].filter(tab => tab.condition);
 
@@ -295,7 +295,10 @@ const ProjectDetails = () => {
                 {activeTab === "technology" && (
                     <div className="space-y-6">
                         <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
-                            <h3 className="text-2xl font-bold mb-6 text-white">Technical Architecture</h3>
+                            <h3 className="flex items-center gap-3 text-2xl font-bold mb-6 text-white">
+                                <FaTools className="text-blue-400" /> 
+                                Technical Architecture
+                            </h3>
                             <div className="space-y-6">
                                 {hasData(project.frontend) && (
                                     <div>
@@ -304,7 +307,7 @@ const ProjectDetails = () => {
                                         </h4>
                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.frontend.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
                                                 </div>
@@ -320,7 +323,7 @@ const ProjectDetails = () => {
                                         </h4>
                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.backend.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
                                                 </div>
@@ -337,7 +340,7 @@ const ProjectDetails = () => {
                                         </h4>
                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                             {project.handling.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-4 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
                                                 </div>
@@ -368,10 +371,10 @@ const ProjectDetails = () => {
                         <div className="space-y-4">
                             {project.challenges.map((challenge, index) => (
                                 <div key={index} className="flex gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-yellow-400 hover:bg-gray-600 transition-colors">
-                                    <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center font-bold">
+                                    <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center font-bold">
                                         {index + 1}
                                     </div>
-                                    <p className="text-gray-300 leading-relaxed">{challenge}</p>
+                                    <p className="text-gray-200 leading-relaxed">{challenge}</p>
                                 </div>
                             ))}
                         </div>
@@ -382,14 +385,14 @@ const ProjectDetails = () => {
                 {activeTab === "future" && hasData(project.futurePlans) && (
                     <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
                         <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                            <FaCode className="text-green-400" />
+                            <FaRocket className="text-green-500" />
                             Future Roadmap
                         </h3>
                         <div className="grid gap-4">
                             {project.futurePlans.map((plan, index) => (
-                                <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-green-400 hover:bg-gray-600 transition-colors group">
-                                    <div className="w-3 h-3 bg-green-400 rounded-full group-hover:scale-150 transition-transform"></div>
-                                    <p className="text-gray-300 flex-1">{plan}</p>
+                                <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-green-500 hover:bg-gray-600 transition-colors group">
+                                    <div className="w-3 h-3 bg-green-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                                    <p className="text-gray-200 flex-1">{plan}</p>
                                     <div className="text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <FaMobile />
                                     </div>

@@ -313,7 +313,7 @@ const Skills = () => {
     ];
 
     return (
-        <div ref={sectionRef} className="bg-gradient-to-br from-slate-50 to-gray-100 dark:bg-gradient-to-br dark:from-black dark:to-black py-7 lg:py-20">
+        <div ref={sectionRef} className="dark:bg-black py-7 lg:py-20">
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section */}
                 <div className="text-center mb-8" data-aos="fade-up">

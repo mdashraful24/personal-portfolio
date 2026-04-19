@@ -83,7 +83,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
     const badge = getTypeBadge();
 
     return (
-        <div className="group relative bg-white dark:bg-black rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full">
+        <div className="group relative bg-white dark:bg-black rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full">
 
             {/* Image Container with Gradient Overlay */}
             <div className="relative overflow-hidden h-56 flex-shrink-0 bg-gray-100 dark:bg-gray-700">
