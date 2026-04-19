@@ -3,7 +3,7 @@ import { ArrowDownRight } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-black dark:bg-gray-900 p-4">
+        <footer className="bg-black dark:bg-gray-950 p-4">
             <div className="container max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 lg:px-4">
                 {/* Copyright */}
                 <p className="text-sm text-gray-400">
