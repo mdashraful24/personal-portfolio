@@ -9,29 +9,33 @@ const ProjectsShowcase = () => {
     const [myProjects, setMyProjects] = useState([]);
     const [teamProjects, setTeamProjects] = useState([]);
     const [clientProjects, setClientProjects] = useState([]);
+    const [workingProjects, setWorkingProjects] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         setMyProjects(projectsData["my-project"] || []);
         setTeamProjects(projectsData["team-project"] || []);
         setClientProjects(projectsData["client-project"] || []);
+        setWorkingProjects(projectsData["working-project"] || []);
     }, []);
 
     const displayedMyProjects = myProjects.slice(0, 3);
     const displayedTeamProjects = teamProjects.slice(0, 2);
     const displayedClientProjects = clientProjects.slice(0, 1);
+    const displayedWorkingProjects = workingProjects.slice(0, 1);
 
     const allDisplayedProjects = [
         ...displayedMyProjects.map(project => ({ ...project, type: "personal" })),
         ...displayedTeamProjects.map(project => ({ ...project, type: "team" })),
-        ...displayedClientProjects.map(project => ({ ...project, type: "client" }))
+        ...displayedClientProjects.map(project => ({ ...project, type: "client" })),
+        ...displayedWorkingProjects.map(project => ({ ...project, type: "working" }))
     ];
 
     const handleViewMoreClick = () => {
         navigate("/all-projects");
     };
 
-    const totalProjects = myProjects.length + teamProjects.length + clientProjects.length;
+    const totalProjects = myProjects.length + teamProjects.length + clientProjects.length + workingProjects.length;
     const totalTechStacks = 15;
 
     return (
@@ -147,7 +151,7 @@ const ProjectsShowcase = () => {
 
                                 {/* Additional Info */}
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-7">
-                                    + {totalTechStacks}+ technologies used across all projects
+                                    {totalTechStacks}+ technologies used across all projects
                                 </p>
 
                                 {/* Explore Button */}

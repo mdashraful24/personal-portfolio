@@ -916,6 +916,149 @@ const projectsData = {
                 "Add export functionality to save conversation as PDF or text file"
             ]
         }
+    ],
+    "working-project": [
+        {
+            "id": 151,
+            "title": "Dr. MAK Clinical Management System",
+            "description": "Dr. MAK Clinical Management System is a modern React-based web application designed for a single doctor to efficiently manage chamber operations, including patient records, appointments, prescriptions, and treatment history. The system focuses on performance, usability, and a clean professional interface tailored for individual medical practice.",
+            "frontend": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Router",
+                    "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "DaisyUI",
+                    "icon": "https://daisyui.com/images/daisyui-logo/daisyui-logotype.svg"
+                },
+                {
+                    "name": "Framer Motion",
+                    "icon": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://tanstack.com/query/latest/docs/react/images/logo.svg"
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg"
+                },
+                {
+                    "name": "Lucide Icons",
+                    "icon": "https://lucide.dev/logo.dark.svg"
+                },
+                {
+                    "name": "Recharts",
+                    "icon": "https://avatars.githubusercontent.com/u/18222145?s=200&v=4"
+                }
+            ],
+            "backend": [
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "JWT",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jsonwebtokens/jsonwebtokens-original.svg"
+                },
+                {
+                    "name": "Bcrypt",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                }
+            ],
+            "handling": [
+                {
+                    "name": "Cloudinary",
+                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                },
+                {
+                    "name": "Stripe",
+                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                }
+            ],
+            "development": [
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                },
+                {
+                    "name": "Netlify",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+                }
+            ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Firebase Auth",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "Express API",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "JWT Security",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jsonwebtokens/jsonwebtokens-original.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                }
+            ],
+            "demoLink": "https://dr-mak.netlify.app",
+            "codeLink": "https://github.com/mdashraful24/dr-mak-client",
+            "image": "/assets/project-cover/dr-mak.png",
+            "challenges": [
+                "Integrating Firebase Authentication with custom JWT-based backend authorization",
+                "Designing a secure role-based dashboard for doctor and assistant access control",
+                "Handling protected routes and persistent login state across refresh",
+                "Configuring Apache .htaccess to support React Router without 404 issues",
+                "Managing environment variables securely across development and production",
+                "Implementing performant data fetching and caching using React Query",
+                "Designing a clean neumorphism-inspired UI while maintaining usability",
+                "Optimizing application performance for low-bandwidth users"
+            ],
+            "futurePlans": [
+                "Add complete patient prescription generation with downloadable PDF",
+                "Implement appointment scheduling with calendar view",
+                "Add SMS/email notification system for patients",
+                "Introduce offline support (PWA) for unstable internet environments",
+                "Enhance role management (assistant, receptionist support)",
+                "Add multilingual support (Bangla and English)",
+                "Implement advanced analytics dashboard for patient insights"
+            ]
+        }
     ]
 };
 

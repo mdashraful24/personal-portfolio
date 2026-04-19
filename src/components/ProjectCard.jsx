@@ -1,4 +1,4 @@
-import { FaGithub, FaExternalLinkAlt, FaUser, FaUsers, FaBriefcase } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaUser, FaUsers, FaBriefcase, FaCog } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -35,6 +35,12 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                     icon: <FaBriefcase className="w-3 h-3" />,
                     text: 'Client Project',
                     color: 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/90 dark:text-purple-100 dark:border-purple-800'
+                };
+            case 'working':
+                return {
+                    icon: <FaCog className="w-3 h-3" />,
+                    text: 'Working Project',
+                    color: 'bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900/90 dark:text-yellow-200 dark:border-yellow-800'
                 };
             default:
                 return {

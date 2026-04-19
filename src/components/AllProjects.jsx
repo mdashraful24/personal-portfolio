@@ -7,7 +7,17 @@ const AllProjects = () => {
     const [myProjects, setMyProjects] = useState([]);
     const [teamProjects, setTeamProjects] = useState([]);
     const [clientProjects, setClientProjects] = useState([]);
+    const [workingProjects, setWorkingProjects] = useState([]);
     const [activeTab, setActiveTab] = useState("all");
+
+    // Define tab configuration
+    const tabs = [
+        { id: "all", label: "All Projects", count: null }, // count will be calculated dynamically
+        { id: "personal", label: "Personal", count: myProjects.length },
+        { id: "team", label: "Team", count: teamProjects.length },
+        { id: "client", label: "Client", count: clientProjects.length },
+        { id: "working", label: "Working", count: workingProjects.length }
+    ];
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -17,25 +27,30 @@ const AllProjects = () => {
         setMyProjects(projectsData["my-project"] || []);
         setTeamProjects(projectsData["team-project"] || []);
         setClientProjects(projectsData["client-project"] || []);
+        setWorkingProjects(projectsData["working-project"] || []);
     }, []);
 
     const getAllProjectsWithType = () => {
         return [
             ...myProjects.map(project => ({ ...project, type: "personal" })),
             ...teamProjects.map(project => ({ ...project, type: "team" })),
-            ...clientProjects.map(project => ({ ...project, type: "client" }))
+            ...clientProjects.map(project => ({ ...project, type: "client" })),
+            ...workingProjects.map(project => ({ ...project, type: "working" }))
         ];
     };
 
     const allProjectsWithType = getAllProjectsWithType();
+
+    // Update the "all" tab count dynamically
+    const allProjectsCount = allProjectsWithType.length;
 
     const filteredProjects = activeTab === "all"
         ? allProjectsWithType
         : allProjectsWithType.filter(project => project.type === activeTab);
 
     return (
-        <div className="dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900">
-            <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 pt-10 pb-16">
+        <div className="dark:bg-black">
+            <div id="projects" className="container max-w-7xl mx-auto min-h-screen px-4 pt-7 md:pt-10 pb-16">
                 <Helmet>
                     <title>All Projects | Ashraful Islam Ratul</title>
                 </Helmet>
@@ -50,48 +65,24 @@ const AllProjects = () => {
                     </div>
                     <p className="md:text-lg mx-auto dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
 
-                    {/* Tab Navigation */}
+                    {/* Tab Navigation - Clean & DRY */}
                     <div className="flex justify-center my-8">
-                        <div className="bg-white dark:bg-gray-800 shadow-sm border dark:border-gray-700 rounded-xl p-1 flex gap-3">
-                            <button
-                                onClick={() => setActiveTab("all")}
-                                className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "all"
-                                    ? "bg-blue-600 text-white font-semibold"
-                                    : "bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-gray-600 font-medium shadow-inner dark:text-gray-300"
-                                    }`}
-                            >
-                                All Projects <span className="hidden md:block">({allProjectsWithType.length})</span>
-                            </button>
-
-                            <button
-                                onClick={() => setActiveTab("personal")}
-                                className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "personal"
-                                    ? "bg-blue-600 text-white font-semibold"
-                                    : "bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-gray-600 font-medium shadow-inner dark:text-gray-300"
-                                    }`}
-                            >
-                                Personal <span className="hidden md:block">({myProjects.length})</span>
-                            </button>
-
-                            <button
-                                onClick={() => setActiveTab("team")}
-                                className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "team"
-                                    ? "bg-blue-600 text-white font-semibold"
-                                    : "bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-gray-600 font-medium shadow-inner dark:text-gray-300"
-                                    }`}
-                            >
-                                Team <span className="hidden md:block">({teamProjects.length})</span>
-                            </button>
-
-                            <button
-                                onClick={() => setActiveTab("client")}
-                                className={`flex item-center gap-1 px-3 py-2 md:py-2.5 rounded-lg text-sm transition ${activeTab === "client"
-                                    ? "bg-blue-600 text-white font-semibold"
-                                    : "bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-gray-600 font-medium shadow-inner dark:text-gray-300"
-                                    }`}
-                            >
-                                Client <span className="hidden md:block">({clientProjects.length})</span>
-                            </button>
+                        <div className="md:bg-white md:dark:bg-gray-800 md:shadow-md md:border md:dark:border-gray-700 md:rounded-xl md:p-2 flex flex-wrap justify-center items-center gap-3">
+                            {tabs.map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex items-center gap-1 px-3 py-2 md:py-2.5 rounded-lg shadow-md text-sm transition ${activeTab === tab.id
+                                            ? "bg-blue-600 text-white font-semibold"
+                                            : "bg-gray-100 dark:bg-gray-700 hover:bg-blue-100 dark:hover:bg-gray-600 font-medium shadow-inner dark:text-gray-300"
+                                        }`}
+                                >
+                                    {tab.label}
+                                    <span>
+                                        ({tab.id === "all" ? allProjectsCount : tab.count})
+                                    </span>
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>

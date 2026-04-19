@@ -29,7 +29,8 @@ const router = createBrowserRouter([
                         const allProjects = [
                             ...(data["my-project"] || []),
                             ...(data["team-project"] || []),
-                            ...(data["client-project"] || [])
+                            ...(data["client-project"] || []),
+                            ...(data["working-project"] || [])
                         ];
 
                         const project = allProjects.find(project => {
