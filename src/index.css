@@ -25,7 +25,7 @@
 }
 
 /* Subtle fade effect on edges to indicate scrollable content */
-.hide-scrollbar {
+/* .hide-scrollbar {
     mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
-}
+} */

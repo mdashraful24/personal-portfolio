@@ -228,7 +228,7 @@ const ProjectDetails = () => {
 
                                 {/* Underline indicator */}
                                 <span
-                                    className={`absolute left-1/2 bottom-0 h-1 from-blue-300 via-blue-500 to-blue-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${activeTab === tab.id
+                                    className={`absolute left-1/2 bottom-0 h-[0.16rem] from-blue-300 via-blue-500 to-blue-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${activeTab === tab.id
                                         ? 'w-full opacity-100 bg-gradient-to-r'
                                         : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100 bg-gradient-to-l'
                                         }`}
