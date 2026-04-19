@@ -165,8 +165,8 @@ const HeroSection = ({ onHireMeClick }) => {
             </div>
 
             {/* Scroll indicator */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:block animate-fade-up delay-500">
-                <div className="flex flex-col items-center gap-2">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:block delay-500">
+                <div className="flex flex-col items-center gap-2 animate-fade-up">
                     <span className="text-xs text-gray-400 dark:text-gray-500">Scroll to explore</span>
                     <div className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center">
                         <div className="w-1 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 animate-bounce"></div>
