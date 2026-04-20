@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaCopy, FaCheck } from "react-icons/fa";
 import './css/ContactSection.css'
 
 const ContactSection = () => {
@@ -9,6 +9,7 @@ const ContactSection = () => {
     const [status, setStatus] = useState({ type: "", message: "" });
     const [isLoading, setIsLoading] = useState(false);
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [copiedEmail, setCopiedEmail] = useState(false);
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -41,6 +42,36 @@ const ContactSection = () => {
         };
     }, [hasAnimated]);
 
+    const copyEmailToClipboard = async () => {
+        const email = "mdashrafulislam2882@gmail.com";
+        try {
+            await navigator.clipboard.writeText(email);
+            setCopiedEmail(true);
+            toast.success("Email copied to clipboard!", {
+                style: {
+                    background: '#16a34a',
+                    color: '#fff',
+                    padding: '10px 16px',
+                    borderRadius: '12px',
+                },
+                iconTheme: {
+                    primary: '#fff',
+                    secondary: '#16a34a',
+                },
+            });
+            setTimeout(() => setCopiedEmail(false), 2000);
+        } catch (err) {
+            toast.error("Failed to copy email", {
+                style: {
+                    background: '#dc2626',
+                    color: '#fff',
+                    padding: '10px 16px',
+                    borderRadius: '12px',
+                },
+            });
+        }
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -61,7 +92,6 @@ const ContactSection = () => {
                     style: {
                         background: '#16a34a',
                         color: '#fff',
-                        // fontWeight: '500',
                         padding: '10px 16px',
                         borderRadius: '12px',
                     },
@@ -82,7 +112,6 @@ const ContactSection = () => {
                     style: {
                         background: '#dc2626',
                         color: '#fff',
-                        // fontWeight: '500',
                         padding: '10px 16px',
                         borderRadius: '12px',
                     },
@@ -91,7 +120,6 @@ const ContactSection = () => {
                         secondary: '#dc2626',
                     },
                 });
-                // console.error('Email sending error:', error.text);
                 setIsLoading(false);
             }
         );
@@ -154,6 +182,16 @@ const ContactSection = () => {
             color: "hover:bg-blue-500 hover:text-white",
             iconColor: "text-blue-500 dark:text-blue-400",
             bgColor: "bg-white/10 dark:bg-gray-700"
+        },
+        {
+            icon: copiedEmail ? <FaCheck className="text-2xl" /> : <FaCopy className="text-2xl" />,
+            label: "Copy Email",
+            url: "#",
+            color: "hover:bg-purple-600 hover:text-white",
+            iconColor: "text-purple-600 dark:text-purple-400",
+            bgColor: "bg-white/10 dark:bg-gray-700",
+            onClick: copyEmailToClipboard,
+            isCopyButton: true
         }
     ];
 
@@ -184,7 +222,7 @@ const ContactSection = () => {
                     </div>
 
                     {/* Contact Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-7">
                         {contactInfo.map((info, index) => (
                             <a
                                 key={index}
@@ -213,11 +251,11 @@ const ContactSection = () => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
                         {/* Contact Form */}
                         <div className="lg:col-span-2 form-container">
                             <div className="bg-white dark:bg-gray-800 rounded-xl shadow border border-gray-100 dark:border-gray-700 p-4 transition-all duration-300 hover:shadow-lg form-card">
-                                <div className="flex items-center gap-3 mb-5">
+                                <div className="flex items-center gap-3 mb-7">
                                     <div className="animate-pulse-glow-blue p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg form-icon">
                                         <FaPaperPlane className="text-blue-600 dark:text-blue-400 text-xl" />
                                     </div>
@@ -225,7 +263,7 @@ const ContactSection = () => {
                                 </div>
 
                                 <form ref={form} onSubmit={sendEmail}>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mb-6">
                                         <div className="input-field">
                                             <label className="block text-sm font-medium mb-2 dark:text-gray-300">
                                                 Your Name <strong className="text-red-500">*</strong>
@@ -305,7 +343,7 @@ const ContactSection = () => {
                         </div>
 
                         {/* Social & Location Info */}
-                        <div className="space-y-4 info-sidebar">
+                        <div className="space-y-5 info-sidebar">
                             {/* Social Links */}
                             <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 text-white social-card">
                                 <h3 className="text-xl font-bold mb-1 social-title">Connect With Me</h3>
@@ -314,18 +352,32 @@ const ContactSection = () => {
                                 </p>
                                 <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (
-                                        <a
-                                            key={index}
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon`}
-                                            style={{ transitionDelay: `${index * 0.1}s` }}
-                                        >
-                                            <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
-                                                {social.icon}
-                                            </div>
-                                        </a>
+                                        social.isCopyButton ? (
+                                            <button
+                                                key={index}
+                                                onClick={social.onClick}
+                                                className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon cursor-pointer`}
+                                                style={{ transitionDelay: `${index * 0.1}s` }}
+                                                title={social.label}
+                                            >
+                                                <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
+                                                    {social.icon}
+                                                </div>
+                                            </button>
+                                        ) : (
+                                            <a
+                                                key={index}
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon`}
+                                                style={{ transitionDelay: `${index * 0.1}s` }}
+                                            >
+                                                <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
+                                                    {social.icon}
+                                                </div>
+                                            </a>
+                                        )
                                     ))}
                                 </div>
                             </div>
@@ -350,8 +402,8 @@ const ContactSection = () => {
 
                             {/* Quick Note */}
                             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-4 border border-blue-100 dark:border-gray-700 drop-shadow quick-note">
-                                <h4 className="font-bold mb-2 dark:text-white">Quick Response</h4>
-                                <p className="text-sm dark:text-gray-300">
+                                <h4 className="font-bold mb-1.5 dark:text-white">Quick Response</h4>
+                                <p className="text-sm dark:text-gray-300 leading-relaxed">
                                     I typically respond within 24 hours. For urgent matters, please use the phone or WhatsApp.
                                 </p>
                             </div>
