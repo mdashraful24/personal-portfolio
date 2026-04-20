@@ -1,0 +1,44 @@
+import { useRef, useState } from "react";
+
+const Tooltip = ({ text, delay = 500, children, position = "" }) => {
+    const [visible, setVisible] = useState(false);
+    const timerRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        timerRef.current = setTimeout(() => {
+            setVisible(true);
+        }, delay);
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timerRef.current);
+        setVisible(false);
+    };
+
+    const positionClasses = {
+        right: "bg-gray-800 text-white left-full ml-4 top-1/2 -translate-y-1/2",
+        left: "bg-gray-800 text-white right-full mr-3 top-1/2 -translate-y-1/2",
+        top: "bg-gray-800 text-white bottom-full mb-2 left-1/2 -translate-x-1/2",
+        topTwo: "bg-gray-800 text-white bottom-full mb-2 left-0.5 -translate-x-1/2",
+        topThree: "bg-gray-200 text-black bottom-full mb-2 left-2 -translate-x-1/2",
+        bottom: "bg-gray-800 text-white top-full mt-2 left-1/2 -translate-x-1/2",
+    };
+
+    return (
+        <div
+            className="relative inline-block"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            {children}
+
+            {visible && (
+                <div className={`absolute z-10 ${position ? positionClasses[position] : ''} text-sm p-2 rounded-lg shadow-lg whitespace-nowrap`}>
+                    {text}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Tooltip;

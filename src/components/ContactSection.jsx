@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaLinkedin, FaGithub, FaFacebook, FaWhatsapp, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaCopy, FaCheck } from "react-icons/fa";
 import './css/ContactSection.css'
+import Tooltip from "../shared/Tooltip";
 
 const ContactSection = () => {
     const form = useRef();
@@ -49,14 +50,14 @@ const ContactSection = () => {
             setCopiedEmail(true);
             toast.success("Email copied to clipboard!", {
                 style: {
-                    background: '#16a34a',
+                    background: '#15803D',
                     color: '#fff',
                     padding: '10px 16px',
                     borderRadius: '12px',
                 },
                 iconTheme: {
                     primary: '#fff',
-                    secondary: '#16a34a',
+                    secondary: '#15803D',
                 },
             });
             setTimeout(() => setCopiedEmail(false), 2000);
@@ -162,6 +163,7 @@ const ContactSection = () => {
         {
             icon: <FaGithub className="text-2xl" />,
             label: "GitHub",
+            tooltipText: "Visit my GitHub profile",
             url: "https://github.com/mdashraful24",
             color: "hover:bg-gray-600 hover:text-white",
             iconColor: "text-black dark:text-white",
@@ -170,6 +172,7 @@ const ContactSection = () => {
         {
             icon: <FaLinkedin className="text-2xl" />,
             label: "LinkedIn",
+            tooltipText: "Connect with me on LinkedIn",
             url: "https://www.linkedin.com/in/ashraful-islam-ratul/",
             color: "hover:bg-blue-600 hover:text-white",
             iconColor: "text-blue-600 dark:text-blue-400",
@@ -178,6 +181,7 @@ const ContactSection = () => {
         {
             icon: <FaFacebook className="text-2xl" />,
             label: "Facebook",
+            tooltipText: "Follow me on Facebook",
             url: "https://www.facebook.com/ashraful.islam.ratul2k",
             color: "hover:bg-blue-500 hover:text-white",
             iconColor: "text-blue-500 dark:text-blue-400",
@@ -186,6 +190,7 @@ const ContactSection = () => {
         {
             icon: copiedEmail ? <FaCheck className="text-2xl" /> : <FaCopy className="text-2xl" />,
             label: "Copy Email",
+            tooltipText: copiedEmail ? "Email copied!" : "Copy my email address",
             url: "#",
             color: "hover:bg-purple-600 hover:text-white",
             iconColor: "text-purple-600 dark:text-purple-400",
@@ -353,30 +358,31 @@ const ContactSection = () => {
                                 <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (
                                         social.isCopyButton ? (
-                                            <button
-                                                key={index}
-                                                onClick={social.onClick}
-                                                className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon cursor-pointer`}
-                                                style={{ transitionDelay: `${index * 0.1}s` }}
-                                                title={social.label}
-                                            >
-                                                <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
-                                                    {social.icon}
-                                                </div>
-                                            </button>
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={0}>
+                                                <button
+                                                    onClick={social.onClick}
+                                                    className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon cursor-pointer inline-flex items-center justify-center`}
+                                                    style={{ transitionDelay: `${index * 0.1}s` }}
+                                                >
+                                                    <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
+                                                        {social.icon}
+                                                    </div>
+                                                </button>
+                                            </Tooltip>
                                         ) : (
-                                            <a
-                                                key={index}
-                                                href={social.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon`}
-                                                style={{ transitionDelay: `${index * 0.1}s` }}
-                                            >
-                                                <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
-                                                    {social.icon}
-                                                </div>
-                                            </a>
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={0}>
+                                                <a
+                                                    href={social.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon inline-flex items-center justify-center`}
+                                                    style={{ transitionDelay: `${index * 0.1}s` }}
+                                                >
+                                                    <div className={`p-1.5 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
+                                                        {social.icon}
+                                                    </div>
+                                                </a>
+                                            </Tooltip>
                                         )
                                     ))}
                                 </div>
