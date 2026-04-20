@@ -57,11 +57,7 @@ export function DarkLightTheme() {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle Theme"
-                className="
-                    flex items-center gap-0.5 px-1.5 py-0.5 rounded-lg
-                    hover:bg-gray-200 dark:hover:bg-gray-700
-                    focus:outline-none
-                "
+                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"
             >
                 <span className="p-1 border border-gray-200 dark:border-gray-700 rounded-lg">
                     <CurrentIcon size={18} className={currentIconColor} />
@@ -74,10 +70,7 @@ export function DarkLightTheme() {
 
             {/* Dropdown Menu */}
             <div
-                className={`absolute right-0 mt-2 w-36
-                bg-white dark:bg-gray-800 rounded-xl shadow-lg
-                border border-gray-200 dark:border-gray-700
-                overflow-hidden z-50 transform transition-all duration-200 ease-out origin-top-right
+                className={`absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden z-50 transform transition-all duration-200 ease-out origin-top-right
                 ${isOpen
                         ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 scale-95 -translate-y-2 pointer-events-none"

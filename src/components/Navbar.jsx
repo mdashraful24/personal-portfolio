@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../src/assets/logo3.png';
 import { Download, Menu, X } from "lucide-react";
 import DarkLightTheme from "../shared/DarkLightTheme";
-import Tooltip from "../shared/Tooltip";
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("");
@@ -232,20 +231,21 @@ const Navbar = () => {
                     )}
 
                     {/* Resume button */}
-                    <Tooltip text="Download Resume" position="bottom">
-                        <a
-                            href="/resume.pdf"
-                            download="Resume by Ashraful Islam Ratul.pdf"
-                            className="hidden md:inline-flex items-center gap-2 relative px-2 lg:px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
-                        >
-                            <Download size={16} className="relative z-10" />
-                            <span className="relative z-10">Resume</span>
-                        </a>
-                    </Tooltip>
+                    <a
+                        href="/resume.pdf"
+                        download="Resume by Ashraful Islam Ratul.pdf"
+                        className="hidden md:inline-flex items-center gap-2 relative px-2 lg:px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
+                    >
+                        <Download size={16} className="relative z-10" />
+                        <span className="relative z-10">Resume</span>
+                    </a>
 
-                    <Tooltip text="Toggle Theme" position="bottom">
-                        <span className="hidden md:block"><DarkLightTheme /></span>
-                    </Tooltip>
+                    <span
+                        className="hidden md:block"
+                        title="Toggle Theme"
+                    >
+                        <DarkLightTheme />
+                    </span>
                 </div>
             </div>
         </div>
