@@ -59,7 +59,7 @@ const GlowCard = ({ children, identifier, isActive, onClick }) => {
             className={`relative w-full cursor-pointer rounded-xl border transition-all duration-300
                 ${isActive
                     ? "border-[#3b82f6] bg-[#1a1a2e]"
-                    : "border-[#2a2e5a] bg-[#101123] hover:border-[#3b82f6]/50"
+                    : "border-[#2a2e5a] bg-[#101123] hover:border-[#3b82f6]/50 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
                 }
                 `}
             style={{

@@ -12,7 +12,7 @@ const AllProjects = () => {
 
     // Define tab configuration
     const tabs = [
-        { id: "all", label: "All Projects", count: null }, // count will be calculated dynamically
+        { id: "all", label: "All Projects", count: null },
         { id: "personal", label: "Personal", count: myProjects.length },
         { id: "team", label: "Team", count: teamProjects.length },
         { id: "client", label: "Client", count: clientProjects.length },
@@ -66,7 +66,7 @@ const AllProjects = () => {
                     <p className="md:text-lg mx-auto dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
 
                     {/* Tab Navigation - Clean & DRY */}
-                    <div className="flex justify-center my-8">
+                    <div className="flex justify-center my-10 lg:my-12">
                         <div className="md:bg-white md:dark:bg-gray-800 md:shadow-md md:border md:dark:border-gray-700 md:rounded-xl md:p-2 flex flex-wrap justify-center items-center gap-3">
                             {tabs.map(tab => (
                                 <button
@@ -87,7 +87,7 @@ const AllProjects = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     {filteredProjects.map((project) => (
                         <ProjectCard
                             key={project.id}

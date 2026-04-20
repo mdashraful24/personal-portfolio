@@ -61,7 +61,7 @@ const ProjectsShowcase = () => {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     {allDisplayedProjects.slice(0, 5).map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -96,7 +96,7 @@ const ProjectsShowcase = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className="relative rounded-2xl overflow-hidden cursor-pointer h-full min-h-[25rem] bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700"
+                            className="relative rounded-2xl overflow-hidden cursor-pointer h-full min-h-[25rem] bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
                             onClick={handleViewMoreClick}
                         >
                             {/* Animated Gradient Border */}

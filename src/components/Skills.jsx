@@ -330,11 +330,11 @@ const Skills = () => {
                 </div>
 
                 {/* Skills Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
+                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
                                 ? 'opacity-100 translate-y-0'
                                 : 'opacity-0 translate-y-12'
                                 }`}
