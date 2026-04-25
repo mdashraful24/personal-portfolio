@@ -242,7 +242,6 @@ const Navbar = () => {
 
                     <span
                         className="hidden md:block"
-                        title="Toggle Theme"
                     >
                         <DarkLightTheme />
                     </span>

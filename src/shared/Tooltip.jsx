@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 
-const Tooltip = ({ text, delay = 500, children, position = "" }) => {
+const Tooltip = ({ text, delay = 500, children, position = "", disabled = false }) => {
     const [visible, setVisible] = useState(false);
     const timerRef = useRef(null);
 
     const handleMouseEnter = () => {
+        if (disabled) return; // Don't show tooltip if disabled
         timerRef.current = setTimeout(() => {
             setVisible(true);
         }, delay);
@@ -32,8 +33,8 @@ const Tooltip = ({ text, delay = 500, children, position = "" }) => {
         >
             {children}
 
-            {visible && (
-                <div className={`absolute z-10 ${position ? positionClasses[position] : ''} text-sm p-2 rounded-lg shadow-lg whitespace-nowrap`}>
+            {visible && !disabled && (
+                <div className={`absolute z-10 ${position ? positionClasses[position] : ''} text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
                     {text}
                 </div>
             )}

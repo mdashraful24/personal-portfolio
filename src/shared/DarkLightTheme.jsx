@@ -1,6 +1,7 @@
 import { Moon, Sun, Laptop, Check, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useThemeContext } from "../providers/ThemeProvider";
+import Tooltip from "./Tooltip";
 
 export function DarkLightTheme() {
     const { theme, setSpecificTheme } = useThemeContext();
@@ -53,20 +54,22 @@ export function DarkLightTheme() {
 
     return (
         <div className="relative" ref={dropdownRef}>
-            {/* Dropdown Trigger Button */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle Theme"
-                className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"
-            >
-                <span className="p-1 border border-gray-200 dark:border-gray-700 rounded-lg">
-                    <CurrentIcon size={18} className={currentIconColor} />
-                </span>
-                <span className="text-sm font-medium hidden sm:inline text-gray-700 dark:text-gray-200">
-                    {/* {currentThemeName} */}
-                </span>
-                <ChevronDown size={18} className="text-gray-500 dark:text-gray-400" />
-            </button>
+            {/* Dropdown Trigger Button - Tooltip only shows when dropdown is closed */}
+            <Tooltip text="Toggle Theme" position="bottom" delay={0} disabled={isOpen}>
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle Theme"
+                    className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none"
+                >
+                    <span className="p-1 border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <CurrentIcon size={18} className={currentIconColor} />
+                    </span>
+                    <span className="text-sm font-medium hidden sm:inline text-gray-700 dark:text-gray-200">
+                        {/* {currentThemeName} */}
+                    </span>
+                    <ChevronDown size={18} className="text-gray-500 dark:text-gray-400" />
+                </button>
+            </Tooltip>
 
             {/* Dropdown Menu */}
             <div
