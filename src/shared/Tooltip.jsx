@@ -34,7 +34,7 @@ const Tooltip = ({ text, delay = 500, children, position = "", disabled = false 
             {children}
 
             {visible && !disabled && (
-                <div className={`absolute z-10 ${position ? positionClasses[position] : ''} text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
+                <div className={`hidden lg:block absolute z-10 ${position ? positionClasses[position] : ''} text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
                     {text}
                 </div>
             )}
