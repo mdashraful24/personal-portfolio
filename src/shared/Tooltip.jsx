@@ -17,12 +17,12 @@ const Tooltip = ({ text, delay = 500, children, position = "", disabled = false 
     };
 
     const positionClasses = {
-        right: "bg-gray-800 text-white left-full ml-4 top-1/2 -translate-y-1/2",
-        left: "bg-gray-800 text-white right-full mr-3 top-1/2 -translate-y-1/2",
-        top: "bg-gray-800 text-white bottom-full mb-2 left-1/2 -translate-x-1/2",
-        topTwo: "bg-gray-800 text-white bottom-full mb-2 left-[30%] -translate-x-1/2",
-        topThree: "bg-gray-200 text-black bottom-full mb-2 left-2 -translate-x-1/2",
-        bottom: "bg-gray-800 text-white top-full mt-2 left-1/2 -translate-x-1/2",
+        right: "left-full ml-4 top-1/2 -translate-y-1/2",
+        left: "right-full mr-3 top-1/2 -translate-y-1/2",
+        top: "bottom-full mb-2 left-1/2 -translate-x-1/2",
+        topTwo: "bottom-full mb-2 left-[30%] -translate-x-1/2",
+        topThree: "!bg-gray-200 !text-black bottom-full mb-2 left-2 -translate-x-1/2",
+        bottom: "top-full mt-2 left-1/2 -translate-x-1/2",
     };
 
     return (
@@ -34,7 +34,7 @@ const Tooltip = ({ text, delay = 500, children, position = "", disabled = false 
             {children}
 
             {visible && !disabled && (
-                <div className={`hidden lg:block absolute z-10 ${position ? positionClasses[position] : ''} text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
+                <div className={`hidden md:block absolute z-10 ${position ? positionClasses[position] : ''} bg-gray-800 text-white text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
                     {text}
                 </div>
             )}
