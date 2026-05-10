@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+linkedin-cover.png
+
 # Git checkout
 # git status --ignored
 
