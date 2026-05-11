@@ -10,6 +10,14 @@ import 'aos/dist/aos.css';
 const skills = [
     {
         id: 1,
+        name: "React",
+        category: "frontend",
+        color: "from-blue-400 to-cyan-600",
+        bgColor: "bg-blue-500/10",
+        description: "Component-based UI library"
+    },
+    {
+        id: 2,
         name: "HTML5",
         category: "frontend",
         color: "from-orange-500 to-orange-700",
@@ -17,7 +25,7 @@ const skills = [
         description: "Semantic markup for web structure"
     },
     {
-        id: 2,
+        id: 3,
         name: "CSS3",
         category: "frontend",
         color: "from-blue-500 to-blue-700",
@@ -25,7 +33,7 @@ const skills = [
         description: "Styling and layout for web pages"
     },
     {
-        id: 3,
+        id: 4,
         name: "Tailwind CSS",
         category: "frontend",
         color: "from-cyan-500 to-cyan-700",
@@ -33,20 +41,12 @@ const skills = [
         description: "Utility-first CSS framework"
     },
     {
-        id: 4,
+        id: 5,
         name: "DaisyUI",
         category: "frontend",
         color: "from-purple-500 to-pink-700",
         bgColor: "bg-purple-500/10",
         description: "Component library for Tailwind"
-    },
-    {
-        id: 5,
-        name: "React",
-        category: "frontend",
-        color: "from-blue-400 to-cyan-600",
-        bgColor: "bg-blue-500/10",
-        description: "Component-based UI library"
     },
     {
         id: 6,
@@ -145,11 +145,11 @@ const designTools = [
 // Helper function to get icon based on skill name
 const getIcon = (skillName) => {
     switch (skillName) {
+        case "React": return <FaReact className="text-cyan-400 text-xl" />;
         case "HTML5": return <FaHtml5 className="text-orange-400 text-xl" />;
         case "CSS3": return <FaCss3Alt className="text-blue-400 text-xl" />;
         case "Tailwind CSS": return <SiTailwindcss className="text-cyan-400 text-xl" />;
         case "DaisyUI": return <SiDaisyui className="text-purple-400 text-xl" />;
-        case "React": return <FaReact className="text-cyan-400 text-xl" />;
         case "Node.js": return <FaNodeJs className="text-green-400 text-xl" />;
         case "Express": return <SiExpress className="text-gray-300 text-xl" />;
         case "MongoDB": return <FaDatabase className="text-green-400 text-xl" />;
@@ -334,7 +334,7 @@ const Skills = () => {
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
+                            className={`group bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
                                 ? 'opacity-100 translate-y-0'
                                 : 'opacity-0 translate-y-12'
                                 }`}
@@ -345,7 +345,7 @@ const Skills = () => {
                         >
                             {/* Title */}
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-xl shadow-inner">
+                                <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-xl shadow-inner group-hover:scale-125 transition-transform duration-300">
                                     {card.icon}
                                 </div>
                                 <h2 className="text-xl font-semibold text-[#e8e8ea] dark:text-white">{card.title}</h2>

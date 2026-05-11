@@ -575,7 +575,8 @@ const projectsData = {
                 "Early identification of at - risk students",
                 "Improved engagement and performance tracking"
             ],
-            "stack": "PERN Stack"
+            "stack": "PERN Stack",
+            "experienceShow": true
         },
         {
             "id": 52,
@@ -809,7 +810,8 @@ const projectsData = {
                 "Add interactive maps for field visualization",
                 "Create PDF report generation for irrigation data",
                 "Implement push notifications for weather alerts"
-            ]
+            ],
+            "experienceShow": true
         },
         {
             "id": 102,
