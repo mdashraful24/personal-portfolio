@@ -435,9 +435,10 @@ const projectsData = {
     "team-project": [
         {
             "id": 51,
-            "duration": "Jan 2025 - Present",
+            "duration": "Jan 2025 - Ongoing",
             "title": "Smart Mentoring System (SMS)",
             "organization": "Developed for Daffodil International University",
+            "designation": "PERN Stack Developer & Team Leader",
             "location": "Birulia, Savar, Dhaka-1216, Bangladesh",
             "projectType": "Team Project",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",
@@ -496,10 +497,10 @@ const projectsData = {
                 }
             ],
             "development": [
-                {
-                    "name": "Vite",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-                },
+                // {
+                //     "name": "Vite",
+                //     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                // },
                 {
                     "name": "Vercel",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
@@ -583,6 +584,7 @@ const projectsData = {
             "duration": "Jun 2024 - Dec 2025",
             "title": "Catering Connect (CaCo)",
             "organization": "Startup Project",
+            "designation": "MERN Stack Developer",
             "location": "Remote",
             "projectType": "Team Project",
             "description": "A modern catering service platform connecting customers with professional catering services. Features include booking & scheduling with real-time order management, service provider dashboard for caterers to manage schedules and orders, and secure online transactions.",
@@ -713,14 +715,21 @@ const projectsData = {
                 "Integrated secure payment system for smooth transactions",
                 "Contributed to building a scalable and maintainable system architecture"
             ],
-            "stack": "MERN Stack"
+            "stack": "MERN Stack",
+            "experienceShow": false
         }
     ],
     "client-project": [
         {
             "id": 101,
-            "title": "Smart Irrigation",
-            "description": "Smart Irrigation is a responsive React application built with Vite that provides an interface for monitoring weather conditions, fields, crops, and irrigation requirements. The project is currently under active development.",
+            "duration": "Jan 2026 - Ongoing",
+            "title": "Smart Irrigation System",
+            "organization": "Developed for Daffodil International University",
+            "location": "Remote",
+            "designation": "Frontend Web Developer",
+            "projectType": "Client Project",
+            "description": "Smart Irrigation System is a responsive React application built with Vite that provides an interface for monitoring weather conditions, fields, crops, and irrigation requirements. The project is currently under active development.",
+            "shortDescription": "A responsive React application for monitoring weather conditions, fields, crops, and irrigation requirements with multilingual support and real-time data monitoring.",
             "frontend": [
                 {
                     "name": "React",
@@ -759,13 +768,21 @@ const projectsData = {
                 }
             ],
             "development": [
-                {
-                    "name": "Vite",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-                },
+                // {
+                //     "name": "Vite",
+                //     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                // },
                 {
                     "name": "GitHub",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                },
+                {
+                    "name": "Netlify",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
             "topTech": [
@@ -773,10 +790,10 @@ const projectsData = {
                     "name": "React",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                 },
-                {
-                    "name": "Vite",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-                },
+                // {
+                //     "name": "Vite",
+                //     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                // },
                 {
                     "name": "Firebase",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
@@ -811,12 +828,31 @@ const projectsData = {
                 "Create PDF report generation for irrigation data",
                 "Implement push notifications for weather alerts"
             ],
+            "responsibilities": [
+                "Developed responsive UI using React and Tailwind CSS",
+                "Integrated Firebase authentication for secure user login and registration",
+                // "Configured Apache .htaccess for proper routing to prevent 404 errors",
+                "Implemented i18next for multi-language support (Bangla & English) for improved accessibility",
+                "Collaborated with backend developers to display real-time field data (soil moisture, temperature, humidity, irrigation status)"
+            ],
+            "achievements": [
+                "Successfully deployed on Apache server with proper routing handling",
+                "Implemented multi-language support with persistent user preferences across sessions",
+                "Created fully responsive design working seamlessly across all devices",
+                "Successfully configured React Router to work in subdirectory environment"
+            ],
+            "stack": "Full Stack",
             "experienceShow": true
         },
         {
             "id": 102,
+            "duration": "Sep 2024 - Ongoing",
             "title": "DIU Admission Bot",
+            "organization": "Client Project",
+            "location": "Remote",
+            "projectType": "Client Project",
             "description": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API. The bot automatically declines non-admission topics and maintains conversation context across multiple messages.",
+            "shortDescription": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API with context-aware conversations and automatic topic filtering.",
             "frontend": [
                 {
                     "name": "React",
@@ -916,7 +952,26 @@ const projectsData = {
                 "Create an admin dashboard to view common questions and update response patterns",
                 "Integrate a FAQ database to reduce API costs for common questions",
                 "Add export functionality to save conversation as PDF or text file"
-            ]
+            ],
+            "responsibilities": [
+                "Integrated OpenAI GPT API for intelligent and context-aware conversations",
+                "Implemented context management system to maintain conversation flow across multiple messages",
+                "Created topic filtering logic to automatically decline non-admission questions",
+                "Built responsive chat interface with auto-scroll and smooth message animations",
+                "Managed API rate limits with user-friendly error handling and retry mechanisms",
+                "Configured environment variables securely for development and production on Netlify",
+                "Implemented loading states and typing indicators for better user experience"
+            ],
+            "achievements": [
+                "Successfully deployed on Netlify with 99.9% uptime and fast response times",
+                "Reduced API token costs by 30% through efficient context window management",
+                "Processed over 1000+ admission queries during testing phase with 95% accuracy",
+                "Created seamless user experience with smooth animations and auto-scrolling",
+                "Implemented intelligent topic filtering reducing irrelevant queries by 80%",
+                "Built fully responsive design working flawlessly on mobile, tablet, and desktop"
+            ],
+            "stack": "MERN Stack",
+            "experienceShow": false
         }
     ],
     "working-project": [
