@@ -16,8 +16,8 @@ const Experience = () => {
     // Get experiences from ALL categories where experienceShow is true
     const allExperiences = [
         ...(projectsData["my-project"] || []),
-        ...(projectsData["client-project"] || []),
         ...(projectsData["team-project"] || []),
+        ...(projectsData["client-project"] || []),
         ...(projectsData["working-project"] || [])
     ].filter(exp => exp.experienceShow === true);
 
@@ -114,10 +114,10 @@ const Experience = () => {
                                         </h3>
 
                                         {/* Designation Section */}
-                                        {activeExp.designation && (
+                                        {activeExp?.designation && (
                                             <div className="mb-3 flex items-center gap-2 text-gray-300">
                                                 <FaRegIdBadge className="text-blue-400" size={16} />
-                                                <span className="text-md font-semibold text-blue-200">{activeExp.designation}</span>
+                                                <span className="text-md font-semibold text-blue-200">{activeExp?.designation}</span>
                                             </div>
                                         )}
 
@@ -270,10 +270,10 @@ const Experience = () => {
                                             </p>
 
                                             {/* Designation */}
-                                            {exp.designation && (
+                                            {exp?.designation && (
                                                 <div className="mb-2 flex items-center gap-1.5 text-sm text-gray-300">
                                                     <FaRegIdBadge size={10} className="text-blue-400" />
-                                                    <span>{exp.designation}</span>
+                                                    <span>{exp?.designation}</span>
                                                 </div>
                                             )}
 

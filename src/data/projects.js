@@ -812,7 +812,7 @@ const projectsData = {
                 }
             ],
             "demoLink": "http://203.190.12.136/smart_irrigation_system",
-            "codeLink": "https://github.com/mdashraful24/smart-irrigation-client",
+            "codeLink": "",
             "image": "/assets/project-cover/smart-irrigation.png",
             "challenges": [
                 "Configuring Apache .htaccess to properly handle React Router routes and prevent 404 errors on page refresh",
@@ -936,7 +936,7 @@ const projectsData = {
                 }
             ],
             "demoLink": "https://admission-bot.netlify.app",
-            "codeLink": "https://github.com/mdashraful24/admission-bot-client",
+            "codeLink": "",
             "image": "/assets/project-cover/diu-admission-bot.png",
             "challenges": [
                 "Configuring OpenAI API to maintain conversation context across multiple messages while keeping token usage efficient",

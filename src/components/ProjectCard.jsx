@@ -116,19 +116,6 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Action Buttons */}
                 <div className="absolute bottom-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    {githubUrl && (
-                        <Tooltip text="GitHub Repository" position="top" delay={0}>
-                            <a
-                                href={githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <FaGithub size={16} className="text-gray-700 dark:text-white" />
-                            </a>
-                        </Tooltip>
-                    )}
                     {demoLink && demoLink !== "View Site" && (
                         <Tooltip text="Live Link" position="topTwo" delay={0}>
                             <a
@@ -139,6 +126,19 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <FaExternalLinkAlt size={14} className="text-gray-700 dark:text-white" />
+                            </a>
+                        </Tooltip>
+                    )}
+                    {githubUrl && (
+                        <Tooltip text="GitHub Repository" position="top" delay={0}>
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <FaGithub size={16} className="text-gray-700 dark:text-white" />
                             </a>
                         </Tooltip>
                     )}

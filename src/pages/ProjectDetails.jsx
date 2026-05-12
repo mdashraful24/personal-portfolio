@@ -166,9 +166,9 @@ const ProjectDetails = () => {
 
                             {/* Action Buttons */}
                             <div className="flex flex-wrap gap-4">
-                                {project.demoLink && (
+                                {project?.demoLink && (
                                     <a
-                                        href={project.demoLink}
+                                        href={project?.demoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
@@ -179,9 +179,9 @@ const ProjectDetails = () => {
                                         </span>
                                     </a>
                                 )}
-                                {project.codeLink && (
+                                {project?.codeLink && (
                                     <a
-                                        href={project.codeLink}
+                                        href={project?.codeLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="group flex items-center gap-2 px-3 py-2 bg-gray-900 dark:bg-gray-800 text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
