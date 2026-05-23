@@ -1,186 +1,55 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma } from "react-icons/fa";
 import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe } from "react-icons/si";
+import { SiJsonwebtokens } from "react-icons/si";
+import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { VscVscode } from "react-icons/vsc";
 import { Server, FileCode, Code2, Wrench, Palette, Plug } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import allSkills from '../data/skillsList.js';
+import { tools, designTools } from '../data/toolsList.js';
 
-const skills = [
-    {
-        id: 1,
-        name: "React",
-        category: "frontend",
-        color: "from-blue-400 to-cyan-600",
-        bgColor: "bg-blue-500/10",
-        description: "Component-based UI library"
-    },
-    {
-        id: 2,
-        name: "HTML5",
-        category: "frontend",
-        color: "from-orange-500 to-orange-700",
-        bgColor: "bg-orange-500/10",
-        description: "Semantic markup for web structure"
-    },
-    {
-        id: 3,
-        name: "CSS3",
-        category: "frontend",
-        color: "from-blue-500 to-blue-700",
-        bgColor: "bg-blue-500/10",
-        description: "Styling and layout for web pages"
-    },
-    {
-        id: 4,
-        name: "Tailwind CSS",
-        category: "frontend",
-        color: "from-cyan-500 to-cyan-700",
-        bgColor: "bg-cyan-500/10",
-        description: "Utility-first CSS framework"
-    },
-    {
-        id: 5,
-        name: "DaisyUI",
-        category: "frontend",
-        color: "from-purple-500 to-pink-700",
-        bgColor: "bg-purple-500/10",
-        description: "Component library for Tailwind"
-    },
-    {
-        id: 6,
-        name: "Node.js",
-        category: "backend",
-        color: "from-green-500 to-green-700",
-        bgColor: "bg-green-500/10",
-        description: "JavaScript runtime environment"
-    },
-    {
-        id: 7,
-        name: "Express",
-        category: "backend",
-        color: "from-gray-600 to-gray-800",
-        bgColor: "bg-gray-500/10",
-        description: "Web application framework"
-    },
-    {
-        id: 8,
-        name: "MongoDB",
-        category: "database",
-        color: "from-green-600 to-green-800",
-        bgColor: "bg-green-600/10",
-        description: "NoSQL database"
-    },
-    {
-        id: 9,
-        name: "PostgreSQL",
-        category: "database",
-        color: "from-sky-500 to-sky-700",
-        bgColor: "bg-sky-500/10",
-        description: "Relational database system"
-    },
-    {
-        id: 10,
-        name: "JavaScript",
-        category: "language",
-        color: "from-yellow-500 to-yellow-700",
-        bgColor: "bg-yellow-500/10",
-        description: "Dynamic web programming"
-    },
-    {
-        id: 11,
-        name: "TypeScript",
-        category: "language",
-        color: "from-blue-600 to-blue-800",
-        bgColor: "bg-blue-600/10",
-        description: "Typed JavaScript superset"
-    },
-    {
-        id: 12,
-        name: "C",
-        category: "language",
-        color: "from-blue-600 to-blue-800",
-        bgColor: "bg-blue-600/10",
-        description: "System programming language"
-    },
-    {
-        id: 13,
-        name: "C++",
-        category: "language",
-        color: "from-indigo-500 to-purple-700",
-        bgColor: "bg-indigo-500/10",
-        description: "Object-oriented programming"
-    },
-    {
-        id: 14,
-        name: "Firebase",
-        category: "service",
-        color: "from-yellow-500 to-yellow-700",
-        bgColor: "bg-yellow-500/10",
-        description: "Backend-as-a-Service platform"
-    },
-    {
-        id: 15,
-        name: "Stripe",
-        category: "service",
-        color: "from-purple-500 to-purple-700",
-        bgColor: "bg-purple-500/10",
-        description: "Payment processing platform"
-    }
-];
-
-const tools = [
-    { id: 1, name: "GitHub", description: "Version Control" },
-    { id: 2, name: "VS Code", description: "Code Editor" },
-    { id: 3, name: "Netlify", description: "Static Deployment" },
-    { id: 4, name: "Vercel", description: "Full-stack Deployment" },
-];
-
-const designTools = [
-    { id: 1, name: "Figma", description: "UI/UX Design" },
-    { id: 2, name: "Canva", description: "Graphic Design" },
-];
-
-// Helper function to get icon based on skill name
-const getIcon = (skillName) => {
-    switch (skillName) {
-        case "React": return <FaReact className="text-cyan-400 text-xl" />;
-        case "HTML5": return <FaHtml5 className="text-orange-400 text-xl" />;
-        case "CSS3": return <FaCss3Alt className="text-blue-400 text-xl" />;
-        case "Tailwind CSS": return <SiTailwindcss className="text-cyan-400 text-xl" />;
-        case "DaisyUI": return <SiDaisyui className="text-purple-400 text-xl" />;
-        case "Node.js": return <FaNodeJs className="text-green-400 text-xl" />;
-        case "Express": return <SiExpress className="text-gray-300 text-xl" />;
-        case "MongoDB": return <FaDatabase className="text-green-400 text-xl" />;
-        case "PostgreSQL": return <BiLogoPostgresql className="text-sky-400 text-xl" />;
-        case "JavaScript": return <FaJs className="text-yellow-400 text-xl" />;
-        case "TypeScript": return <SiTypescript className="text-blue-500 text-xl" />;
-        case "C": return <SiC className="text-blue-400 text-xl" />;
-        case "C++": return <SiCplusplus className="text-blue-400 text-xl" />;
-        case "Firebase": return <SiFirebase className="text-yellow-400 text-xl" />;
-        case "Stripe": return <SiStripe className="text-purple-400 text-xl" />;
-        default: return null;
-    }
+// Icon mapping for skills
+const skillIconMap = {
+    "React": <FaReact className="text-cyan-400 text-xl" />,
+    "HTML5": <FaHtml5 className="text-orange-400 text-xl" />,
+    "CSS3": <FaCss3Alt className="text-blue-400 text-xl" />,
+    "Tailwind CSS": <SiTailwindcss className="text-cyan-400 text-xl" />,
+    "DaisyUI": <SiDaisyui className="text-purple-400 text-xl" />,
+    "Node.js": <FaNodeJs className="text-green-400 text-xl" />,
+    "Express": <SiExpress className="text-gray-300 text-xl" />,
+    "MongoDB": <FaDatabase className="text-green-400 text-xl" />,
+    "PostgreSQL": <BiLogoPostgresql className="text-sky-400 text-xl" />,
+    "JavaScript": <FaJs className="text-yellow-400 text-xl" />,
+    "TypeScript": <SiTypescript className="text-blue-500 text-xl" />,
+    "C": <SiC className="text-blue-400 text-xl" />,
+    "C++": <SiCplusplus className="text-blue-400 text-xl" />,
+    "Firebase": <SiFirebase className="text-yellow-400 text-xl" />,
+    "JWT": <SiJsonwebtokens className="text-blue-400 text-xl" />,
+    "Bcrypt": <RiLockPasswordLine className="text-emerald-400 text-xl" />,
+    "Stripe": <SiStripe className="text-purple-400 text-xl" />,
 };
 
-const getToolIcon = (toolName) => {
-    switch (toolName) {
-        case "GitHub": return <FaGithub className="text-gray-300 dark:text-gray-400 text-xl" />;
-        case "VS Code": return <VscVscode className="text-blue-400 text-xl" />;
-        case "Netlify": return <SiNetlify className="text-green-400 text-xl" />;
-        case "Vercel": return <SiVercel className="text-white dark:text-gray-300 text-xl" />;
-        default: return null;
-    }
+// Icon mapping for tools
+const toolIconMap = {
+    "GitHub": <FaGithub className="text-gray-300 dark:text-gray-400 text-xl" />,
+    "VS Code": <VscVscode className="text-blue-400 text-xl" />,
+    "Netlify": <SiNetlify className="text-green-400 text-xl" />,
+    "Vercel": <SiVercel className="text-white dark:text-gray-300 text-xl" />,
 };
 
-const getDesignToolIcon = (toolName) => {
-    switch (toolName) {
-        case "Figma": return <FaFigma className="text-purple-400 text-xl" />;
-        case "Canva": return <SiCanva className="text-teal-400 text-xl" />;
-        default: return null;
-    }
+// Icon mapping for design tools
+const designToolIconMap = {
+    "Figma": <FaFigma className="text-purple-400 text-xl" />,
+    "Canva": <SiCanva className="text-teal-400 text-xl" />,
 };
+
+// Helper function to get icon dynamically
+const getIcon = (skillName) => skillIconMap[skillName] || null;
+const getToolIcon = (toolName) => toolIconMap[toolName] || null;
+const getDesignToolIcon = (toolName) => designToolIconMap[toolName] || null;
 
 const Skills = () => {
     const [visibleCards, setVisibleCards] = useState([false, false, false, false, false, false]);
@@ -200,7 +69,6 @@ const Skills = () => {
                 const [entry] = entries;
                 if (entry.isIntersecting && !hasAnimated.current) {
                     hasAnimated.current = true;
-                    // Animate cards one by one with 50ms delay
                     visibleCards.forEach((_, cardIndex) => {
                         setTimeout(() => {
                             setVisibleCards(prev => {
@@ -208,7 +76,7 @@ const Skills = () => {
                                 newState[cardIndex] = true;
                                 return newState;
                             });
-                        }, cardIndex * 50); // 50ms delay between cards
+                        }, cardIndex * 50);
                     });
                 }
             },
@@ -229,11 +97,9 @@ const Skills = () => {
         };
     }, []);
 
-    // When a card becomes visible, start animating its items
     useEffect(() => {
         visibleCards.forEach((isVisible, cardIndex) => {
             if (isVisible && !visibleItems[cardIndex]) {
-                // Get the number of items in this card
                 let itemCount = 0;
                 if (cardIndex === 0) itemCount = frontendSkills.length;
                 else if (cardIndex === 1) itemCount = backendSkills.length;
@@ -242,17 +108,15 @@ const Skills = () => {
                 else if (cardIndex === 4) itemCount = toolsSkills.length;
                 else if (cardIndex === 5) itemCount = designSkills.length;
 
-                // Animate items one by one with 40ms delay
                 for (let i = 0; i < itemCount; i++) {
                     setTimeout(() => {
                         setVisibleItems(prev => ({
                             ...prev,
                             [`${cardIndex}-${i}`]: true
                         }));
-                    }, i * 40); // 40ms delay between each item
+                    }, i * 40);
                 }
 
-                // Mark that items for this card have started animating
                 setVisibleItems(prev => ({
                     ...prev,
                     [cardIndex]: true
@@ -261,23 +125,30 @@ const Skills = () => {
         });
     }, [visibleCards]);
 
-    // Organize skills by category for the card layout
-    const frontendSkills = skills
+    // Fetch and organize skills by category from allSkills
+    const frontendSkills = allSkills
         .filter(skill => skill.category === "frontend")
         .map(skill => ({
             name: skill.name.toUpperCase(),
             icon: getIcon(skill.name)
         }));
 
-    const backendSkills = skills
+    const backendSkills = allSkills
         .filter(skill => skill.category === "backend" || skill.category === "database")
         .map(skill => ({
             name: skill.name.toUpperCase(),
             icon: getIcon(skill.name)
         }));
 
-    const coreSkills = skills
+    const coreSkills = allSkills
         .filter(skill => skill.category === "language")
+        .map(skill => ({
+            name: skill.name.toUpperCase(),
+            icon: getIcon(skill.name)
+        }));
+
+    const servicesSkills = allSkills
+        .filter(skill => skill.category === "service")
         .map(skill => ({
             name: skill.name.toUpperCase(),
             icon: getIcon(skill.name)
@@ -285,23 +156,13 @@ const Skills = () => {
 
     const toolsSkills = tools.map(tool => ({
         name: tool.name.toUpperCase(),
-        icon: getToolIcon(tool.name),
-        description: tool.description
+        icon: getToolIcon(tool.name)
     }));
 
     const designSkills = designTools.map(tool => ({
         name: tool.name.toUpperCase(),
-        icon: getDesignToolIcon(tool.name),
-        description: tool.description
+        icon: getDesignToolIcon(tool.name)
     }));
-
-    const servicesSkills = skills
-        .filter(skill => skill.category === "service")
-        .map(skill => ({
-            name: skill.name.toUpperCase(),
-            icon: getIcon(skill.name),
-            description: skill.description
-        }));
 
     const allSkillCards = [
         { title: "Frontend", icon: <Code2 className="text-[#83838c] dark:text-gray-400 text-xl" />, items: frontendSkills },
@@ -345,7 +206,7 @@ const Skills = () => {
                         >
                             {/* Title */}
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-xl shadow-inner group-hover:scale-125 transition-transform duration-300">
+                                <div className="bg-[#2f2f38] dark:bg-gray-700 p-2.5 rounded-xl shadow-inner group-hover:scale-110 transition-transform duration-300">
                                     {card.icon}
                                 </div>
                                 <h2 className="text-xl font-semibold text-[#e8e8ea] dark:text-white">{card.title}</h2>
