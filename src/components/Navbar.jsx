@@ -175,8 +175,8 @@ const Navbar = () => {
                 <button
                     onClick={() => {
                         const link = document.createElement('a');
-                        link.href = '/resume.pdf';
-                        link.download = 'Resume by Ashraful Islam Ratul.pdf';
+                        link.href = '/resume_by_ashraful_islam_ratul.pdf';
+                        link.download = 'resume_by_ashraful_islam_ratul.pdf';
                         link.click();
                         setMobileMenuOpen(false);
                     }}
@@ -232,8 +232,8 @@ const Navbar = () => {
 
                     {/* Resume button */}
                     <a
-                        href="/resume.pdf"
-                        download="Resume by Ashraful Islam Ratul.pdf"
+                        href="/resume_by_ashraful_islam_ratul.pdf"
+                        download="resume_by_ashraful_islam_ratul.pdf"
                         className="hidden md:inline-flex items-center gap-2 relative px-2 lg:px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
                     >
                         <Download size={16} className="relative z-10" />

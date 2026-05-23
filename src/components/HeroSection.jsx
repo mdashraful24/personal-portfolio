@@ -120,8 +120,8 @@ const HeroSection = ({ onHireMeClick }) => {
                         {/* CTA Buttons */}
                         <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-up delay-300">
                             <a
-                                href="/CV by Ashraful Islam Ratul.pdf"
-                                download="CV by Ashraful Islam Ratul.pdf"
+                                href="/cv_by_ashraful_islam_ratul.pdf"
+                                download="cv_by_ashraful_islam_ratul.pdf"
                                 className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
