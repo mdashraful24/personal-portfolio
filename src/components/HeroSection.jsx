@@ -4,14 +4,81 @@ import img from '../../src/assets//image/img.png';
 import './css/HeroSection.css'
 import { Download } from "lucide-react";
 
+// Stats data
+const statsData = [
+    {
+        icon: FaCode,
+        iconColor: "text-blue-500 dark:text-blue-400",
+        label: "Web Developer",
+        delay: "delay-300"
+    },
+    {
+        icon: FaGraduationCap,
+        iconColor: "text-indigo-500 dark:text-indigo-400",
+        label: "Fresh Graduate",
+        delay: "delay-400"
+    },
+    {
+        icon: HiOutlineLocationMarker,
+        iconColor: "text-rose-500 dark:text-rose-400",
+        label: "Dhaka, Bangladesh",
+        delay: "delay-500"
+    }
+];
+
+// Social links data
+const socialLinks = [
+    {
+        href: "https://github.com/mdashraful24",
+        icon: FaGithub,
+        bgColor: "bg-gray-900 dark:bg-gray-700",
+        label: "GitHub"
+    },
+    {
+        href: "https://www.linkedin.com/in/ashraful-islam-ratul/",
+        icon: FaLinkedin,
+        bgColor: "bg-blue-600",
+        label: "LinkedIn"
+    },
+    {
+        href: "https://www.facebook.com/ashraful.islam.ratul2k",
+        icon: FaFacebook,
+        bgColor: "bg-blue-700 dark:bg-blue-600",
+        label: "Facebook"
+    }
+];
+
+// Reusable StatItem component
+const StatItem = ({ icon: Icon, iconColor, label, delay }) => (
+    <div className={`flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-100 dark:border-none rounded-full shadow-md animate-scale ${delay}`}>
+        <Icon className={`${iconColor} text-sm`} />
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
+    </div>
+);
+
+// Reusable SocialLink component
+const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
+    <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105"
+    >
+        <div className={`p-1 ${bgColor} rounded-lg text-white transition-all duration-300`}>
+            <Icon className="text-lg" />
+        </div>
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
+    </a>
+);
+
 // dark: bg - gradient - to - br dark: from - gray - 900 dark: via - gray - 800 dark: to - gray - 900
 const HeroSection = ({ onHireMeClick }) => {
     return (
         <div className="bg-gradient-to-b from-white via-white to-gray-100 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-950 dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
             {/* Background decorative elements - Hidden in dark mode */}
-            {/* <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
+            <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse-glow dark:hidden"></div> */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse-glow dark:hidden"></div>
 
             <div className="container max-w-7xl mx-auto px-4 py-14 md:py-16 lg:py-0 relative z-10">
                 <div className="flex flex-col-reverse lg:flex-row lg:min-h-[calc(100vh-4rem)] items-center justify-between gap-16">
@@ -36,19 +103,12 @@ const HeroSection = ({ onHireMeClick }) => {
                                     Ashraful Islam Ratul
                                 </p>
                             </h1>
+
+                            {/* Stats - DRY Refactored */}
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-full shadow-md animate-scale delay-300">
-                                    <FaCode className="text-blue-500 dark:text-blue-400 text-sm" />
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Web Developer</span>
-                                </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-full shadow-md animate-scale delay-400">
-                                    <FaGraduationCap className="text-indigo-500 dark:text-indigo-400 text-sm" />
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Fresh Graduate</span>
-                                </div>
-                                <div className="flex items-center gap-1 px-4 py-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-full shadow-md animate-scale delay-500">
-                                    <HiOutlineLocationMarker className="text-rose-500 dark:text-rose-400 text-sm" />
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Dhaka, Bangladesh</span>
-                                </div>
+                                {statsData.map((stat, index) => (
+                                    <StatItem key={index} {...stat} />
+                                ))}
                             </div>
                         </div>
 
@@ -78,43 +138,13 @@ const HeroSection = ({ onHireMeClick }) => {
                             </button>
                         </div>
 
-                        {/* Social Links with Labels */}
+                        {/* Social Links with Labels - DRY Refactored */}
                         <div className="flex flex-col items-center lg:items-start gap-4 pt-4 animate-fade-up delay-400">
                             <p className="text-sm text-gray-600 dark:text-gray-300">Connect with me:</p>
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                                <a
-                                    href="https://github.com/mdashraful24"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105"
-                                >
-                                    <div className="p-1 bg-gray-900 dark:bg-gray-700 rounded-lg text-white transition-all duration-300 group-hover:rotate-12">
-                                        <FaGithub className="text-lg" />
-                                    </div>
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">GitHub</span>
-                                </a>
-                                <a
-                                    href="https://www.linkedin.com/in/ashraful-islam-ratul/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105"
-                                >
-                                    <div className="p-1 bg-blue-600 rounded-lg text-white transition-all duration-300 group-hover:rotate-12">
-                                        <FaLinkedin className="text-lg" />
-                                    </div>
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">LinkedIn</span>
-                                </a>
-                                <a
-                                    href="https://www.facebook.com/ashraful.islam.ratul2k"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105"
-                                >
-                                    <div className="p-1 bg-blue-700 dark:bg-blue-600 rounded-lg text-white transition-all duration-300 group-hover:rotate-12">
-                                        <FaFacebook className="text-lg" />
-                                    </div>
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Facebook</span>
-                                </a>
+                                {socialLinks.map((link, index) => (
+                                    <SocialLink key={index} {...link} />
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -122,7 +152,7 @@ const HeroSection = ({ onHireMeClick }) => {
                     {/* RIGHT SIDE - Profile Image with Badge */}
                     <div className="flex justify-center items-center relative group animate-blur-in lg:mr-9">
                         {/* Decorative rings - grayscale initially, color on group hover */}
-                        <div className="absolute w-[310px] h-[310px] md:w-[380px] md:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-400 dark:border-gray-600 grayscale group-hover:grayscale-0 group-hover:border-blue-600 dark:group-hover:border-blue-400 transition-all duration-700 animate-rotate-in"></div>
+                        <div className="absolute w-[310px] h-[310px] md:w-[380px] md:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 dark:group-hover:border-blue-400 transition-all duration-700 animate-rotate-in"></div>
 
                         {/* Solar system orbiting icon - spins around the image, stops on group hover */}
                         <div className="absolute w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-full animate-orbit group-hover:animation-none">

@@ -30,3 +30,5 @@ linkedin-cover.png
 
 # Optional npm
 # npm uninstall react-toastify --legacy-peer-deps
+
+# npm install --legacy-peer-deps

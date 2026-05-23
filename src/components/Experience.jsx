@@ -15,10 +15,10 @@ const Experience = () => {
 
     // Get experiences from ALL categories where experienceShow is true
     const allExperiences = [
-        ...(projectsData["my-project"] || []),
-        ...(projectsData["team-project"] || []),
         ...(projectsData["client-project"] || []),
-        ...(projectsData["working-project"] || [])
+        ...(projectsData["team-project"] || []),
+        ...(projectsData["working-project"] || []),
+        ...(projectsData["my-project"] || []),
     ].filter(exp => exp.experienceShow === true);
 
     const experiences = allExperiences;
