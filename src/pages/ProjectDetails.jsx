@@ -155,9 +155,12 @@ const ProjectDetails = () => {
                         <div className="w-full lg:max-w-3xl">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-1.5 h-8 bg-blue-700 rounded-full"></div>
-                                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                                    {project.title}
-                                </h1>
+                                <div className="w-full flex items-center justify-between gap-3">
+                                    <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+                                        {project.title}
+                                    </h1>
+                                    <span className="font-semibold">{project?.duration}</span>
+                                </div>
                             </div>
 
                             <p className="md:text-lg mb-6 text-justify">
@@ -296,7 +299,7 @@ const ProjectDetails = () => {
                     <div className="space-y-6">
                         <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
                             <h3 className="flex items-center gap-3 text-2xl font-bold mb-6 text-white">
-                                <FaTools className="text-blue-400" /> 
+                                <FaTools className="text-blue-400" />
                                 Technical Architecture
                             </h3>
                             <div className="space-y-6">
