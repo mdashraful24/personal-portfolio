@@ -1,8 +1,11 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Root = () => {
+    const location = useLocation();
+    const isAllProjectsPage = location.pathname === "/all-projects";
+
     return (
         <div className="min-h-screen">
             <header className="mb-16">
@@ -11,7 +14,7 @@ const Root = () => {
             <main>
                 <Outlet></Outlet>
             </main>
-            <footer>
+            <footer className={isAllProjectsPage ? "hidden md:block" : ""}>
                 <Footer />
             </footer>
         </div>
