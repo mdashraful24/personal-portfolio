@@ -124,7 +124,7 @@ const ProjectDetails = () => {
     ].filter(tab => tab.condition);
 
     return (
-        <div className="min-h-screen dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900 pt-7 pb-16">
+        <div className="min-h-screen dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900 pt-8 pb-16">
             <title>{project.title} | Ashraful Islam Ratul</title>
 
             {/* Back Button */}
