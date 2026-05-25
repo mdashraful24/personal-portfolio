@@ -20,8 +20,9 @@ const Tooltip = ({ text, delay = 500, children, position = "", disabled = false 
         right: "left-full ml-4 top-1/2 -translate-y-1/2",
         left: "right-full mr-3 top-1/2 -translate-y-1/2",
         top: "bottom-full mb-2 left-1/2 -translate-x-1/2",
-        topTwo: "bottom-full mb-2 left-[30%] -translate-x-1/2",
-        topThree: "!bg-gray-200 !text-black bottom-full mb-2 left-2 -translate-x-1/2",
+        topTwo: "bottom-full mb-2 left-[40%] -translate-x-1/2",
+        topThree: "!bg-gray-200 !text-black bottom-full mb-2 left-6 -translate-x-1/2",
+        topFour: "bottom-full mb-2 -left-2 -translate-x-1/2",
         bottom: "top-full mt-2 left-1/2 -translate-x-1/2",
     };
 

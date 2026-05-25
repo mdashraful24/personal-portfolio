@@ -165,7 +165,7 @@ const ContactSection = () => {
             label: "GitHub",
             tooltipText: "Visit my GitHub profile",
             url: "https://github.com/mdashraful24",
-            color: "hover:bg-gray-600 hover:text-white",
+            color: "hover:bg-gray-600 hover:dark:bg-black hover:text-white",
             iconColor: "text-black dark:text-white",
             bgColor: "bg-white/10 dark:bg-gray-700"
         },

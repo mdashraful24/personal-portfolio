@@ -130,7 +130,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                         </Tooltip>
                     )}
                     {githubUrl && (
-                        <Tooltip text="GitHub Repository" position="top" delay={0}>
+                        <Tooltip text="GitHub Repository" position="topFour" delay={0}>
                             <a
                                 href={githubUrl}
                                 target="_blank"
