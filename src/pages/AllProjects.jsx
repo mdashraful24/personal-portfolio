@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import ProjectCard from "../components/ProjectCard.jsx";
-import { Helmet } from "react-helmet-async";
 import projectsData from '../data/projects.js';
 
 const AllProjects = () => {
@@ -99,7 +98,7 @@ const AllProjects = () => {
         <button
             onClick={onClick}
             className={`
-                group relative p-2 rounded-lg text-xs font-semibold transition-all duration-200
+                group relative p-2 rounded-lg text-sm font-semibold transition-all duration-200
                 flex items-center justify-between w-full
                 ${isActive
                     ? "bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-md"
@@ -109,12 +108,12 @@ const AllProjects = () => {
             `}
         >
             <span className={`flex items-center gap-2 lg:gap-3 ${isMobile ? "flex-col" : ""}`}>
-                {/* <Icon path={tab.icon} className={`${isMobile ? "w-5 h-5" : "w-4 h-4"} flex-shrink-0`} /> */}
+                <Icon path={tab.icon} className={`hidden md:block ${isMobile ? "w-5 h-5" : "w-4 h-4"} flex-shrink-0`} />
                 {!isMobile && <span className="truncate">{tab.label}</span>}
                 {isMobile && <span className="text- font-medium">{tab.label}</span>}
             </span>
             {!isMobile && (
-                <span className={`text-[10px] lg:text-xs px-1.5 lg:px-2 py-0.5 rounded-full flex-shrink-0 ml-2 ${isActive ? "bg-white/20 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"}`}>
+                <span className={`px-2 py-0.5 rounded-full flex-shrink-0 ml-2 ${isActive ? "dark:bg-white/20 border border-blue-300" : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"}`}>
                     {tab.id === "all" ? allProjects.length : tab.getCount()}
                 </span>
             )}
@@ -123,8 +122,8 @@ const AllProjects = () => {
 
     return (
         <div className="dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-gray-950">
-            <div className="container max-w-7xl mx-auto min-h-screen px-3 sm:px-4 pt-4 sm:pt-7 md:pt-10 pb-20 md:pb-12">
-                <Helmet><title>All Projects | Ashraful Islam Ratul</title></Helmet>
+            <div className="container max-w-7xl mx-auto min-h-screen px-4 pt-4 md:pt-8 pb-20 md:pb-12">
+                <title>All Projects | Ashraful Islam Ratul</title>
 
                 {/* Dashboard Layout */}
                 <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8">

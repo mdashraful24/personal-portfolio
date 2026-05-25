@@ -37,7 +37,6 @@ import Skills from "../components/Skills";
 import ProjectsShowcase from "../components/ProjectsShowcase";
 import Experience from "../components/Experience";
 import ContactSection from "../components/ContactSection";
-import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const contactRef = useRef(null);
@@ -55,9 +54,7 @@ const Home = () => {
 
     return (
         <div className="">
-            <Helmet>
-                <title>Ashraful Islam Ratul</title>
-            </Helmet>
+            <title>Ashraful Islam Ratul</title>
 
             <section id="home">
                 <HeroSection onHireMeClick={handleHireMeClick} />

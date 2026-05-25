@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import gif from '../../src/assets/404.gif'
 
@@ -6,9 +5,8 @@ const ErrorPage = () => {
     return (
         <div className="hero min-h-screen dark:bg-black">
             {/* Helmet */}
-            <Helmet>
-                <title>Error Page | Ashraful Islam Ratul</title>
-            </Helmet>
+            <title>Error Page | Ashraful Islam Ratul</title>
+
             <div className="hero-content text-center">
                 <div className="max-w-md space-y-5">
                     <img src={gif} alt="404 Error" />

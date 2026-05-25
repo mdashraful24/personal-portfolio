@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaExternalLinkAlt, FaGithub, FaServer, FaDatabase, FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette, FaMobile, FaImages, FaArrowLeft, FaStar, FaTools, FaRocket } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
 
 const ProjectDetails = () => {
     const project = useLoaderData();
@@ -14,6 +13,14 @@ const ProjectDetails = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    useEffect(() => {
+        if (project?.title) {
+            document.title = `${project.title} | Ashraful Islam Ratul`;
+        } else {
+            document.title = "Ashraful Islam Ratul";
+        }
+    }, [project]);
 
     // Scroll to active tab on initial load and when activeTab changes
     useEffect(() => {
@@ -118,9 +125,7 @@ const ProjectDetails = () => {
 
     return (
         <div className="min-h-screen dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900 pt-7 pb-16">
-            <Helmet>
-                <title>{project.title} | Ashraful Islam Ratul</title>
-            </Helmet>
+            <title>{project.title} | Ashraful Islam Ratul</title>
 
             {/* Back Button */}
             <div className="hidden md:block container max-w-7xl mx-auto px-4 mb-6">
