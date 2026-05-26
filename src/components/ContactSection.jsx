@@ -358,7 +358,7 @@ const ContactSection = () => {
                                 <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (
                                         social.isCopyButton ? (
-                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={0}>
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree">
                                                 <button
                                                     onClick={social.onClick}
                                                     className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon cursor-pointer inline-flex items-center justify-center`}
@@ -370,7 +370,7 @@ const ContactSection = () => {
                                                 </button>
                                             </Tooltip>
                                         ) : (
-                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={0}>
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree">
                                                 <a
                                                     href={social.url}
                                                     target="_blank"

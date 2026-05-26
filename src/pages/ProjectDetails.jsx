@@ -1,414 +1,363 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { FaExternalLinkAlt, FaGithub, FaServer, FaDatabase, FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette, FaMobile, FaImages, FaArrowLeft, FaStar, FaTools, FaRocket } from "react-icons/fa";
+import {
+    FaExternalLinkAlt, FaGithub, FaServer, FaDatabase,
+    FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette,
+    FaMobile, FaImages, FaArrowLeft, FaStar, FaTools,
+    FaRocket, FaCheckCircle, FaLayerGroup, FaShieldAlt
+} from "react-icons/fa";
 
+// ============== CONSTANTS ==============
+const TECH_CATEGORIES = {
+    frontend: { title: "Frontend", icon: FaPalette, color: "blue" },
+    backend: { title: "Backend", icon: FaServer, color: "green" },
+    handling: { title: "Payment & Media", icon: FaCreditCard, color: "purple" },
+    development: { title: "DevOps", icon: FaCloud, color: "red" }
+};
+
+const OVERVIEW_VISIBLE_COUNT = 4;
+
+// ============== HELPER FUNCTIONS ==============
+const hasData = (data) => data && Array.isArray(data) && data.length > 0;
+const getStripeStatus = (handling) => handling?.some(tech => tech.name.toLowerCase().includes('stripe'));
+
+// ============== REUSABLE COMPONENTS ==============
+
+const BackButton = ({ onClick }) => (
+    <button
+        onClick={onClick}
+        className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
+    >
+        <FaArrowLeft className="text-gray-600 dark:text-gray-400 group-hover:-translate-x-1 transition-transform duration-300" />
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Back</span>
+    </button>
+);
+
+const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
+    const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-300 active:scale-95";
+    const variants = {
+        primary: "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-500/25",
+        secondary: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
+    };
+
+    return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={`${baseStyles} ${variants[variant]}`}>
+            <Icon className="text-lg" />
+            <span>{children}</span>
+        </a>
+    );
+};
+
+const TechPill = ({ tech, color, isCompact = false }) => (
+    <span className={`inline-flex items-center gap-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 ${isCompact
+        ? "px-2.5 py-1 text-xs bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+        : `px-3 py-1.5 bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-400 border border-${color}-200 dark:border-${color}-800`
+        }`}>
+        <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
+        {tech.name}
+    </span>
+);
+
+const StatBadge = ({ label, value }) => (
+    <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl px-4 py-2 text-center">
+        <div className="text-2xl font-bold text-gray-800 dark:text-white">{value}</div>
+        <div className="text-xs text-gray-500 dark:text-gray-400">{label}</div>
+    </div>
+);
+
+const SectionCard = ({ children, className = "" }) => (
+    <div className={`bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 transition-shadow ${className}`}>
+        {children}
+    </div>
+);
+
+const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
+    <button
+        ref={ref}
+        onClick={() => onClick(id)}
+        className={`group relative px-5 py-3 font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0 ${isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+            }`}
+    >
+        <div className="flex items-center gap-2">
+            <Icon className={`text-base ${isActive ? "text-blue-500" : "text-gray-400"}`} />
+            <span className="text-sm sm:text-base">{label}</span>
+        </div>
+        {isActive && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" />
+        )}
+    </button>
+);
+
+const ChallengeItem = ({ challenge, index }) => (
+    <div className="group flex items-center gap-4 px-4 py-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border-l-4 border-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-all">
+        <div className="flex-shrink-0 w-7 h-7 bg-amber-400 text-white rounded-lg flex items-center justify-center font-bold text-sm">
+            {index + 1}
+        </div>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
+        <FaLightbulb className="text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+    </div>
+);
+
+const RoadmapItem = ({ plan, index }) => (
+    <div className="group flex items-center gap-4 px-4 py-3 bg-green-50 dark:bg-green-900/10 rounded-xl border-l-4 border-green-400 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all">
+        <div className="w-7 h-7 bg-green-400 text-white rounded-lg flex items-center justify-center">
+            <FaCheckCircle className="text-sm" />
+        </div>
+        <p className="text-gray-700 dark:text-gray-300 flex-1">{plan}</p>
+        <FaRocket className="text-green-400 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+    </div>
+);
+
+const OverviewTechSection = ({ config, techs, color }) => {
+    const visibleTechs = techs.slice(0, OVERVIEW_VISIBLE_COUNT);
+    const remainingCount = techs.length - OVERVIEW_VISIBLE_COUNT;
+
+    return (
+        <SectionCard className="p-6 shadow hover:shadow-md">
+            <div className="flex items-center gap-3 mb-4">
+                <div className={`p-2 rounded-xl bg-${color}-100 dark:bg-${color}-900/20`}>
+                    <config.icon className={`text-${color}-600 dark:text-${color}-400 text-xl`} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{config.title}</h3>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+                {visibleTechs.map((tech, idx) => (
+                    <TechPill key={idx} tech={tech} color={color} />
+                ))}
+                {remainingCount > 0 && (
+                    <span className={`inline-flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-semibold bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-300/20 border border-${color}-500`}>
+                        +{remainingCount} more
+                    </span>
+                )}
+            </div>
+        </SectionCard>
+    );
+};
+
+// ============== MAIN COMPONENT ==============
 const ProjectDetails = () => {
     const project = useLoaderData();
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState("overview");
     const tabsContainerRef = useRef(null);
     const tabRefs = useRef({});
-    const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const hasStripe = getStripeStatus(project?.handling);
 
-    useEffect(() => {
-        if (project?.title) {
-            document.title = `${project.title} | Ashraful Islam Ratul`;
-        } else {
-            document.title = "Ashraful Islam Ratul";
-        }
-    }, [project]);
+    // Update tab category title based on Stripe presence
+    if (hasStripe && TECH_CATEGORIES.handling.title === "Payment & Media") {
+        TECH_CATEGORIES.handling.title = "Payment Gateway";
+        TECH_CATEGORIES.handling.icon = FaCreditCard;
+    } else if (!hasStripe) {
+        TECH_CATEGORIES.handling.title = "Media & Assets";
+        TECH_CATEGORIES.handling.icon = FaImages;
+    }
 
-    // Scroll to active tab on initial load and when activeTab changes
-    useEffect(() => {
-        if (!isInitialLoad) {
-            scrollToActiveTab();
+    // Available tabs configuration
+    const tabs = [
+        { id: "overview", label: "Overview", icon: FaStar, condition: true },
+        { id: "tech-stack", label: "Tech Stack", icon: FaLayerGroup, condition: true },
+        { id: "challenges", label: "Challenges", icon: FaShieldAlt, condition: hasData(project?.challenges) },
+        { id: "roadmap", label: "Roadmap", icon: FaRocket, condition: hasData(project?.futurePlans) }
+    ].filter(tab => tab.condition);
+
+    const scrollToActiveTab = useCallback(() => {
+        const activeTabElement = tabRefs.current[activeTab];
+        const container = tabsContainerRef.current;
+        if (activeTabElement && container) {
+            const containerRect = container.getBoundingClientRect();
+            const activeTabRect = activeTabElement.getBoundingClientRect();
+            const scrollLeft = activeTabElement.offsetLeft - (containerRect.width / 2) + (activeTabRect.width / 2);
+            container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
         }
     }, [activeTab]);
 
-    // Handle initial scroll to show the first tab properly
     useEffect(() => {
-        if (isInitialLoad && tabsContainerRef.current) {
-            // Small delay to ensure DOM is fully rendered
-            setTimeout(() => {
-                scrollToActiveTab();
-                setIsInitialLoad(false);
-            }, 150);
-        }
-    }, [project]); // Re-run when project loads
+        window.scrollTo(0, 0);
+        document.title = project?.title ? `${project.title} | Ashraful Islam Ratul` : "Ashraful Islam Ratul";
+    }, [project]);
 
-    // Check if Stripe is available in the handling array
-    const hasStripe = project?.handling?.some(tech =>
-        tech.name.toLowerCase().includes('stripe')
-    );
-
-    // Helper functions to check if data exists and is not empty
-    const hasData = (data) => {
-        return data && Array.isArray(data) && data.length > 0;
-    };
-
-    // Improved function to handle tab click with better scrolling
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-        scrollToActiveTab();
-    };
-
-    // Separate function for scrolling to active tab
-    const scrollToActiveTab = () => {
-        const activeTabElement = tabRefs.current[activeTab];
-        const container = tabsContainerRef.current;
-
-        if (activeTabElement && container) {
-            // Calculate the scroll position to center the active tab
-            const containerRect = container.getBoundingClientRect();
-            const activeTabRect = activeTabElement.getBoundingClientRect();
-
-            // Calculate scroll position to make the tab visible with some padding
-            const scrollLeft = activeTabElement.offsetLeft - (containerRect.width / 2) + (activeTabRect.width / 2);
-
-            container.scrollTo({
-                left: Math.max(0, scrollLeft),
-                behavior: 'smooth'
-            });
-        }
-    };
+    useEffect(() => {
+        const timer = setTimeout(scrollToActiveTab, 100);
+        return () => clearTimeout(timer);
+    }, [activeTab, scrollToActiveTab]);
 
     if (!project) {
         return (
-            <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-                <div className="text-center text-white">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <h2 className="text-2xl font-bold text-red-400">Project Not Found</h2>
-                    <p className="text-gray-400 mt-2">The project you're looking for doesn't exist or has been moved.</p>
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="text-7xl mb-4">🔍</div>
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Project Not Found</h2>
+                    <p className="text-gray-500 dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
+                    <button onClick={() => navigate(-1)} className="mt-6 text-blue-600 dark:text-blue-400 hover:underline">
+                        ← Go Back
+                    </button>
                 </div>
             </div>
         );
     }
 
-    const TechCategory = ({ title, techs, icon, color }) => {
-        if (!hasData(techs)) return null;
-
-        return (
-            <div className="bg-gray-800 rounded-lg p-6 border-l-4" style={{ borderLeftColor: color }}>
-                <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 rounded-lg" style={{ backgroundColor: color + '20' }}>
-                        {icon}
-                    </div>
-                    <h4 className="text-lg font-semibold text-white">{title}</h4>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                    {techs.map((tech, index) => (
-                        <span
-                            key={index}
-                            className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium"
-                            style={{ backgroundColor: color + '20', color: color }}
-                        >
-                            <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
-                            {tech.name}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        );
-    };
-
-    // Define available tabs
-    const availableTabs = [
-        { id: "overview", label: "Overview", icon: <FaStar className="text-yellow-400" />, condition: true },
-        { id: "technology", label: "Tech Stack", icon: <FaTools className="text-blue-400" />, condition: true },
-        { id: "challenges", label: "Challenges", icon: <FaLightbulb className="text-orange-400" />, condition: hasData(project.challenges) },
-        { id: "future", label: "Roadmap", icon: <FaRocket className="text-green-400" />, condition: hasData(project.futurePlans) }
-    ].filter(tab => tab.condition);
-
     return (
-        <div className="min-h-screen dark:bg-gradient-to-b dark:from-black dark:via-gray-950 dark:to-gray-900 pt-8 pb-16">
-            <title>{project.title} | Ashraful Islam Ratul</title>
+        <div className="min-h-screen bg-gray-50 dark:bg-black py-8">
+            {/* Header Section */}
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="hidden lg:block mb-6">
+                    <BackButton onClick={() => navigate(-1)} />
+                </div>
 
-            {/* Back Button */}
-            <div className="hidden md:block container max-w-7xl mx-auto px-4 mb-6">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="group flex items-center gap-2 px-3 py-1.5 bg-blue-500/20 text-blue-700 dark:text-blue-500 font-semibold backdrop-blur-sm rounded-full border border-blue-500 transition-all duration-300 dark:hover:bg-blue-500/50 dark:hover:text-white"
-                >
-                    <FaArrowLeft className="transform group-hover:-translate-x-1 transition-transform duration-300" />
-                    <span className="text-sm">Go Back</span>
-                </button>
-            </div>
-
-            {/* Header with Background */}
-            <div className="relative border-b border-gray-700">
-                <div className="container max-w-7xl mx-auto px-4 pb-10">
-                    <div className="flex flex-col lg:flex-row gap-5 md:gap-8 items-start">
-                        {/* Project Image */}
-                        <div className="w-full lg:max-w-lg">
-                            <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-700 transform transition-transform duration-500">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => {
-                                        e.target.src = "https://via.placeholder.com/600x400?text=No+Image";
-                                    }}
-                                />
-                            </div>
+                {/* Project Hero */}
+                <div className="grid lg:grid-cols-2 gap-8 mb-8">
+                    {/* Image Card */}
+                    <SectionCard className="overflow-hidden shadow-md">
+                        <div className="relative aspect-video w-full h-full overflow-hidden">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full hover:scale-105 transition-transform duration-500 object-cover"
+                                onError={(e) => { e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image"; }}
+                            />
                         </div>
+                    </SectionCard>
 
-                        {/* Project Info */}
-                        <div className="w-full lg:max-w-3xl">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-1.5 h-8 bg-blue-700 rounded-full"></div>
-                                <div className="w-full flex items-center justify-between gap-3">
-                                    <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                                        {project.title}
-                                    </h1>
-                                    <span className="font-semibold">{project?.duration}</span>
-                                </div>
+                    {/* Info Card */}
+                    <div className="space-y-5">
+                        <div>
+                            <div className="flex items-start justify-between gap-4 flex-wrap">
+                                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+                                    {project.title}
+                                </h1>
+                                {project?.duration && (
+                                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">📅 {project.duration}</span>
+                                )}
                             </div>
-
-                            <p className="md:text-lg mb-6 text-justify">
+                            <p className="text-gray-600 dark:text-gray-400 mt-4 leading-relaxed text-justify">
                                 {project.description}
                             </p>
+                        </div>
 
-                            {/* Action Buttons */}
-                            <div className="flex flex-wrap gap-4">
-                                {project?.demoLink && (
-                                    <a
-                                        href={project?.demoLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
-                                    >
-                                        <span className="relative z-10 flex items-center gap-2">
-                                            <FaExternalLinkAlt />
-                                            <span className="font-semibold">Live Demo</span>
-                                        </span>
-                                    </a>
-                                )}
-                                {project?.codeLink && (
-                                    <a
-                                        href={project?.codeLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="group flex items-center gap-2 px-3 py-2 bg-gray-900 dark:bg-gray-800 text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
-                                    >
-                                        <span
-                                            className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
-                                        />
-                                        <FaGithub />
-                                        <span className="font-semibold">Source Code</span>
-                                    </a>
-                                )}
-                            </div>
+                        {/* Quick Stats */}
+                        <div className="flex gap-3 flex-wrap">
+                            {hasData(project.frontend) && <StatBadge label="Frontend" value={project.frontend.length} />}
+                            {hasData(project.backend) && <StatBadge label="Backend" value={project.backend.length} />}
+                            {hasData(project.handling) && <StatBadge label="Integrations" value={project.handling.length} />}
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-wrap gap-3 pt-2">
+                            {project?.demoLink && <ActionButton href={project.demoLink} icon={FaExternalLinkAlt}>Live Demo</ActionButton>}
+                            {project?.codeLink && <ActionButton href={project.codeLink} icon={FaGithub} variant="secondary">Source Code</ActionButton>}
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Navigation Tabs with Hidden Scrollbar */}
-            <div className="border-b border-gray-700 bg-gray-800 sticky top-0 z-10">
-                <div className="container max-w-7xl mx-auto px-4">
+                {/* Tabs Navigation */}
+                <div className="sticky top-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-10 border-b border-gray-200 dark:border-gray-700">
                     <div
                         ref={tabsContainerRef}
-                        className="flex justify-start md:justify-center items-center overflow-x-auto hide-scrollbar"
-                        style={{
-                            scrollbarWidth: 'none', // Firefox
-                            msOverflowStyle: 'none', // IE/Edge
-                            WebkitOverflowScrolling: 'touch' // Better scrolling on iOS
-                        }}
+                        className="flex overflow-x-auto hide-scrollbar gap-1"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
-                        {availableTabs.map((tab) => (
-                            <button
+                        {tabs.map((tab) => (
+                            <TabButton
                                 key={tab.id}
                                 ref={(el) => tabRefs.current[tab.id] = el}
-                                onClick={() => handleTabClick(tab.id)}
-                                className="group relative px-4 sm:px-6 py-3 font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0"
-                            >
-                                <div className="flex items-center gap-2">
-                                    {tab.icon}
-                                    <span className={`whitespace-nowrap text-sm sm:text-base ${activeTab === tab.id ? 'text-blue-300' : 'text-gray-400 group-hover:text-gray-300'
-                                        }`}>
-                                        {tab.label}
-                                    </span>
-                                </div>
-
-                                {/* Underline indicator */}
-                                <span
-                                    className={`absolute left-1/2 bottom-0 h-[0.16rem] from-blue-300 via-blue-500 to-blue-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${activeTab === tab.id
-                                        ? 'w-full opacity-100 bg-gradient-to-r'
-                                        : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100 bg-gradient-to-l'
-                                        }`}
-                                />
-                            </button>
+                                id={tab.id}
+                                label={tab.label}
+                                icon={tab.icon}
+                                isActive={activeTab === tab.id}
+                                onClick={setActiveTab}
+                            />
                         ))}
                     </div>
                 </div>
-            </div>
 
-            {/* Tab Content */}
-            <div className="container max-w-7xl mx-auto px-4 pt-8">
-                {/* Overview Tab */}
-                {activeTab === "overview" && (
-                    <div className="space-y-8">
-                        <div className="grid md:grid-cols-2 gap-5 lg:gap-8">
-                            <TechCategory
-                                title="Frontend Technologies"
-                                techs={project.frontend}
-                                icon={<FaPalette className="text-blue-400" />}
-                                color="#60a5fa"
-                            />
+                {/* Tab Content */}
+                <div className="mt-8">
+                    {/* Overview Tab - Shows limited technologies with +X more indicator */}
+                    {activeTab === "overview" && (
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {Object.entries(TECH_CATEGORIES).map(([key, config]) => {
+                                const techs = project[key];
+                                if (!hasData(techs)) return null;
 
-                            {hasData(project.backend) && (
-                                <TechCategory
-                                    title="Backend & Database"
-                                    techs={project.backend}
-                                    icon={<FaServer className="text-green-400" />}
-                                    color="#34d399"
-                                />
-                            )}
-
-                            {hasData(project.handling) && (
-                                <TechCategory
-                                    title={hasStripe ? "Payment & Media" : "Media Handling"}
-                                    techs={project.handling}
-                                    icon={hasStripe ? <FaCreditCard className="text-purple-400" /> : <FaImages className="text-purple-400" />}
-                                    color="#a78bfa"
-                                />
-                            )}
-
-                            {hasData(project.development) && (
-                                <TechCategory
-                                    title="Development & Deployment"
-                                    techs={project.development}
-                                    icon={<FaCloud className="text-orange-400" />}
-                                    color="#fb923c"
-                                />
-                            )}
+                                return (
+                                    <OverviewTechSection
+                                        key={key}
+                                        config={config}
+                                        techs={techs}
+                                        color={config.color}
+                                    />
+                                );
+                            })}
                         </div>
+                    )}
 
-                        {!hasData(project.frontend) &&
-                            !hasData(project.backend) &&
-                            !hasData(project.handling) &&
-                            !hasData(project.development) && (
-                                <div className="text-center py-12">
-                                    <p className="text-gray-400">No technical details available for this project.</p>
-                                </div>
-                            )}
-                    </div>
-                )}
-
-                {/* Technology Tab */}
-                {activeTab === "technology" && (
-                    <div className="space-y-6">
-                        <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
-                            <h3 className="flex items-center gap-3 text-2xl font-bold mb-6 text-white">
-                                <FaTools className="text-blue-400" />
-                                Technical Architecture
+                    {/* Tech Stack Tab - Shows ALL technologies */}
+                    {activeTab === "tech-stack" && (
+                        <SectionCard className="p-6 lg:p-8">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                                <FaCode className="text-blue-600" />
+                                Complete Technology Stack
                             </h3>
-                            <div className="space-y-6">
-                                {hasData(project.frontend) && (
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
-                                            <FaPalette /> Frontend Stack
-                                        </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                            {project.frontend.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
-                                                    <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
-                                                    <span className="text-gray-300 font-medium">{tech.name}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
+                            <div className="space-y-8">
+                                {Object.entries(TECH_CATEGORIES).map(([key, config]) => {
+                                    const techs = project[key];
+                                    if (!hasData(techs)) return null;
 
-                                {hasData(project.backend) && (
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
-                                            <FaDatabase /> Backend Stack
-                                        </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                            {project.backend.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
-                                                    <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
-                                                    <span className="text-gray-300 font-medium">{tech.name}</span>
-                                                </div>
-                                            ))}
+                                    return (
+                                        <div key={key}>
+                                            <h4 className={`text-lg font-semibold mb-3 text-${config.color}-600 dark:text-${config.color}-400 flex items-center gap-2`}>
+                                                <config.icon /> {config.title}
+                                                {/* <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                                                    ({techs.length} items)
+                                                </span> */}
+                                            </h4>
+                                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                                                {techs.map((tech, idx) => (
+                                                    <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
+                                                        <img src={tech.icon} alt={tech.name} className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                                                        <span className="text-sm text-gray-700 dark:text-gray-300">{tech.name}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-
-                                {hasData(project.handling) && (
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
-                                            {hasStripe ? <FaCreditCard /> : <FaImages />}
-                                            {hasStripe ? " Payment & Media" : " Media Handling"}
-                                        </h4>
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                            {project.handling.map((tech, index) => (
-                                                <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
-                                                    <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
-                                                    <span className="text-gray-300 font-medium">{tech.name}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-
-                                {!hasData(project.frontend) &&
-                                    !hasData(project.backend) &&
-                                    !hasData(project.handling) && (
-                                        <div className="text-center py-8">
-                                            <p className="text-gray-400">No technology details available.</p>
-                                        </div>
-                                    )}
+                                    );
+                                })}
                             </div>
-                        </div>
-                    </div>
-                )}
+                        </SectionCard>
+                    )}
 
-                {/* Challenges Tab */}
-                {activeTab === "challenges" && hasData(project.challenges) && (
-                    <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
-                        <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                            <FaLightbulb className="text-yellow-400" />
-                            Challenges & Solutions
-                        </h3>
-                        <div className="space-y-4">
-                            {project.challenges.map((challenge, index) => (
-                                <div key={index} className="flex gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-yellow-400 hover:bg-gray-600 transition-colors">
-                                    <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center font-bold">
-                                        {index + 1}
-                                    </div>
-                                    <p className="text-gray-200 leading-relaxed">{challenge}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                    {/* Challenges Tab */}
+                    {activeTab === "challenges" && hasData(project.challenges) && (
+                        <SectionCard className="p-6 lg:p-8">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                                <FaShieldAlt className="text-amber-500" />
+                                Challenges & Solutions
+                            </h3>
+                            <div className="space-y-4">
+                                {project.challenges.map((challenge, idx) => (
+                                    <ChallengeItem key={idx} challenge={challenge} index={idx} />
+                                ))}
+                            </div>
+                        </SectionCard>
+                    )}
 
-                {/* Future Plans Tab */}
-                {activeTab === "future" && hasData(project.futurePlans) && (
-                    <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
-                        <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                            <FaRocket className="text-green-500" />
-                            Future Roadmap
-                        </h3>
-                        <div className="grid gap-4">
-                            {project.futurePlans.map((plan, index) => (
-                                <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-green-500 hover:bg-gray-600 transition-colors group">
-                                    <div className="w-3 h-3 bg-green-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                                    <p className="text-gray-200 flex-1">{plan}</p>
-                                    <div className="text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <FaMobile />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                    {/* Roadmap Tab */}
+                    {activeTab === "roadmap" && hasData(project.futurePlans) && (
+                        <SectionCard className="p-6 lg:p-8">
+                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                                <FaRocket className="text-green-500" />
+                                Future Roadmap
+                            </h3>
+                            <div className="space-y-4">
+                                {project.futurePlans.map((plan, idx) => (
+                                    <RoadmapItem key={idx} plan={plan} index={idx} />
+                                ))}
+                            </div>
+                        </SectionCard>
+                    )}
+                </div>
             </div>
         </div>
     );
@@ -422,6 +371,429 @@ export default ProjectDetails;
 
 
 
+// ! Sometime use this
+// import { useEffect, useState, useRef } from "react";
+// import { useLoaderData, useNavigate } from "react-router-dom";
+// import { FaExternalLinkAlt, FaGithub, FaServer, FaDatabase, FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette, FaMobile, FaImages, FaArrowLeft, FaStar, FaTools, FaRocket } from "react-icons/fa";
+
+// const ProjectDetails = () => {
+//     const project = useLoaderData();
+//     const navigate = useNavigate();
+//     const [activeTab, setActiveTab] = useState("overview");
+//     const tabsContainerRef = useRef(null);
+//     const tabRefs = useRef({});
+//     const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+//     useEffect(() => {
+//         window.scrollTo(0, 0);
+//     }, []);
+
+//     useEffect(() => {
+//         if (project?.title) {
+//             document.title = `${project.title} | Ashraful Islam Ratul`;
+//         } else {
+//             document.title = "Ashraful Islam Ratul";
+//         }
+//     }, [project]);
+
+//     // Scroll to active tab on initial load and when activeTab changes
+//     useEffect(() => {
+//         if (!isInitialLoad) {
+//             scrollToActiveTab();
+//         }
+//     }, [activeTab]);
+
+//     // Handle initial scroll to show the first tab properly
+//     useEffect(() => {
+//         if (isInitialLoad && tabsContainerRef.current) {
+//             // Small delay to ensure DOM is fully rendered
+//             setTimeout(() => {
+//                 scrollToActiveTab();
+//                 setIsInitialLoad(false);
+//             }, 150);
+//         }
+//     }, [project]); // Re-run when project loads
+
+//     // Check if Stripe is available in the handling array
+//     const hasStripe = project?.handling?.some(tech =>
+//         tech.name.toLowerCase().includes('stripe')
+//     );
+
+//     // Helper functions to check if data exists and is not empty
+//     const hasData = (data) => {
+//         return data && Array.isArray(data) && data.length > 0;
+//     };
+
+//     // Improved function to handle tab click with better scrolling
+//     const handleTabClick = (tab) => {
+//         setActiveTab(tab);
+//         scrollToActiveTab();
+//     };
+
+//     // Separate function for scrolling to active tab
+//     const scrollToActiveTab = () => {
+//         const activeTabElement = tabRefs.current[activeTab];
+//         const container = tabsContainerRef.current;
+
+//         if (activeTabElement && container) {
+//             // Calculate the scroll position to center the active tab
+//             const containerRect = container.getBoundingClientRect();
+//             const activeTabRect = activeTabElement.getBoundingClientRect();
+
+//             // Calculate scroll position to make the tab visible with some padding
+//             const scrollLeft = activeTabElement.offsetLeft - (containerRect.width / 2) + (activeTabRect.width / 2);
+
+//             container.scrollTo({
+//                 left: Math.max(0, scrollLeft),
+//                 behavior: 'smooth'
+//             });
+//         }
+//     };
+
+//     if (!project) {
+//         return (
+//             <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+//                 <div className="text-center text-white">
+//                     <div className="text-6xl mb-4">🚧</div>
+//                     <h2 className="text-2xl font-bold text-red-400">Project Not Found</h2>
+//                     <p className="text-gray-400 mt-2">The project you're looking for doesn't exist or has been moved.</p>
+//                 </div>
+//             </div>
+//         );
+//     }
+
+//     const TechCategory = ({ title, techs, icon, color }) => {
+//         if (!hasData(techs)) return null;
+
+//         return (
+//             <div className="bg-gray-800 rounded-lg p-6 border-l-4" style={{ borderLeftColor: color }}>
+//                 <div className="flex items-center gap-3 mb-4">
+//                     <div className="p-2 rounded-lg" style={{ backgroundColor: color + '20' }}>
+//                         {icon}
+//                     </div>
+//                     <h4 className="text-lg font-semibold text-white">{title}</h4>
+//                 </div>
+//                 <div className="flex flex-wrap gap-2">
+//                     {techs.map((tech, index) => (
+//                         <span
+//                             key={index}
+//                             className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium"
+//                             style={{ backgroundColor: color + '20', color: color }}
+//                         >
+//                             <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
+//                             {tech.name}
+//                         </span>
+//                     ))}
+//                 </div>
+//             </div>
+//         );
+//     };
+
+//     // Define available tabs
+//     const availableTabs = [
+//         { id: "overview", label: "Overview", icon: <FaStar className="text-yellow-400" />, condition: true },
+//         { id: "technology", label: "Tech Stack", icon: <FaTools className="text-blue-400" />, condition: true },
+//         { id: "challenges", label: "Challenges", icon: <FaLightbulb className="text-orange-400" />, condition: hasData(project.challenges) },
+//         { id: "future", label: "Roadmap", icon: <FaRocket className="text-green-400" />, condition: hasData(project.futurePlans) }
+//     ].filter(tab => tab.condition);
+
+//     return (
+//         <div className="min-h-screen dark:bg-black pt-8 pb-16">
+//             <title>{project.title} | Ashraful Islam Ratul</title>
+
+//             {/* Back Button */}
+//             <div className="hidden md:block container max-w-7xl mx-auto px-4 mb-6">
+//                 <button
+//                     onClick={() => navigate(-1)}
+//                     className="group flex items-center gap-2 px-3 py-1.5 bg-blue-500/20 text-blue-700 dark:text-blue-500 font-semibold backdrop-blur-sm rounded-full border border-blue-500 transition-all duration-300 dark:hover:bg-blue-500/50 dark:hover:text-white"
+//                 >
+//                     <FaArrowLeft className="transform group-hover:-translate-x-1 transition-transform duration-300" />
+//                     <span className="text-sm">Go Back</span>
+//                 </button>
+//             </div>
+
+//             {/* Header with Background */}
+//             <div className="relative border-b border-gray-700">
+//                 <div className="container max-w-7xl mx-auto px-4 pb-10">
+//                     <div className="flex flex-col lg:flex-row gap-5 md:gap-8 items-start">
+//                         {/* Project Image */}
+//                         <div className="w-full lg:max-w-lg">
+//                             <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-gray-700 transform transition-transform duration-500">
+//                                 <img
+//                                     src={project.image}
+//                                     alt={project.title}
+//                                     className="w-full h-full object-cover"
+//                                     onError={(e) => {
+//                                         e.target.src = "https://via.placeholder.com/600x400?text=No+Image";
+//                                     }}
+//                                 />
+//                             </div>
+//                         </div>
+
+//                         {/* Project Info */}
+//                         <div className="w-full lg:max-w-3xl">
+//                             <div className="flex items-center gap-3 mb-4">
+//                                 <div className="w-1.5 h-8 bg-blue-700 rounded-full"></div>
+//                                 <div className="w-full flex items-center justify-between gap-3">
+//                                     <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+//                                         {project.title}
+//                                     </h1>
+//                                     {project?.duration && (
+//                                         <span className="text-sm text-gray-400">📅 {project?.duration}</span>
+//                                     )}
+//                                 </div>
+//                             </div>
+
+//                             <p className="md:text-lg mb-6 text-justify">
+//                                 {project.description}
+//                             </p>
+
+//                             {/* Action Buttons */}
+//                             <div className="flex flex-wrap gap-4">
+//                                 {project?.demoLink && (
+//                                     <a
+//                                         href={project?.demoLink}
+//                                         target="_blank"
+//                                         rel="noopener noreferrer"
+//                                         className="relative inline-flex items-center gap-2 px-3 py-2 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
+//                                     >
+//                                         <span className="relative z-10 flex items-center gap-2">
+//                                             <FaExternalLinkAlt />
+//                                             <span className="font-semibold">Live Demo</span>
+//                                         </span>
+//                                     </a>
+//                                 )}
+//                                 {project?.codeLink && (
+//                                     <a
+//                                         href={project?.codeLink}
+//                                         target="_blank"
+//                                         rel="noopener noreferrer"
+//                                         className="group flex items-center gap-2 px-3 py-2 bg-gray-900 dark:bg-gray-800 text-white font-medium rounded-lg shadow-sm transition-colors relative overflow-hidden active:scale-[0.98]"
+//                                     >
+//                                         <span
+//                                             className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out pointer-events-none"
+//                                         />
+//                                         <FaGithub />
+//                                         <span className="font-semibold">Source Code</span>
+//                                     </a>
+//                                 )}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* Navigation Tabs with Hidden Scrollbar */}
+//             <div className="border-b border-gray-700 bg-gray-800 sticky top-0 z-10">
+//                 <div className="container max-w-7xl mx-auto px-4">
+//                     <div
+//                         ref={tabsContainerRef}
+//                         className="flex justify-start md:justify-center items-center overflow-x-auto hide-scrollbar"
+//                         style={{
+//                             scrollbarWidth: 'none', // Firefox
+//                             msOverflowStyle: 'none', // IE/Edge
+//                             WebkitOverflowScrolling: 'touch' // Better scrolling on iOS
+//                         }}
+//                     >
+//                         {availableTabs.map((tab) => (
+//                             <button
+//                                 key={tab.id}
+//                                 ref={(el) => tabRefs.current[tab.id] = el}
+//                                 onClick={() => handleTabClick(tab.id)}
+//                                 className="group relative px-4 sm:px-6 py-3 font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0"
+//                             >
+//                                 <div className="flex items-center gap-2">
+//                                     {tab.icon}
+//                                     <span className={`whitespace-nowrap text-sm sm:text-base ${activeTab === tab.id ? 'text-blue-300' : 'text-gray-400 group-hover:text-gray-300'
+//                                         }`}>
+//                                         {tab.label}
+//                                     </span>
+//                                 </div>
+
+//                                 {/* Underline indicator */}
+//                                 <span
+//                                     className={`absolute left-1/2 bottom-0 h-[0.16rem] from-blue-300 via-blue-500 to-blue-600 transition-all duration-300 ease-out transform -translate-x-1/2 ${activeTab === tab.id
+//                                         ? 'w-full opacity-100 bg-gradient-to-r'
+//                                         : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100 bg-gradient-to-l'
+//                                         }`}
+//                                 />
+//                             </button>
+//                         ))}
+//                     </div>
+//                 </div>
+//             </div>
+
+//             {/* Tab Content */}
+//             <div className="container max-w-7xl mx-auto px-4 pt-8">
+//                 {/* Overview Tab */}
+//                 {activeTab === "overview" && (
+//                     <div className="space-y-8">
+//                         <div className="grid md:grid-cols-2 gap-5 lg:gap-8">
+//                             <TechCategory
+//                                 title="Frontend Technologies"
+//                                 techs={project.frontend}
+//                                 icon={<FaPalette className="text-blue-400" />}
+//                                 color="#60a5fa"
+//                             />
+
+//                             {hasData(project.backend) && (
+//                                 <TechCategory
+//                                     title="Backend & Database"
+//                                     techs={project.backend}
+//                                     icon={<FaServer className="text-green-400" />}
+//                                     color="#34d399"
+//                                 />
+//                             )}
+
+//                             {hasData(project.handling) && (
+//                                 <TechCategory
+//                                     title={hasStripe ? "Payment & Media" : "Media Handling"}
+//                                     techs={project.handling}
+//                                     icon={hasStripe ? <FaCreditCard className="text-purple-400" /> : <FaImages className="text-purple-400" />}
+//                                     color="#a78bfa"
+//                                 />
+//                             )}
+
+//                             {hasData(project.development) && (
+//                                 <TechCategory
+//                                     title="Development & Deployment"
+//                                     techs={project.development}
+//                                     icon={<FaCloud className="text-orange-400" />}
+//                                     color="#fb923c"
+//                                 />
+//                             )}
+//                         </div>
+
+//                         {!hasData(project.frontend) &&
+//                             !hasData(project.backend) &&
+//                             !hasData(project.handling) &&
+//                             !hasData(project.development) && (
+//                                 <div className="text-center py-12">
+//                                     <p className="text-gray-400">No technical details available for this project.</p>
+//                                 </div>
+//                             )}
+//                     </div>
+//                 )}
+
+//                 {/* Technology Tab */}
+//                 {activeTab === "technology" && (
+//                     <div className="space-y-6">
+//                         <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
+//                             <h3 className="flex items-center gap-3 text-2xl font-bold mb-6 text-white">
+//                                 <FaTools className="text-blue-400" />
+//                                 Technical Architecture
+//                             </h3>
+//                             <div className="space-y-6">
+//                                 {hasData(project.frontend) && (
+//                                     <div>
+//                                         <h4 className="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
+//                                             <FaPalette /> Frontend Stack
+//                                         </h4>
+//                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+//                                             {project.frontend.map((tech, index) => (
+//                                                 <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+//                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+//                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
+//                                                 </div>
+//                                             ))}
+//                                         </div>
+//                                     </div>
+//                                 )}
+
+//                                 {hasData(project.backend) && (
+//                                     <div>
+//                                         <h4 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
+//                                             <FaDatabase /> Backend Stack
+//                                         </h4>
+//                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+//                                             {project.backend.map((tech, index) => (
+//                                                 <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+//                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+//                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
+//                                                 </div>
+//                                             ))}
+//                                         </div>
+//                                     </div>
+//                                 )}
+
+//                                 {hasData(project.handling) && (
+//                                     <div>
+//                                         <h4 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+//                                             {hasStripe ? <FaCreditCard /> : <FaImages />}
+//                                             {hasStripe ? " Payment & Media" : " Media Handling"}
+//                                         </h4>
+//                                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+//                                             {project.handling.map((tech, index) => (
+//                                                 <div key={index} className="bg-gray-700 p-3 rounded-lg flex items-center gap-3 hover:bg-gray-600 transition-colors">
+//                                                     <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+//                                                     <span className="text-gray-300 font-medium">{tech.name}</span>
+//                                                 </div>
+//                                             ))}
+//                                         </div>
+//                                     </div>
+//                                 )}
+
+//                                 {!hasData(project.frontend) &&
+//                                     !hasData(project.backend) &&
+//                                     !hasData(project.handling) && (
+//                                         <div className="text-center py-8">
+//                                             <p className="text-gray-400">No technology details available.</p>
+//                                         </div>
+//                                     )}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 )}
+
+//                 {/* Challenges Tab */}
+//                 {activeTab === "challenges" && hasData(project.challenges) && (
+//                     <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
+//                         <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+//                             <FaLightbulb className="text-yellow-400" />
+//                             Challenges & Solutions
+//                         </h3>
+//                         <div className="space-y-4">
+//                             {project.challenges.map((challenge, index) => (
+//                                 <div key={index} className="flex gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-yellow-400 hover:bg-gray-600 transition-colors">
+//                                     <div className="flex-shrink-0 w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center font-bold">
+//                                         {index + 1}
+//                                     </div>
+//                                     <p className="text-gray-200 leading-relaxed">{challenge}</p>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 )}
+
+//                 {/* Future Plans Tab */}
+//                 {activeTab === "future" && hasData(project.futurePlans) && (
+//                     <div className="bg-gray-800 rounded-xl p-5 lg:p-8">
+//                         <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+//                             <FaRocket className="text-green-500" />
+//                             Future Roadmap
+//                         </h3>
+//                         <div className="grid gap-4">
+//                             {project.futurePlans.map((plan, index) => (
+//                                 <div key={index} className="flex items-center gap-4 p-4 bg-gray-700 rounded-lg border-l-4 border-green-500 hover:bg-gray-600 transition-colors group">
+//                                     <div className="w-3 h-3 bg-green-500 rounded-full group-hover:scale-150 transition-transform"></div>
+//                                     <p className="text-gray-200 flex-1">{plan}</p>
+//                                     <div className="text-green-400 opacity-0 group-hover:opacity-100 transition-opacity">
+//                                         <FaMobile />
+//                                     </div>
+//                                 </div>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 )}
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default ProjectDetails;
+
+
+// ! Very unique design
 // import { useEffect, useState, useRef } from "react";
 // import { useLoaderData, useNavigate } from "react-router-dom";
 // import {
@@ -431,7 +803,6 @@ export default ProjectDetails;
 //     FaTools, FaLayerGroup, FaStar, FaHeart, FaShareAlt,
 //     FaDownload, FaClock, FaUserFriends, FaGlobe, FaArrowRight
 // } from "react-icons/fa";
-// import { Helmet } from "react-helmet-async";
 
 // const ProjectDetails = () => {
 //     const project = useLoaderData();
@@ -562,9 +933,6 @@ export default ProjectDetails;
 
 //     return (
 //         <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-//             <Helmet>
-//                 <title>{project.title} | Ashraful Islam Ratul</title>
-//             </Helmet>
 
 //             {/* Hero Section with Parallax Effect */}
 //             <div className="relative overflow-hidden">

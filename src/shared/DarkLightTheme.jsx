@@ -55,7 +55,7 @@ export function DarkLightTheme() {
     return (
         <div className="relative" ref={dropdownRef}>
             {/* Dropdown Trigger Button - Tooltip only shows when dropdown is closed */}
-            <Tooltip text="Toggle Theme" position="bottom" delay={0} disabled={isOpen}>
+            <Tooltip text="Toggle Theme" position="bottom" disabled={isOpen}>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle Theme"
