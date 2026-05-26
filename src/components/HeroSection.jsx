@@ -76,9 +76,9 @@ const HeroSection = ({ onHireMeClick }) => {
     return (
         <div className="bg-gradient-to-b from-white via-white to-gray-100 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-950 dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
             {/* Background decorative elements - Hidden in dark mode */}
-            <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
+            {/* <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse-glow dark:hidden"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/10 to-indigo-100/10 rounded-full blur-3xl animate-pulse-glow dark:hidden"></div> */}
 
             <div className="container max-w-7xl mx-auto px-4 py-14 md:py-16 lg:py-0 relative z-10">
                 <div className="flex flex-col-reverse lg:flex-row lg:min-h-[calc(100vh-4rem)] items-center justify-between gap-16">

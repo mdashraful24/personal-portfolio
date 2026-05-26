@@ -203,7 +203,7 @@ const ContactSection = () => {
     return (
         <div
             ref={sectionRef}
-            className="relative overflow-hidden contact-section dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-gray-950"
+            className="relative overflow-hidden contact-section dark:bg-black"
         >
             {/* Background Decoration - Hidden in dark mode */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-red-50 dark:hidden"></div>

@@ -438,7 +438,7 @@ const projectsData = {
             "duration": "Jan 2025 - Ongoing",
             "title": "Smart Mentoring System (SMS)",
             "organization": "Developed for Daffodil International University",
-            "designation": "PERN Stack Developer & Team Leader",
+            "designation": "Full Stack Developer & Team Leader",
             "location": "Birulia, Savar, Dhaka-1216, Bangladesh",
             "projectType": "Team Project",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",

@@ -121,7 +121,7 @@ const AllProjects = () => {
     );
 
     return (
-        <div className="dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-gray-950">
+        <div className="dark:bg-black">
             <div className="container max-w-7xl mx-auto min-h-screen px-4 pt-4 md:pt-8 pb-20 md:pb-12">
                 <title>All Projects | Ashraful Islam Ratul</title>
 
