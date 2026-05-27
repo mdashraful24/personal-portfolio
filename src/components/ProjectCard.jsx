@@ -117,7 +117,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                 {/* Action Buttons */}
                 <div className="absolute bottom-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     {demoLink && demoLink !== "View Site" && (
-                        <Tooltip text="Live Link" position="topTwo" delay={0}>
+                        <Tooltip text="Live Link" position="topTwo">
                             <a
                                 href={demoLink}
                                 target="_blank"
@@ -130,7 +130,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                         </Tooltip>
                     )}
                     {githubUrl && (
-                        <Tooltip text="GitHub Repository" position="topFour" delay={0}>
+                        <Tooltip text="GitHub Repository" position="topFour">
                             <a
                                 href={githubUrl}
                                 target="_blank"

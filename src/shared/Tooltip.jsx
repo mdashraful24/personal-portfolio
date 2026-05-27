@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const Tooltip = ({ text, delay = 500, children, position = "", disabled = false }) => {
+const Tooltip = ({ text, delay = 0, children, position = "", disabled = false }) => {
     const [visible, setVisible] = useState(false);
     const timerRef = useRef(null);
 
