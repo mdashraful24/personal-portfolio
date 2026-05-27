@@ -6,7 +6,8 @@ import projectsData from '../data/projects.js';
 import "./css/Experience.css";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { FaRegIdBadge } from "react-icons/fa";
+import { FaDatabase, FaRegIdBadge, FaTools } from "react-icons/fa";
+import { Award, NotepadText } from "lucide-react";
 
 const Experience = () => {
     const [activeExperience, setActiveExperience] = useState(0);
@@ -115,7 +116,7 @@ const Experience = () => {
 
                                         {/* Designation Section */}
                                         {activeExp?.designation && (
-                                            <div className="mb-3 flex items-center gap-2 text-gray-300">
+                                            <div className="mb-3 flex items-center gap-1.5 text-gray-300">
                                                 <FaRegIdBadge className="text-blue-400" size={16} />
                                                 <span className="text-md font-semibold text-blue-200">{activeExp?.designation}</span>
                                             </div>
@@ -126,7 +127,7 @@ const Experience = () => {
                                                 <BsCalendar size={14} className="text-blue-400" />
                                                 <span>{activeExp.duration}</span>
                                             </div>
-                                            <div className="flex items-center gap-2">
+                                            <div className="flex items-center gap-1.5">
                                                 <FiMapPin size={14} className="text-blue-400" />
                                                 <span>{activeExp.location}</span>
                                             </div>
@@ -151,7 +152,7 @@ const Experience = () => {
                                 {activeExp.responsibilities && activeExp.responsibilities.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-4 mb-4">
                                         <h4 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
-                                            <BsCode className="text-[#3b82f6]" />
+                                            <NotepadText className="text-[#3b82f6]" />
                                             Key Responsibilities
                                         </h4>
                                         <ul className="space-y-0.5">
@@ -168,7 +169,10 @@ const Experience = () => {
                                 {/* Tech Stack - Animated */}
                                 {activeExp.topTech && activeExp.topTech.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-5 mb-4">
-                                        <h4 className="mb-3 text-lg font-semibold text-white">Tech Stack</h4>
+                                        <h4 className="flex items-center gap-2 mb-3 text-lg font-semibold text-white">
+                                            <FaTools className="text-[#3b82f6]" />
+                                            Tech Stack
+                                        </h4>
                                         <div className="flex flex-wrap gap-2">
                                             {activeExp.topTech.map((tech, idx) => (
                                                 <span
@@ -192,8 +196,8 @@ const Experience = () => {
                                 {/* Achievements - Animated */}
                                 {activeExp.achievements && activeExp.achievements.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-6 mb-6">
-                                        <h4 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
-                                            <BsAward className="text-[#3b82f6]" />
+                                        <h4 className="mb-3 flex items-center gap-1 text-lg font-semibold text-white">
+                                            <Award className="text-[#3b82f6]" />
                                             Key Achievements
                                         </h4>
                                         <ul className="space-y-0.5">
@@ -272,18 +276,18 @@ const Experience = () => {
                                             {/* Designation */}
                                             {exp?.designation && (
                                                 <div className="mb-2 flex items-center gap-1.5 text-sm text-gray-300">
-                                                    <FaRegIdBadge size={10} className="text-blue-400" />
+                                                    <FaRegIdBadge size={12} className="text-blue-400" />
                                                     <span>{exp?.designation}</span>
                                                 </div>
                                             )}
 
                                             {/* Location & Type */}
                                             <div className="mb-3 flex flex-wrap gap-3 text-sm text-gray-300">
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center gap-1.5">
                                                     <FiMapPin size={12} className="text-blue-400" />
                                                     <span>{exp.location}</span>
                                                 </div>
-                                                <div className="flex items-center gap-1">
+                                                <div className="flex items-center gap-1.5">
                                                     <BsPersonWorkspace size={12} className="text-blue-400" />
                                                     <span>{exp.stack || "Full Stack"}</span>
                                                 </div>
@@ -332,6 +336,11 @@ const Experience = () => {
 };
 
 export default Experience;
+
+
+
+
+
 // import React, { useEffect, useRef, useState } from "react";
 // import { BsPersonWorkspace, BsCode, BsAward, BsCalendar, BsBriefcase } from "react-icons/bs";
 // import { FiExternalLink, FiMapPin } from "react-icons/fi";

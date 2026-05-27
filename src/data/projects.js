@@ -20,10 +20,6 @@ const projectsData = {
                 {
                     "name": "DaisyUI",
                     "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
-                },
-                {
-                    "name": "React Icons",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
                 }
             ],
             "backend": [
@@ -439,7 +435,7 @@ const projectsData = {
             "title": "Smart Mentoring System (SMS)",
             "organization": "Developed for Daffodil International University",
             "designation": "Full Stack Developer & Team Leader",
-            "location": "Birulia, Savar, Dhaka-1216, Bangladesh",
+            "location": "Birulia, Savar, Dhaka, Bangladesh",
             "projectType": "Team Project",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",
             "frontend": [
@@ -576,7 +572,7 @@ const projectsData = {
                 "Early identification of at - risk students",
                 "Improved engagement and performance tracking"
             ],
-            "stack": "PERN Stack",
+            "stack": "Full Stack",
             "experienceShow": true
         },
         {
@@ -716,13 +712,13 @@ const projectsData = {
                 "Contributed to building a scalable and maintainable system architecture"
             ],
             "stack": "MERN Stack",
-            "experienceShow": false
+            "experienceShow": true
         }
     ],
     "client-project": [
         {
             "id": 101,
-            "duration": "Jan 2026 - Ongoing",
+            "duration": "Jan 2026 - Apr 2026",
             "title": "Smart Irrigation System",
             "organization": "Developed for Daffodil International University",
             "location": "Remote",
@@ -994,7 +990,7 @@ const projectsData = {
                 },
                 {
                     "name": "DaisyUI",
-                    "icon": "https://daisyui.com/images/daisyui-logo/daisyui-logotype.svg"
+                    "icon": "https://images.seeklogo.com/logo-png/61/1/daisyui-logo-png_seeklogo-616852.png"
                 },
                 {
                     "name": "Framer Motion",
@@ -1006,7 +1002,7 @@ const projectsData = {
                 },
                 {
                     "name": "React Query",
-                    "icon": "https://tanstack.com/query/latest/docs/react/images/logo.svg"
+                    "icon": "https://tanstack.com/.netlify/images?url=%2Fimages%2Flogos%2Fsplash-dark.png&w=500&q=85"
                 },
                 {
                     "name": "Axios",
@@ -1018,7 +1014,7 @@ const projectsData = {
                 },
                 {
                     "name": "Recharts",
-                    "icon": "https://avatars.githubusercontent.com/u/18222145?s=200&v=4"
+                    "icon": "https://blog.openreplay.com/images/charting-and-graphing-in-react-with-recharts/images/hero.png"
                 }
             ],
             "backend": [
@@ -1036,7 +1032,7 @@ const projectsData = {
                 },
                 {
                     "name": "JWT",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jsonwebtokens/jsonwebtokens-original.svg"
+                    "icon": "https://jwt.io/img/pic_logo.svg"
                 },
                 {
                     "name": "Bcrypt",
