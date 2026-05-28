@@ -6,12 +6,12 @@ const allSkills = [
     },
     {
         id: 2,
-        name: "HTML5",
+        name: "HTML",
         category: "frontend"
     },
     {
         id: 3,
-        name: "CSS3",
+        name: "CSS",
         category: "frontend"
     },
     {

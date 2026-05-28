@@ -14,8 +14,8 @@ import { tools, designTools } from '../data/toolsList.js';
 // Icon mapping for skills
 const skillIconMap = {
     "React": <FaReact className="text-cyan-400 text-xl" />,
-    "HTML5": <FaHtml5 className="text-orange-400 text-xl" />,
-    "CSS3": <FaCss3Alt className="text-blue-400 text-xl" />,
+    "HTML": <FaHtml5 className="text-orange-400 text-xl" />,
+    "CSS": <FaCss3Alt className="text-blue-400 text-xl" />,
     "Tailwind CSS": <SiTailwindcss className="text-cyan-400 text-xl" />,
     "DaisyUI": <SiDaisyui className="text-purple-400 text-xl" />,
     "Node.js": <FaNodeJs className="text-green-400 text-xl" />,
