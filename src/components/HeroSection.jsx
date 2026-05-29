@@ -137,7 +137,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             </a>
                             <button
                                 onClick={onHireMeClick}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-md active:scale-95"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-600 hover:shadow-md active:scale-95"
                             >
                                 <FaHandshake size={18} className="text-sm" />
                                 Hire Me
