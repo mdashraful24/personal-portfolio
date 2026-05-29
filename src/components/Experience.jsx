@@ -151,8 +151,8 @@ const Experience = () => {
                                 {/* Responsibilities - Animated */}
                                 {activeExp.responsibilities && activeExp.responsibilities.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-4 mb-4">
-                                        <h4 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
-                                            <NotepadText className="text-[#3b82f6]" />
+                                        <h4 className="mb-3 flex items-center gap-1.5 text-lg font-semibold text-white">
+                                            <NotepadText size={20} className="text-[#3b82f6]" />
                                             Key Responsibilities
                                         </h4>
                                         <ul className="space-y-0.5">
@@ -170,7 +170,7 @@ const Experience = () => {
                                 {activeExp.topTech && activeExp.topTech.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-5 mb-4">
                                         <h4 className="flex items-center gap-2 mb-3 text-lg font-semibold text-white">
-                                            <FaTools className="text-[#3b82f6]" />
+                                            <FaTools size={17} className="text-[#3b82f6]" />
                                             Tech Stack
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
@@ -197,7 +197,7 @@ const Experience = () => {
                                 {activeExp.achievements && activeExp.achievements.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-6 mb-6">
                                         <h4 className="mb-3 flex items-center gap-1 text-lg font-semibold text-white">
-                                            <Award className="text-[#3b82f6]" />
+                                            <Award size={20} className="text-[#3b82f6]" />
                                             Key Achievements
                                         </h4>
                                         <ul className="space-y-0.5">
