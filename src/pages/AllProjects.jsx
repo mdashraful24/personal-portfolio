@@ -138,7 +138,7 @@ const AllProjects = () => {
                                     <span className="px-3 lg:px-4 text-2xl lg:text-3xl font-bold dark:text-white">All Projects</span>
                                     <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                                 </div>
-                                <p className="text-xs lg:text-sm dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                                <p className="text-sm dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
                             </div>
 
                             {/* Tab Navigation */}

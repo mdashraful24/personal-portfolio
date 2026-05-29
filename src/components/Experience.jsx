@@ -107,7 +107,7 @@ const Experience = () => {
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section - Animated */}
-                <div className="flex flex-col items-center text-center mb-10 px-4">
+                <div className="flex flex-col items-center text-center mb-8 px-4">
                     <div className="flex items-center mb-4 animate-on-scroll fade-in-left">
                         <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
