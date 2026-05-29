@@ -81,6 +81,11 @@ const allSkills = [
     },
     {
         id: 17,
+        name: "Cloudinary",
+        category: "service"
+    },
+    {
+        id: 18,
         name: "Stripe",
         category: "service"
     }

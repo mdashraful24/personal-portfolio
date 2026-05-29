@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt } from "react-icons/fa";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -29,6 +29,7 @@ const skillIconMap = {
     "Firebase": <SiFirebase className="text-yellow-400 text-xl" />,
     "JWT": <SiJsonwebtokens className="text-blue-400 text-xl" />,
     "Bcrypt": <RiLockPasswordLine className="text-emerald-400 text-xl" />,
+    "Cloudinary": <SiCloudinary className="text-blue-500 text-xl" />,
     "Stripe": <SiStripe className="text-purple-400 text-xl" />,
 };
 
@@ -38,11 +39,14 @@ const toolIconMap = {
     "VS Code": <VscVscode className="text-blue-400 text-xl" />,
     "Netlify": <SiNetlify className="text-green-400 text-xl" />,
     "Vercel": <SiVercel className="text-white dark:text-gray-300 text-xl" />,
+    "Git": <FaGitAlt className="text-orange-500 text-xl" />,
+    "Postman": <SiPostman className="text-orange-400 text-xl" />,
 };
 
 // Icon mapping for design tools
 const designToolIconMap = {
     "Figma": <FaFigma className="text-purple-400 text-xl" />,
+    "Pixso": <SiPix className="text-pink-500 text-xl" />,
     "Canva": <SiCanva className="text-teal-400 text-xl" />,
 };
 
@@ -498,7 +502,7 @@ export default Skills;
 
 //                                         {/* Category Tag */}
 //                                         <div className="flex justify-center mt-auto">
-//                                             <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full capitalize border 
+//                                             <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full capitalize border
 //                                             ${skill.category === "frontend" ? "bg-blue-100 text-blue-600 border-blue-200" :
 //                                                     skill.category === "backend" ? "bg-green-100 text-green-600 border-green-200" :
 //                                                         skill.category === "database" ? "bg-purple-100 text-purple-600 border-purple-200" :
