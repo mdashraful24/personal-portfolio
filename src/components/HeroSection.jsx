@@ -1,4 +1,4 @@
-import { FaDownload, FaFacebook, FaGithub, FaLinkedin, FaBriefcase, FaCode, FaGraduationCap } from "react-icons/fa";
+import { FaDownload, FaFacebook, FaGithub, FaLinkedin, FaBriefcase, FaCode, FaGraduationCap, FaHandshake } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import img from '../../src/assets//image/img.png';
 import './css/HeroSection.css'
@@ -13,16 +13,22 @@ const statsData = [
         delay: "delay-300"
     },
     {
-        icon: FaGraduationCap,
-        iconColor: "text-indigo-500 dark:text-indigo-400",
+        icon: FaBriefcase,
+        iconColor: "text-emerald-500 dark:text-emerald-400",
         label: "Fresh Graduate",
         delay: "delay-400"
+    },
+    {
+        icon: FaGraduationCap,
+        iconColor: "text-indigo-500 dark:text-indigo-400",
+        label: "BSc in ICE",
+        delay: "delay-500"
     },
     {
         icon: HiOutlineLocationMarker,
         iconColor: "text-rose-500 dark:text-rose-400",
         label: "Dhaka, Bangladesh",
-        delay: "delay-500"
+        delay: "delay-700"
     }
 ];
 
@@ -113,7 +119,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         </div>
 
                         {/* Description */}
-                        <p className="w-full max-w-xl mx-auto lg:text-lg leading-relaxed animate-fade-up delay-200 text-gray-600 dark:text-gray-300">
+                        <p className="w-full max-w-2xl mx-auto lg:text-lg leading-relaxed animate-fade-up delay-200 text-gray-600 dark:text-gray-300">
                             Full-stack developer focused on crafting clean UIs and solid backend logic. I create responsive, user-friendly applications backed by scalable systems and well-structured databases.
                         </p>
 
@@ -122,7 +128,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             <a
                                 href="/cv_by_ashraful_islam_ratul.pdf"
                                 download="cv_by_ashraful_islam_ratul.pdf"
-                                className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group"
+                                className="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     <Download size={18} className="group-hover:animate-bounce" />
@@ -131,15 +137,15 @@ const HeroSection = ({ onHireMeClick }) => {
                             </a>
                             <button
                                 onClick={onHireMeClick}
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-md active:scale-95"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-md active:scale-95"
                             >
-                                <FaBriefcase className="text-sm" />
+                                <FaHandshake size={18} className="text-sm" />
                                 Hire Me
                             </button>
                         </div>
 
                         {/* Social Links with Labels - DRY Refactored */}
-                        <div className="flex flex-col items-center lg:items-start gap-4 pt-4 animate-fade-up delay-400">
+                        <div className="flex flex-col items-center lg:items-start gap-4 pt-1.5 lg:pt-2 animate-fade-up delay-400">
                             <p className="text-sm text-gray-600 dark:text-gray-300">Connect with me:</p>
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 {socialLinks.map((link, index) => (
