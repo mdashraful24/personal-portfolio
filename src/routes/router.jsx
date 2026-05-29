@@ -4,6 +4,7 @@ import ProjectDetails from "../pages/ProjectDetails";
 import Home from "../pages/Home";
 import ErrorPage from "../shared/ErrorPage";
 import AllProjects from "../pages/AllProjects.jsx";
+import AllExperiences from "../pages/AllExperiences.jsx";
 import projectsData from '../data/projects.js';
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: "/all-projects",
                 element: <AllProjects />
+            },
+            {
+                path: "/all-experiences",
+                element: <AllExperiences />
             },
             {
                 path: "/projectDetails/:id",
