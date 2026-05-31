@@ -86,9 +86,19 @@ const allSkills = [
     },
     {
         id: 18,
+        name: "Nodemailer",
+        category: "service"
+    },
+    {
+        id: 19,
+        name: "Twilio",
+        category: "service"
+    },
+    {
+        id: 20,
         name: "Stripe",
         category: "service"
-    }
+    },
 ];
 
 export default allSkills;

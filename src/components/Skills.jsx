@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -30,6 +30,8 @@ const skillIconMap = {
     "JWT": <SiJsonwebtokens className="text-blue-400 text-xl" />,
     "Bcrypt": <RiLockPasswordLine className="text-emerald-400 text-xl" />,
     "Cloudinary": <SiCloudinary className="text-blue-500 text-xl" />,
+    "Nodemailer": <FaEnvelope className="text-blue-400 text-xl" />,
+    "Twilio": <FaPhoneAlt className="text-red-500 text-xl" />,
     "Stripe": <SiStripe className="text-purple-400 text-xl" />,
 };
 
