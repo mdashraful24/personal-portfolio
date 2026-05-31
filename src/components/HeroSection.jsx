@@ -68,7 +68,7 @@ const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105"
+        className="group flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-105 active:scale-95"
     >
         <div className={`p-1 ${bgColor} rounded-lg text-white transition-all duration-300`}>
             <Icon className="text-lg" />
