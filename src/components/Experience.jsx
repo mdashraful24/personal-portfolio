@@ -362,7 +362,7 @@ const Experience = () => {
                         </div>
                         <div className="mt-6 flex justify-center lg:justify-start animate-on-scroll fade-in-right">
                             <Link to="/all-experiences">
-                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-blue-500/10 hover:border-blue-600 transition-all duration-300 group/btn">
+                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-blue-500/10 hover:border-blue-600 transition-all duration-300 active:scale-95 group/btn">
                                     View All Experiences
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                 </button>

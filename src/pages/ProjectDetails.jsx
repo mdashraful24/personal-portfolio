@@ -135,6 +135,67 @@ const OverviewTechSection = ({ config, techs, color }) => {
     );
 };
 
+// ============== MAGNIFYING GLASS COMPONENT ==============
+const MagnifyingImage = ({ src, alt }) => {
+    const [zoom, setZoom] = useState({ active: false, x: 0, y: 0 });
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const imageRef = useRef(null);
+    const containerRef = useRef(null);
+
+    const handleMouseMove = (e) => {
+        if (!imageRef.current || !containerRef.current) return;
+
+        const rect = imageRef.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        // Constrain values between 0 and 100
+        const constrainedX = Math.min(100, Math.max(0, x));
+        const constrainedY = Math.min(100, Math.max(0, y));
+
+        setPosition({ x: constrainedX, y: constrainedY });
+        setZoom({ active: true, x: constrainedX, y: constrainedY });
+    };
+
+    const handleMouseLeave = () => {
+        setZoom({ active: false, x: 0, y: 0 });
+    };
+
+    return (
+        <div
+            ref={containerRef}
+            className="relative w-full h-full overflow-hidden"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+        >
+            <div className="relative aspect-video w-full h-full overflow-hidden">
+                <img
+                    ref={imageRef}
+                    src={src}
+                    alt={alt}
+                    className="w-full h-full transition-transform duration-300"
+                    style={{
+                        transform: zoom.active ? 'scale(2.5)' : 'scale(1)',
+                        transformOrigin: `${position.x}% ${position.y}%`
+                    }}
+                    onError={(e) => {
+                        e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image";
+                    }}
+                />
+            </div>
+            {zoom.active && (
+                <div
+                    className="magnifyImageZoom"
+                    style={{
+                        left: `${zoom.x}%`,
+                        top: `${zoom.y}%`,
+                    }}
+                />
+            )}
+        </div>
+    );
+};
+
 // ============== MAIN COMPONENT ==============
 const ProjectDetails = () => {
     const project = useLoaderData();
@@ -208,16 +269,9 @@ const ProjectDetails = () => {
 
                 {/* Project Hero */}
                 <div className="grid lg:grid-cols-2 gap-8 mb-8">
-                    {/* Image Card */}
+                    {/* Image Card with Magnifying Effect */}
                     <SectionCard className="overflow-hidden shadow-md">
-                        <div className="relative aspect-video w-full h-full overflow-hidden">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full hover:scale-105 transition-transform duration-500 object-cover"
-                                onError={(e) => { e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image"; }}
-                            />
-                        </div>
+                        <MagnifyingImage src={project.image} alt={project.title} />
                     </SectionCard>
 
                     {/* Info Card */}
