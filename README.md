@@ -110,5 +110,3 @@ The project can be deployed to any static hosting service:
 
 - Vercel
 - Netlify
-- GitHub Pages
-- Firebase Hosting
