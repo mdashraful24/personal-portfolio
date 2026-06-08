@@ -208,7 +208,7 @@ const ProjectDetails = () => {
 
     // Update tab category title based on Stripe presence
     if (hasStripe && TECH_CATEGORIES.handling.title === "Payment & Media") {
-        TECH_CATEGORIES.handling.title = "Payment Gateway";
+        TECH_CATEGORIES.handling.title = "Media & Payment Gateway";
         TECH_CATEGORIES.handling.icon = FaCreditCard;
     } else if (!hasStripe) {
         TECH_CATEGORIES.handling.title = "Media & Assets";
