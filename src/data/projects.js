@@ -426,6 +426,124 @@ const projectsData = {
                 "Implement due dates and notification reminders.",
                 "Enable collaboration features for team-based task boards."
             ]
+        },
+        {
+            "id": 5,
+            "title": "Bistro Boss Restaurant",
+            "description": "Bistro Boss Restaurant is a modern full-stack restaurant management web application designed to enhance the dining experience for customers and streamline operations for restaurant owners. It features a dynamic online menu, secure user authentication, Stripe-based payment integration, and real-time order management. Users can browse meals, place orders, make payments, and leave ratings and feedback through a smooth, responsive interface.",
+            "frontend": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "DaisyUI",
+                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                },
+                {
+                    "name": "React Router",
+                    "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://avatars.githubusercontent.com/u/72518640?s=200&v=4"
+                }
+            ],
+            "backend": [
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Firebase Auth",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "JWT Authentication",
+                    "icon": "https://jwt.io/img/pic_logo.svg"
+                }
+            ],
+            "handling": [
+                {
+                    "name": "Stripe",
+                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                },
+                {
+                    "name": "Cloudinary",
+                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                }
+            ],
+            "development": [
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "Firebase Hosting",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "Netlify",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                }
+            ],
+            "topTech": [
+                {
+                    "name": "React",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                },
+                {
+                    "name": "Express.js",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                },
+                {
+                    "name": "Stripe",
+                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                }
+            ],
+            "demoLink": "https://bistroboss-674ce.web.app/",
+            "codeLink": "https://github.com/mdashraful24/bistro-boss-restaurant-client.git",
+            "image": "/assets/project-cover/bistro-boss-restaurant.png",
+            "challenges": [
+                "Integrating secure Stripe payment processing with order flow management.",
+                "Implementing JWT-based authentication and protected routes for users.",
+                "Handling real-time order updates and ensuring consistent UI state across pages.",
+                "Managing complex state for cart, orders, and user sessions efficiently."
+            ],
+            "futurePlans": [
+                "Add real-time order tracking for customers and admins.",
+                "Implement role-based dashboards for customers, chefs, and admins.",
+                "Introduce AI-based food recommendations based on user preferences.",
+                "Enhance notification system with email and SMS alerts."
+            ]
         }
     ],
     "team-project": [
