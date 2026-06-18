@@ -22,7 +22,7 @@ const AboutMe = () => {
                         </p>
 
                         <p>
-                            I have recently completed TypeScript and am currently learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                            I have recently completed TypeScript and am currently learning <strong className="text-blue-700 dark:text-blue-400">Prisma</strong> and <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build high-performance, production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                         </p>
 
                         <p>
