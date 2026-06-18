@@ -9,6 +9,7 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const isHomeRoute = location.pathname === "/";
 
     // Define nav items with support for both section scrolling and route paths
     const navItems = [
@@ -189,9 +190,13 @@ const Navbar = () => {
         </div>
     );
 
+    const navbarClass = isHomeRoute
+        ? "fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900 backdrop-blur-md shadow-md dark:shadow-none"
+        : "fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-black backdrop-blur-md shadow-md dark:shadow-none";
+
     return (
-        <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-black backdrop-blur-md shadow-md">
-            <div className="navbar container max-w-7xl mx-auto px-4 lg:pl-4 lg:py-0">
+        <div className={navbarClass}>
+            <div className="navbar container max-w-7xl mx-auto px-4 lg:pl-4 lg:py-3">
                 <div className="navbar-start">
                     <a onClick={handleLogoClick} className="cursor-pointer dark:bg-white dark:rounded-lg">
                         <img src={logo} alt="Logo" className="w-32 md:w-40" />
