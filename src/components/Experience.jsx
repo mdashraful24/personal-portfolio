@@ -115,7 +115,7 @@ const Experience = () => {
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
-                    <p className="md:text-lg max-w-3xl mx-auto leading-relaxed dark:text-gray-300 animate-on-scroll fade-in-right delay-1">
+                    <p className="md:text-[1.2rem] max-w-3xl mx-auto leading-relaxed dark:text-gray-300 animate-on-scroll fade-in-right delay-1">
                         A showcase of my collaborative projects and team-based development experiences
                     </p>
                 </div>

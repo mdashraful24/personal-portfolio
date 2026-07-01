@@ -204,7 +204,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-center hidden md:flex">
-                    <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">
+                    <ul className="flex items-center gap-6 lg:gap-10 md:text-[1.2rem] cursor-pointer">
                         {desktopNavLinks}
                     </ul>
                 </div>
