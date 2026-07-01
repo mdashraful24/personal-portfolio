@@ -9,13 +9,13 @@ const statsData = [
     {
         icon: FaCode,
         iconColor: "text-blue-500 dark:text-blue-400",
-        label: "Web Developer",
+        label: "Full Stack Developer",
         delay: "delay-300"
     },
     {
         icon: FaBriefcase,
         iconColor: "text-emerald-500 dark:text-emerald-400",
-        label: "Fresh Graduate",
+        label: "MERN Stack",
         delay: "delay-400"
     },
     {
@@ -56,9 +56,9 @@ const socialLinks = [
 
 // Reusable StatItem component
 const StatItem = ({ icon: Icon, iconColor, label, delay }) => (
-    <div className={`flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-100 dark:border-none rounded-full shadow-md animate-scale ${delay}`}>
+    <div className={`flex items-center gap-2 px-4 py-1.5 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-100 dark:border-none rounded-full shadow-md animate-scale ${delay}`}>
         <Icon className={`${iconColor} text-sm`} />
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
+        <span className="text-[1.05rem] font-medium dark:text-gray-300">{label}</span>
     </div>
 );
 
@@ -96,13 +96,13 @@ const HeroSection = ({ onHireMeClick }) => {
                                 <span className="animate-pulse-glow-open absolute inline-flex h-full w-full rounded-full"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
                             </span>
-                            <span className="text-sm font-medium">Available for opportunities</span>
+                            <span className="font-medium">Available for opportunities</span>
                         </div>
 
                         {/* Main Heading */}
-                        <div className="space-y-4 md:space-y-6">
+                        <div className="space-y-4 md:space-y-8">
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                                <p className="text-gray-600 dark:text-gray-400 mb-2 animate-slide-left delay-100">
+                                <p className="dark:text-gray-400 mb-2 animate-slide-left delay-100">
                                     Hi, I'm
                                 </p>
                                 <p className="text-blue-600 dark:text-blue-400 animate-slide-right delay-200">
@@ -111,7 +111,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             </h1>
 
                             {/* Stats - DRY Refactored */}
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
                                 {statsData.map((stat, index) => (
                                     <StatItem key={index} {...stat} />
                                 ))}
@@ -119,8 +119,8 @@ const HeroSection = ({ onHireMeClick }) => {
                         </div>
 
                         {/* Description */}
-                        <p className="w-full max-w-2xl mx-auto lg:text-lg leading-relaxed animate-fade-up delay-200 text-gray-600 dark:text-gray-300">
-                            Full-stack developer focused on crafting clean UIs and solid backend logic. I create responsive, user-friendly applications backed by scalable systems and well-structured databases.
+                        <p className="w-full max-w-2xl mx-auto lg:mx-0 md:text-[1.2rem] leading-relaxed animate-fade-up delay-200 dark:text-gray-300">
+                            Full Stack Developer focused on crafting clean UIs and solid backend logic. I create responsive, user-friendly applications backed by scalable systems and well-structured databases.
                         </p>
 
                         {/* CTA Buttons */}
@@ -146,7 +146,7 @@ const HeroSection = ({ onHireMeClick }) => {
 
                         {/* Social Links with Labels - DRY Refactored */}
                         <div className="flex flex-col items-center lg:items-start gap-4 pt-1.5 lg:pt-2 animate-fade-up delay-400">
-                            <p className="text-sm text-gray-600 dark:text-gray-300">Connect with me:</p>
+                            <p className="text-gray-600 dark:text-gray-300">Connect with me:</p>
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 {socialLinks.map((link, index) => (
                                     <SocialLink key={index} {...link} />
@@ -190,7 +190,7 @@ const HeroSection = ({ onHireMeClick }) => {
                                                 <span className="animate-pulse-glow-open absolute inline-flex h-full w-full rounded-full"></span>
                                                 <span className="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-green-500"></span>
                                             </span>
-                                            <span className="text-white font-bold text-xs md:text-sm uppercase">Open to Projects</span>
+                                            <span className="text-white font-bold text-xs md:text-sm uppercase">Open to Work</span>
                                         </div>
                                     </div>
                                 </div>
