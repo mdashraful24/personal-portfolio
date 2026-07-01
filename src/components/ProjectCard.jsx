@@ -21,31 +21,31 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
         switch (type) {
             case 'personal':
                 return {
-                    icon: <FaUser className="w-3 h-3" />,
+                    icon: <FaUser className="w-3.5 h-3.5" />,
                     text: 'Personal Project',
                     color: 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/90 dark:text-blue-200 dark:border-blue-800'
                 };
             case 'team':
                 return {
-                    icon: <FaUsers className="w-3 h-3" />,
+                    icon: <FaUsers className="w-4 h-4" />,
                     text: 'Team Project',
                     color: 'bg-green-100 text-green-700 border-green-200 dark:bg-green-900/90 dark:text-green-300 dark:border-green-800'
                 };
             case 'client':
                 return {
-                    icon: <FaBriefcase className="w-3 h-3" />,
+                    icon: <FaBriefcase className="w-3.5 h-3.5" />,
                     text: 'Client Project',
                     color: 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-900/90 dark:text-purple-100 dark:border-purple-800'
                 };
             case 'working':
                 return {
-                    icon: <FaCog className="w-3 h-3" />,
+                    icon: <FaCog className="w-3.5 h-3.5" />,
                     text: 'Working Project',
                     color: 'bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900/90 dark:text-yellow-200 dark:border-yellow-800'
                 };
             default:
                 return {
-                    icon: <FaUser className="w-3 h-3" />,
+                    icon: <FaUser className="w-3.5 h-3.5" />,
                     text: 'Project',
                     color: 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700'
                 };
@@ -98,7 +98,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
                         <div className="text-center">
                             <div className="text-4xl mb-2">🖼️</div>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">Preview not available</p>
+                            <p className="font-semibold dark:text-gray-300">Preview not available</p>
                         </div>
                     </div>
                 )}
@@ -108,7 +108,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Project Type Badge */}
                 <div className="absolute top-3 left-3">
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border ${badge.color}`}>
+                    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-[0.9rem] font-semibold border ${badge.color}`}>
                         {badge.icon}
                         {badge.text}
                     </span>
@@ -125,7 +125,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <FaExternalLinkAlt size={14} className="text-gray-700 dark:text-white" />
+                                <FaExternalLinkAlt size={14} className="dark:text-white" />
                             </a>
                         </Tooltip>
                     )}
@@ -138,7 +138,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <FaGithub size={16} className="text-gray-700 dark:text-white" />
+                                <FaGithub size={16} className="dark:text-white" />
                             </a>
                         </Tooltip>
                     )}
@@ -149,7 +149,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
             <div className="p-5 flex flex-col flex-grow">
                 {/* Title with accent line */}
                 <div className="mb-3">
-                    <h3 className="text-lg font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                    <h3 className="md:text-[1.3rem] font-bold dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
                         {title}
                     </h3>
                     <div className="w-12 h-0.5 bg-blue-500 mt-2 group-hover:w-16 transition-all duration-300" />
@@ -157,7 +157,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Description */}
                 {description && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 leading-relaxed">
+                    <p className="md:text-[1.05rem] dark:text-gray-300 mb-4 line-clamp-2 leading-relaxed">
                         {description}
                     </p>
                 )}
@@ -170,14 +170,14 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 w-full flex items-center justify-between
                                 py-3 px-5 rounded-xl
                                 bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800
-                                text-white font-medium text-sm
+                                text-white font-medium
                                 hover:from-blue-600 hover:to-blue-700
                                 transition-all duration-300
                                 shadow-md hover:shadow-lg
                                 group/btn
                             "
                         >
-                            <span>Explore Project</span>
+                            <span>Project Details</span>
                             <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                         </button>
                     </Link>

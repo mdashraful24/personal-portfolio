@@ -55,7 +55,7 @@ const ProjectsShowcase = () => {
                             </span>
                             <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         </div>
-                        <p className="md:text-lg dark:text-gray-300">
+                        <p className="md:text-[1.3rem] dark:text-gray-300">
                             Here are some of the projects I've worked on.
                         </p>
                     </motion.div>
@@ -115,50 +115,50 @@ const ProjectsShowcase = () => {
                                 </div>
 
                                 {/* Title with Counter */}
-                                <div className="mb-8">
+                                <div className="mb-7">
                                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
                                         {totalProjects}+
                                     </h3>
-                                    <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                                    <p className="md:text-[1.2rem] font-semibold text-gray-700 dark:text-gray-300">
                                         Projects Completed
                                     </p>
                                 </div>
 
                                 {/* Project Categories Stats */}
-                                <div className="grid grid-cols-3 gap-4 w-full max-w-xs mb-6">
+                                <div className="grid grid-cols-3 gap-4 w-full max-w-xs mb-5">
                                     <div className="text-center">
                                         <div className="flex items-center justify-center mb-2">
                                             <FaLaptopCode className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                                         </div>
-                                        <div className="text-xl font-bold dark:text-white">{myProjects.length}</div>
-                                        <div className="text-xs text-gray-600 dark:text-gray-400">Personal</div>
+                                        <div className="text-2xl font-bold dark:text-white">{myProjects.length}</div>
+                                        <div className="dark:text-gray-300">Personal</div>
                                     </div>
                                     <div className="text-center">
                                         <div className="flex items-center justify-center mb-2">
                                             <FaUsers className="w-5 h-5 text-green-500 dark:text-green-400" />
                                         </div>
-                                        <div className="text-xl font-bold dark:text-white">{teamProjects.length}</div>
-                                        <div className="text-xs text-gray-600 dark:text-gray-400">Team</div>
+                                        <div className="text-2xl font-bold dark:text-white">{teamProjects.length}</div>
+                                        <div className="dark:text-gray-300">Team</div>
                                     </div>
                                     <div className="text-center">
                                         <div className="flex items-center justify-center mb-2">
                                             <FaCode className="w-5 h-5 text-purple-500 dark:text-purple-400" />
                                         </div>
-                                        <div className="text-xl font-bold dark:text-white">{clientProjects.length}</div>
-                                        <div className="text-xs text-gray-600 dark:text-gray-400">Client</div>
+                                        <div className="text-2xl font-bold dark:text-white">{clientProjects.length}</div>
+                                        <div className="dark:text-gray-300">Client</div>
                                     </div>
                                 </div>
 
                                 {/* Additional Info */}
-                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-7">
-                                    {totalTechStacks}+ technologies used across all projects
+                                <p className="md:text-[1.1rem] dark:text-gray-300 mb-6">
+                                    <span className="md:text-[1.2rem] font-bold">{totalTechStacks}+</span> technologies used across all projects
                                 </p>
 
                                 {/* Explore Button */}
                                 <button
-                                    className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn"
+                                    className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn"
                                 >
-                                    <span>Explore All Projects</span>
+                                    <span>View All Projects</span>
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                 </button>
                             </div>

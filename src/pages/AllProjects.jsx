@@ -98,7 +98,7 @@ const AllProjects = () => {
         <button
             onClick={onClick}
             className={`
-                group relative p-2 rounded-lg text-sm font-semibold transition-all duration-200
+                group relative p-2 rounded-lg text-[1rem] font-semibold transition-all duration-200
                 flex items-center justify-between w-full
                 ${isActive
                     ? "bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-md"
@@ -138,7 +138,7 @@ const AllProjects = () => {
                                     <span className="px-3 lg:px-4 text-2xl lg:text-3xl font-bold dark:text-white">All Projects</span>
                                     <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                                 </div>
-                                <p className="text-sm dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                                <p className="md:text-[1.05rem] dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
                             </div>
 
                             {/* Tab Navigation */}
@@ -159,11 +159,11 @@ const AllProjects = () => {
                             <div className="hidden md:block mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 rounded-xl border border-gray-200 dark:border-gray-800">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                                        <Icon path="M13 10V3L4 14h7v7l9-11h-7z" className="w-4 h-4 text-blue-600" />
+                                        <Icon path="M13 10V3L4 14h7v7l9-11h-7z" className="w-5 h-5 text-blue-600" />
                                     </div>
-                                    <h4 className="font-semibold text-sm dark:text-white">Total Impact</h4>
+                                    <h4 className="font-semibold dark:text-white">Total Impact</h4>
                                 </div>
-                                <p className="text-sm leading-relaxed">
+                                <p className="leading-relaxed">
                                     <span className="font-bold">{allProjects.length}+</span> projects have been worked on using cutting-edge technology and creative solutions.
                                 </p>
                             </div>
@@ -174,11 +174,11 @@ const AllProjects = () => {
                     <div className="flex-1 min-w-0">
                         {/* Header */}
                         <div className="block md:hidden text-center mb-4 sm:mb-6 pb-2 sm:pb-3 border-b border-gray-200 dark:border-gray-800">
-                            <h2 className="text-2xl font-semibold dark:text-white capitalize">
+                            <h2 className="text-3xl font-semibold dark:text-white capitalize">
                                 {activeTab === "all" ? "All Projects" : `${tabs.find(t => t.id === activeTab)?.label} Projects`}
                             </h2>
-                            <p className="mt-1">
-                                Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+                            <p className="text-xl mt-1">
+                                Showing <span className="dark:text-blue-500 font-bold">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? 's' : ''}
                             </p>
                         </div>
 
@@ -215,7 +215,7 @@ const AllProjects = () => {
 
                         {filteredProjects.length === 0 && (
                             <div className="text-center py-8 sm:py-12">
-                                <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg animate-pulse">
+                                <p className="dark:text-gray-400 text-base sm:text-lg animate-pulse">
                                     No projects found in this category.
                                 </p>
                             </div>

@@ -26,18 +26,18 @@ const getStripeStatus = (handling) => handling?.some(tech => tech.name.toLowerCa
 const BackButton = ({ onClick }) => (
     <button
         onClick={onClick}
-        className="group flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
+        className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
     >
-        <FaArrowLeft className="text-gray-600 dark:text-gray-400 group-hover:-translate-x-1 transition-transform duration-300" />
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Back</span>
+        <FaArrowLeft className="dark:text-gray-300 group-hover:-translate-x-1 transition-transform duration-300" />
+        <span className="font-semibold dark:text-gray-300">Back</span>
     </button>
 );
 
 const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
-    const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-300 active:scale-95";
+    const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 active:scale-95";
     const variants = {
         primary: "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-500/25",
-        secondary: "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
+        secondary: "bg-white dark:bg-gray-800 md:text-[1.05rem] dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
     };
 
     return (
@@ -49,9 +49,9 @@ const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
 };
 
 const TechPill = ({ tech, color, isCompact = false }) => (
-    <span className={`inline-flex items-center gap-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 ${isCompact
-        ? "px-2.5 py-1 text-xs bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
-        : `px-3 py-1.5 bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-400 border border-${color}-200 dark:border-${color}-800`
+    <span className={`inline-flex items-center gap-2 rounded-full text-[0.85rem] font-semibold transition-all duration-200 hover:scale-105 ${isCompact
+        ? "px-2.5 py-1 bg-gray-100 dark:bg-gray-700/50 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+        : `px-2.5 py-1 bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-400 border border-${color}-200 dark:border-${color}-800`
         }`}>
         <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
         {tech.name}
@@ -60,8 +60,8 @@ const TechPill = ({ tech, color, isCompact = false }) => (
 
 const StatBadge = ({ label, value }) => (
     <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl px-4 py-2 text-center">
-        <div className="text-2xl font-bold text-gray-800 dark:text-white">{value}</div>
-        <div className="text-xs text-gray-500 dark:text-gray-400">{label}</div>
+        <div className="text-2xl font-bold dark:text-white">{value}</div>
+        <div className="md:text-[1.1rem] dark:text-gray-300">{label}</div>
     </div>
 );
 
@@ -75,36 +75,60 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
     <button
         ref={ref}
         onClick={() => onClick(id)}
-        className={`group relative px-5 py-3 font-medium whitespace-nowrap transition-all duration-300 flex-shrink-0 ${isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+        className={`group relative px-5 py-3 font-semibold whitespace-nowrap transition-all duration-300 flex-shrink-0 
+            ${isActive
+                ? "text-blue-700 dark:text-blue-300"
+                : "text-gray-500 dark:text-gray-400 hover:text-blue-700 dark:hover:text-gray-300"
             }`}
     >
         <div className="flex items-center gap-2">
-            <Icon className={`text-base ${isActive ? "text-blue-500" : "text-gray-400"}`} />
-            <span className="text-sm sm:text-base">{label}</span>
+            <Icon className={`text-base transition-all duration-300 
+                ${isActive
+                    ? "text-blue-500"
+                    : "text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                } 
+                ${isActive ? "group-hover:scale-110" : "group-hover:scale-110"}`}
+            />
+            <span className={`text-sm sm:text-base transition-all duration-300 
+                ${isActive
+                    ? "group-hover:translate-x-0.5"
+                    : "group-hover:translate-x-0.5"
+                }`}
+            >
+                {label}
+            </span>
         </div>
         {isActive && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" />
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full 
+                transition-all duration-300"
+            />
+        )}
+        {!isActive && (
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-blue-600/0 
+                group-hover:from-blue-500/50 group-hover:via-blue-500/70 group-hover:to-blue-600/50 rounded-full 
+                transition-all duration-300 group-hover:h-0.5"
+            />
         )}
     </button>
 );
 
 const ChallengeItem = ({ challenge, index }) => (
-    <div className="group flex items-center gap-4 px-4 py-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border-l-4 border-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-all">
-        <div className="flex-shrink-0 w-7 h-7 bg-amber-400 text-white rounded-lg flex items-center justify-center font-bold text-sm">
-            {index + 1}
+    <div className="group flex items-center gap-4 px-4 py-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border-l-4 border-amber-500 hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-all">
+        <div className="flex-shrink-0 w-2.5 h-2.5 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">
+            {/* {index + 1} */}
         </div>
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
-        <FaLightbulb className="text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <p className="text-[1.1rem] dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
+        <FaLightbulb className="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
     </div>
 );
 
 const RoadmapItem = ({ plan, index }) => (
-    <div className="group flex items-center gap-4 px-4 py-3 bg-green-50 dark:bg-green-900/10 rounded-xl border-l-4 border-green-400 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all">
-        <div className="w-7 h-7 bg-green-400 text-white rounded-lg flex items-center justify-center">
+    <div className="group flex items-center gap-4 px-4 py-3 bg-green-50 dark:bg-green-900/10 rounded-xl border-l-4 border-green-500 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all">
+        <div className="w-7 h-7 bg-green-500 text-white rounded-lg flex items-center justify-center">
             <FaCheckCircle className="text-sm" />
         </div>
-        <p className="text-gray-700 dark:text-gray-300 flex-1">{plan}</p>
-        <FaRocket className="text-green-400 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+        <p className="text-[1.1rem] dark:text-gray-300 flex-1">{plan}</p>
+        <FaRocket className="text-green-500 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
     </div>
 );
 
@@ -126,7 +150,7 @@ const OverviewTechSection = ({ config, techs, color }) => {
                     <TechPill key={idx} tech={tech} color={color} />
                 ))}
                 {remainingCount > 0 && (
-                    <span className={`inline-flex items-center justify-center px-3 py-1.5 rounded-full text-sm font-semibold bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-300/20 border border-${color}-500`}>
+                    <span className={`inline-flex items-center justify-center px-2 py-1 rounded-full text-[0.85rem] font-semibold bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-300/20 border border-${color}-500`}>
                         +{remainingCount} more
                     </span>
                 )}
@@ -249,9 +273,9 @@ const ProjectDetails = () => {
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
                 <div className="text-center">
                     <div className="text-7xl mb-4">🔍</div>
-                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Project Not Found</h2>
-                    <p className="text-gray-500 dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
-                    <button onClick={() => navigate(-1)} className="mt-6 text-blue-600 dark:text-blue-400 hover:underline">
+                    <h2 className="text-3xl font-bold dark:text-white">Project Not Found</h2>
+                    <p className="md:text-[1.3rem] dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
+                    <button onClick={() => navigate(-1)} className="md:text-[1.2rem] mt-5 text-blue-600 dark:text-blue-400 hover:underline">
                         ← Go Back
                     </button>
                 </div>
@@ -282,10 +306,10 @@ const ProjectDetails = () => {
                                     {project.title}
                                 </h1>
                                 {project?.duration && (
-                                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">📅 {project.duration}</span>
+                                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-semibold">📅 {project.duration}</span>
                                 )}
                             </div>
-                            <p className="text-gray-600 dark:text-gray-400 mt-4 leading-relaxed text-justify">
+                            <p className="md:text-[1.2rem] dark:text-gray-400 mt-4 text-justify">
                                 {project.description}
                             </p>
                         </div>
@@ -350,7 +374,7 @@ const ProjectDetails = () => {
                     {/* Tech Stack Tab - Shows ALL technologies */}
                     {activeTab === "tech-stack" && (
                         <SectionCard className="p-6 lg:p-8">
-                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                            <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaCode className="text-blue-600" />
                                 Complete Technology Stack
                             </h3>
@@ -367,11 +391,11 @@ const ProjectDetails = () => {
                                                     ({techs.length} items)
                                                 </span> */}
                                             </h4>
-                                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
                                                 {techs.map((tech, idx) => (
-                                                    <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
+                                                    <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-200 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
                                                         <img src={tech.icon} alt={tech.name} className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                                        <span className="text-sm text-gray-700 dark:text-gray-300">{tech.name}</span>
+                                                        <span className="font-semibold dark:text-gray-300">{tech.name}</span>
                                                     </div>
                                                 ))}
                                             </div>
@@ -385,7 +409,7 @@ const ProjectDetails = () => {
                     {/* Challenges Tab */}
                     {activeTab === "challenges" && hasData(project.challenges) && (
                         <SectionCard className="p-6 lg:p-8">
-                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                            <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaShieldAlt className="text-amber-500" />
                                 Challenges & Solutions
                             </h3>
@@ -400,7 +424,7 @@ const ProjectDetails = () => {
                     {/* Roadmap Tab */}
                     {activeTab === "roadmap" && hasData(project.futurePlans) && (
                         <SectionCard className="p-6 lg:p-8">
-                            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center gap-3">
+                            <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaRocket className="text-green-500" />
                                 Future Roadmap
                             </h3>
