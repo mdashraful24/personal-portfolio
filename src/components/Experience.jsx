@@ -132,9 +132,26 @@ const Experience = () => {
                                 <div className="animate-on-scroll fade-in-left delay-2">
                                     {/* Project Header */}
                                     <div className="mb-4 border-b border-blue-500/20 pb-4">
-                                        <div className="mb-2 flex items-center gap-2 text-[#3b82f6]">
-                                            <BsBriefcase className="text-xl" />
-                                            <span className="text-sm font-medium">{activeExp.projectType || "Project"}</span>
+                                        <div className="mb-2 flex flex-wrap justify-between items-center gap-2">
+                                            <div className="flex items-center gap-2 text-[#3b82f6]">
+                                                <BsBriefcase className="text-xl" />
+                                                <span className="text-sm font-medium">{activeExp.projectType || "Project"}</span>
+                                            </div>
+
+                                            {/* Funding Status Badge */}
+                                            {activeExp.fundedStatus && (
+                                                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-2 py-1 text-sm font-medium text-green-400 border border-green-500/30">
+                                                    <span>💰</span>
+                                                    {activeExp.fundedStatus}
+                                                </span>
+                                            )}
+
+                                            {/* If it's a grant/scholarship */}
+                                            {/* {activeExp.grantType && (
+                                                <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-500/20 px-2 py-1 text-xs font-medium text-purple-400 border border-purple-500/30">
+                                                    {activeExp.grantType}
+                                                </span>
+                                            )} */}
                                         </div>
                                         <h2 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                                             {activeExp.title}
@@ -171,7 +188,7 @@ const Experience = () => {
                                 {/* Description - Animated */}
                                 {activeExp.description && (
                                     <div className="animate-on-scroll fade-in-left delay-3 mb-4">
-                                        <p className="text-gray-300">
+                                        <p className="text-[1.05rem] text-gray-300">
                                             {activeExp.shortDescription}
                                         </p>
                                     </div>
@@ -281,9 +298,19 @@ const Experience = () => {
                                         <div className="p-5">
                                             {/* Duration Badge */}
                                             <div className="flex items-center justify-between gap-2 mb-3">
-                                                <span className="inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm font-semibold text-blue-400 border border-blue-500/20">
-                                                    {exp.duration}
-                                                </span>
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <span className="inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm font-semibold text-blue-300 border border-blue-500/20">
+                                                        {exp.duration}
+                                                    </span>
+
+                                                    {/* Funded Badge */}
+                                                    {exp.fundedStatus && (
+                                                        <span className="inline-flex items-center gap-1 rounded-full bg-green-500/10 px-2 py-1 text-sm font-semibold text-green-400 border border-green-500/20">
+                                                            <span>💰</span>
+                                                            <span>{exp.fundedStatus}</span>
+                                                        </span>
+                                                    )}
+                                                </div>
 
                                                 {/* Active Indicator */}
                                                 {activeExperience === index && (
@@ -362,7 +389,7 @@ const Experience = () => {
                         </div>
                         <div className="mt-6 flex justify-center lg:justify-start animate-on-scroll fade-in-right">
                             <Link to="/all-experiences">
-                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-300/10 dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-white hover:border-blue-600 transition-all duration-300 active:scale-95 group/btn">
+                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-300/10 dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-white dark:hover:bg-blue-900 hover:border-blue-600 transition-all duration-300 active:scale-95 group/btn">
                                     View All Experiences
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                 </button>

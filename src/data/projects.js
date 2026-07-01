@@ -836,12 +836,14 @@ const projectsData = {
     "client-project": [
         {
             "id": 101,
-            "duration": "Jan 2026 - Apr 2026",
+            "duration": "Jan 2026 - Ongoing",
             "title": "Smart Irrigation System",
             "organization": "Developed for Daffodil International University",
             "location": "Remote",
             "designation": "Frontend Web Developer",
             "projectType": "Client Project",
+            "fundedStatus": "Funded",
+            "grantType": "Grant",
             "description": "Smart Irrigation System is a responsive React application built with Vite that provides an interface for monitoring weather conditions, fields, crops, and irrigation requirements. The project is currently under active development.",
             "shortDescription": "A responsive React application for monitoring weather conditions, fields, crops, and irrigation requirements with multilingual support and real-time data monitoring.",
             "frontend": [
@@ -964,6 +966,7 @@ const projectsData = {
             "title": "DIU Admission Bot",
             "organization": "Client Project",
             "location": "Remote",
+            "designation": "Frontend Web Developer",
             "projectType": "Client Project",
             "description": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API. The bot automatically declines non-admission topics and maintains conversation context across multiple messages.",
             "shortDescription": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API with context-aware conversations and automatic topic filtering.",
@@ -1070,22 +1073,15 @@ const projectsData = {
             "responsibilities": [
                 "Integrated OpenAI GPT API for intelligent and context-aware conversations",
                 "Implemented context management system to maintain conversation flow across multiple messages",
-                "Created topic filtering logic to automatically decline non-admission questions",
-                "Built responsive chat interface with auto-scroll and smooth message animations",
-                "Managed API rate limits with user-friendly error handling and retry mechanisms",
-                "Configured environment variables securely for development and production on Netlify",
-                "Implemented loading states and typing indicators for better user experience"
+                "Built responsive chat interface with auto-scroll and smooth message animations"
             ],
             "achievements": [
                 "Successfully deployed on Netlify with 99.9% uptime and fast response times",
                 "Reduced API token costs by 30% through efficient context window management",
-                "Processed over 1000+ admission queries during testing phase with 95% accuracy",
-                "Created seamless user experience with smooth animations and auto-scrolling",
-                "Implemented intelligent topic filtering reducing irrelevant queries by 80%",
-                "Built fully responsive design working flawlessly on mobile, tablet, and desktop"
+                "Implemented intelligent topic filtering reducing irrelevant queries by 80%"
             ],
             "stack": "MERN Stack",
-            "experienceShow": false
+            "experienceShow": true
         }
     ],
     "working-project": [

@@ -97,7 +97,7 @@ const AllExperiences = () => {
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
-                    <p className="dark:text-gray-300 max-w-2xl mx-auto animate-on-scroll fade-in-up delay-1">
+                    <p className="dark:text-gray-300 md:text-[1.2rem] max-w-2xl mx-auto animate-on-scroll fade-in-up delay-1">
                         A full list of collaborative, team, and client-based projects
                     </p>
                 </div>
@@ -123,26 +123,35 @@ const AllExperiences = () => {
                         >
                             <GlowCard identifier={`exp-all-${exp.id}`}>
                                 <div className="p-5 flex flex-col h-full">
-                                    {/* Project Type Badge */}
-                                    <div className="mb-3 flex items-center gap-2 text-blue-400">
-                                        <BsBriefcase className="text-sm flex-shrink-0" />
-                                        <span className="text-sm font-medium">{exp.projectType || 'Project'}</span>
+                                    {/* Project Type & Fund Status Badge */}
+                                    <div className='mb-2 flex justify-between items-center gap-2'>
+                                        <div className="flex items-center gap-2 text-blue-400">
+                                            <BsBriefcase className="text-[1.05rem] flex-shrink-0" />
+                                            <span className="text-[1.05rem] font-medium">{exp.projectType || 'Project'}</span>
+                                        </div>
+
+                                        {exp.fundedStatus && (
+                                            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-2 py-0.5 text-sm font-medium text-green-400 border border-green-500/30">
+                                                <span>💰</span>
+                                                {exp.fundedStatus}
+                                            </span>
+                                        )}
                                     </div>
 
                                     {/* Title & Organization */}
                                     <h3 className="text-xl font-bold text-white mb-1 line-clamp-2">{exp.title}</h3>
-                                    <p className="text-sm text-blue-300 mb-2">@ {exp.organization}</p>
+                                    <p className="text-[1.05rem] text-blue-300 mb-2">@ {exp.organization}</p>
 
                                     {/* Designation */}
                                     {exp?.designation && (
-                                        <div className="mb-2 flex items-center gap-1.5 text-sm text-gray-300">
+                                        <div className="mb-2 flex items-center gap-1.5 text-[1.05rem] text-gray-300">
                                             <FaRegIdBadge className="text-blue-400 text-xs flex-shrink-0" />
                                             <span className="line-clamp-1">{exp.designation}</span>
                                         </div>
                                     )}
 
                                     {/* Location & Stack */}
-                                    <div className="flex flex-wrap gap-3 text-sm text-gray-300">
+                                    <div className="flex flex-wrap gap-3 text-[1.05rem] text-gray-300">
                                         <div className="flex items-center gap-1.5">
                                             <FiMapPin className="text-blue-400 text-xs flex-shrink-0" />
                                             <span>{exp.location}</span>
@@ -172,7 +181,7 @@ const AllExperiences = () => {
                                                 </span>
                                             ))}
                                             {exp.topTech.length > 3 && (
-                                                <span className="rounded-full bg-blue-500/5 px-2 py-0.5 text-sm text-blue-400 border border-blue-500/20">
+                                                <span className="rounded-full bg-blue-500/5 px-2 py-0.5 text-[1.05rem] text-blue-400 border border-blue-500/20">
                                                     +{exp.topTech.length - 3}
                                                 </span>
                                             )}
@@ -207,9 +216,19 @@ const AllExperiences = () => {
                         <div className="p-6 lg:p-8">
                             {/* Project Header */}
                             <div className="mb-4 border-b border-blue-500/20 pb-4">
-                                <div className="mb-2 flex items-center gap-2 text-[#3b82f6]">
-                                    <BsBriefcase className="text-xl" />
-                                    <span className="text-sm font-medium">{selectedExp.projectType || "Project"}</span>
+                                {/* Project Type & Fund Status Badge */}
+                                <div className='mb-2 flex items-center gap-2'>
+                                    <div className="flex items-center gap-2 text-blue-400">
+                                        <BsBriefcase className="text-[1.05rem] flex-shrink-0" />
+                                        <span className="text-[1.05rem] font-medium">{selectedExp.projectType || 'Project'}</span>
+                                    </div>
+
+                                    {selectedExp.fundedStatus && (
+                                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-2 py-0.5 text-sm font-medium text-green-400 border border-green-500/30">
+                                            <span>💰</span>
+                                            {selectedExp.fundedStatus}
+                                        </span>
+                                    )}
                                 </div>
                                 <h2 className="mb-2 text-2xl font-bold text-white">
                                     {selectedExp.title}
@@ -222,11 +241,11 @@ const AllExperiences = () => {
                                 {selectedExp?.designation && (
                                     <div className="mb-3 flex items-center gap-1.5 text-gray-300">
                                         <FaRegIdBadge className="text-blue-400" size={16} />
-                                        <span className="text-md font-semibold text-blue-200">{selectedExp?.designation}</span>
+                                        <span className="font-semibold text-blue-200">{selectedExp?.designation}</span>
                                     </div>
                                 )}
 
-                                <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                                <div className="flex flex-wrap gap-4 text-[1.05rem] text-gray-400">
                                     <div className="flex items-center gap-2">
                                         <BsCalendar size={14} className="text-blue-400" />
                                         <span>{selectedExp.duration}</span>
@@ -245,7 +264,7 @@ const AllExperiences = () => {
                             {/* Description */}
                             {selectedExp.description && (
                                 <div className="mb-4">
-                                    <p className="text-gray-300">
+                                    <p className="text-[1.05rem] md:text-justify text-gray-300">
                                         {selectedExp.shortDescription || selectedExp.description}
                                     </p>
                                 </div>
@@ -280,7 +299,7 @@ const AllExperiences = () => {
                                         {selectedExp.topTech.map((tech, idx) => (
                                             <span
                                                 key={idx}
-                                                className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20 flex items-center gap-1"
+                                                className="rounded-full bg-blue-500/10 px-3 py-1 text-[1.05rem] text-blue-400 border border-blue-500/20 flex items-center gap-1"
                                             >
                                                 {tech.icon && (
                                                     <img
@@ -321,7 +340,7 @@ const AllExperiences = () => {
                                         href={selectedExp.demoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 px-4 py-2 text-sm font-medium text-white transition-all duration-300 active:scale-[0.95] hover:shadow-lg hover:shadow-blue-500/30"
+                                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 px-4 py-2 text-[1.05rem] font-medium text-white transition-all duration-300 active:scale-[0.95] hover:shadow-lg hover:shadow-blue-500/30"
                                     >
                                         Live Link
                                         <FiExternalLink size={16} />
@@ -329,7 +348,7 @@ const AllExperiences = () => {
                                 )}
 
                                 <Link to={`/projectDetails/${selectedExp.id}`} onClick={closeModal}>
-                                    <button className="inline-flex items-center justify-between gap-2 px-4 py-2 border border-gray-500/50 bg-transparent hover:bg-blue-500/10 hover:border-blue-500/50 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.95] group/btn">
+                                    <button className="inline-flex items-center justify-between gap-2 px-4 py-2 border border-gray-500/50 bg-transparent hover:bg-blue-500/10 hover:border-blue-500/50 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium text-[1.05rem] hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.95] group/btn">
                                         <span>Project Details</span>
                                         <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                     </button>
