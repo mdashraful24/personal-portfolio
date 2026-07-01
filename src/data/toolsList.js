@@ -5,6 +5,9 @@ const tools = [
     { id: 4, name: "Vercel" },
     { id: 5, name: "Git" },
     { id: 6, name: "Postman" },
+    { id: 7, name: "Beekeeper S." },
+    { id: 8, name: "pgAdmin" },
+    { id: 9, name: "drawSQL" },
 ];
 
 const designTools = [

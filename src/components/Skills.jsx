@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt, FaImage } from "react-icons/fa";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -10,52 +10,63 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import allSkills from '../data/skillsList.js';
 import { tools, designTools } from '../data/toolsList.js';
+import externalServices from '../data/serviceList.js';
+import { TbRelationOneToMany } from 'react-icons/tb';
 
 // Icon mapping for skills
 const skillIconMap = {
-    "React": <FaReact className="text-cyan-400 text-xl" />,
-    "HTML": <FaHtml5 className="text-orange-400 text-xl" />,
-    "CSS": <FaCss3Alt className="text-blue-400 text-xl" />,
-    "Tailwind CSS": <SiTailwindcss className="text-cyan-400 text-xl" />,
-    "DaisyUI": <SiDaisyui className="text-purple-400 text-xl" />,
-    "Node.js": <FaNodeJs className="text-green-400 text-xl" />,
-    "Express": <SiExpress className="text-gray-300 text-xl" />,
-    "MongoDB": <FaDatabase className="text-green-400 text-xl" />,
-    "PostgreSQL": <BiLogoPostgresql className="text-sky-400 text-xl" />,
-    "JavaScript": <FaJs className="text-yellow-400 text-xl" />,
-    "TypeScript": <SiTypescript className="text-blue-500 text-xl" />,
-    "C": <SiC className="text-blue-400 text-xl" />,
-    "C++": <SiCplusplus className="text-blue-400 text-xl" />,
-    "Firebase": <SiFirebase className="text-yellow-400 text-xl" />,
-    "JWT": <SiJsonwebtokens className="text-blue-400 text-xl" />,
-    "Bcrypt": <RiLockPasswordLine className="text-emerald-400 text-xl" />,
-    "Cloudinary": <SiCloudinary className="text-blue-500 text-xl" />,
-    "Nodemailer": <FaEnvelope className="text-blue-400 text-xl" />,
-    "Twilio": <FaPhoneAlt className="text-red-500 text-xl" />,
-    "Stripe": <SiStripe className="text-purple-400 text-xl" />,
+    "React": <FaReact className="text-cyan-400 text-2xl" />,
+    "HTML": <FaHtml5 className="text-orange-400 text-2xl" />,
+    "CSS": <FaCss3Alt className="text-blue-400 text-2xl" />,
+    "Tailwind CSS": <SiTailwindcss className="text-cyan-400 text-2xl" />,
+    "DaisyUI": <SiDaisyui className="text-purple-400 text-2xl" />,
+    "Node.js": <FaNodeJs className="text-green-400 text-2xl" />,
+    "Express.js": <SiExpress className="text-gray-300 text-2xl" />,
+    "MongoDB": <FaDatabase className="text-green-400 text-2xl" />,
+    "PostgreSQL": <BiLogoPostgresql className="text-sky-400 text-2xl" />,
+    "JavaScript": <FaJs className="text-yellow-400 text-2xl" />,
+    "TypeScript": <SiTypescript className="text-blue-500 text-2xl" />,
+    "C": <SiC className="text-blue-400 text-2xl" />,
+    "C++": <SiCplusplus className="text-blue-400 text-2xl" />,
+};
+
+// Icon mapping for services
+const serviceIconMap = {
+    "Firebase": <SiFirebase className="text-yellow-400 text-2xl" />,
+    "JWT": <SiJsonwebtokens className="text-blue-400 text-2xl" />,
+    "bcrypt": <RiLockPasswordLine className="text-emerald-400 text-2xl" />,
+    "Cloudinary": <SiCloudinary className="text-blue-500 text-2xl" />,
+    "Nodemailer": <FaEnvelope className="text-blue-400 text-2xl" />,
+    "Twilio": <FaPhoneAlt className="text-red-500 text-2xl" />,
+    "Stripe": <SiStripe className="text-purple-400 text-2xl" />,
+    "ImgBB": <FaImage className="text-pink-400 text-2xl" />,
 };
 
 // Icon mapping for tools
 const toolIconMap = {
-    "GitHub": <FaGithub className="text-gray-300 dark:text-gray-400 text-xl" />,
-    "VS Code": <VscVscode className="text-blue-400 text-xl" />,
-    "Netlify": <SiNetlify className="text-green-400 text-xl" />,
-    "Vercel": <SiVercel className="text-white dark:text-gray-300 text-xl" />,
-    "Git": <FaGitAlt className="text-orange-500 text-xl" />,
-    "Postman": <SiPostman className="text-orange-400 text-xl" />,
+    "GitHub": <FaGithub className="text-gray-300 dark:text-gray-400 text-2xl" />,
+    "VS Code": <VscVscode className="text-blue-400 text-2xl" />,
+    "Netlify": <SiNetlify className="text-green-400 text-2xl" />,
+    "Vercel": <SiVercel className="text-white dark:text-gray-300 text-2xl" />,
+    "Git": <FaGitAlt className="text-orange-500 text-2xl" />,
+    "Postman": <SiPostman className="text-orange-400 text-2xl" />,
+    "Beekeeper S.": <SiDatabricks className="text-orange-400 text-2xl" />,
+    "pgAdmin": <SiPostgresql className="text-sky-400 text-2xl" />,
+    "drawSQL": <TbRelationOneToMany className="text-indigo-400 text-2xl" />,
 };
 
 // Icon mapping for design tools
 const designToolIconMap = {
-    "Figma": <FaFigma className="text-purple-400 text-xl" />,
-    "Pixso": <SiPix className="text-pink-500 text-xl" />,
-    "Canva": <SiCanva className="text-teal-400 text-xl" />,
+    "Figma": <FaFigma className="text-purple-400 text-2xl" />,
+    "Pixso": <SiPix className="text-pink-500 text-2xl" />,
+    "Canva": <SiCanva className="text-teal-400 text-2xl" />,
 };
 
 // Helper function to get icon dynamically
 const getIcon = (skillName) => skillIconMap[skillName] || null;
 const getToolIcon = (toolName) => toolIconMap[toolName] || null;
 const getDesignToolIcon = (toolName) => designToolIconMap[toolName] || null;
+const getServiceIcon = (serviceName) => serviceIconMap[serviceName] || serviceIconMap[serviceName?.toLowerCase()] || null;
 
 const Skills = () => {
     const [visibleCards, setVisibleCards] = useState([false, false, false, false, false, false]);
@@ -153,12 +164,10 @@ const Skills = () => {
             icon: getIcon(skill.name)
         }));
 
-    const servicesSkills = allSkills
-        .filter(skill => skill.category === "service")
-        .map(skill => ({
-            name: skill.name.toUpperCase(),
-            icon: getIcon(skill.name)
-        }));
+    const servicesSkills = externalServices.map(service => ({
+        name: service.name.toUpperCase(),
+        icon: getServiceIcon(service.name)
+    }));
 
     const toolsSkills = tools.map(tool => ({
         name: tool.name.toUpperCase(),
@@ -191,13 +200,13 @@ const Skills = () => {
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
-                    <p className="md:text-lg max-w-3xl mx-auto leading-relaxed dark:text-gray-300">
+                    <p className="md:text-[1.2rem] max-w-3xl mx-auto leading-relaxed dark:text-gray-300">
                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.
                     </p>
                 </div>
 
                 {/* Skills Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
@@ -223,7 +232,7 @@ const Skills = () => {
                                 {card.items.map((item, itemIndex) => (
                                     <div
                                         key={itemIndex}
-                                        className={`flex flex-col items-center text-gray-300 dark:text-gray-400 text-xs transition-all duration-500 ${visibleItems[`${cardIndex}-${itemIndex}`]
+                                        className={`flex flex-col items-center text-gray-200 dark:text-gray-400 text-xs transition-all duration-500 ${visibleItems[`${cardIndex}-${itemIndex}`]
                                             ? 'opacity-100 translate-y-0 scale-100'
                                             : 'opacity-0 translate-y-4 scale-95'
                                             }`}
@@ -234,7 +243,7 @@ const Skills = () => {
                                         <div className="bg-[#2f2f38] dark:bg-gray-700 p-3 rounded-lg shadow">
                                             {item.icon}
                                         </div>
-                                        <span className="dark:text-gray-300 dark:font-bold mt-2">{item.name}</span>
+                                        <span className="dark:text-gray-300 font-bold mt-2">{item.name}</span>
                                     </div>
                                 ))}
                             </div>

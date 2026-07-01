@@ -31,7 +31,7 @@ const allSkills = [
     },
     {
         id: 7,
-        name: "Express",
+        name: "Express.js",
         category: "backend"
     },
     {
@@ -63,41 +63,6 @@ const allSkills = [
         id: 13,
         name: "C++",
         category: "language"
-    },
-    {
-        id: 14,
-        name: "Firebase",
-        category: "service"
-    },
-    {
-        id: 15,
-        name: "JWT",
-        category: "service"
-    },
-    {
-        id: 16,
-        name: "Bcrypt",
-        category: "service"
-    },
-    {
-        id: 17,
-        name: "Cloudinary",
-        category: "service"
-    },
-    {
-        id: 18,
-        name: "Nodemailer",
-        category: "service"
-    },
-    {
-        id: 19,
-        name: "Twilio",
-        category: "service"
-    },
-    {
-        id: 20,
-        name: "Stripe",
-        category: "service"
     },
 ];
 
