@@ -37,6 +37,7 @@ import Skills from "../components/Skills";
 import ProjectsShowcase from "../components/ProjectsShowcase";
 import Experience from "../components/Experience";
 import ContactSection from "../components/ContactSection";
+import Education from "../components/Education";
 
 const Home = () => {
     const contactRef = useRef(null);
@@ -59,18 +60,27 @@ const Home = () => {
             <section id="home">
                 <HeroSection onHireMeClick={handleHireMeClick} />
             </section>
+
             <section id="about">
                 <AboutMe />
             </section>
+
             <section id="skills">
                 <Skills />
             </section>
+
             <section id="experience">
                 <Experience />
             </section>
+
             <section id="projects">
                 <ProjectsShowcase />
             </section>
+
+            <section id="educations">
+                <Education />
+            </section>
+            
             <section id="contact" ref={contactRef}>
                 <ContactSection />
             </section>

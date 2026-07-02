@@ -13,11 +13,12 @@ const Navbar = () => {
 
     // Define nav items with support for both section scrolling and route paths
     const navItems = [
-        { id: "home", label: "Home", path: "/", isSection: true },
+        // { id: "home", label: "Home", path: "/", isSection: true },
         { id: "about", label: "About", path: "/", isSection: true },
         { id: "skills", label: "Skills", path: "/", isSection: true },
         { id: "experience", label: "Experience", path: "/", isSection: true },
         { id: "projects", label: "Projects", path: "/", isSection: true },
+        { id: "educations", label: "Education", path: "/", isSection: true },
         { id: "contact", label: "Contact", path: "/", isSection: true },
         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
         // ...(!user ? [{ id: "login", label: "Login", path: "/login", isSection: false }] : [])

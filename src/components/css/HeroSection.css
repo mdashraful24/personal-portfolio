@@ -214,7 +214,7 @@
 }
 
 .animate-pulse-glow-open {
-    animation: pulseOpenGlow 1s infinite;
+    animation: pulseOpenGlow 2s infinite;
 }
 
 /* Bounce Animation for Scroll Indicator */

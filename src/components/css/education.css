@@ -1,0 +1,71 @@
+/* Reveal Animation */
+
+.animate-item {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: all 0.8s ease;
+}
+
+.animate-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card */
+
+.card {
+    /* background: rgba(15, 23, 42, 0.8); */
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    animation: floating 5s ease-in-out infinite;
+}
+
+/* .card:hover {
+    transform: translateY(-10px);
+    border-color: rgb(37, 99, 235);
+    box-shadow: 0 20px 45px rgba(34, 68, 238, 0.25);
+} */
+
+/* Floating */
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Pulse */
+
+/* .pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(34, 211, 238, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+    }
+} */
+
+/* Mobile Timeline */
+
+@media (max-width: 768px) {
+    .card {
+        animation: none;
+    }
+}

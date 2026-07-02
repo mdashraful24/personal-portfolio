@@ -90,7 +90,7 @@ const Experience = () => {
     if (experiences.length === 0) {
         return (
             <div className="bg-gray-100 dark:bg-black py-7 lg:py-20">
-                <div className="container max-w-7xl mx-auto px-4 text-2xl font-semibold text-center">
+                <div className="container max-w-8xl mx-auto px-4 text-2xl font-semibold text-center">
                     <p className="text-gray-500 dark:text-gray-400">No experiences to display</p>
                 </div>
             </div>
