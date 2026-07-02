@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../src/assets/logo3.png';
+import logoTab from '../../src/assets/logo4.png';
 import { Download, Menu, X } from "lucide-react";
 import DarkLightTheme from "../shared/DarkLightTheme";
 
@@ -116,7 +117,7 @@ const Navbar = () => {
         <>
             {navItems.map((item) => (
                 // <li key={item.id} className="text-center group"></li>
-                <li key={item.id} className={`text-center group ${item.id === "contact" ? "hidden lg:block" : ""
+                <li key={item.id} className={`text-center group ${item.id === "contact" ? "hidden md:block" : ""
                     }`}>
                     <a
                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
@@ -174,19 +175,19 @@ const Navbar = () => {
                     <DarkLightTheme />
                 </div>
 
-                <button
+                {/* <button
                     onClick={() => {
                         const link = document.createElement('a');
-                        link.href = '/resume_by_ashraful_islam_ratul.pdf';
-                        link.download = 'resume_by_ashraful_islam_ratul.pdf';
+                        href = "/Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
+                        download = "Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
                         link.click();
                         setMobileMenuOpen(false);
                     }}
                     className="w-full flex items-center justify-center gap-2 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
                 >
                     <Download size={18} />
-                    <span>Download Resume</span>
-                </button>
+                    <span>Download CV</span>
+                </button> */}
             </div>
         </div>
     );
@@ -199,13 +200,27 @@ const Navbar = () => {
         <div className={navbarClass}>
             <div className="navbar container max-w-7xl mx-auto px-4 lg:pl-4 lg:py-3">
                 <div className="navbar-start">
-                    <a onClick={handleLogoClick} className="cursor-pointer dark:bg-white dark:rounded-lg">
-                        <img src={logo} alt="Logo" className="w-32 md:w-40" />
+                    <a onClick={handleLogoClick} className="cursor-pointer">
+                        {/* Small & Large */}
+                        <div className=" dark:bg-white dark:rounded-lg">
+                            <img
+                                src={logo}
+                                alt="Logo"
+                                className="block md:hidden lg:block w-32 lg:w-44"
+                            />
+                        </div>
+
+                        {/* Medium only */}
+                        <div className="hidden md:block lg:hidden font-mono text-xl font-bold tracking-tight space-x-1">
+                            <span className="text-blue-500">&lt;</span>
+                            <span className="dark:text-white">Ratul</span>
+                            <span className="text-blue-500">/&gt;</span>
+                        </div>
                     </a>
                 </div>
 
-                <div className="navbar-center hidden md:flex">
-                    <ul className="flex items-center gap-6 lg:gap-10 md:text-[1.2rem] cursor-pointer">
+                <div className="navbar-center hidden md:flex mt-1 lg:-mt-1">
+                    <ul className="flex items-center gap-6 lg:gap-10 md:text-[1.05rem] lg:text-[1.3rem] cursor-pointer">
                         {desktopNavLinks}
                     </ul>
                 </div>
@@ -236,14 +251,14 @@ const Navbar = () => {
                         </>
                     )}
 
-                    {/* Resume button */}
+                    {/* CV button */}
                     <a
-                        href="/resume_by_ashraful_islam_ratul.pdf"
-                        download="resume_by_ashraful_islam_ratul.pdf"
-                        className="hidden md:inline-flex items-center gap-2 relative px-2 lg:px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
+                        href="/Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
+                        download="Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
+                        className="hidden lg:inline-flex items-center gap-1 relative px-2 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
                     >
                         <Download size={16} className="relative z-10" />
-                        <span className="relative z-10">Resume</span>
+                        <span className="relative z-10">CV</span>
                     </a>
 
                     <span

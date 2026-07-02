@@ -286,7 +286,7 @@ const ProjectDetails = () => {
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-black py-8">
             {/* Header Section */}
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="container max-w-7xl mx-auto px-4">
                 <div className="hidden lg:block mb-6">
                     <BackButton onClick={() => navigate(-1)} />
                 </div>

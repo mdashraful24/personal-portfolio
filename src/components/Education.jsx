@@ -142,7 +142,6 @@ const Education = () => {
                                     </div>
                                 </div>
                             )}
-
                             <div className="hidden md:block md:w-1/2"></div>
                         </div>
                     ))}
