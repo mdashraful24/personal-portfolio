@@ -7,12 +7,12 @@ const AboutMe = () => {
                 <div className="space-y-5">
                     <div className="flex items-center justify-center md:mb-6">
                         <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
-                        <span className="px-6 text-3xl md:text-4xl text-center font-bold dark:text-white">
+                        <span className="px-6 text-3xl md:text-4xl lg:text-5xl text-center font-bold dark:text-white">
                             About Me
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
-                    <div className="md:text-[1.2rem] leading-relaxed space-y-5 dark:text-gray-300">
+                    <div className="md:text-[1.3rem] leading-relaxed space-y-5 dark:text-gray-300">
                         <p>
                             My programming journey began in 2022 with C and C++, where I built a strong foundation in programming and problem-solving. In 2024, I discovered web development and became passionate about creating interactive, responsive, and user-friendly applications. Since then, I've been continuously improving my skills by building real-world projects and exploring modern web technologies.
                         </p>

@@ -6,14 +6,26 @@ const certifications = [
         credentialId: "WEB10-2444",
         link: "https://drive.google.com/file/d/1QXAsWZwsfKDh96OLdcNUHWKGh69PGhFy/view?usp=sharing",
         keySkills: [
-            "Web Development",
+            // MERN Stack (Most important for job seekers)
             "React.js",
             "Node.js",
             "Express.js",
             "MongoDB",
-            "Data Structures",
-            "Algorithms",
-            "Database Systems"
+
+            // Core Technologies
+            "JavaScript",
+            "HTML",
+            "CSS",
+
+            // Modern Tools & Libraries
+            "Tailwind CSS",
+            "Framer Motion",
+            "TanStack Query",
+            "Axios",
+
+            // Authentication & Backend Services
+            "JWT",
+            "Firebase"
         ]
     },
 ];

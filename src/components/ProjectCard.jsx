@@ -125,7 +125,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <FaExternalLinkAlt size={14} className="dark:text-white" />
+                                <FaExternalLinkAlt size={18} className="dark:text-white" />
                             </a>
                         </Tooltip>
                     )}
@@ -138,7 +138,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:bg-gray-100 dark:hover:bg-blue-700 transition-all duration-200 hover:scale-110 inline-flex items-center justify-center"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <FaGithub size={16} className="dark:text-white" />
+                                <FaGithub size={18} className="dark:text-white" />
                             </a>
                         </Tooltip>
                     )}
@@ -149,7 +149,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
             <div className="p-5 flex flex-col flex-grow">
                 {/* Title with accent line */}
                 <div className="mb-3">
-                    <h3 className="md:text-[1.3rem] font-bold dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                    <h3 className="md:text-2xl font-bold dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
                         {title}
                     </h3>
                     <div className="w-12 h-0.5 bg-blue-500 mt-2 group-hover:w-16 transition-all duration-300" />
@@ -157,7 +157,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
 
                 {/* Description */}
                 {description && (
-                    <p className="md:text-[1.05rem] dark:text-gray-300 mb-4 line-clamp-2 leading-relaxed">
+                    <p className="md:text-[1.2rem] dark:text-gray-300 mb-4 line-clamp-2 leading-relaxed">
                         {description}
                     </p>
                 )}
@@ -174,7 +174,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                                 hover:from-blue-600 hover:to-blue-700
                                 transition-all duration-300
                                 shadow-md hover:shadow-lg
-                                group/btn
+                                group/btn text-[1.1rem]
                             "
                         >
                             <span>Project Details</span>

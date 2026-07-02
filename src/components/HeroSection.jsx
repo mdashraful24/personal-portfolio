@@ -73,7 +73,7 @@ const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
         <div className={`p-1 ${bgColor} rounded-lg text-white transition-all duration-300`}>
             <Icon className="text-lg" />
         </div>
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
+        <span className="text-[0.9rem] dark:text-gray-300">{label}</span>
     </a>
 );
 
@@ -119,7 +119,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         </div>
 
                         {/* Description */}
-                        <p className="w-full max-w-2xl mx-auto lg:mx-0 md:text-[1.2rem] leading-relaxed animate-fade-up delay-200 dark:text-gray-300">
+                        <p className="w-full max-w-2xl mx-auto lg:mx-0 md:text-[1.25rem] leading-relaxed animate-fade-up delay-200 dark:text-gray-300">
                             Full Stack Developer focused on crafting clean UIs and solid backend logic. I create responsive, user-friendly applications backed by scalable systems and well-structured databases.
                         </p>
 
@@ -128,25 +128,25 @@ const HeroSection = ({ onHireMeClick }) => {
                             <a
                                 href="/resume_by_ashraful_islam_ratul.pdf"
                                 download="resume_by_ashraful_islam_ratul.pdf"
-                                className="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group"
+                                className="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group text-lg"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    <Download size={18} className="group-hover:animate-bounce" />
+                                    <Download size={20} className="group-hover:animate-bounce" />
                                     Resume
                                 </span>
                             </a>
                             <button
                                 onClick={onHireMeClick}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-600 hover:shadow-md active:scale-95"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 font-semibold transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-600 hover:shadow-md active:scale-95 text-lg"
                             >
-                                <FaHandshake size={18} className="text-sm" />
+                                <FaHandshake size={20} />
                                 Hire Me
                             </button>
                         </div>
 
                         {/* Social Links with Labels - DRY Refactored */}
                         <div className="flex flex-col items-center lg:items-start gap-4 pt-1.5 lg:pt-2 animate-fade-up delay-400">
-                            <p className="text-gray-600 dark:text-gray-300">Connect with me:</p>
+                            <p className="text-[1.2rem] dark:text-gray-300">Connect with me:</p>
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                                 {socialLinks.map((link, index) => (
                                     <SocialLink key={index} {...link} />
@@ -203,8 +203,8 @@ const HeroSection = ({ onHireMeClick }) => {
             {/* Scroll indicator */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:block delay-500">
                 <div className="flex flex-col items-center gap-2 animate-fade-up">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">Scroll to explore</span>
-                    <div className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center">
+                    <span className="text-sm dark:text-gray-400">Scroll to explore</span>
+                    <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center">
                         <div className="w-1 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 animate-bounce"></div>
                     </div>
                 </div>

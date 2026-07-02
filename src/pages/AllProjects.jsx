@@ -129,16 +129,16 @@ const AllProjects = () => {
                 <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8">
 
                     {/* Left Sidebar */}
-                    <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-64 lg:w-72 flex-shrink-0 transition-all duration-300`}>
+                    <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-64 lg:w-80 flex-shrink-0 transition-all duration-300`}>
                         <div className="md:sticky md:top-24">
                             {/* Header */}
                             <div className="hidden md:block text-center md:text-left mb-4">
                                 <div className="flex items-center justify-center md:justify-start mb-3 lg:mb-4">
                                     <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-r from-transparent to-blue-700"></span>
-                                    <span className="px-3 lg:px-4 text-2xl lg:text-3xl font-bold dark:text-white">All Projects</span>
+                                    <span className="px-3 lg:px-4 text-3xl lg:text-4xl font-bold dark:text-white">All Projects</span>
                                     <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                                 </div>
-                                <p className="md:text-[1.05rem] dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                                <p className="md:text-[1.15rem] dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
                             </div>
 
                             {/* Tab Navigation */}
@@ -161,9 +161,9 @@ const AllProjects = () => {
                                     <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                                         <Icon path="M13 10V3L4 14h7v7l9-11h-7z" className="w-5 h-5 text-blue-600" />
                                     </div>
-                                    <h4 className="font-semibold dark:text-white">Total Impact</h4>
+                                    <h4 className="text-[1.1rem] font-semibold dark:text-white">Total Impact</h4>
                                 </div>
-                                <p className="leading-relaxed">
+                                <p className="text-[1.05rem] leading-relaxed">
                                     <span className="font-bold">{allProjects.length}+</span> projects have been worked on using cutting-edge technology and creative solutions.
                                 </p>
                             </div>

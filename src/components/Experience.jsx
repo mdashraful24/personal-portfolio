@@ -107,22 +107,22 @@ const Experience = () => {
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section - Animated */}
-                <div className="flex flex-col items-center text-center mb-8 px-4">
+                <div className="flex flex-col items-center text-center mb-10 px-4">
                     <div className="flex items-center mb-4 animate-on-scroll fade-in-left">
                         <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
-                        <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                        <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                             Experience
                         </span>
                         <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
-                    <p className="md:text-[1.2rem] max-w-3xl mx-auto leading-relaxed dark:text-gray-300 animate-on-scroll fade-in-right delay-1">
+                    <p className="md:text-[1.3rem] max-w-3xl mx-auto leading-relaxed dark:text-gray-300 animate-on-scroll fade-in-right delay-1">
                         A showcase of my collaborative projects and team-based development experiences
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-8">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-8">
                     {/* LEFT SIDE Content - Full Content Animation */}
-                    <div className="order-2 lg:order-1">
+                    <div className="order-2 lg:order-1 lg:col-span-3">
                         {activeExp && (
                             <div
                                 ref={contentWrapperRef}
@@ -132,15 +132,15 @@ const Experience = () => {
                                 <div className="animate-on-scroll fade-in-left delay-2">
                                     {/* Project Header */}
                                     <div className="mb-4 border-b border-blue-500/20 pb-4">
-                                        <div className="mb-2 flex flex-wrap justify-between items-center gap-2">
+                                        <div className="mb-4 flex flex-wrap justify-between items-center gap-2">
                                             <div className="flex items-center gap-2 text-[#3b82f6]">
                                                 <BsBriefcase className="text-xl" />
-                                                <span className="text-sm font-medium">{activeExp.projectType || "Project"}</span>
+                                                <span className="text-[1.1rem] font-medium">{activeExp.projectType || "Project"}</span>
                                             </div>
 
                                             {/* Funding Status Badge */}
                                             {activeExp.fundedStatus && (
-                                                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-2 py-1 text-sm font-medium text-green-400 border border-green-500/30">
+                                                <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-2 py-1 text-sm font-semibold text-green-400 border border-green-500/30">
                                                     <span>💰</span>
                                                     {activeExp.fundedStatus}
                                                 </span>
@@ -156,29 +156,29 @@ const Experience = () => {
                                         <h2 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                                             {activeExp.title}
                                         </h2>
-                                        <h3 className="mb-2 text-lg text-blue-300">
+                                        <h3 className="mb-2 text-[1.2rem] text-blue-300">
                                             @ {activeExp.organization}
                                         </h3>
 
                                         {/* Designation Section */}
                                         {activeExp?.designation && (
                                             <div className="mb-3 flex items-center gap-1.5 text-gray-300">
-                                                <FaRegIdBadge className="text-blue-400" size={16} />
-                                                <span className="text-md font-semibold text-blue-200">{activeExp?.designation}</span>
+                                                <FaRegIdBadge className="text-blue-400" size={18} />
+                                                <span className="text-[1.2rem] font-semibold text-blue-200">{activeExp?.designation}</span>
                                             </div>
                                         )}
 
-                                        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                                        <div className="flex flex-wrap gap-4 text-[1.1rem] text-gray-300">
                                             <div className="flex items-center gap-2">
-                                                <BsCalendar size={14} className="text-blue-400" />
+                                                <BsCalendar size={16} className="text-blue-400" />
                                                 <span>{activeExp.duration}</span>
                                             </div>
                                             <div className="flex items-center gap-1.5">
-                                                <FiMapPin size={14} className="text-blue-400" />
+                                                <FiMapPin size={16} className="text-blue-400" />
                                                 <span>{activeExp.location}</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <BsPersonWorkspace size={14} className="text-blue-400" />
+                                                <BsPersonWorkspace size={16} className="text-blue-400" />
                                                 <span>{activeExp.stack || "Full Stack"}</span>
                                             </div>
                                         </div>
@@ -187,8 +187,8 @@ const Experience = () => {
 
                                 {/* Description - Animated */}
                                 {activeExp.description && (
-                                    <div className="animate-on-scroll fade-in-left delay-3 mb-4">
-                                        <p className="text-[1.05rem] text-gray-300">
+                                    <div className="animate-on-scroll fade-in-left delay-3 mb-6 text-justify">
+                                        <p className="text-[1.2rem] text-gray-300">
                                             {activeExp.shortDescription}
                                         </p>
                                     </div>
@@ -196,12 +196,12 @@ const Experience = () => {
 
                                 {/* Responsibilities - Animated */}
                                 {activeExp.responsibilities && activeExp.responsibilities.length > 0 && (
-                                    <div className="animate-on-scroll fade-in-left delay-4 mb-4">
-                                        <h4 className="mb-3 flex items-center gap-1.5 text-lg font-semibold text-white">
-                                            <NotepadText size={20} className="text-[#3b82f6]" />
+                                    <div className="animate-on-scroll fade-in-left delay-4 mb-6">
+                                        <h4 className="mb-3 flex items-center gap-1.5 text-2xl font-semibold text-white">
+                                            <NotepadText size={22} className="text-[#3b82f6]" />
                                             Key Responsibilities
                                         </h4>
-                                        <ul className="space-y-0.5">
+                                        <ul className="space-y-0.5 text-[1.2rem]">
                                             {activeExp.responsibilities.map((resp, idx) => (
                                                 <li key={idx} className="flex items-start gap-2 text-gray-300">
                                                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#3b82f6]"></span>
@@ -214,8 +214,8 @@ const Experience = () => {
 
                                 {/* Tech Stack - Animated */}
                                 {activeExp.topTech && activeExp.topTech.length > 0 && (
-                                    <div className="animate-on-scroll fade-in-left delay-5 mb-4">
-                                        <h4 className="flex items-center gap-2 mb-3 text-lg font-semibold text-white">
+                                    <div className="animate-on-scroll fade-in-left delay-5 mb-6">
+                                        <h4 className="flex items-center gap-2 mb-3 text-2xl font-semibold text-white">
                                             <FaTools size={17} className="text-[#3b82f6]" />
                                             Tech Stack
                                         </h4>
@@ -223,7 +223,7 @@ const Experience = () => {
                                             {activeExp.topTech.map((tech, idx) => (
                                                 <span
                                                     key={idx}
-                                                    className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20 flex items-center gap-1"
+                                                    className="rounded-full bg-blue-500/10 px-3 py-1 text-[1.05rem] font-semibold text-blue-400 border border-blue-500/20 flex items-center gap-1"
                                                 >
                                                     {tech.icon && (
                                                         <img
@@ -242,11 +242,11 @@ const Experience = () => {
                                 {/* Achievements - Animated */}
                                 {activeExp.achievements && activeExp.achievements.length > 0 && (
                                     <div className="animate-on-scroll fade-in-left delay-6 mb-6">
-                                        <h4 className="mb-3 flex items-center gap-1 text-lg font-semibold text-white">
+                                        <h4 className="mb-3 flex items-center gap-1 text-2xl font-semibold text-white">
                                             <Award size={20} className="text-[#3b82f6]" />
                                             Key Achievements
                                         </h4>
-                                        <ul className="space-y-0.5">
+                                        <ul className="space-y-0.5 text-[1.2rem]">
                                             {activeExp.achievements.map((achievement, idx) => (
                                                 <li key={idx} className="flex items-start gap-2 text-gray-300">
                                                     <span className="text-blue-400">•</span>
@@ -264,7 +264,7 @@ const Experience = () => {
                                             href={activeExp.demoLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 px-4 py-2 text-sm font-medium text-white transition-all duration-300 active:scale-[0.95] hover:shadow-lg hover:shadow-blue-500/30"
+                                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-800 px-4 py-2 text-[1.1rem] font-semibold text-white transition-all duration-300 active:scale-[0.95] hover:shadow-lg hover:shadow-blue-500/30"
                                         >
                                             Live Link
                                             <FiExternalLink size={16} />
@@ -272,7 +272,7 @@ const Experience = () => {
                                     )}
 
                                     <Link to={`/projectDetails/${activeExp.id}`}>
-                                        <button className="inline-flex items-center justify-between gap-2 px-4 py-2 border border-gray-500/50 bg-transparent hover:bg-blue-500/10 hover:border-blue-500/50 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.95] group/btn">
+                                        <button className="inline-flex items-center justify-between gap-2 px-4 py-2 border border-gray-500/50 bg-transparent hover:bg-blue-500/10 hover:border-blue-500/50 rounded-lg bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-semibold text-[1.1rem] hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.95] group/btn">
                                             <span>Project Details</span>
                                             <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                         </button>
@@ -283,8 +283,8 @@ const Experience = () => {
                     </div>
 
                     {/* RIGHT SIDE Cards - Responsive grid */}
-                    <div className="order-1 lg:order-2 lg:sticky lg:top-24 lg:self-start">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-6">
+                    <div className="order-1 lg:order-2 lg:col-span-2 lg:sticky lg:top-24 lg:self-start">
+                        <div className="grid grid-cols-1 gap-6">
                             {experiences.map((exp, index) => (
                                 <div
                                     key={exp.id}
@@ -322,29 +322,29 @@ const Experience = () => {
                                             </div>
 
                                             {/* Title & Organization */}
-                                            <h3 className="mb-1 text-base sm:text-lg font-bold text-white line-clamp-2">
+                                            <h3 className="mb-1 text-xl font-bold text-white line-clamp-2">
                                                 {exp.title}
                                             </h3>
-                                            <p className="mb-2 text-xs sm:text-sm text-blue-300">
+                                            <p className="mb-2 text-[1.05rem] text-blue-300">
                                                 @ {exp.organization}
                                             </p>
 
                                             {/* Designation */}
                                             {exp?.designation && (
-                                                <div className="mb-2 flex items-center gap-1.5 text-xs sm:text-sm text-gray-300">
-                                                    <FaRegIdBadge size={12} className="text-blue-400 flex-shrink-0" />
+                                                <div className="mb-2 flex items-center gap-1.5 text-[1.05rem] text-gray-300">
+                                                    <FaRegIdBadge size={14} className="text-blue-400 flex-shrink-0" />
                                                     <span className="line-clamp-1">{exp?.designation}</span>
                                                 </div>
                                             )}
 
                                             {/* Location & Type */}
-                                            <div className="mb-3 flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300">
+                                            <div className="mb-3 flex flex-wrap gap-3 text-[1.05rem] text-gray-300">
                                                 <div className="flex items-center gap-1.5">
-                                                    <FiMapPin size={12} className="text-blue-400 flex-shrink-0" />
+                                                    <FiMapPin size={14} className="text-blue-400 flex-shrink-0" />
                                                     <span className="line-clamp-1">{exp.location}</span>
                                                 </div>
                                                 <div className="flex items-center gap-1.5">
-                                                    <BsPersonWorkspace size={12} className="text-blue-400 flex-shrink-0" />
+                                                    <BsPersonWorkspace size={14} className="text-blue-400 flex-shrink-0" />
                                                     <span className="line-clamp-1">{exp.stack || "Full Stack"}</span>
                                                 </div>
                                             </div>
@@ -360,7 +360,7 @@ const Experience = () => {
                                                         {exp.topTech.slice(0, visibleCount).map((tech, idx) => (
                                                             <span
                                                                 key={idx}
-                                                                className="rounded-full bg-blue-500/5 px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm text-blue-400 border border-blue-500/20 flex items-center gap-1"
+                                                                className="rounded-full bg-blue-500/5 px-1.5 sm:px-2 py-0.5 text-[1rem] text-blue-400 border border-blue-500/20 flex items-center gap-1"
                                                             >
                                                                 {tech.icon && (
                                                                     <img
@@ -389,7 +389,7 @@ const Experience = () => {
                         </div>
                         <div className="mt-6 flex justify-center lg:justify-start animate-on-scroll fade-in-right">
                             <Link to="/all-experiences">
-                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-300/10 dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-white dark:hover:bg-blue-900 hover:border-blue-600 transition-all duration-300 active:scale-95 group/btn">
+                                <button className="inline-flex items-center gap-2 px-4 py-2 bg-blue-300/10 dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-500 text-blue-600 font-semibold rounded-xl dark:text-white hover:bg-white dark:hover:bg-blue-900 hover:border-blue-600 transition-all duration-300 active:scale-95 group/btn text-[1.1rem]">
                                     View All Experiences
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                 </button>

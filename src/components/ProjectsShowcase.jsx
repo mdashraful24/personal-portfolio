@@ -41,7 +41,7 @@ const ProjectsShowcase = () => {
     return (
         <div className="dark:bg-black">
             <div id="projects" className="container max-w-7xl mx-auto px-4 py-6 lg:py-20">
-                <div className="container mx-auto text-center mb-8">
+                <div className="container mx-auto text-center mb-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ const ProjectsShowcase = () => {
                     >
                         <div className="flex items-center justify-center mb-4">
                             <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
-                            <span className="px-6 text-3xl md:text-4xl font-bold dark:text-white">
+                            <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                                 My Projects
                             </span>
                             <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
@@ -119,7 +119,7 @@ const ProjectsShowcase = () => {
                                     <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
                                         {totalProjects}+
                                     </h3>
-                                    <p className="md:text-[1.2rem] font-semibold text-gray-700 dark:text-gray-300">
+                                    <p className="md:text-[1.3rem] font-semibold text-gray-700 dark:text-gray-300">
                                         Projects Completed
                                     </p>
                                 </div>
@@ -130,22 +130,22 @@ const ProjectsShowcase = () => {
                                         <div className="flex items-center justify-center mb-2">
                                             <FaLaptopCode className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                                         </div>
-                                        <div className="text-2xl font-bold dark:text-white">{myProjects.length}</div>
-                                        <div className="dark:text-gray-300">Personal</div>
+                                        <div className="text-3xl font-bold dark:text-white">{myProjects.length}</div>
+                                        <div className="md:text-[1.15rem] dark:text-gray-300">Personal</div>
                                     </div>
                                     <div className="text-center">
                                         <div className="flex items-center justify-center mb-2">
                                             <FaUsers className="w-5 h-5 text-green-500 dark:text-green-400" />
                                         </div>
-                                        <div className="text-2xl font-bold dark:text-white">{teamProjects.length}</div>
-                                        <div className="dark:text-gray-300">Team</div>
+                                        <div className="text-3xl font-bold dark:text-white">{teamProjects.length}</div>
+                                        <div className="md:text-[1.15rem] dark:text-gray-300">Team</div>
                                     </div>
                                     <div className="text-center">
                                         <div className="flex items-center justify-center mb-2">
                                             <FaCode className="w-5 h-5 text-purple-500 dark:text-purple-400" />
                                         </div>
-                                        <div className="text-2xl font-bold dark:text-white">{clientProjects.length}</div>
-                                        <div className="dark:text-gray-300">Client</div>
+                                        <div className="text-3xl font-bold dark:text-white">{clientProjects.length}</div>
+                                        <div className="md:text-[1.15rem] dark:text-gray-300">Client</div>
                                     </div>
                                 </div>
 
@@ -156,7 +156,7 @@ const ProjectsShowcase = () => {
 
                                 {/* Explore Button */}
                                 <button
-                                    className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn"
+                                    className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn text-[1.1rem]"
                                 >
                                     <span>View All Projects</span>
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />

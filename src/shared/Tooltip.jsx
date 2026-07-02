@@ -22,7 +22,7 @@ const Tooltip = ({ text, delay = 0, children, position = "", disabled = false })
         top: "bottom-full mb-2 left-1/2 -translate-x-1/2",
         topTwo: "bottom-full mb-2 left-[40%] -translate-x-1/2",
         topThree: "!bg-gray-200 !text-black bottom-full mb-2 left-6 -translate-x-1/2",
-        topFour: "bottom-full mb-2 -left-2 -translate-x-1/2",
+        topFour: "bottom-full mb-2 -left-5 -translate-x-1/2",
         bottom: "top-full mt-2 left-1/2 -translate-x-1/2",
     };
 
@@ -35,7 +35,7 @@ const Tooltip = ({ text, delay = 0, children, position = "", disabled = false })
             {children}
 
             {visible && !disabled && (
-                <div className={`hidden md:block absolute z-10 ${position ? positionClasses[position] : ''} bg-gray-800 text-white text-xs p-2 rounded-lg shadow-lg whitespace-nowrap`}>
+                <div className={`hidden md:block absolute z-10 ${position ? positionClasses[position] : ''} bg-gray-800 text-white text-sm font-semibold p-2 rounded-lg shadow-lg whitespace-nowrap`}>
                     {text}
                 </div>
             )}

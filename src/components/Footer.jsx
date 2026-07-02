@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="bg-black p-4">
             <div className="container max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 lg:px-4">
                 {/* Copyright */}
-                <p className="text-sm text-gray-400">
+                <p className="text-gray-300">
                     © {new Date().getFullYear()}. All rights reserved.
                 </p>
 
