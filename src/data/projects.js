@@ -20,17 +20,46 @@ const projectsData = {
                 {
                     "name": "DaisyUI",
                     "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://tanstack.com/favicon.ico"
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
+                },
+                {
+                    "name": "Recharts",
+                    "icon": "https://recharts.org/en-US/favicon.ico"
+                },
+                {
+                    "name": "Swiper",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
+                    "name": "React Icons",
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
+                },
+                {
+                    "name": "React Helmet",
+                    "icon": "https://raw.githubusercontent.com/nfl/react-helmet/master/logo.png"
+                },
+
+                {
+                    "name": "Axios",
+                    "icon": "https://axios-http.com/assets/logo.svg"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
                 }
             ],
             "backend": [
-                {
-                    "name": "Firebase",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                },
-                {
-                    "name": "JWT",
-                    "icon": "https://jwt.io/img/pic_logo.svg"
-                },
                 {
                     "name": "Node.js",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
@@ -40,9 +69,17 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
                 },
                 {
-                    "name": "MongoDB (Atlas)",
+                    "name": "MongoDB Atlas",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                }
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "JWT",
+                    "icon": "https://jwt.io/img/pic_logo.svg"
+                },
             ],
             "handling": [
                 {
@@ -52,6 +89,56 @@ const projectsData = {
                 {
                     "name": "Stripe",
                     "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://axios-http.com/assets/logo.svg"
+                },
+                {
+                    "name": "EmailJS",
+                    "icon": "https://www.emailjs.com/logo.png"
+                },
+                // {
+                //     "name": "QR Code",
+                //     "icon": "https://cdn-icons-png.flaticon.com/512/159/159469.png"
+                // },
+                {
+                    "name": "jsPDF",
+                    "icon": "https://raw.githubusercontent.com/parallax/jsPDF/master/docs/logo.png"
+                },
+                {
+                    "name": "LocalForage",
+                    "icon": "https://avatars.githubusercontent.com/u/9919?s=200&v=4"
+                }
+            ],
+            "animation": [
+                // {
+                //     "name": "GSAP",
+                //     "icon": "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg"
+                // },
+                {
+                    "name": "Motion",
+                    "icon": "https://motion.dev/favicon.ico"
+                },
+                // {
+                //     "name": "React Spring",
+                //     "icon": "https://react-spring.dev/favicon.ico"
+                // },
+                {
+                    "name": "AOS",
+                    "icon": "https://michalsnik.github.io/aos/img/aos-logo.svg"
+                },
+                {
+                    "name": "React Awesome Reveal",
+                    "icon": "https://raw.githubusercontent.com/dennismorello/react-awesome-reveal/master/logo.svg"
+                },
+                // {
+                //     "name": "Locomotive Scroll",
+                //     "icon": "https://locomotivemtl.github.io/locomotive-scroll/img/locomotive-scroll-logo.png"
+                // },
+                {
+                    "name": "React Parallax",
+                    "icon": "https://repository-images.githubusercontent.com/84919676/29a0e610-ea5b-4001-a8b6-b079923cad8a"
                 }
             ],
             "development": [
@@ -59,6 +146,14 @@ const projectsData = {
                     "name": "Vite",
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
                 },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+                },
+                // {
+                //     "name": "PostCSS",
+                //     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                // },
                 {
                     "name": "Vercel",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
@@ -90,8 +185,24 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 },
                 {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://tanstack.com/favicon.ico"
+                },
+                {
                     "name": "Stripe",
                     "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                },
+                {
+                    "name": "Cloudinary",
+                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                },
+                {
+                    "name": "GSAP",
+                    "icon": "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg"
                 }
             ],
             "demoLink": "https://learnhive-4ed81.web.app/",
@@ -135,19 +246,59 @@ const projectsData = {
                     "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
                 },
                 {
+                    "name": "React Query",
+                    "icon": "https://tanstack.com/favicon.ico"
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
+                },
+                {
+                    "name": "Recharts",
+                    "icon": "https://recharts.org/en-US/favicon.ico"
+                },
+                {
+                    "name": "Swiper",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
                     "name": "React Icons",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
+                },
+                {
+                    "name": "React Helmet",
+                    "icon": "https://raw.githubusercontent.com/nfl/react-helmet/master/logo.png"
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://axios-http.com/assets/logo.svg"
+                },
+                {
+                    "name": "Font Awesome",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Font_Awesome_5_brands.svg"
+                },
+                {
+                    "name": "Lucide React",
+                    "icon": "https://lucide.dev/logo.light.svg"
+                },
+                {
+                    "name": "Swiper.js",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
+                    "name": "React Datepicker",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/747/747310.png"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
                 }
             ],
             "backend": [
-                {
-                    "name": "Firebase",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                },
-                {
-                    "name": "JWT",
-                    "icon": "https://jwt.io/img/pic_logo.svg"
-                },
                 {
                     "name": "Node.js",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
@@ -157,21 +308,55 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
                 },
                 {
-                    "name": "MongoDB (Atlas)",
+                    "name": "MongoDB Atlas",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                }
+                },
+                {
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "JWT",
+                    "icon": "https://jwt.io/img/pic_logo.svg"
+                },
             ],
             "handling": [
                 {
                     "name": "Cloudinary",
-                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                    "icon": "https://cdn.worldvectorlogo.com/logos/cloudinary-2.svg"
+                }
+            ],
+            "animation": [
+                {
+                    "name": "Motion",
+                    "icon": "https://motion.dev/favicon.ico"
+                },
+                {
+                    "name": "AOS",
+                    "icon": "https://michalsnik.github.io/aos/img/aos-logo.png"
+                },
+                {
+                    "name": "React Awesome Reveal",
+                    "icon": "https://raw.githubusercontent.com/dennismorello/react-awesome-reveal/master/logo.png"
+                },
+                {
+                    "name": "React Marquee",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/545/545705.png"
+                },
+                {
+                    "name": "React Responsive Carousel",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/3128/3128290.png"
+                },
+                {
+                    "name": "React Circular Progressbar",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
+                },
+                {
+                    "name": "React Countdown Circle Timer",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/2088/2088617.png"
                 }
             ],
             "development": [
-                {
-                    "name": "Vite",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-                },
                 {
                     "name": "Vercel",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
@@ -179,6 +364,14 @@ const projectsData = {
                 {
                     "name": "Netlify",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+                },
+                {
+                    "name": "Autoprefixer",
+                    "icon": "https://raw.githubusercontent.com/postcss/autoprefixer/main/logo.svg"
                 }
             ],
             "topTech": [
@@ -201,6 +394,14 @@ const projectsData = {
                 {
                     "name": "Firebase",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://raw.githubusercontent.com/TanStack/query/main/media/emblem-light.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
                 },
                 {
                     "name": "JWT",
@@ -241,8 +442,28 @@ const projectsData = {
                 },
                 {
                     "name": "DaisyUI",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
-                }
+                    "icon": "https://img.daisyui.com/images/daisyui-logo/daisyui-logomark.svg"
+                },
+                {
+                    "name": "React Icons",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Helmet",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
+                },
+                {
+                    "name": "React Tooltip",
+                    "icon": "https://react-tooltip.com/logo.svg"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
+                },
             ],
             "backend": [
                 {
@@ -258,20 +479,42 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
                 },
                 {
-                    "name": "MongoDB (Atlas)",
+                    "name": "MongoDB Atlas",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
                 }
             ],
             "handling": [
                 {
                     "name": "Cloudinary",
-                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                    "icon": "https://res.cloudinary.com/cloudinary-marketing/image/upload/v1667316440/Cloudinary_Logo_Blue_0722_x3.svg"
+                }
+            ],
+            "animation": [
+                {
+                    "name": "Lottie React",
+                    "icon": "https://seeklogo.com/images/L/lottie-logo-4A54C7F1C6-seeklogo.com.png"
+                },
+                {
+                    "name": "React Awesome Reveal",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Simple Typewriter",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "React Responsive Carousel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                },
+                {
+                    "name": "Pure React Carousel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                 }
             ],
             "development": [
                 {
                     "name": "Vite",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg"
                 },
                 {
                     "name": "Vercel",
@@ -280,7 +523,11 @@ const projectsData = {
                 {
                     "name": "Netlify",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
-                }
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+                },
             ],
             "topTech": [
                 {
@@ -304,8 +551,20 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 },
                 {
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "DaisyUI",
+                    "icon": "https://img.daisyui.com/images/daisyui-logo/daisyui-logomark.svg"
+                },
+                {
                     "name": "Cloudinary",
-                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                    "icon": "https://res.cloudinary.com/cloudinary-marketing/image/upload/v1667316440/Cloudinary_Logo_Blue_0722_x3.svg"
+                },
+                {
+                    "name": "Vite",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg"
                 }
             ],
             "demoLink": "https://crowdcube-c99dd.web.app/",
@@ -347,7 +606,27 @@ const projectsData = {
                 {
                     "name": "React DnD",
                     "icon": "https://avatars.githubusercontent.com/u/25307599?s=200&v=4"
-                }
+                },
+                {
+                    "name": "React Helmet",
+                    "icon": "https://raw.githubusercontent.com/nfl/react-helmet/master/logo.png"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
+                },
+                {
+                    "name": "Font Awesome",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fontawesome/fontawesome-original.svg"
+                },
+                {
+                    "name": "Lucide React",
+                    "icon": "https://lucide.dev/logo.light.svg"
+                },
             ],
             "backend": [
                 {
@@ -385,7 +664,11 @@ const projectsData = {
                 {
                     "name": "Netlify",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
-                }
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+                },
             ],
             "topTech": [
                 {
@@ -442,15 +725,43 @@ const projectsData = {
                 },
                 {
                     "name": "DaisyUI",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg"
                 },
                 {
                     "name": "React Router",
                     "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
                 },
                 {
-                    "name": "React Query",
+                    "name": "TanStack Query",
                     "icon": "https://avatars.githubusercontent.com/u/72518640?s=200&v=4"
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg"
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
+                },
+                {
+                    "name": "React Icons",
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
+                },
+                {
+                    "name": "React Helmet",
+                    "icon": "https://raw.githubusercontent.com/nfl/react-helmet/master/assets/react-helmet.png"
+                },
+                {
+                    "name": "Recharts",
+                    "icon": "https://recharts.org/en-US/logo.svg"
+                },
+                {
+                    "name": "Swiper.js",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
                 }
             ],
             "backend": [
@@ -467,7 +778,7 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
                 },
                 {
-                    "name": "Firebase Auth",
+                    "name": "Firebase Authentication",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 },
                 {
@@ -478,11 +789,25 @@ const projectsData = {
             "handling": [
                 {
                     "name": "Stripe",
-                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                    "icon": "https://cdn.worldvectorlogo.com/logos/stripe-4.svg"
                 },
                 {
                     "name": "Cloudinary",
-                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                    "icon": "https://res.cloudinary.com/cloudinary-marketing/image/upload/v1720621745/logo/for_white_bg/cloudinary_vertical_logo_for_white_bg.svg"
+                }
+            ],
+            "animation": [
+                {
+                    "name": "Lottie React",
+                    "icon": "https://raw.githubusercontent.com/LottieFiles/lottie-react/master/docs/static/img/logo.svg"
+                },
+                {
+                    "name": "React Parallax",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+                },
+                {
+                    "name": "React Responsive Carousel",
+                    "icon": "https://cdn-icons-png.flaticon.com/512/942/942748.png"
                 }
             ],
             "development": [
@@ -491,17 +816,17 @@ const projectsData = {
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
                 },
                 {
-                    "name": "Firebase Hosting",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                },
-                {
                     "name": "Netlify",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 },
                 {
                     "name": "Vercel",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
-                }
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
+                },
             ],
             "topTech": [
                 {
@@ -521,12 +846,20 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
                 },
                 {
-                    "name": "Stripe",
-                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                    "name": "Tailwind CSS",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                },
+                {
+                    "name": "TanStack Query",
+                    "icon": "https://avatars.githubusercontent.com/u/72518640?s=200&v=4"
                 },
                 {
                     "name": "Firebase",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                },
+                {
+                    "name": "Stripe",
+                    "icon": "https://cdn.worldvectorlogo.com/logos/stripe-4.svg"
                 }
             ],
             "demoLink": "https://bistroboss-674ce.web.app/",
@@ -555,73 +888,128 @@ const projectsData = {
             "designation": "Full Stack Developer & Team Leader",
             "location": "Birulia, Savar, Dhaka, Bangladesh",
             "projectType": "Team Project",
+            "projectStatus": "Accepted – Funding Discussions in Progress",
             "description": "An AI-integrated mentoring platform with real-time communication and intelligent recommendations. Features include user registration & login using JWT authentication, real-time messaging system for mentor groups, course groups, and discussions, automated email and SMS notifications for scheduled meetings, dynamic dashboard with role-based data visualization and analytics, and AI-integrated heatmap-based mentor recommendation system.",
             "frontend": [
                 {
                     "name": "React",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
                 },
                 {
                     "name": "React Router",
-                    "icon": "https://www.svgrepo.com/show/354262/react-router.svg"
+                    "icon": "https://www.svgrepo.com/show/354262/react-router.svg",
                 },
                 {
                     "name": "Tailwind CSS",
-                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
                 },
                 {
                     "name": "DaisyUI",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg",
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg",
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://www.vectorlogo.zone/logos/axios/axios-icon.svg",
                 },
                 {
                     "name": "React Icons",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg",
+                },
+                {
+                    "name": "Lucide React",
+                    "icon": "https://lucide.dev/logo.dark.svg",
+                },
+                {
+                    "name": "Yup",
+                    "icon": "https://avatars.githubusercontent.com/u/139895814?s=200&v=4",
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png",
+                },
+                {
+                    "name": "React Hot Toast",
+                    "icon": "https://react-hot-toast.com/favicon.ico",
                 }
             ],
             "backend": [
                 {
                     "name": "Node.js",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
                 },
                 {
                     "name": "Express.js",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
                 },
                 {
                     "name": "PostgreSQL",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
                 },
                 {
                     "name": "JWT",
-                    "icon": "https://jwt.io/img/pic_logo.svg"
+                    "icon": "https://jwt.io/img/pic_logo.svg",
+                },
+                {
+                    "name": "Bcrypt",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
                 }
             ],
             "handling": [
                 {
                     "name": "Twilio",
-                    "icon": "https://www.vectorlogo.zone/logos/twilio/twilio-ar21.svg"
+                    "icon": "https://www.vectorlogo.zone/logos/twilio/twilio-ar21.svg",
                 },
                 {
                     "name": "Nodemailer",
-                    "icon": "https://raw.githubusercontent.com/nodemailer/nodemailer/master/assets/nm_logo_200x136.png"
+                    "icon": "https://raw.githubusercontent.com/nodemailer/nodemailer/master/assets/nm_logo_200x136.png",
                 },
                 {
-                    "name": "Bcrypt",
-                    "icon": "https://cybersensor.wordpress.com/wp-content/uploads/2018/08/bcrypt-logo.jpg"
+                    "name": "EmailJS",
+                    "icon": "https://www.emailjs.com/logo.png",
+                },
+            ],
+            "animation": [
+                {
+                    "name": "Motion",
+                    "icon": "https://motion.dev/favicon.ico",
+                },
+                {
+                    "name": "Lottie React",
+                    "icon": "https://assets10.lottiefiles.com/images/lf_logo.png",
+                },
+                {
+                    "name": "React Fast Marquee",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+                },
+                {
+                    "name": "CountUp",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
                 }
             ],
             "development": [
-                // {
-                //     "name": "Vite",
-                //     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-                // },
+                {
+                    "name": "Vite",
+                    "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg",
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg",
+                },
                 {
                     "name": "Vercel",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
                 },
                 {
                     "name": "Netlify",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg",
                 }
             ],
             "topTech": [
@@ -686,8 +1074,8 @@ const projectsData = {
             ],
             "achievements": [
                 "Real-time 2-way communication between mentors and students",
-                "AI - based recommendations using student performance data",
-                "Early identification of at - risk students",
+                "Smart recommendations using student performance data",
+                "Early identification of at - risk (dropout) students",
                 "Improved engagement and performance tracking"
             ],
             "stack": "Full Stack",
@@ -701,6 +1089,7 @@ const projectsData = {
             "designation": "MERN Stack Developer",
             "location": "Remote",
             "projectType": "Team Project",
+            "projectStatus": "Temporarily On Hold",
             "description": "A modern catering service platform connecting customers with professional catering services. Features include booking & scheduling with real-time order management, service provider dashboard for caterers to manage schedules and orders, and secure online transactions.",
             "frontend": [
                 {
@@ -717,11 +1106,39 @@ const projectsData = {
                 },
                 {
                     "name": "DaisyUI",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/saadeghi/files/main/daisyui/logo-4.svg"
+                },
+                {
+                    "name": "React Query",
+                    "icon": "https://tanstack.com/favicon.ico"
+                },
+                {
+                    "name": "Axios",
+                    "icon": "https://axios-http.com/assets/logo.svg"
+                },
+                {
+                    "name": "React Hook Form",
+                    "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
                 },
                 {
                     "name": "React Icons",
-                    "icon": "https://i.ibb.co.com/1Y4GLbC4/daisyui-logo-png-seeklogo-554509-removebg-preview.png"
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
+                },
+                {
+                    "name": "Recharts",
+                    "icon": "https://recharts.org/en-US/img/logo.svg"
+                },
+                {
+                    "name": "Swiper",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
+                    "name": "React Toastify",
+                    "icon": "https://fkhadra.github.io/react-toastify/img/logo.svg"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
                 }
             ],
             "backend": [
@@ -750,12 +1167,34 @@ const projectsData = {
                 {
                     "name": "ImgBB",
                     "icon": "https://simgbb.com/images/logo.png"
+                },
+            ],
+            "animation": [
+                {
+                    "name": "Motion",
+                    "icon": "https://motion.dev/favicon.ico"
+                },
+                {
+                    "name": "AOS",
+                    "icon": "https://michalsnik.github.io/aos/img/aos-logo.png"
+                },
+                {
+                    "name": "React Slick",
+                    "icon": "https://react-slick.neostack.com/img/logo.png"
+                },
+                {
+                    "name": "React Responsive Carousel",
+                    "icon": "https://react-responsive-carousel.js.org/assets/logo.png"
                 }
             ],
             "development": [
                 {
                     "name": "Vite",
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
                 },
                 {
                     "name": "Vercel",
@@ -843,9 +1282,10 @@ const projectsData = {
             "designation": "Frontend Web Developer",
             "projectType": "Client Project",
             "fundedStatus": "Funded",
+            "projectStatus": "Accepted & Funded – Currently in Data Collection and Monitoring Phase",
             "grantType": "Grant",
-            "description": "Smart Irrigation System is a responsive React application built with Vite that provides an interface for monitoring weather conditions, fields, crops, and irrigation requirements. The project is currently under active development.",
-            "shortDescription": "A responsive React application for monitoring weather conditions, fields, crops, and irrigation requirements with multilingual support and real-time data monitoring.",
+            "description": "An application designed to help farmers monitor weather conditions, field activities, crop health, and irrigation requirements through a centralized platform. The system provides real-time monitoring, multilingual support, and intuitive dashboards, enabling farmers to make informed decisions, improve crop management, optimize irrigation practices, and enhance overall agricultural productivity.",
+            "shortDescription": "An application for monitoring weather conditions, fields, crops, and irrigation requirements with multilingual support and real-time data monitoring. It helps farmers make informed decisions, improve crop management, and optimize irrigation practices.",
             "frontend": [
                 {
                     "name": "React",
@@ -968,6 +1408,7 @@ const projectsData = {
             "location": "Remote",
             "designation": "Frontend Web Developer",
             "projectType": "Client Project",
+            "projectStatus": "Project Discussions in Progress",
             "description": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI API with the GPT-3.5 Turbo model. The bot automatically declines non-admission topics and maintains conversation context across multiple messages.",
             "shortDescription": "An AI-powered university admission chatbot built with OpenAI API (GPT-3.5 Turbo), featuring context-aware conversations and automatic topic filtering.",
             "frontend": [
@@ -1000,10 +1441,6 @@ const projectsData = {
             ],
             "handling": [
                 {
-                    "name": "Context Management",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                },
-                {
                     "name": "API Integration",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                 },
@@ -1024,6 +1461,14 @@ const projectsData = {
                 {
                     "name": "GitHub",
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                },
+                {
+                    "name": "Netlify",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg"
                 }
             ],
             "topTech": [
@@ -1076,11 +1521,12 @@ const projectsData = {
                 "Built a responsive chat interface with auto-scroll and smooth message animations"
             ],
             "achievements": [
-                "Successfully deployed on Netlify with 99.9% uptime and fast response times",
-                "Reduced API token costs by 30% through efficient context window management",
-                "Implemented intelligent topic filtering, reducing irrelevant queries by 80%"
+                "Delivered an AI-powered chatbot accepted by the client for university admission support",
+                "Implemented context-aware conversations using OpenAI GPT-3.5 Turbo",
+                "Built intelligent topic filtering to keep conversations focused on admission-related queries",
+                "Designed a responsive and user-friendly chat interface with smooth interactions"
             ],
-            "stack": "React + OpenAI API",
+            "stack": "Full Stack",
             "experienceShow": true
         }
     ],
@@ -1107,66 +1553,100 @@ const projectsData = {
                     "icon": "https://images.seeklogo.com/logo-png/61/1/daisyui-logo-png_seeklogo-616852.png"
                 },
                 {
-                    "name": "Framer Motion",
-                    "icon": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
+                    "name": "Flowbite",
+                    "icon": "https://flowbite.com/docs/images/logo.svg"
                 },
                 {
                     "name": "React Hook Form",
                     "icon": "https://react-hook-form.com/images/logo/react-hook-form-logo-only.svg"
                 },
                 {
+                    "name": "Yup",
+                    "icon": "https://avatars.githubusercontent.com/u/139895814?s=200&v=4"
+                },
+                {
                     "name": "React Query",
-                    "icon": "https://tanstack.com/.netlify/images?url=%2Fimages%2Flogos%2Fsplash-dark.png&w=500&q=85"
+                    "icon": "https://raw.githubusercontent.com/TanStack/query/main/media/emblem-light.svg"
                 },
                 {
                     "name": "Axios",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg"
+                    "icon": "https://axios-http.com/assets/logo.svg"
                 },
                 {
-                    "name": "Lucide Icons",
+                    "name": "Lucide React",
                     "icon": "https://lucide.dev/logo.dark.svg"
                 },
                 {
+                    "name": "React Icons",
+                    "icon": "https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg"
+                },
+                {
+                    "name": "Swiper",
+                    "icon": "https://swiperjs.com/images/swiper-logo.svg"
+                },
+                {
+                    "name": "React Hot Toast",
+                    "icon": "https://react-hot-toast.com/favicon.ico"
+                },
+                {
+                    "name": "SweetAlert2",
+                    "icon": "https://sweetalert2.github.io/images/SweetAlert2.png"
+                },
+                {
+                    "name": "React Tooltip",
+                    "icon": "https://react-tooltip.com/favicon.ico"
+                },
+                {
+                    "name": "Lottie React",
+                    "icon": "https://assets.lottiefiles.com/packages/lf20_q5pk6p1k.json"
+                },
+                {
                     "name": "Recharts",
-                    "icon": "https://blog.openreplay.com/images/charting-and-graphing-in-react-with-recharts/images/hero.png"
+                    "icon": "https://recharts.org/en-US/api/logo.svg"
+                },
+                {
+                    "name": "date-fns",
+                    "icon": "https://date-fns.org/logo.svg"
                 }
             ],
-            "backend": [
+            " backend": [
                 {
-                    "name": "Node.js",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                    "name": "Firebase",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 },
                 {
-                    "name": "Express.js",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                    "name": "Firebase Auth",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
                 },
                 {
-                    "name": "MongoDB",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                },
-                {
-                    "name": "JWT",
-                    "icon": "https://jwt.io/img/pic_logo.svg"
-                },
-                {
-                    "name": "Bcrypt",
-                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                    "name": "JWT Decode",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jsonwebtokens/jsonwebtokens-original.svg"
                 }
             ],
             "handling": [
                 {
                     "name": "Cloudinary",
-                    "icon": "https://w7.pngwing.com/pngs/567/534/png-transparent-cloudinary-hd-logo.png"
+                    "icon": "https://res.cloudinary.com/cloudinary-marketing/image/upload/f_auto,q_auto/v1/logo/for_white_bg/cloudinary_logo_for_white_bg.svg"
+                }
+            ],
+            "animation": [
+                {
+                    "name": "Framer Motion",
+                    "icon": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
                 },
                 {
-                    "name": "Stripe",
-                    "icon": "https://w7.pngwing.com/pngs/750/733/png-transparent-logo-stripe-brand-stripes-miscellaneous-purple-blue-thumbnail.png"
+                    "name": "Motion",
+                    "icon": "https://motion.dev/motion-logo.svg"
                 }
             ],
             "development": [
                 {
                     "name": "Vite",
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+                },
+                {
+                    "name": "ESLint",
+                    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg"
                 },
                 {
                     "name": "Vercel",

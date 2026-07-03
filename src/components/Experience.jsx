@@ -7,7 +7,7 @@ import "./css/Experience.css";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaDatabase, FaRegIdBadge, FaTools } from "react-icons/fa";
-import { Award, NotepadText } from "lucide-react";
+import { Award, Info, NotepadText } from "lucide-react";
 
 const Experience = () => {
     const [activeExperience, setActiveExperience] = useState(0);
@@ -156,7 +156,7 @@ const Experience = () => {
                                         <h2 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                                             {activeExp.title}
                                         </h2>
-                                        <h3 className="mb-2 text-[1.2rem] text-blue-300">
+                                        <h3 className="mb-2 text-[1.25rem] text-blue-300">
                                             @ {activeExp.organization}
                                         </h3>
 
@@ -164,7 +164,17 @@ const Experience = () => {
                                         {activeExp?.designation && (
                                             <div className="mb-3 flex items-center gap-1.5 text-gray-300">
                                                 <FaRegIdBadge className="text-blue-400" size={18} />
+                                                {/* <span className="text-[1.2rem]">Role: </span> */}
                                                 <span className="text-[1.2rem] font-semibold text-blue-200">{activeExp?.designation}</span>
+                                            </div>
+                                        )}
+
+                                        {/* Project Status */}
+                                        {activeExp?.projectStatus && (
+                                            <div className="mb-3 flex items-center gap-1.5 text-gray-300">
+                                                <Info className="text-blue-400" size={18} />
+                                                {/* <span className="text-[1.15rem]">Status: </span> */}
+                                                <span className="text-[1.15rem] font-semibold text-blue-200">{activeExp?.projectStatus}</span>
                                             </div>
                                         )}
 

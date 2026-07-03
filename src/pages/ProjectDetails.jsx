@@ -4,7 +4,8 @@ import {
     FaExternalLinkAlt, FaGithub, FaServer, FaDatabase,
     FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette,
     FaMobile, FaImages, FaArrowLeft, FaStar, FaTools,
-    FaRocket, FaCheckCircle, FaLayerGroup, FaShieldAlt
+    FaRocket, FaCheckCircle, FaLayerGroup, FaShieldAlt,
+    FaMagic
 } from "react-icons/fa";
 import { CalendarDays } from "lucide-react";
 
@@ -13,6 +14,7 @@ const TECH_CATEGORIES = {
     frontend: { title: "Frontend", icon: FaPalette, color: "blue" },
     backend: { title: "Backend", icon: FaServer, color: "green" },
     handling: { title: "Payment & Media", icon: FaCreditCard, color: "purple" },
+    animation: { title: "Animation", icon: FaMagic, color: "indigo" },
     development: { title: "DevOps", icon: FaCloud, color: "red" }
 };
 
@@ -332,6 +334,7 @@ const ProjectDetails = () => {
                         <div className="flex gap-3 flex-wrap">
                             {hasData(project.frontend) && <StatBadge label="Frontend" value={project.frontend.length} />}
                             {hasData(project.backend) && <StatBadge label="Backend" value={project.backend.length} />}
+                            {hasData(project.animation) && <StatBadge label="Animation" value={project.animation.length} />}
                             {hasData(project.handling) && <StatBadge label="Integrations" value={project.handling.length} />}
                         </div>
 

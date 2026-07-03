@@ -6,7 +6,7 @@ import { BsPersonWorkspace, BsCalendar, BsBriefcase } from 'react-icons/bs';
 import { FiExternalLink, FiMapPin } from 'react-icons/fi';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { FaRegIdBadge, FaTools } from 'react-icons/fa';
-import { Award, NotepadText, X } from 'lucide-react';
+import { Award, Info, NotepadText, X } from 'lucide-react';
 
 const AllExperiences = () => {
     const [selectedExp, setSelectedExp] = useState(null);
@@ -109,8 +109,8 @@ const AllExperiences = () => {
                             key={exp.id}
                             className={`
                                 cursor-pointer transition-all duration-500 ease-out
-                                hover:-translate-y-1 flex
-                                ${visibleCards.includes(index)
+                                flex
+                                ${visibleCards.includes(index)  // hover:-translate-y-0.5 
                                     ? 'opacity-100 translate-y-0'
                                     : 'opacity-0 translate-y-12'
                                 }
@@ -142,11 +142,21 @@ const AllExperiences = () => {
                                     <h3 className="text-xl font-bold text-white mb-1 line-clamp-2">{exp.title}</h3>
                                     <p className="text-[1.1rem] text-blue-300 mb-2">@ {exp.organization}</p>
 
-                                    {/* Designation */}
+                                    {/* Designation Section */}
                                     {exp?.designation && (
-                                        <div className="mb-2 flex items-center gap-1.5 text-[1.1rem] text-gray-300">
-                                            <FaRegIdBadge size={18} className="text-blue-400 flex-shrink-0" />
-                                            <span className="line-clamp-1">{exp.designation}</span>
+                                        <div className="mb-3 flex items-center gap-1.5 text-gray-300">
+                                            <FaRegIdBadge className="text-blue-400" size={18} />
+                                            {/* <span className="text-[1.2rem]">Role: </span> */}
+                                            <span className="text-[1.2rem] font-semibold text-blue-200">{exp?.designation}</span>
+                                        </div>
+                                    )}
+
+                                    {/* Project Status */}
+                                    {exp?.projectStatus && (
+                                        <div className="mb-3 flex items-center gap-1.5 text-gray-300">
+                                            <Info className="text-blue-400" size={18} />
+                                            {/* <span className="text-[1rem]">Status: </span> */}
+                                            <span className="text-[1rem] font-semibold text-blue-200">{exp?.projectStatus}</span>
                                         </div>
                                     )}
 
@@ -198,7 +208,7 @@ const AllExperiences = () => {
             {isModalOpen && selectedExp && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-                    // onClick={closeModal}
+                // onClick={closeModal}
                 >
                     <div
                         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-gradient-to-br from-[#0a0a1a] to-[#0f1030] shadow-2xl shadow-blue-500/20"
@@ -241,7 +251,17 @@ const AllExperiences = () => {
                                 {selectedExp?.designation && (
                                     <div className="mb-3 flex items-center gap-1.5 text-gray-300">
                                         <FaRegIdBadge className="text-blue-400" size={18} />
-                                        <span className="text-[1.2rem] font-semibold text-blue-200">{selectedExp?.designation}</span>
+                                        {/* <span className="text-[1.25rem]">Role: </span> */}
+                                        <span className="text-[1.25rem] font-semibold text-blue-200">{selectedExp?.designation}</span>
+                                    </div>
+                                )}
+
+                                {/* Project Status */}
+                                {selectedExp?.projectStatus && (
+                                    <div className="mb-3 flex items-center gap-1.5 text-gray-300">
+                                        <Info className="text-blue-400" size={18} />
+                                        {/* <span className="text-[1.15rem]">Status: </span> */}
+                                        <span className="text-[1.15rem] font-semibold text-blue-200">{selectedExp?.projectStatus}</span>
                                     </div>
                                 )}
 
