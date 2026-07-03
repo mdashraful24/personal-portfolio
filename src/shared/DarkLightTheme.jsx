@@ -21,15 +21,15 @@ export default function DarkLightTheme() {
             id: "dark",
             name: "Dark",
             icon: Moon,
-            activeClass: "bg-indigo-500 text-white",
-            hoverClass: "hover:bg-indigo-100 dark:hover:bg-indigo-900/20",
+            activeClass: "bg-blue-600 text-white",
+            hoverClass: "hover:bg-blue-100 dark:hover:bg-blue-900/20",
         },
         {
             id: "system",
             name: "System",
             icon: Laptop,
-            activeClass: "bg-cyan-500 text-white",
-            hoverClass: "hover:bg-cyan-100 dark:hover:bg-cyan-900/20",
+            activeClass: "bg-green-600 text-white",
+            hoverClass: "hover:bg-green-100 dark:hover:bg-green-900/20",
         },
     ];
 

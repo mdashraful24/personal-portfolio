@@ -235,11 +235,11 @@ const ContactSection = () => {
             className="relative overflow-hidden contact-section dark:bg-black"
         >
             {/* Background Decoration - Hidden in dark mode */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-red-50 dark:hidden"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-100 via-gray-100 to-white dark:hidden"></div>
             {/* <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20 bg-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div> */}
             {/* <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20 bg-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div> */}
 
-            <div className="relative px-4 pt-7 pb-14 lg:py-20">
+            <div className="relative px-4 pt-7 pb-14 lg:py-16">
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
                     <div className="text-center mb-8 stagger-header">
@@ -266,7 +266,7 @@ const ContactSection = () => {
                                 className="group contact-card"
                                 style={{ transitionDelay: `${index * 0.1}s` }}
                             >
-                                <div className="flex flex-col">
+                                <div className="flex flex-col drop-shadow">
                                     <div className={`${info.bgColor} rounded-xl p-4 shadow border ${info.borderColor} transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow contact-card-inner dark:bg-gray-800 dark:border-gray-700`}>
                                         <div className="flex items-start gap-4">
                                             <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0 transition-all duration-300 group-hover:scale-110 contact-icon`}>
@@ -285,7 +285,7 @@ const ContactSection = () => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 drop-shadow">
                         {/* Contact Form */}
                         <div className="lg:col-span-2 form-container">
                             <div className="bg-white dark:bg-gray-800 rounded-xl shadow border border-gray-100 dark:border-gray-700 p-4 transition-all duration-300 hover:shadow-lg form-card">

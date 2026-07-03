@@ -103,7 +103,7 @@ const Experience = () => {
         <div
             ref={sectionRef}
             id="experience"
-            className="bg-gray-100 dark:bg-black py-7 lg:py-20 overflow-hidden lg:overflow-visible"
+            className="dark:bg-black py-7 lg:py-20 overflow-hidden lg:overflow-visible"
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Header Section - Animated */}

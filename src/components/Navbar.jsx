@@ -106,10 +106,15 @@ const Navbar = () => {
     };
 
     const isItemActive = (item) => {
-        if (item.isSection) {
-            return location.pathname === "/" && activeSection === item.id;
+        // Only apply active state on large screens (lg: and above)
+        if (window.innerWidth >= 1024) {
+            if (item.isSection) {
+                return location.pathname === "/" && activeSection === item.id;
+            }
+            return location.pathname === item.path;
         }
-        return location.pathname === item.path;
+        // On medium and small screens, never show active state
+        return false;
     };
 
     // Desktop navigation
@@ -123,8 +128,8 @@ const Navbar = () => {
                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
                         className={`relative inline-block pb-1 transition-colors duration-300 cursor-pointer
                             ${isItemActive(item)
-                                ? "text-blue-600 font-semibold"
-                                : "text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                                ? "text-blue-600 dark:text-blue-400 font-semibold"
+                                : "hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400"
                             }`}
                     >
                         {item.label}
@@ -149,7 +154,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                    <X size={24} className="text-gray-700 dark:text-gray-300" />
+                    <X size={24} className="dark:text-gray-300" />
                 </button>
             </div>
 
@@ -160,9 +165,9 @@ const Navbar = () => {
                         <a
                             key={item.id}
                             onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
-                            className={`flex items-center justify-center cursor-pointer`}
+                            className="flex items-center justify-center cursor-pointer"
                         >
-                            <span className="text-lg">{item.label}</span>
+                            <span className="text-lg dark:text-white">{item.label}</span>
                         </a>
                     ))}
                 </div>
@@ -206,7 +211,7 @@ const Navbar = () => {
                             <img
                                 src={logo}
                                 alt="Logo"
-                                className="block md:hidden lg:block w-32 lg:w-44"
+                                className="block md:hidden lg:block w-32 lg:w-40"
                             />
                         </div>
 
@@ -252,14 +257,14 @@ const Navbar = () => {
                     )}
 
                     {/* CV button */}
-                    <a
+                    {/* <a
                         href="/Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
                         download="Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
                         className="hidden lg:inline-flex items-center gap-1 relative px-2 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-sm text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95"
                     >
                         <Download size={16} className="relative z-10" />
                         <span className="relative z-10">CV</span>
-                    </a>
+                    </a> */}
 
                     <span
                         className="hidden md:block"

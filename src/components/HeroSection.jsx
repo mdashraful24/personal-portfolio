@@ -80,7 +80,7 @@ const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
 // dark: bg - gradient - to - br dark: from - gray - 900 dark: via - gray - 800 dark: to - gray - 900
 const HeroSection = ({ onHireMeClick }) => {
     return (
-        <div className="bg-gradient-to-b from-white via-white to-gray-100 dark:bg-gradient-to-b dark:from-gray-900 dark:via-gray-950 dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
+        <div className="bg-gradient-to-b from-white via-gray-50 to-gray-50 dark:bg-gradient-to-b dark:from-gray-900 dark:via-black dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
             {/* Background decorative elements - Hidden in dark mode */}
             {/* <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
@@ -89,7 +89,7 @@ const HeroSection = ({ onHireMeClick }) => {
             <div className="container max-w-7xl mx-auto px-4 py-14 md:py-16 lg:py-0 relative z-10">
                 <div className="flex flex-col-reverse lg:flex-row lg:min-h-[calc(100vh-4rem)] items-center justify-between gap-16">
                     {/* LEFT SIDE - Content */}
-                    <div className="w-full lg:w-auto text-center lg:text-left space-y-6 md:space-y-8 px-0 stagger-children">
+                    <div className="w-full lg:w-auto text-center lg:text-left space-y-6 lg:space-y-7 px-0 stagger-children">
                         {/* Greeting Badge */}
                         <div className="inline-flex items-center gap-2.5 bg-[#2f2f38] dark:bg-gray-800 text-white backdrop-blur-sm px-4 py-1.5 rounded-full shadow border border-blue-100 dark:border-gray-700 mx-auto lg:mx-0">
                             <span className="relative flex h-2.5 w-2.5">
@@ -100,7 +100,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         </div>
 
                         {/* Main Heading */}
-                        <div className="space-y-4 md:space-y-8">
+                        <div className="space-y-4 lg:space-y-7">
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                                 <p className="dark:text-gray-400 mb-2 animate-slide-left delay-100">
                                     Hi, I'm
@@ -204,8 +204,8 @@ const HeroSection = ({ onHireMeClick }) => {
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:block delay-500">
                 <div className="flex flex-col items-center gap-2 animate-fade-up">
                     <span className="text-sm dark:text-gray-400">Scroll to explore</span>
-                    <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center">
-                        <div className="w-1 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 animate-bounce"></div>
+                    <div className="w-6 h-10 border-2 border-gray-500 dark:border-gray-500 rounded-full flex justify-center">
+                        <div className="w-1 h-2 bg-gray-500 dark:bg-gray-500 rounded-full mt-2 animate-bounce"></div>
                     </div>
                 </div>
             </div>

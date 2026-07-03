@@ -89,7 +89,7 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
                 } 
                 ${isActive ? "group-hover:scale-110" : "group-hover:scale-110"}`}
             />
-            <span className={`text-sm sm:text-base transition-all duration-300 
+            <span className={`text-[1.1rem] transition-all duration-300 
                 ${isActive
                     ? "group-hover:translate-x-0.5"
                     : "group-hover:translate-x-0.5"
@@ -117,7 +117,7 @@ const ChallengeItem = ({ challenge, index }) => (
         <div className="flex-shrink-0 w-2.5 h-2.5 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">
             {/* {index + 1} */}
         </div>
-        <p className="text-[1.1rem] dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
+        <p className="text-[1.2rem] dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
         <FaLightbulb className="text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
     </div>
 );
@@ -127,7 +127,7 @@ const RoadmapItem = ({ plan, index }) => (
         <div className="w-7 h-7 bg-green-500 text-white rounded-lg flex items-center justify-center">
             <FaCheckCircle className="text-sm" />
         </div>
-        <p className="text-[1.1rem] dark:text-gray-300 flex-1">{plan}</p>
+        <p className="text-[1.2rem] dark:text-gray-300 flex-1">{plan}</p>
         <FaRocket className="text-green-500 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
     </div>
 );
@@ -137,7 +137,7 @@ const OverviewTechSection = ({ config, techs, color }) => {
     const remainingCount = techs.length - OVERVIEW_VISIBLE_COUNT;
 
     return (
-        <SectionCard className="p-6 shadow hover:shadow-md">
+        <SectionCard className="p-6 drop-shadow hover:shadow-md">
             <div className="flex items-center gap-3 mb-4">
                 <div className={`p-2 rounded-xl bg-${color}-100 dark:bg-${color}-900/20`}>
                     <config.icon className={`text-${color}-600 dark:text-${color}-400 text-xl`} />
@@ -302,14 +302,14 @@ const ProjectDetails = () => {
                     <div className="space-y-5">
                         <div>
                             <div className="flex items-start justify-between gap-4 flex-wrap">
-                                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+                                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent">
                                     {project.title}
                                 </h1>
                                 {project?.duration && (
                                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-semibold">📅 {project.duration}</span>
                                 )}
                             </div>
-                            <p className="md:text-[1.2rem] dark:text-gray-400 mt-4 text-justify">
+                            <p className="md:text-[1.3rem] dark:text-gray-300 mt-4 text-justify">
                                 {project.description}
                             </p>
                         </div>
@@ -330,7 +330,7 @@ const ProjectDetails = () => {
                 </div>
 
                 {/* Tabs Navigation */}
-                <div className="sticky top-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-10 border-b border-gray-200 dark:border-gray-700">
+                <div className="sticky top-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-10 border-b border-gray-200 dark:border-gray-700 drop-shadow rounded-lg overflow-hidden">
                     <div
                         ref={tabsContainerRef}
                         className="flex overflow-x-auto hide-scrollbar gap-1"
@@ -373,7 +373,7 @@ const ProjectDetails = () => {
 
                     {/* Tech Stack Tab - Shows ALL technologies */}
                     {activeTab === "tech-stack" && (
-                        <SectionCard className="p-6 lg:p-8">
+                        <SectionCard className="p-6 lg:p-8 drop-shadow hover:shadow-md">
                             <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaCode className="text-blue-600" />
                                 Complete Technology Stack
@@ -391,7 +391,7 @@ const ProjectDetails = () => {
                                                     ({techs.length} items)
                                                 </span> */}
                                             </h4>
-                                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+                                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
                                                 {techs.map((tech, idx) => (
                                                     <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-200 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
                                                         <img src={tech.icon} alt={tech.name} className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -408,7 +408,7 @@ const ProjectDetails = () => {
 
                     {/* Challenges Tab */}
                     {activeTab === "challenges" && hasData(project.challenges) && (
-                        <SectionCard className="p-6 lg:p-8">
+                        <SectionCard className="p-6 lg:p-8 drop-shadow hover:shadow-md">
                             <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaShieldAlt className="text-amber-500" />
                                 Challenges & Solutions
@@ -423,7 +423,7 @@ const ProjectDetails = () => {
 
                     {/* Roadmap Tab */}
                     {activeTab === "roadmap" && hasData(project.futurePlans) && (
-                        <SectionCard className="p-6 lg:p-8">
+                        <SectionCard className="p-6 lg:p-8 drop-shadow hover:shadow-md">
                             <h3 className="text-2xl font-bold mb-6 dark:text-white flex items-center gap-3">
                                 <FaRocket className="text-green-500" />
                                 Future Roadmap
