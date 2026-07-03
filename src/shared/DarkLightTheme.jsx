@@ -74,21 +74,22 @@ export default function DarkLightTheme() {
 
                     return (
                         <button
+                            key={item.id}
                             onClick={() => setSpecificTheme(item.id)}
                             className={`
-                                    w-6 h-6
-                                    rounded-xl
-                                    flex
-                                    items-center
-                                    justify-center
-                                    transition-all
-                                    duration-300
-                                    cursor-default
-                                    ${active
+                                w-6 h-6
+                                rounded-xl
+                                flex
+                                items-center
+                                justify-center
+                                transition-all
+                                duration-300
+                                cursor-default
+                                ${active
                                     ? `${item.activeClass} shadow-md`
                                     : `text-slate-500 dark:text-slate-400 ${item.hoverClass}`
                                 }
-                                `}
+                            `}
                         >
                             <Icon size={17} />
                         </button>

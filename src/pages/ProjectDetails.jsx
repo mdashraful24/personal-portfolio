@@ -6,6 +6,7 @@ import {
     FaMobile, FaImages, FaArrowLeft, FaStar, FaTools,
     FaRocket, FaCheckCircle, FaLayerGroup, FaShieldAlt
 } from "react-icons/fa";
+import { CalendarDays } from "lucide-react";
 
 // ============== CONSTANTS ==============
 const TECH_CATEGORIES = {
@@ -37,7 +38,7 @@ const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
     const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 active:scale-95";
     const variants = {
         primary: "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-500/25",
-        secondary: "bg-white dark:bg-gray-800 md:text-[1.05rem] dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
+        secondary: "bg-white dark:bg-gray-800 text-[1.05rem] dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
     };
 
     return (
@@ -49,9 +50,9 @@ const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
 };
 
 const TechPill = ({ tech, color, isCompact = false }) => (
-    <span className={`inline-flex items-center gap-2 rounded-full text-[0.85rem] font-semibold transition-all duration-200 hover:scale-105 ${isCompact
-        ? "px-2.5 py-1 bg-gray-100 dark:bg-gray-700/50 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
-        : `px-2.5 py-1 bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-400 border border-${color}-200 dark:border-${color}-800`
+    <span className={`inline-flex items-center gap-2 rounded-full text-[1.05rem] font-semibold transition-all duration-200 hover:scale-105 ${isCompact
+        ? "px-3 py-0.5 bg-gray-100 dark:bg-gray-700/50 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+        : `px-3 py-0.5 bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-400 border border-${color}-200 dark:border-${color}-800`
         }`}>
         <img src={tech.icon} alt={tech.name} className="w-4 h-4" />
         {tech.name}
@@ -61,7 +62,7 @@ const TechPill = ({ tech, color, isCompact = false }) => (
 const StatBadge = ({ label, value }) => (
     <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl px-4 py-2 text-center">
         <div className="text-2xl font-bold dark:text-white">{value}</div>
-        <div className="md:text-[1.1rem] dark:text-gray-300">{label}</div>
+        <div className="text-[1.1rem] dark:text-gray-300">{label}</div>
     </div>
 );
 
@@ -89,7 +90,7 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
                 } 
                 ${isActive ? "group-hover:scale-110" : "group-hover:scale-110"}`}
             />
-            <span className={`text-[1.1rem] transition-all duration-300 
+            <span className={`text-[1.2rem] transition-all duration-300 
                 ${isActive
                     ? "group-hover:translate-x-0.5"
                     : "group-hover:translate-x-0.5"
@@ -142,7 +143,7 @@ const OverviewTechSection = ({ config, techs, color }) => {
                 <div className={`p-2 rounded-xl bg-${color}-100 dark:bg-${color}-900/20`}>
                     <config.icon className={`text-${color}-600 dark:text-${color}-400 text-xl`} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{config.title}</h3>
+                <h3 className="text-[1.2rem] font-semibold text-gray-800 dark:text-white">{config.title}</h3>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -150,7 +151,7 @@ const OverviewTechSection = ({ config, techs, color }) => {
                     <TechPill key={idx} tech={tech} color={color} />
                 ))}
                 {remainingCount > 0 && (
-                    <span className={`inline-flex items-center justify-center px-2 py-1 rounded-full text-[0.85rem] font-semibold bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-300/20 border border-${color}-500`}>
+                    <span className={`inline-flex items-center justify-center px-3 py-0.5 rounded-full text-[1.05rem] font-semibold bg-${color}-50 dark:bg-${color}-900/20 text-${color}-700 dark:text-${color}-300/20 border border-${color}-500`}>
                         +{remainingCount} more
                     </span>
                 )}
@@ -274,8 +275,8 @@ const ProjectDetails = () => {
                 <div className="text-center">
                     <div className="text-7xl mb-4">🔍</div>
                     <h2 className="text-3xl font-bold dark:text-white">Project Not Found</h2>
-                    <p className="md:text-[1.3rem] dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
-                    <button onClick={() => navigate(-1)} className="md:text-[1.2rem] mt-5 text-blue-600 dark:text-blue-400 hover:underline">
+                    <p className="text-[1.3rem] dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
+                    <button onClick={() => navigate(-1)} className="text-[1.2rem] mt-5 text-blue-600 dark:text-blue-400 hover:underline">
                         ← Go Back
                     </button>
                 </div>
@@ -305,13 +306,26 @@ const ProjectDetails = () => {
                                 <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent">
                                     {project.title}
                                 </h1>
-                                {project?.duration && (
-                                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-semibold">📅 {project.duration}</span>
+
+                                {project?.fundedStatus && (
+                                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-green-200 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[1.1rem] font-semibold">
+                                        💰 {project.fundedStatus}
+                                    </div>
                                 )}
                             </div>
-                            <p className="md:text-[1.3rem] dark:text-gray-300 mt-4 text-justify">
+
+                            <p className="text-[1.25rem] dark:text-gray-300 mt-4 text-justify">
                                 {project.description}
                             </p>
+
+                            {project?.duration && (
+                                <div className="mt-4 text-[1.2rem]">
+                                    <span className="flex items-center gap-1.5 dark:text-gray-300"><CalendarDays size={20} /> Duration </span>
+                                    <span className="text-blue-700 dark:text-blue-300 font-semibold">
+                                        {project.duration}
+                                    </span>
+                                </div>
+                            )}
                         </div>
 
                         {/* Quick Stats */}
@@ -385,7 +399,7 @@ const ProjectDetails = () => {
 
                                     return (
                                         <div key={key}>
-                                            <h4 className={`text-lg font-semibold mb-3 text-${config.color}-600 dark:text-${config.color}-400 flex items-center gap-2`}>
+                                            <h4 className={`text-[1.25rem] font-semibold mb-3 text-${config.color}-600 dark:text-${config.color}-400 flex items-center gap-2`}>
                                                 <config.icon /> {config.title}
                                                 {/* <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
                                                     ({techs.length} items)
@@ -395,7 +409,7 @@ const ProjectDetails = () => {
                                                 {techs.map((tech, idx) => (
                                                     <div key={idx} className="flex items-center gap-3 p-2 rounded-lg bg-gray-200 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group">
                                                         <img src={tech.icon} alt={tech.name} className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                                        <span className="font-semibold dark:text-gray-300">{tech.name}</span>
+                                                        <span className="text-[1.07rem] font-semibold dark:text-gray-300">{tech.name}</span>
                                                     </div>
                                                 ))}
                                             </div>

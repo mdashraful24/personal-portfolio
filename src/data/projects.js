@@ -968,8 +968,8 @@ const projectsData = {
             "location": "Remote",
             "designation": "Frontend Web Developer",
             "projectType": "Client Project",
-            "description": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API. The bot automatically declines non-admission topics and maintains conversation context across multiple messages.",
-            "shortDescription": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI's GPT API with context-aware conversations and automatic topic filtering.",
+            "description": "An intelligent AI-powered chatbot for answering university admission-related questions using OpenAI API with the GPT-3.5 Turbo model. The bot automatically declines non-admission topics and maintains conversation context across multiple messages.",
+            "shortDescription": "An AI-powered university admission chatbot built with OpenAI API (GPT-3.5 Turbo), featuring context-aware conversations and automatic topic filtering.",
             "frontend": [
                 {
                     "name": "React",
@@ -994,7 +994,7 @@ const projectsData = {
             ],
             "backend": [
                 {
-                    "name": "OpenAI GPT API",
+                    "name": "OpenAI API (GPT-3.5 Turbo)",
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
                 }
             ],
@@ -1032,7 +1032,7 @@ const projectsData = {
                     "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                 },
                 {
-                    "name": "OpenAI GPT API",
+                    "name": "OpenAI API (GPT-3.5 Turbo)",
                     "icon": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
                 },
                 {
@@ -1056,7 +1056,7 @@ const projectsData = {
             "codeLink": "https://github.com/mdashraful24/admission-bot-client",
             "image": "/assets/project-cover/diu-admission-bot.png",
             "challenges": [
-                "Configuring OpenAI API to maintain conversation context across multiple messages while keeping token usage efficient",
+                "Configuring OpenAI API with the GPT-3.5 Turbo model to maintain conversation context across multiple messages while keeping token usage efficient",
                 "Implementing topic filtering logic to automatically decline non-admission questions and redirect users to relevant admission topics",
                 "Managing API rate limits and providing graceful error handling with user-friendly messages",
                 "Creating a responsive chat interface with auto-scrolling and smooth animations for message transitions",
@@ -1071,16 +1071,16 @@ const projectsData = {
                 "Add export functionality to save conversation as PDF or text file"
             ],
             "responsibilities": [
-                "Integrated OpenAI GPT API for intelligent and context-aware conversations",
-                "Implemented context management system to maintain conversation flow across multiple messages",
-                "Built responsive chat interface with auto-scroll and smooth message animations"
+                "Integrated OpenAI API (GPT-3.5 Turbo) for intelligent, context-aware conversations",
+                "Implemented a context management system to maintain conversation flow across multiple messages",
+                "Built a responsive chat interface with auto-scroll and smooth message animations"
             ],
             "achievements": [
                 "Successfully deployed on Netlify with 99.9% uptime and fast response times",
                 "Reduced API token costs by 30% through efficient context window management",
-                "Implemented intelligent topic filtering reducing irrelevant queries by 80%"
+                "Implemented intelligent topic filtering, reducing irrelevant queries by 80%"
             ],
-            "stack": "MERN Stack",
+            "stack": "React + OpenAI API",
             "experienceShow": true
         }
     ],
