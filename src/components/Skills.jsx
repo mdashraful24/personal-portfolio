@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt, FaImage } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql } from "react-icons/si";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql, SiPrisma, SiRadixui } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -8,9 +8,9 @@ import { VscVscode } from "react-icons/vsc";
 import { Server, FileCode, Code2, Wrench, Palette, Plug } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import allSkills from '../data/skillsList.js';
-import { tools, designTools } from '../data/toolsList.js';
-import externalServices from '../data/serviceList.js';
+import allSkills from '../data/skills/skillsList.js';
+import { tools, designTools } from '../data/skills/toolsList.js';
+import serviceList from '../data/skills/serviceList.js';
 import { TbRelationOneToMany } from 'react-icons/tb';
 
 // Icon mapping for skills
@@ -19,11 +19,13 @@ const skillIconMap = {
     "HTML": <FaHtml5 className="text-orange-400 text-2xl" />,
     "CSS": <FaCss3Alt className="text-blue-400 text-2xl" />,
     "Tailwind CSS": <SiTailwindcss className="text-cyan-400 text-2xl" />,
+    "Shadcn UI": <SiRadixui className="text-white text-2xl" />,
     "DaisyUI": <SiDaisyui className="text-purple-400 text-2xl" />,
     "Node.js": <FaNodeJs className="text-green-400 text-2xl" />,
     "Express.js": <SiExpress className="text-gray-300 text-2xl" />,
     "MongoDB": <FaDatabase className="text-green-400 text-2xl" />,
     "PostgreSQL": <BiLogoPostgresql className="text-sky-400 text-2xl" />,
+    "Prisma ORM": <SiPrisma className="text-white text-2xl" />,
     "JavaScript": <FaJs className="text-yellow-400 text-2xl" />,
     "TypeScript": <SiTypescript className="text-blue-500 text-2xl" />,
     "C": <SiC className="text-blue-400 text-2xl" />,
@@ -164,7 +166,7 @@ const Skills = () => {
             icon: getIcon(skill.name)
         }));
 
-    const servicesSkills = externalServices.map(service => ({
+    const servicesSkills = serviceList.map(service => ({
         name: service.name.toUpperCase(),
         icon: getServiceIcon(service.name)
     }));
@@ -277,7 +279,7 @@ export default Skills;
 // import allSkills from '../data/skillsList.js';
 // import { tools, designTools } from '../data/toolsList.js';
 // import externalServices from '../data/serviceList.js';
-// import skillDetails from '../data/skillTooltip.js';
+// import skillDetails from '../data/skills/skillTooltip.js';
 // import { TbRelationOneToMany } from 'react-icons/tb';
 
 // // Icon mapping for skills

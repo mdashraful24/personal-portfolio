@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsPersonWorkspace, BsCode, BsAward, BsCalendar, BsBriefcase } from "react-icons/bs";
 import { FiExternalLink, FiMapPin } from "react-icons/fi";
 import GlowCard from "../shared/GlowCard";
-import projectsData from '../data/projects.js';
+import projectsData from '../data/project/projects.js';
 import "./css/Experience.css";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";

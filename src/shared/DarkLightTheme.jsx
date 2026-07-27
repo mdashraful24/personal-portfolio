@@ -67,7 +67,7 @@ export default function DarkLightTheme() {
             {/* Desktop & Tablet */}
             {/* ========================= */}
 
-            <div className="hidden md:flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow p-1">
+            <div className="flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow p-1">
                 {themes.map((item) => {
                     const Icon = item.icon;
                     const active = isThemeActive(item.id);
@@ -76,15 +76,7 @@ export default function DarkLightTheme() {
                         <button
                             key={item.id}
                             onClick={() => setSpecificTheme(item.id)}
-                            className={`
-                                w-6 h-6
-                                rounded-xl
-                                flex
-                                items-center
-                                justify-center
-                                transition-all
-                                duration-300
-                                cursor-default
+                            className={` w-6 h-6 rounded-xl flex items-center justify-center transition-all duration-300 cursor-default
                                 ${active
                                     ? `${item.activeClass} shadow-md`
                                     : `text-slate-500 dark:text-slate-400 ${item.hoverClass}`
@@ -101,7 +93,7 @@ export default function DarkLightTheme() {
             {/* Mobile */}
             {/* ========================= */}
 
-            <div className="md:hidden">
+            <div className="hidden">
                 <Tooltip
                     text="Toggle Theme"
                     position="bottom"
@@ -130,28 +122,12 @@ export default function DarkLightTheme() {
                     </button>
                 </Tooltip>
 
-                <div
-                    className={`
-                        absolute
-                        right-0
-                        mt-2
-                        w-40
-                        rounded-xl
-                        bg-white
-                        dark:bg-gray-800
-                        border
-                        border-gray-200
-                        dark:border-gray-700
-                        shadow-xl
-                        overflow-hidden
-                        transition-all
-                        duration-200
-                        origin-top-right
+                <div className={`absolute right-0 mt-2 w-40 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden transition-all duration-200 origin-top-right
                         ${isOpen
-                            ? "opacity-100 scale-100"
-                            : "opacity-0 scale-95 pointer-events-none"
-                        }
-                    `}
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-95 pointer-events-none"
+                    }
+                `}
                 >
                     <div className="p-2">
                         {themes.map((item) => {
@@ -165,15 +141,7 @@ export default function DarkLightTheme() {
                                         setSpecificTheme(item.id);
                                         setIsOpen(false);
                                     }}
-                                    className={`
-                                        w-full
-                                        flex
-                                        items-center
-                                        gap-3
-                                        px-3
-                                        py-2
-                                        rounded-lg
-                                        transition
+                                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition
                                         ${active
                                             ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
                                             : "hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -182,7 +150,7 @@ export default function DarkLightTheme() {
                                 >
                                     <Icon size={17} />
 
-                                    <span className="flex-1 text-left text-sm">
+                                    <span className="flex-1 text-left">
                                         {item.name}
                                     </span>
 

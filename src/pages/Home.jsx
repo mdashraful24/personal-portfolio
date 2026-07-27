@@ -1,3 +1,70 @@
+import { useRef } from "react";
+import HeroSection from "../components/HeroSection";
+import AboutMe from "../components/AboutMe";
+import Skills from "../components/Skills";
+import ProjectsShowcase from "../components/ProjectsShowcase";
+import Experience from "../components/Experience";
+import ContactSection from "../components/ContactSection";
+import Education from "../components/Education";
+import Services from "../components/Services";
+
+const Home = () => {
+    const contactRef = useRef(null);
+
+    const handleHireMeClick = () => {
+        // Ensure that contactRef is properly set
+        if (contactRef.current) {
+            const element = contactRef.current;
+            window.scrollTo({
+                top: element.offsetTop - 50,  // Adjust scroll by 70px offset
+                behavior: "smooth"            // Smooth scroll
+            });
+        }
+    };
+
+    return (
+        <div className="">
+            <title>Ashraful Islam Ratul</title>
+
+            <section id="home">
+                <HeroSection onHireMeClick={handleHireMeClick} />
+            </section>
+
+            <section id="about">
+                <AboutMe />
+            </section>
+
+            <section id="services">
+                <Services />
+            </section>
+
+            <section id="skills">
+                <Skills />
+            </section>
+
+            <section id="projects">
+                <ProjectsShowcase />
+            </section>
+
+            <section id="experience">
+                <Experience />
+            </section>
+
+            <section id="education">
+                <Education />
+            </section>
+
+            <section id="contact" ref={contactRef}>
+                <ContactSection />
+            </section>
+        </div>
+    );
+};
+
+export default Home;
+
+
+
 // import AboutMe from "../components/AboutMe";
 // import ContactSection from "../components/ContactSection";
 // import HeroSection from "../components/HeroSection";
@@ -27,65 +94,3 @@
 // };
 
 // export default Home;
-
-
-
-import { useRef } from "react";
-import HeroSection from "../components/HeroSection";
-import AboutMe from "../components/AboutMe";
-import Skills from "../components/Skills";
-import ProjectsShowcase from "../components/ProjectsShowcase";
-import Experience from "../components/Experience";
-import ContactSection from "../components/ContactSection";
-import Education from "../components/Education";
-
-const Home = () => {
-    const contactRef = useRef(null);
-
-    const handleHireMeClick = () => {
-        // Ensure that contactRef is properly set
-        if (contactRef.current) {
-            const element = contactRef.current;
-            window.scrollTo({
-                top: element.offsetTop - 50,  // Adjust scroll by 70px offset
-                behavior: "smooth"            // Smooth scroll
-            });
-        }
-    };
-
-    return (
-        <div className="">
-            <title>Ashraful Islam Ratul</title>
-
-            <section id="home">
-                <HeroSection onHireMeClick={handleHireMeClick} />
-            </section>
-
-            <section id="about">
-                <AboutMe />
-            </section>
-
-            <section id="skills">
-                <Skills />
-            </section>
-
-            <section id="experience">
-                <Experience />
-            </section>
-
-            <section id="projects">
-                <ProjectsShowcase />
-            </section>
-
-            <section id="educations">
-                <Education />
-            </section>
-            
-            <section id="contact" ref={contactRef}>
-                <ContactSection />
-            </section>
-        </div>
-    );
-};
-
-export default Home;

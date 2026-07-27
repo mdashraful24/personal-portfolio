@@ -12,12 +12,12 @@ const statsData = [
         label: "Full Stack Developer",
         delay: "delay-300"
     },
-    {
-        icon: FaBriefcase,
-        iconColor: "text-emerald-500 dark:text-emerald-400",
-        label: "MERN Stack",
-        delay: "delay-400"
-    },
+    // {
+    //     icon: FaBriefcase,
+    //     iconColor: "text-emerald-500 dark:text-emerald-400",
+    //     label: "MERN Stack",
+    //     delay: "delay-400"
+    // },
     {
         icon: FaGraduationCap,
         iconColor: "text-indigo-500 dark:text-indigo-400",

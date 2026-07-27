@@ -21,7 +21,7 @@ const allSkills = [
     },
     {
         id: 5,
-        name: "DaisyUI",
+        name: "Shadcn UI",
         category: "frontend"
     },
     {
@@ -63,6 +63,16 @@ const allSkills = [
         id: 13,
         name: "C++",
         category: "language"
+    },
+    {
+        id: 14,
+        name: "DaisyUI",
+        category: "frontend"
+    },
+    {
+        id: 15,
+        name: "Prisma ORM",
+        category: "database"
     },
 ];
 

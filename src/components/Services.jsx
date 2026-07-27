@@ -1,69 +1,95 @@
-import { Code2, Database, Globe } from "lucide-react";
-
-const services = [
-    {
-        id: 1,
-        icon: <Globe size={40} className="text-blue-100border-blue-100" />,
-        title: "Frontend Development",
-        description:
-            "Building responsive, interactive, and accessible user interfaces using React, Tailwind CSS, and modern JavaScript to deliver seamless user experiences.",
-    },
-    {
-        id: 2,
-        icon: <Database size={40} className="text-blue-100border-blue-100" />,
-        title: "Backend Development",
-        description:
-            "Developing secure and scalable REST APIs with Node.js, Express.js, MongoDB, and PostgreSQL while focusing on performance and maintainability.",
-    },
-    {
-        id: 3,
-        icon: <Code2 size={40} className="text-blue-100border-blue-100" />,
-        title: "Full-Stack Development",
-        description:
-            "Creating complete web applications by integrating modern frontend technologies with robust backend services to solve real-world problems.",
-    },
-];
+import { FaArrowRightLong } from "react-icons/fa6";
+import services from "../data/service/services.js";
 
 const Services = () => {
+    // Function to scroll to contact section
+    const scrollToContact = (id, isSmooth = true) => {
+        setTimeout(() => {
+            const element = document.getElementById(id);
+            if (element) {
+                if (isSmooth) {
+                    window.scrollTo({
+                        top: element.offsetTop - 70,
+                        behavior: "smooth",
+                    });
+                } else {
+                    window.scrollTo(0, element.offsetTop - 70);
+                }
+            }
+        }, 100);
+    };
+
     return (
-        <section id="services" className="py-20 dark:bg-black">
-            <div className="max-w-7xl mx-auto px-6">
+        <section
+            id="services"
+            className="py-20 dark:bg-black transition-colors duration-300"
+        >
+            <div className="container max-w-7xl mx-auto px-4">
                 {/* Heading */}
-                <div className="text-center mb-14">
-                    {/* <p className="text-blue-100border-blue-100 font-semibold uppercase tracking-widest">
-                        What I Do
+                <div className="text-center mb-10">
+                    {/* <p className="text-blue-600 font-semibold uppercase tracking-[0.3em] mb-3">
+                        WHAT I DO
                     </p> */}
 
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
-                        My Services
-                    </h2>
+                    <div className="flex items-center justify-center mb-4">
+                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-blue-500"></span>
+                        <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
+                            My Services
+                            {/* My <span className="text-blue-700 dark:text-blue-400">Services</span> */}
+                        </span>
+                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-blue-500"></span>
+                    </div>
 
-                    <p className="md:text-[1.3rem] max-w-3xl mx-auto mt-6">
+                    <p className="mt-6 max-w-3xl mx-auto text-[1.3rem] dark:text-gray-300 leading-relaxed">
                         I build modern, scalable, and user-friendly web applications with a
-                        focus on performance, clean code, and exceptional user experience.
+                        strong focus on performance, clean code, and exceptional user
+                        experience.
                     </p>
                 </div>
 
-                {/* Cards */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service) => (
-                        <div
-                            key={service.id}
-                            className="group rounded-2xl border border-base-300 bg-base-200 p-8 hover:border-blue-100 hover:-translate-y-2 transition-all duration-300"
-                        >
-                            <div className="w-16 h-16 rounded-xl bg-blue-200 flex items-center justify-center mb-6 group-hover:bg-blue-300 group-hover:text-white transition-all duration-300">
-                                {service.icon}
+                {/* Service Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map((service) => {
+                        const Icon = service.icon;
+
+                        return (
+                            <div
+                                key={service.id}
+                                className="group rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500 drop-shadow hover:shadow-xl hover:shadow-blue-500/20"
+                            >
+                                {/* Icon */}
+                                <div className="w-16 h-16 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-blue-600">
+                                    <Icon
+                                        size={36}
+                                        className="text-blue-600 group-hover:text-white transition-colors duration-300"
+                                    />
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    {service.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="dark:text-gray-300 text-[1.2rem] leading-relaxed text-justify">
+                                    {service.description}
+                                </p>
+
+                                {/* Bottom Line */}
+                                <div className="mt-4 h-1 w-0 bg-blue-600 rounded-full transition-all duration-500 group-hover:w-16"></div>
                             </div>
+                        );
+                    })}
+                </div>
 
-                            <h3 className="text-2xl font-semibold mb-4">
-                                {service.title}
-                            </h3>
-
-                            <p className="text-[1.2rem] text-justify leading-7">
-                                {service.description}
-                            </p>
-                        </div>
-                    ))}
+                <div className="flex justify-center mt-8">
+                    <button
+                        onClick={() => scrollToContact("contact")}
+                        className="inline-flex items-center gap-2 px-5 py-3 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-lg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group/btn cursor-pointer"
+                    >
+                        Let's Discuss Your Project
+                        <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    </button>
                 </div>
             </div>
         </section>

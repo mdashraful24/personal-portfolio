@@ -168,7 +168,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                         <button
                             className="
                                 w-full flex items-center justify-between
-                                py-3 px-5 rounded-xl
+                                py-2 px-4 rounded-xl
                                 bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800
                                 text-white font-medium
                                 hover:from-blue-600 hover:to-blue-700

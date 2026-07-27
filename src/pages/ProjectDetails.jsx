@@ -201,16 +201,16 @@ const MagnifyingImage = ({ src, alt }) => {
                     src={src}
                     alt={alt}
                     className="w-full h-full transition-transform duration-300"
-                    style={{
-                        transform: zoom.active ? 'scale(2.5)' : 'scale(1)',
-                        transformOrigin: `${position.x}% ${position.y}%`
-                    }}
+                    // style={{
+                    //     transform: zoom.active ? 'scale(2.5)' : 'scale(1)',
+                    //     transformOrigin: `${position.x}% ${position.y}%`
+                    // }}
                     onError={(e) => {
                         e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image";
                     }}
                 />
             </div>
-            {zoom.active && (
+            {/* {zoom.active && (
                 <div
                     className="magnifyImageZoom"
                     style={{
@@ -218,7 +218,7 @@ const MagnifyingImage = ({ src, alt }) => {
                         top: `${zoom.y}%`,
                     }}
                 />
-            )}
+            )} */}
         </div>
     );
 };
@@ -290,9 +290,9 @@ const ProjectDetails = () => {
         <div className="min-h-screen bg-gray-50 dark:bg-black py-8">
             {/* Header Section */}
             <div className="container max-w-7xl mx-auto px-4">
-                <div className="hidden lg:block mb-6">
+                {/* <div className="hidden lg:block mb-6">
                     <BackButton onClick={() => navigate(-1)} />
-                </div>
+                </div> */}
 
                 {/* Project Hero */}
                 <div className="grid lg:grid-cols-2 gap-8 mb-8">

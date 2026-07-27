@@ -1,4 +1,4 @@
-const services = [
+const serviceList = [
     {
         id: 1,
         name: "Firebase",
@@ -41,4 +41,4 @@ const services = [
     },
 ];
 
-export default services;
+export default serviceList;

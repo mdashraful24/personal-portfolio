@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import education from "../data/educationalInfo.js";
-import certifications from "../data/certificationInfo.js";
+import education from "../data/education/educationalInfo.js";
+import certifications from "../data/education/certificationInfo.js";
 import "./css/education.css";
 import {
     FaGraduationCap,

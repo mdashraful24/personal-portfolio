@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRightLong, FaFolderOpen, FaCode, FaUsers, FaLaptopCode } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import projectsData from '../data/projects.js';
+import projectsData from '../data/project/projects.js';
 
 const ProjectsShowcase = () => {
     const [myProjects, setMyProjects] = useState([]);
@@ -156,7 +156,7 @@ const ProjectsShowcase = () => {
 
                                 {/* Explore Button */}
                                 <button
-                                    className="w-full flex items-center justify-between py-3 px-5 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn text-[1.1rem]"
+                                    className="w-full flex items-center justify-between py-2 px-4 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn text-[1.1rem]"
                                 >
                                     <span>View All Projects</span>
                                     <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />

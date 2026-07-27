@@ -16,9 +16,10 @@ const Navbar = () => {
     const navItems = [
         // { id: "home", label: "Home", path: "/", isSection: true },
         { id: "about", label: "About", path: "/", isSection: true },
+        { id: "services", label: "Services", path: "/", isSection: true },
         { id: "skills", label: "Skills", path: "/", isSection: true },
-        { id: "experience", label: "Experience", path: "/", isSection: true },
         { id: "projects", label: "Projects", path: "/", isSection: true },
+        { id: "experience", label: "Experience", path: "/", isSection: true },
         { id: "educations", label: "Education", path: "/", isSection: true },
         { id: "contact", label: "Contact", path: "/", isSection: true },
         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
@@ -148,7 +149,7 @@ const Navbar = () => {
     const mobileNavLinks = (
         <div className="flex flex-col h-full bg-white dark:bg-gray-900">
             {/* Header with logo and close */}
-            <div className="flex items-center justify-end p-4 bg-white dark:bg-gray-900">
+            <div className="flex items-center justify-end px-4 pt-3 bg-white dark:bg-gray-900">
                 {/* <img src={logo} alt="Logo" className="w-32" /> */}
                 <button
                     onClick={() => setMobileMenuOpen(false)}
@@ -159,7 +160,7 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Items */}
-            <div className="flex-1 pb-6 bg-white dark:bg-gray-900">
+            <div className="flex-1 pb-6 bg-white dark:bg-gray-900 shadow-[0_30px_30px_rgba(59,130,246,0.5)]">
                 <div className="space-y-5">
                     {navItems.map((item) => (
                         <a
@@ -174,13 +175,13 @@ const Navbar = () => {
             </div>
 
             {/* Bottom Section */}
-            <div className="p-6 border-t border-gray-300 dark:border-gray-700 space-y-4 bg-white dark:bg-gray-900 shadow-lg dark:shadow-[0_30px_50px_rgba(59,130,246,0.5)]">
+            {/* <div className="p-6 border-t border-gray-300 dark:border-gray-700 space-y-4 bg-white dark:bg-gray-900 shadow-lg dark:shadow-[0_30px_50px_rgba(59,130,246,0.5)]">
                 <div className="flex items-center justify-between px-4 py-2 rounded-xl bg-slate-300 dark:bg-gray-800">
                     <span className="text-black dark:text-gray-300">Theme</span>
                     <DarkLightTheme />
                 </div>
 
-                {/* <button
+                <button
                     onClick={() => {
                         const link = document.createElement('a');
                         href = "/Ashraful_Islam_Ratul_MERN_Stack_Developer_CV.pdf"
@@ -192,8 +193,8 @@ const Navbar = () => {
                 >
                     <Download size={18} />
                     <span>Download CV</span>
-                </button> */}
-            </div>
+                </button>
+            </div> */}
         </div>
     );
 
@@ -211,12 +212,12 @@ const Navbar = () => {
                             <img
                                 src={logo}
                                 alt="Logo"
-                                className="block md:hidden lg:block w-32 lg:w-40"
+                                className="hidden md:block w-32 md:w-40"
                             />
                         </div>
 
                         {/* Medium only */}
-                        <div className="hidden md:block lg:hidden font-mono text-xl font-bold tracking-tight space-x-1">
+                        <div className="block md:hidden font-mono text-xl font-bold tracking-tight space-x-1">
                             <span className="text-blue-500">&lt;</span>
                             <span className="dark:text-white">Ratul</span>
                             <span className="text-blue-500">/&gt;</span>
@@ -224,33 +225,37 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <div className="navbar-center hidden md:flex mt-1 lg:-mt-1">
+                <div className="navbar-center hidden lg:flex mt-1 lg:-mt-1">
                     <ul className="flex items-center gap-6 lg:gap-10 md:text-[1.05rem] lg:text-[1.3rem] cursor-pointer">
                         {desktopNavLinks}
                     </ul>
                 </div>
 
-                <div className="navbar-end md:gap-3 lg:gap-6">
+                <div className="navbar-end gap-4 lg:gap-6">
+                    <div>
+                        <DarkLightTheme />
+                    </div>
+
                     {/* Mobile menu button */}
                     <button
                         onClick={() => setMobileMenuOpen(true)}
-                        className="md:hidden"
+                        className="lg:hidden"
                         aria-label="Open menu"
                     >
                         <Menu size={24} className="text-gray-700 dark:text-gray-300" />
                     </button>
 
-                    {/* Mobile Sidebar/Drawer Menu */}
+                    {/* Mobile Sidebar/Drawer Menu - only on small and medium screens */}
                     {mobileMenuOpen && (
                         <>
                             {/* Backdrop */}
-                            {/* <div
-                                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
+                            <div
+                                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden"
                                 onClick={() => setMobileMenuOpen(false)}
-                            /> */}
+                            />
 
                             {/* Drawer */}
-                            <div className="fixed right-0 top-0 bottom-0 w-full shadow-2xl z-50 transform transition-transform duration-300 ease-out md:hidden animate-slideInRight">
+                            <div className="fixed right-0 top-0 bottom-0 w-full shadow-2xl z-50 transform transition-transform duration-300 ease-out lg:hidden animate-slideInRight">
                                 {mobileNavLinks}
                             </div>
                         </>
@@ -266,11 +271,10 @@ const Navbar = () => {
                         <span className="relative z-10">CV</span>
                     </a> */}
 
-                    <span
-                        className="hidden md:block"
+                    {/* <span className="hidden md:block"
                     >
                         <DarkLightTheme />
-                    </span>
+                    </span> */}
                 </div>
             </div>
         </div>
@@ -278,407 +282,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-// import { useEffect, useState } from "react";
-// import { useNavigate, useLocation } from "react-router-dom";
-// import logo from '../../src/assets/logo3.png';
-// import { Download } from "lucide-react";
-
-// const Navbar = () => {
-//     const [activeSection, setActiveSection] = useState("");
-//     const [dropdownOpen, setDropdownOpen] = useState(false);
-//     const navigate = useNavigate();
-//     const location = useLocation();
-
-//     // Define nav items with support for both section scrolling and route paths
-//     const navItems = [
-//         { id: "home", label: "Home", path: "/", isSection: true },
-//         { id: "about", label: "About", path: "/", isSection: true },
-//         { id: "skills", label: "Skills", path: "/", isSection: true },
-//         { id: "projects", label: "Projects", path: "/", isSection: true },
-//         { id: "contact", label: "Contact", path: "/", isSection: true },
-//         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
-//         // ...(!user ? [{ id: "login", label: "Login", path: "/login", isSection: false }] : [])
-//     ];
-
-//     useEffect(() => {
-//         if (location.pathname !== "/") {
-//             setActiveSection("");
-//             return;
-//         }
-
-//         const sections = document.querySelectorAll("section");
-//         const observer = new IntersectionObserver(
-//             (entries) => {
-//                 entries.forEach((entry) => {
-//                     if (entry.isIntersecting) {
-//                         setActiveSection(entry.target.id);
-//                     }
-//                 });
-//             },
-//             { threshold: 0.5 }
-//         );
-
-//         sections.forEach((section) => observer.observe(section));
-
-//         return () => observer.disconnect();
-//     }, [location.pathname]);
-
-//     const scrollToSection = (id, isSmooth = true) => {
-//         navigate("/");
-
-//         setTimeout(() => {
-//             const element = document.getElementById(id);
-//             if (element) {
-//                 if (isSmooth) {
-//                     window.scrollTo({
-//                         top: element.offsetTop - 70,
-//                         behavior: "smooth",
-//                     });
-//                 } else {
-//                     // Instant scroll without smooth behavior
-//                     window.scrollTo(0, element.offsetTop - 70);
-//                 }
-//             }
-//         }, 100);
-//     };
-
-//     const handleSectionClick = (id, path, isSection) => {
-//         if (isSection) {
-//             if (location.pathname === "/") {
-//                 scrollToSection(id, true); // Smooth scroll for nav items
-//             } else {
-//                 scrollToSection(id, true); // Smooth scroll for nav items
-//             }
-//         } else {
-//             navigate(path);
-//         }
-//         setDropdownOpen(false);
-//     };
-
-//     // Special handler for logo click - instant scroll
-//     const handleLogoClick = () => {
-//         if (location.pathname === "/") {
-//             const element = document.getElementById("home");
-//             if (element) {
-//                 window.scrollTo(0, element.offsetTop - 70); // Instant scroll
-//             }
-//         } else {
-//             navigate("/");
-//             setTimeout(() => {
-//                 const element = document.getElementById("home");
-//                 if (element) {
-//                     window.scrollTo(0, element.offsetTop - 70); // Instant scroll
-//                 }
-//             }, 100);
-//         }
-//         setDropdownOpen(false);
-//     };
-
-//     const toggleDropdown = () => {
-//         setDropdownOpen(!dropdownOpen);
-//     };
-
-//     // Check if a nav item is active
-//     const isItemActive = (item) => {
-//         if (item.isSection) {
-//             return location.pathname === "/" && activeSection === item.id;
-//         }
-//         return location.pathname === item.path;
-//     };
-
-//     // Single navLinksStyle using map
-//     const navLinksStyle = (
-//         <>
-//             {navItems.map((item) => (
-//                 <li key={item.id} className="text-center group">
-//                     <a
-//                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
-//                         className={`relative inline-block pb-1 transition-colors duration-300 cursor-pointer
-//                             ${isItemActive(item)
-//                                 ? "text-blue-600 font-semibold"
-//                                 : "text-gray-700 hover:text-blue-600"
-//                             }`}
-//                     >
-//                         {item.label}
-//                         <span className={`absolute left-1/2 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 transition-all duration-300 ease-out
-//                             ${isItemActive(item)
-//                                 ? 'w-full -translate-x-1/2 opacity-100'
-//                                 : 'w-0 -translate-x-1/2 opacity-0 group-hover:bg-gradient-to-l group-hover:w-full group-hover:opacity-100'
-//                             }`} />
-//                     </a>
-//                 </li>
-//             ))}
-//         </>
-//     );
-
-//     return (
-//         <div className="fixed top-0 left-0 w-full z-50 bg-base-100/60 backdrop-blur-md shadow-md">
-//             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
-//                 <div className="navbar-start">
-//                     <a
-//                         onClick={handleLogoClick}
-//                         className="cursor-pointer"
-//                     >
-//                         <img src={logo} alt="Logo" className="w-40 lg:w-48" />
-//                     </a>
-//                 </div>
-//                 <div className="navbar-center hidden md:flex">
-//                     <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">
-//                         {navLinksStyle}
-//                     </ul>
-//                 </div>
-//                 <div className="navbar-end lg:pr-2">
-//                     {/* Mobile menu button */}
-//                     <div className="dropdown md:hidden">
-//                         <div tabIndex={0} role="button" className="btn btn-ghost pr-0.5" onClick={toggleDropdown}>
-//                             <svg
-//                                 xmlns="http://www.w3.org/2000/svg"
-//                                 className="h-6 w-6"
-//                                 fill="none"
-//                                 viewBox="0 0 24 24"
-//                                 stroke="currentColor"
-//                             >
-//                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-//                             </svg>
-//                         </div>
-//                         {dropdownOpen && (
-//                             <>
-//                                 <ul
-//                                     tabIndex={0}
-//                                     className="fixed inset-0 bg-base-100 flex flex-col items-center justify-center z-[1] p-4 shadow space-y-5 font-bold"
-//                                     style={{ height: "50vh" }}
-//                                 >
-//                                     {navLinksStyle}
-//                                 </ul>
-//                                 <div
-//                                     role="button"
-//                                     className="fixed top-4 right-5 z-[2] cursor-pointer"
-//                                     onClick={toggleDropdown}
-//                                 >
-//                                     <svg
-//                                         xmlns="http://www.w3.org/2000/svg"
-//                                         className="h-6 w-6"
-//                                         fill="none"
-//                                         viewBox="0 0 24 24"
-//                                         stroke="currentColor"
-//                                     >
-//                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-//                                     </svg>
-//                                 </div>
-//                             </>
-//                         )}
-//                     </div>
-
-//                     {/* Resume button */}
-//                     <a
-//                         href="/resume.pdf"
-//                         download="Resume by Ashraful Islam Ratul.pdf"
-//                         className="hidden md:inline-flex items-center gap-2 relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
-//                     >
-//                         <Download size={16} className="relative z-10" />
-//                         <span className="relative z-10">Resume</span>
-//                     </a>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
-
-// Smooth scrolling to home
-// import { useEffect, useState } from "react";
-// import { useNavigate, useLocation } from "react-router-dom";
-// import logo from '../../src/assets/logo2.png';
-
-// const Navbar = () => {
-//     const [activeSection, setActiveSection] = useState("");
-//     const [dropdownOpen, setDropdownOpen] = useState(false);
-//     const navigate = useNavigate();
-//     const location = useLocation();
-
-//     // Define nav items with support for both section scrolling and route paths
-//     const navItems = [
-//         { id: "home", label: "Home", path: "/", isSection: true },
-//         { id: "about", label: "About", path: "/", isSection: true },
-//         { id: "skills", label: "Skills", path: "/", isSection: true },
-//         { id: "projects", label: "Projects", path: "/", isSection: true },
-//         { id: "contact", label: "Contact", path: "/", isSection: true },
-//         // ...(user ? [{ id: "dashboard", label: "Dashboard", path: "/dashboard", isSection: false }] : []),
-//         // ...(!user ? [{ id: "login", label: "Login", path: "/login", isSection: false }] : [])
-//     ];
-
-//     useEffect(() => {
-//         if (location.pathname !== "/") {
-//             setActiveSection("");
-//             return;
-//         }
-
-//         const sections = document.querySelectorAll("section");
-//         const observer = new IntersectionObserver(
-//             (entries) => {
-//                 entries.forEach((entry) => {
-//                     if (entry.isIntersecting) {
-//                         setActiveSection(entry.target.id);
-//                     }
-//                 });
-//             },
-//             { threshold: 0.5 }
-//         );
-
-//         sections.forEach((section) => observer.observe(section));
-
-//         return () => observer.disconnect();
-//     }, [location.pathname]);
-
-//     const scrollToSection = (id) => {
-//         navigate("/");
-
-//         setTimeout(() => {
-//             const element = document.getElementById(id);
-//             if (element) {
-//                 window.scrollTo({
-//                     top: element.offsetTop - 70,
-//                     behavior: "smooth",
-//                 });
-//             }
-//         }, 100);
-//     };
-
-//     const handleSectionClick = (id, path, isSection) => {
-//         if (isSection) {
-//             if (location.pathname === "/") {
-//                 scrollToSection(id);
-//             } else {
-//                 scrollToSection(id);
-//             }
-//         } else {
-//             navigate(path);
-//         }
-//         setDropdownOpen(false);
-//     };
-
-//     const toggleDropdown = () => {
-//         setDropdownOpen(!dropdownOpen);
-//     };
-
-//     // Check if a nav item is active
-//     const isItemActive = (item) => {
-//         if (item.isSection) {
-//             return location.pathname === "/" && activeSection === item.id;
-//         }
-//         return location.pathname === item.path;
-//     };
-
-//     // Single navLinksStyle using map
-//     const navLinksStyle = (
-//         <>
-//             {navItems.map((item) => (
-//                 <li key={item.id} className="text-center group">
-//                     <a
-//                         onClick={() => handleSectionClick(item.id, item.path, item.isSection)}
-//                         className={`relative inline-block pb-1 transition-colors duration-300 cursor-pointer
-//                             ${isItemActive(item)
-//                                 ? "text-blue-600 font-semibold"
-//                                 : "text-gray-700 hover:text-blue-600"
-//                             }`}
-//                     >
-//                         {item.label}
-//                         <span className={`absolute left-1/2 bottom-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 transition-all duration-300 ease-out
-//                             ${isItemActive(item)
-//                                 ? 'w-full -translate-x-1/2 opacity-100'
-//                                 : 'w-0 -translate-x-1/2 opacity-0 group-hover:bg-gradient-to-l group-hover:w-full group-hover:opacity-100'
-//                             }`} />
-//                     </a>
-//                 </li>
-//             ))}
-//         </>
-//     );
-
-//     return (
-//         <div className="fixed top-0 left-0 w-full z-50 bg-base-100 shadow-md">
-//             <div className="navbar container max-w-7xl mx-auto px-3 lg:px-2 lg:py-0">
-//                 <div className="navbar-start">
-//                     <a
-//                         onClick={() => handleSectionClick("home", "/", true)}
-//                         className="cursor-pointer"
-//                     >
-//                         <img src={logo} alt="" className="w-40 lg:w-48" />
-//                     </a>
-//                 </div>
-//                 <div className="navbar-center hidden md:flex">
-//                     <ul className="flex items-center gap-6 lg:gap-10 lg:text-lg cursor-pointer">
-//                         {navLinksStyle}
-//                     </ul>
-//                 </div>
-//                 <div className="navbar-end lg:pr-2">
-//                     {/* Mobile menu button */}
-//                     <div className="dropdown md:hidden">
-//                         <div tabIndex={0} role="button" className="btn btn-ghost pr-0.5" onClick={toggleDropdown}>
-//                             <svg
-//                                 xmlns="http://www.w3.org/2000/svg"
-//                                 className="h-6 w-6"
-//                                 fill="none"
-//                                 viewBox="0 0 24 24"
-//                                 stroke="currentColor"
-//                             >
-//                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-//                             </svg>
-//                         </div>
-//                         {dropdownOpen && (
-//                             <>
-//                                 <ul
-//                                     tabIndex={0}
-//                                     className="fixed inset-0 bg-base-100 flex flex-col items-center justify-center z-[1] p-4 shadow space-y-5 font-bold"
-//                                     style={{ height: "50vh" }}
-//                                 >
-//                                     {navLinksStyle}
-//                                 </ul>
-//                                 <div
-//                                     role="button"
-//                                     className="fixed top-4 right-5 z-[2] cursor-pointer"
-//                                     onClick={toggleDropdown}
-//                                 >
-//                                     <svg
-//                                         xmlns="http://www.w3.org/2000/svg"
-//                                         className="h-6 w-6"
-//                                         fill="none"
-//                                         viewBox="0 0 24 24"
-//                                         stroke="currentColor"
-//                                     >
-//                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-//                                     </svg>
-//                                 </div>
-//                             </>
-//                         )}
-//                     </div>
-
-//                     {/* Resume button */}
-//                     <a
-//                         href="/resume.pdf"
-//                         download="Resume by Ashraful Islam Ratul.pdf"
-//                         className="hidden md:inline-block relative px-3 py-1.5 rounded-lg overflow-hidden bg-blue-600 text-white font-medium transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98]"
-//                     >
-//                         <span className="relative z-10">Resume</span>
-//                     </a>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Navbar;

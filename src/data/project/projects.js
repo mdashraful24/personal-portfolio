@@ -1039,7 +1039,7 @@ const projectsData = {
                 }
             ],
             "demoLink": "https://smart-mentoring-system.netlify.app",
-            "codeLink": "https://github.com/sabbirsolid/smart-mentoring-system",
+            "codeLink": "https://github.com/mdashraful24/smart-mentoring-system-client",
             "image": "/assets/project-cover/smart-mentoring-system-sms.png",
             "challenges": [
                 "Implementing JWT-based user authentication from scratch",

@@ -22,7 +22,7 @@ const AboutMe = () => {
                         </p>
 
                         <p>
-                            So far, I've completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I'm currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> and <strong className="text-blue-700 dark:text-blue-400">Prisma</strong> to build faster, scalable, and production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                            So far, I've completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I'm currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build faster, scalable, and production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                         </p>
 
                         <p>

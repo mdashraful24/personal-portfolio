@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import projectsData from '../data/projects.js';
+import projectsData from '../data/project/projects.js';
 import GlowCard from '../shared/GlowCard';
 import { Link } from 'react-router-dom';
 import { BsPersonWorkspace, BsCalendar, BsBriefcase } from 'react-icons/bs';
