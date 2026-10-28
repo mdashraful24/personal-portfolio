@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt, FaImage } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql, SiPrisma, SiRadixui } from "react-icons/si";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql, SiPrisma, SiRadixui, SiNextdotjs } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -30,6 +30,7 @@ const skillIconMap = {
     "TypeScript": <SiTypescript className="text-blue-500 text-2xl" />,
     "C": <SiC className="text-blue-400 text-2xl" />,
     "C++": <SiCplusplus className="text-blue-400 text-2xl" />,
+    "Next.js": <SiNextdotjs className="text-white text-2xl" />,
 };
 
 // Icon mapping for services

@@ -66,13 +66,18 @@ const allSkills = [
     },
     {
         id: 14,
-        name: "DaisyUI",
+        name: "Next.js",
         category: "frontend"
     },
     {
         id: 15,
         name: "Prisma ORM",
         category: "database"
+    },
+    {
+        id: 16,
+        name: "DaisyUI",
+        category: "frontend"
     },
 ];
 
