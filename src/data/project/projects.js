@@ -1841,7 +1841,7 @@ const projectsData = {
                 "Contributed to building a scalable and maintainable system architecture"
             ],
             "stack": "MERN Stack",
-            "experienceShow": true
+            "experienceShow": false
         }
     ],
     "client-project": [
