@@ -116,6 +116,17 @@
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* Horizontal snap carousel */
+.carousel-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
 
@@ -129,5 +140,9 @@
     #experience .animate-on-scroll {
         opacity: 1;
         transform: none;
+    }
+
+    .carousel-track {
+        scroll-behavior: auto;
     }
 }

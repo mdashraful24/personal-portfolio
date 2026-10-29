@@ -3,7 +3,7 @@ import { BsPersonWorkspace, BsCode, BsAward, BsCalendar, BsBriefcase } from "rea
 import { FiExternalLink, FiMapPin } from "react-icons/fi";
 import "../components/css/Experience.css";
 
-const GlowCard = ({ children, identifier, isActive, onClick }) => {
+const GlowCard = ({ children, identifier, isActive, onClick, className = "" }) => {
     const cardRef = useRef(null);
 
     useEffect(() => {
@@ -61,6 +61,7 @@ const GlowCard = ({ children, identifier, isActive, onClick }) => {
                     ? "border-[#3b82f6] bg-[#1a1a2e]"
                     : "border-[#2a2e5a] bg-[#101123] hover:border-[#3b82f6]/50 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
                 }
+                ${className}
                 `}
             style={{
                 position: "relative",
