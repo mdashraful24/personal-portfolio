@@ -1,4 +1,4 @@
-import { FaDownload, FaFacebook, FaGithub, FaLinkedin, FaBriefcase, FaCode, FaGraduationCap, FaHandshake } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaCode, FaGraduationCap, FaHandshake } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import img from '../../src/assets//image/img.png';
 import './css/HeroSection.css'
@@ -103,7 +103,7 @@ const HeroSection = ({ onHireMeClick }) => {
                         <div className="space-y-4 lg:space-y-7">
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                                 <p className="dark:text-gray-400 mb-2 animate-slide-left delay-100">
-                                    Hi, I'm
+                                    Hi, I&apos;m
                                 </p>
                                 <p className="text-blue-600 dark:text-blue-400 animate-slide-right delay-200">
                                     Ashraful Islam Ratul

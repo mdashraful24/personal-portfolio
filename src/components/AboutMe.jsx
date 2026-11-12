@@ -14,7 +14,7 @@ const AboutMe = () => {
                     </div>
                     <div className="md:text-[1.3rem] text-justify leading-relaxed space-y-5 dark:text-gray-300">
                         <p>
-                            My programming journey began in 2022 with C and C++, where I built a strong foundation in programming and problem-solving. In 2024, I discovered web development and became passionate about creating interactive, responsive, and user-friendly applications. Since then, I've been continuously improving my skills by building real-world projects and exploring modern web technologies.
+                            My programming journey began in 2022 with C and C++, where I built a strong foundation in programming and problem-solving. In 2024, I discovered web development and became passionate about creating interactive, responsive, and user-friendly applications. Since then, I&apos;ve been continuously improving my skills by building real-world projects and exploring modern web technologies.
                         </p>
 
                         <p>
@@ -22,11 +22,11 @@ const AboutMe = () => {
                         </p>
 
                         <p>
-                            So far, I've completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I'm currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build faster, scalable, and production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                            So far, I&apos;ve completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I&apos;m currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build faster, scalable, and production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                         </p>
 
                         <p>
-                            Outside of programming, I enjoy playing cricket and exploring new places, which help me stay refreshed and inspired. I'm naturally curious, enjoy taking on new challenges, and believe that continuous learning is the key to becoming a better developer. My goal is to build high-quality, user-focused applications that solve real-world problems while continuing to grow as a software engineer.
+                            Outside of programming, I enjoy playing cricket and exploring new places, which help me stay refreshed and inspired. I&apos;m naturally curious, enjoy taking on new challenges, and believe that continuous learning is the key to becoming a better developer. My goal is to build high-quality, user-focused applications that solve real-world problems while continuing to grow as a software engineer.
                         </p>
                     </div>
 

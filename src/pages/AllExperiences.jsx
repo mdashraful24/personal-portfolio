@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import projectsData from '../data/project/projects.js';
 import GlowCard from '../shared/GlowCard';
 import { Link } from 'react-router-dom';
@@ -8,38 +8,28 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { FaRegIdBadge, FaTools } from 'react-icons/fa';
 import { Award, Info, NotepadText, X } from 'lucide-react';
 
+const allExperiences = [
+    ...(projectsData['client-project'] || []),
+    ...(projectsData['team-project'] || []),
+    ...(projectsData['working-project'] || []),
+    ...(projectsData['my-project'] || []),
+].filter(exp => exp.experienceShow === true);
+
 const AllExperiences = () => {
     const [selectedExp, setSelectedExp] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [visibleCards, setVisibleCards] = useState([]);
 
-    const allExperiences = [
-        ...(projectsData['client-project'] || []),
-        ...(projectsData['team-project'] || []),
-        ...(projectsData['working-project'] || []),
-        ...(projectsData['my-project'] || []),
-    ].filter(exp => exp.experienceShow === true);
-
     // Staggered animation for cards
     useEffect(() => {
-        // Reset visible cards
-        setVisibleCards([]);
-
-        // Show cards one by one with delay
-        allExperiences.forEach((_, index) => {
+        const timeouts = allExperiences.map((_, index) =>
             setTimeout(() => {
                 setVisibleCards(prev => [...prev, index]);
-            }, index * 100); // 100ms delay between each card
-        });
+            }, index * 100)
+        );
 
-        // Cleanup timeouts on unmount
-        return () => {
-            const timeouts = allExperiences.map((_, index) =>
-                setTimeout(() => { }, index * 100)
-            );
-            timeouts.forEach(clearTimeout);
-        };
-    }, [allExperiences.length]);
+        return () => timeouts.forEach(clearTimeout);
+    }, []);
 
     // Prevent body scroll when modal is open
     useEffect(() => {

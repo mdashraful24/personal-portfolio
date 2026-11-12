@@ -61,7 +61,7 @@ const Education = () => {
         <section
             ref={sectionRef}
             id="educations"
-            className="dark:bg-black py-6 lg:py-20"
+            className="dark:bg-black py-20"
         >
             <div className="container max-w-7xl mx-auto px-4">
                 {/* Heading */}

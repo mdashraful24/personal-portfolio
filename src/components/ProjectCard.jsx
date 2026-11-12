@@ -1,20 +1,12 @@
 import { FaGithub, FaExternalLinkAlt, FaUser, FaUsers, FaBriefcase, FaCog } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Tooltip from "../shared/Tooltip";
 
-const ProjectCard = ({ id, title, image, techStack, topTech, description, githubUrl, demoLink, type, frontend, backend, handling, development }) => {
-    const [imageSrc, setImageSrc] = useState(null);
+const ProjectCard = ({ id, title, image, description, githubUrl, demoLink, type }) => {
     const [imageError, setImageError] = useState(false);
-
-    useEffect(() => {
-        if (image) {
-            setImageSrc(image);
-        } else {
-            setImageError(true);
-        }
-    }, [image]);
+    const imageSrc = image;
 
     // Get badge based on project type
     const getTypeBadge = () => {
@@ -52,35 +44,6 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
         }
     };
 
-    // Get technologies to display - prioritize topTech if available
-    const getTechnologiesToDisplay = () => {
-        if (topTech && Array.isArray(topTech) && topTech.length > 0) {
-            return topTech;
-        }
-
-        const allTechs = [];
-
-        if (frontend && Array.isArray(frontend)) {
-            allTechs.push(...frontend);
-        }
-        if (backend && Array.isArray(backend)) {
-            allTechs.push(...backend);
-        }
-        if (handling && Array.isArray(handling)) {
-            allTechs.push(...handling);
-        }
-        if (development && Array.isArray(development)) {
-            allTechs.push(...development);
-        }
-
-        if (allTechs.length === 0 && techStack && Array.isArray(techStack)) {
-            return techStack.map(tech => ({ name: tech, icon: null }));
-        }
-
-        return allTechs;
-    };
-
-    const technologies = getTechnologiesToDisplay();
     const badge = getTypeBadge();
 
     return (
@@ -93,6 +56,7 @@ const ProjectCard = ({ id, title, image, techStack, topTech, description, github
                         src={imageSrc}
                         alt={title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={() => setImageError(true)}
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">

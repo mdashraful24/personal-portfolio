@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import {
-    FaExternalLinkAlt, FaGithub, FaServer, FaDatabase,
+    FaExternalLinkAlt, FaGithub, FaServer,
     FaCreditCard, FaCloud, FaLightbulb, FaCode, FaPalette,
-    FaMobile, FaImages, FaArrowLeft, FaStar, FaTools,
+    FaImages, FaStar,
     FaRocket, FaCheckCircle, FaLayerGroup, FaShieldAlt,
     FaMagic
 } from "react-icons/fa";
@@ -25,16 +25,6 @@ const hasData = (data) => data && Array.isArray(data) && data.length > 0;
 const getStripeStatus = (handling) => handling?.some(tech => tech.name.toLowerCase().includes('stripe'));
 
 // ============== REUSABLE COMPONENTS ==============
-
-const BackButton = ({ onClick }) => (
-    <button
-        onClick={onClick}
-        className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
-    >
-        <FaArrowLeft className="dark:text-gray-300 group-hover:-translate-x-1 transition-transform duration-300" />
-        <span className="font-semibold dark:text-gray-300">Back</span>
-    </button>
-);
 
 const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
     const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 active:scale-95";
@@ -115,7 +105,7 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
     </button>
 );
 
-const ChallengeItem = ({ challenge, index }) => (
+const ChallengeItem = ({ challenge }) => (
     <div className="group flex items-center gap-4 px-4 py-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border-l-4 border-amber-500 hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-all">
         <div className="flex-shrink-0 w-2.5 h-2.5 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">
             {/* {index + 1} */}
@@ -125,7 +115,7 @@ const ChallengeItem = ({ challenge, index }) => (
     </div>
 );
 
-const RoadmapItem = ({ plan, index }) => (
+const RoadmapItem = ({ plan }) => (
     <div className="group flex items-center gap-4 px-4 py-3 bg-green-50 dark:bg-green-900/10 rounded-xl border-l-4 border-green-500 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all">
         <div className="w-7 h-7 bg-green-500 text-white rounded-lg flex items-center justify-center">
             <FaCheckCircle className="text-sm" />
@@ -163,65 +153,20 @@ const OverviewTechSection = ({ config, techs, color }) => {
 };
 
 // ============== MAGNIFYING GLASS COMPONENT ==============
-const MagnifyingImage = ({ src, alt }) => {
-    const [zoom, setZoom] = useState({ active: false, x: 0, y: 0 });
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const imageRef = useRef(null);
-    const containerRef = useRef(null);
-
-    const handleMouseMove = (e) => {
-        if (!imageRef.current || !containerRef.current) return;
-
-        const rect = imageRef.current.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-        // Constrain values between 0 and 100
-        const constrainedX = Math.min(100, Math.max(0, x));
-        const constrainedY = Math.min(100, Math.max(0, y));
-
-        setPosition({ x: constrainedX, y: constrainedY });
-        setZoom({ active: true, x: constrainedX, y: constrainedY });
-    };
-
-    const handleMouseLeave = () => {
-        setZoom({ active: false, x: 0, y: 0 });
-    };
-
-    return (
-        <div
-            ref={containerRef}
-            className="relative w-full h-full overflow-hidden"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-        >
-            <div className="relative aspect-video w-full h-full overflow-hidden">
-                <img
-                    ref={imageRef}
-                    src={src}
-                    alt={alt}
-                    className="w-full h-full transition-transform duration-300"
-                    // style={{
-                    //     transform: zoom.active ? 'scale(2.5)' : 'scale(1)',
-                    //     transformOrigin: `${position.x}% ${position.y}%`
-                    // }}
-                    onError={(e) => {
-                        e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image";
-                    }}
-                />
-            </div>
-            {/* {zoom.active && (
-                <div
-                    className="magnifyImageZoom"
-                    style={{
-                        left: `${zoom.x}%`,
-                        top: `${zoom.y}%`,
-                    }}
-                />
-            )} */}
+const MagnifyingImage = ({ src, alt }) => (
+    <div className="relative w-full h-full overflow-hidden">
+        <div className="relative aspect-video w-full h-full overflow-hidden">
+            <img
+                src={src}
+                alt={alt}
+                className="w-full h-full transition-transform duration-300"
+                onError={(e) => {
+                    e.target.src = "https://placehold.co/800x450/3b82f6/white?text=Project+Image";
+                }}
+            />
         </div>
-    );
-};
+    </div>
+);
 
 // ============== MAIN COMPONENT ==============
 const ProjectDetails = () => {
@@ -233,14 +178,14 @@ const ProjectDetails = () => {
 
     const hasStripe = getStripeStatus(project?.handling);
 
-    // Update tab category title based on Stripe presence
-    if (hasStripe && TECH_CATEGORIES.handling.title === "Payment & Media") {
-        TECH_CATEGORIES.handling.title = "Media & Payment Gateway";
-        TECH_CATEGORIES.handling.icon = FaCreditCard;
-    } else if (!hasStripe) {
-        TECH_CATEGORIES.handling.title = "Media & Assets";
-        TECH_CATEGORIES.handling.icon = FaImages;
-    }
+    const techCategories = {
+        ...TECH_CATEGORIES,
+        handling: {
+            ...TECH_CATEGORIES.handling,
+            title: hasStripe ? "Media & Payment Gateway" : "Media & Assets",
+            icon: hasStripe ? FaCreditCard : FaImages
+        }
+    };
 
     // Available tabs configuration
     const tabs = [
@@ -277,7 +222,7 @@ const ProjectDetails = () => {
                 <div className="text-center">
                     <div className="text-7xl mb-4">🔍</div>
                     <h2 className="text-3xl font-bold dark:text-white">Project Not Found</h2>
-                    <p className="text-[1.3rem] dark:text-gray-400 mt-2">The project you're looking for doesn't exist.</p>
+                    <p className="text-[1.3rem] dark:text-gray-400 mt-2">The project you&apos;re looking for doesn&apos;t exist.</p>
                     <button onClick={() => navigate(-1)} className="text-[1.2rem] mt-5 text-blue-600 dark:text-blue-400 hover:underline">
                         ← Go Back
                     </button>
@@ -372,7 +317,7 @@ const ProjectDetails = () => {
                     {/* Overview Tab - Shows limited technologies with +X more indicator */}
                     {activeTab === "overview" && (
                         <div className="grid md:grid-cols-2 gap-6">
-                            {Object.entries(TECH_CATEGORIES).map(([key, config]) => {
+                            {Object.entries(techCategories).map(([key, config]) => {
                                 const techs = project[key];
                                 if (!hasData(techs)) return null;
 
@@ -396,7 +341,7 @@ const ProjectDetails = () => {
                                 Complete Technology Stack
                             </h3>
                             <div className="space-y-8">
-                                {Object.entries(TECH_CATEGORIES).map(([key, config]) => {
+                                {Object.entries(techCategories).map(([key, config]) => {
                                     const techs = project[key];
                                     if (!hasData(techs)) return null;
 
@@ -432,7 +377,7 @@ const ProjectDetails = () => {
                             </h3>
                             <div className="space-y-4">
                                 {project.challenges.map((challenge, idx) => (
-                                    <ChallengeItem key={idx} challenge={challenge} index={idx} />
+                                    <ChallengeItem key={idx} challenge={challenge} />
                                 ))}
                             </div>
                         </SectionCard>
@@ -447,7 +392,7 @@ const ProjectDetails = () => {
                             </h3>
                             <div className="space-y-4">
                                 {project.futurePlans.map((plan, idx) => (
-                                    <RoadmapItem key={idx} plan={plan} index={idx} />
+                                    <RoadmapItem key={idx} plan={plan} />
                                 ))}
                             </div>
                         </SectionCard>

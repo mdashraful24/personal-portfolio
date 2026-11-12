@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BsPersonWorkspace, BsCode, BsAward, BsCalendar, BsBriefcase } from "react-icons/bs";
-import { FiExternalLink, FiMapPin } from "react-icons/fi";
+import { useEffect, useRef } from "react";
 import "../components/css/Experience.css";
 
 const GlowCard = ({ children, identifier, isActive, onClick, className = "" }) => {

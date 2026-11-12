@@ -2,10 +2,48 @@ import { useEffect, useState, useRef } from "react";
 import ProjectCard from "../components/ProjectCard.jsx";
 import projectsData from '../data/project/projects.js';
 
+const projects = {
+    my: projectsData["my-project"] || [],
+    team: projectsData["team-project"] || [],
+    client: projectsData["client-project"] || [],
+    working: projectsData["working-project"] || []
+};
+
+// Reusable Icon Component
+const Icon = ({ path, className = "w-4 h-4" }) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={path} />
+    </svg>
+);
+
+// Reusable Tab Button Component
+const TabButton = ({ tab, isActive, onClick, isMobile = false, totalCount }) => (
+    <button
+        onClick={onClick}
+        className={`
+            group relative p-2 rounded-lg text-[1rem] font-semibold transition-all duration-200
+            flex items-center justify-between w-full
+            ${isActive
+                ? "bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-md"
+                : "hover:bg-gray-100 dark:hover:bg-gray-800"
+            }
+            ${isMobile ? "flex-col gap-1 py-2 px-2" : ""}
+        `}
+    >
+        <span className={`flex items-center gap-2 lg:gap-3 ${isMobile ? "flex-col" : ""}`}>
+            <Icon path={tab.icon} className={`hidden md:block ${isMobile ? "w-5 h-5" : "w-4 h-4"} flex-shrink-0`} />
+            {!isMobile && <span className="truncate">{tab.label}</span>}
+            {isMobile && <span className="text- font-medium">{tab.label}</span>}
+        </span>
+        {!isMobile && (
+            <span className={`px-2 py-0.5 rounded-full flex-shrink-0 ml-2 ${isActive ? "dark:bg-white/20 border border-blue-300" : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"}`}>
+                {tab.id === "all" ? totalCount : tab.getCount()}
+            </span>
+        )}
+    </button>
+);
+
 const AllProjects = () => {
-    const [projects, setProjects] = useState({
-        my: [], team: [], client: [], working: []
-    });
     const [activeTab, setActiveTab] = useState("all");
     const [visibleItems, setVisibleItems] = useState({});
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -32,14 +70,7 @@ const AllProjects = () => {
         ? allProjects
         : allProjects.filter(p => p.type === activeTab);
 
-    // Load projects data
     useEffect(() => {
-        setProjects({
-            my: projectsData["my-project"] || [],
-            team: projectsData["team-project"] || [],
-            client: projectsData["client-project"] || [],
-            working: projectsData["working-project"] || []
-        });
         window.scrollTo(0, 0);
     }, []);
 
@@ -52,7 +83,6 @@ const AllProjects = () => {
 
     // Intersection Observer for animations
     useEffect(() => {
-        setVisibleItems({});
         if (observerRef.current) observerRef.current.disconnect();
 
         observerRef.current = new IntersectionObserver(
@@ -79,46 +109,13 @@ const AllProjects = () => {
 
     // Handle tab click with scroll to top on all screens
     const handleTabClick = (tabId) => {
+        setVisibleItems({});
         setActiveTab(tabId);
         setMobileMenuOpen(false);
 
         // Scroll to top smoothly on all screen sizes
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
-    // Reusable Icon Component
-    const Icon = ({ path, className = "w-4 h-4" }) => (
-        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={path} />
-        </svg>
-    );
-
-    // Reusable Tab Button Component
-    const TabButton = ({ tab, isActive, onClick, isMobile = false }) => (
-        <button
-            onClick={onClick}
-            className={`
-                group relative p-2 rounded-lg text-[1rem] font-semibold transition-all duration-200
-                flex items-center justify-between w-full
-                ${isActive
-                    ? "bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-md"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                }
-                ${isMobile ? "flex-col gap-1 py-2 px-2" : ""}
-            `}
-        >
-            <span className={`flex items-center gap-2 lg:gap-3 ${isMobile ? "flex-col" : ""}`}>
-                <Icon path={tab.icon} className={`hidden md:block ${isMobile ? "w-5 h-5" : "w-4 h-4"} flex-shrink-0`} />
-                {!isMobile && <span className="truncate">{tab.label}</span>}
-                {isMobile && <span className="text- font-medium">{tab.label}</span>}
-            </span>
-            {!isMobile && (
-                <span className={`px-2 py-0.5 rounded-full flex-shrink-0 ml-2 ${isActive ? "dark:bg-white/20 border border-blue-300" : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400"}`}>
-                    {tab.id === "all" ? allProjects.length : tab.getCount()}
-                </span>
-            )}
-        </button>
-    );
 
     return (
         <div className="dark:bg-black">
@@ -138,7 +135,7 @@ const AllProjects = () => {
                                     <span className="px-3 lg:px-4 text-3xl lg:text-4xl font-bold dark:text-white">All Projects</span>
                                     <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                                 </div>
-                                <p className="md:text-[1.15rem] dark:text-gray-300">Take a look at a selection of projects I've created. Each one showcases my skills and creativity.</p>
+                                <p className="md:text-[1.15rem] dark:text-gray-300">Take a look at a selection of projects I&apos;ve created. Each one showcases my skills and creativity.</p>
                             </div>
 
                             {/* Tab Navigation */}
@@ -150,6 +147,7 @@ const AllProjects = () => {
                                             tab={tab}
                                             isActive={activeTab === tab.id}
                                             onClick={() => handleTabClick(tab.id)}
+                                            totalCount={allProjects.length}
                                         />
                                     ))}
                                 </div>
@@ -233,6 +231,7 @@ const AllProjects = () => {
                                 isActive={activeTab === tab.id}
                                 onClick={() => handleTabClick(tab.id)}
                                 isMobile={true}
+                                totalCount={allProjects.length}
                             />
                         ))}
                     </div>

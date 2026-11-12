@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { useNavigate } from "react-router-dom";
 import { FaArrowRightLong, FaFolderOpen, FaCode, FaUsers, FaLaptopCode } from "react-icons/fa6";
@@ -6,18 +5,11 @@ import { motion } from "framer-motion";
 import projectsData from '../data/project/projects.js';
 
 const ProjectsShowcase = () => {
-    const [myProjects, setMyProjects] = useState([]);
-    const [teamProjects, setTeamProjects] = useState([]);
-    const [clientProjects, setClientProjects] = useState([]);
-    const [workingProjects, setWorkingProjects] = useState([]);
+    const myProjects = projectsData["my-project"] || [];
+    const teamProjects = projectsData["team-project"] || [];
+    const clientProjects = projectsData["client-project"] || [];
+    const workingProjects = projectsData["working-project"] || [];
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setMyProjects(projectsData["my-project"] || []);
-        setTeamProjects(projectsData["team-project"] || []);
-        setClientProjects(projectsData["client-project"] || []);
-        setWorkingProjects(projectsData["working-project"] || []);
-    }, []);
 
     const displayedMyProjects = myProjects.slice(0, 2);
     const displayedTeamProjects = teamProjects.slice(0, 2);
@@ -40,7 +32,7 @@ const ProjectsShowcase = () => {
 
     return (
         <div className="dark:bg-black">
-            <div id="projects" className="container max-w-7xl mx-auto px-4 py-6 lg:py-20">
+            <div id="projects" className="container max-w-7xl mx-auto px-4 py-20">
                 <div className="container mx-auto text-center mb-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -56,7 +48,7 @@ const ProjectsShowcase = () => {
                             <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         </div>
                         <p className="md:text-[1.3rem] dark:text-gray-300">
-                            Here are some of the projects I've worked on.
+                            Here are some of the projects I&apos;ve worked on.
                         </p>
                     </motion.div>
                 </div>

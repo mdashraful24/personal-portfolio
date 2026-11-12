@@ -1,6 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+    --font-lora: "Lora", serif;
+    --font-playFair: "Playfair Display", serif;
+    --font-montserrat: "Montserrat", serif;
+}
 
 @keyframes slideInRight {
     from {

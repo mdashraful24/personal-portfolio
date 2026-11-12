@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaArrowLeft, FaHome, FaSearch } from "react-icons/fa";
-import { FiAlertTriangle } from "react-icons/fi";
+import { FaArrowLeft, FaHome } from "react-icons/fa";
 import gif from '../../src/assets/404.gif'
 
 const ErrorPage = () => {
@@ -81,8 +80,8 @@ const ErrorPage = () => {
 
                                     {/* Description */}
                                     <p className="dark:text-gray-300 text-lg leading-relaxed">
-                                        Oops! The page you're looking for seems to have wandered off into the digital wilderness.
-                                        Don't worry though, we've got plenty of exciting content waiting for you on the homepage.
+                                        Oops! The page you&apos;re looking for seems to have wandered off into the digital wilderness.
+                                        Don&apos;t worry though, we&apos;ve got plenty of exciting content waiting for you on the homepage.
                                     </p>
 
                                     {/* Action Buttons */}

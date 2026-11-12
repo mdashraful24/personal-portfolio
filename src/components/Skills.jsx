@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaJs, FaGithub, FaFigma, FaGitAlt, FaEnvelope, FaPhoneAlt, FaImage } from "react-icons/fa";
-import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiCanva, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql, SiPrisma, SiRadixui, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiDaisyui, SiExpress, SiC, SiCplusplus, SiNetlify, SiVercel, SiTypescript, SiFirebase, SiStripe, SiCloudinary, SiPostman, SiPix, SiDatabricks, SiPostgresql, SiPrisma, SiRadixui, SiNextdotjs } from "react-icons/si";
 import { SiJsonwebtokens } from "react-icons/si";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -62,7 +62,6 @@ const toolIconMap = {
 const designToolIconMap = {
     "Figma": <FaFigma className="text-purple-400 text-2xl" />,
     "Pixso": <SiPix className="text-pink-500 text-2xl" />,
-    "Canva": <SiCanva className="text-teal-400 text-2xl" />,
 };
 
 // Helper function to get icon dynamically
@@ -71,11 +70,59 @@ const getToolIcon = (toolName) => toolIconMap[toolName] || null;
 const getDesignToolIcon = (toolName) => designToolIconMap[toolName] || null;
 const getServiceIcon = (serviceName) => serviceIconMap[serviceName] || serviceIconMap[serviceName?.toLowerCase()] || null;
 
+const frontendSkills = allSkills
+    .filter(skill => skill.category === "frontend")
+    .map(skill => ({
+        name: skill.name.toUpperCase(),
+        icon: getIcon(skill.name)
+    }));
+
+const backendSkills = allSkills
+    .filter(skill => skill.category === "backend" || skill.category === "database")
+    .map(skill => ({
+        name: skill.name.toUpperCase(),
+        icon: getIcon(skill.name)
+    }));
+
+const coreSkills = allSkills
+    .filter(skill => skill.category === "language")
+    .map(skill => ({
+        name: skill.name.toUpperCase(),
+        icon: getIcon(skill.name)
+    }));
+
+const servicesSkills = serviceList.map(service => ({
+    name: service.name.toUpperCase(),
+    icon: getServiceIcon(service.name)
+}));
+
+const toolsSkills = tools.map(tool => ({
+    name: tool.name.toUpperCase(),
+    icon: getToolIcon(tool.name)
+}));
+
+const designSkills = designTools.map(tool => ({
+    name: tool.name.toUpperCase(),
+    icon: getDesignToolIcon(tool.name)
+}));
+
+const allSkillCards = [
+    { title: "Frontend", icon: <Code2 className="text-[#83838c] dark:text-gray-400 text-xl" />, items: frontendSkills },
+    { title: "Backend & DB", icon: <Server className="text-[#83838c] dark:text-gray-400 text-xl" />, items: backendSkills },
+    { title: "Languages", icon: <FileCode className="text-[#83838c] dark:text-gray-400 text-xl" />, items: coreSkills },
+    { title: "Services", icon: <Plug className="text-[#83838c] dark:text-gray-400 text-xl" />, items: servicesSkills },
+    { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] dark:text-gray-400 text-xl" />, items: toolsSkills },
+    { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] dark:text-gray-400 text-xl" />, items: designSkills },
+];
+
+const CARD_COUNT = 6;
+
 const Skills = () => {
     const [visibleCards, setVisibleCards] = useState([false, false, false, false, false, false]);
     const [visibleItems, setVisibleItems] = useState({});
     const sectionRef = useRef(null);
     const hasAnimated = useRef(false);
+    const startedCards = useRef(new Set());
 
     useEffect(() => {
         AOS.init({
@@ -84,12 +131,13 @@ const Skills = () => {
             offset: 100
         });
 
+        const section = sectionRef.current;
         const observer = new IntersectionObserver(
             (entries) => {
                 const [entry] = entries;
                 if (entry.isIntersecting && !hasAnimated.current) {
                     hasAnimated.current = true;
-                    visibleCards.forEach((_, cardIndex) => {
+                    for (let cardIndex = 0; cardIndex < CARD_COUNT; cardIndex++) {
                         setTimeout(() => {
                             setVisibleCards(prev => {
                                 const newState = [...prev];
@@ -97,7 +145,7 @@ const Skills = () => {
                                 return newState;
                             });
                         }, cardIndex * 50);
-                    });
+                    }
                 }
             },
             {
@@ -106,27 +154,31 @@ const Skills = () => {
             }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (section) {
+            observer.observe(section);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (section) {
+                observer.unobserve(section);
             }
         };
     }, []);
 
     useEffect(() => {
+        const cardLengths = [
+            frontendSkills.length,
+            backendSkills.length,
+            coreSkills.length,
+            servicesSkills.length,
+            toolsSkills.length,
+            designSkills.length
+        ];
+
         visibleCards.forEach((isVisible, cardIndex) => {
-            if (isVisible && !visibleItems[cardIndex]) {
-                let itemCount = 0;
-                if (cardIndex === 0) itemCount = frontendSkills.length;
-                else if (cardIndex === 1) itemCount = backendSkills.length;
-                else if (cardIndex === 2) itemCount = coreSkills.length;
-                else if (cardIndex === 3) itemCount = servicesSkills.length;
-                else if (cardIndex === 4) itemCount = toolsSkills.length;
-                else if (cardIndex === 5) itemCount = designSkills.length;
+            if (isVisible && !startedCards.current.has(cardIndex)) {
+                startedCards.current.add(cardIndex);
+                const itemCount = cardLengths[cardIndex] || 0;
 
                 for (let i = 0; i < itemCount; i++) {
                     setTimeout(() => {
@@ -144,52 +196,6 @@ const Skills = () => {
             }
         });
     }, [visibleCards]);
-
-    // Fetch and organize skills by category from allSkills
-    const frontendSkills = allSkills
-        .filter(skill => skill.category === "frontend")
-        .map(skill => ({
-            name: skill.name.toUpperCase(),
-            icon: getIcon(skill.name)
-        }));
-
-    const backendSkills = allSkills
-        .filter(skill => skill.category === "backend" || skill.category === "database")
-        .map(skill => ({
-            name: skill.name.toUpperCase(),
-            icon: getIcon(skill.name)
-        }));
-
-    const coreSkills = allSkills
-        .filter(skill => skill.category === "language")
-        .map(skill => ({
-            name: skill.name.toUpperCase(),
-            icon: getIcon(skill.name)
-        }));
-
-    const servicesSkills = serviceList.map(service => ({
-        name: service.name.toUpperCase(),
-        icon: getServiceIcon(service.name)
-    }));
-
-    const toolsSkills = tools.map(tool => ({
-        name: tool.name.toUpperCase(),
-        icon: getToolIcon(tool.name)
-    }));
-
-    const designSkills = designTools.map(tool => ({
-        name: tool.name.toUpperCase(),
-        icon: getDesignToolIcon(tool.name)
-    }));
-
-    const allSkillCards = [
-        { title: "Frontend", icon: <Code2 className="text-[#83838c] dark:text-gray-400 text-xl" />, items: frontendSkills },
-        { title: "Backend & DB", icon: <Server className="text-[#83838c] dark:text-gray-400 text-xl" />, items: backendSkills },
-        { title: "Languages", icon: <FileCode className="text-[#83838c] dark:text-gray-400 text-xl" />, items: coreSkills },
-        { title: "Services", icon: <Plug className="text-[#83838c] dark:text-gray-400 text-xl" />, items: servicesSkills },
-        { title: "Tools & Platforms", icon: <Wrench className="text-[#83838c] dark:text-gray-400 text-xl" />, items: toolsSkills },
-        { title: "UI/UX & Design", icon: <Palette className="text-[#83838c] dark:text-gray-400 text-xl" />, items: designSkills },
-    ];
 
     return (
         <div ref={sectionRef} className="dark:bg-black py-7 lg:py-20">

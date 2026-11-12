@@ -13,7 +13,6 @@ const tools = [
 const designTools = [
     { id: 1, name: "Figma" },
     { id: 2, name: "Pixso" },
-    { id: 3, name: "Canva" },
 ];
 
 export { tools, designTools };

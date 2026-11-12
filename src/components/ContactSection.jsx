@@ -66,7 +66,7 @@ const ContactSection = () => {
                 },
             });
             setTimeout(() => setCopiedEmail(false), 2000);
-        } catch (err) {
+        } catch {
             toast.error("Failed to copy email", {
                 style: {
                     background: '#dc2626',
@@ -131,7 +131,7 @@ const ContactSection = () => {
                 // Clear status after 5 seconds (change this value as needed)
                 clearStatusAfterDelay(5000); // 5000ms = 5 seconds
             },
-            (error) => {
+            () => {
                 setStatus({
                     type: "error",
                     message: "Failed to send message. Please try again or use alternative contact methods."
@@ -242,7 +242,7 @@ const ContactSection = () => {
             <div className="relative px-4 pt-7 pb-14 lg:py-16">
                 <div className="container max-w-[78rem] mx-auto">
                     {/* Header */}
-                    <div className="text-center mb-8 stagger-header">
+                    <div className="text-center mb-10 stagger-header">
                         <div className="flex items-center justify-center mb-4">
                             <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                             <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
@@ -251,7 +251,7 @@ const ContactSection = () => {
                             <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         </div>
                         <p className="md:text-[1.3rem] max-w-2xl mx-auto header-subtitle dark:text-gray-300">
-                            Have a project in mind? Let's collaborate and bring your ideas to life.
+                            Have a project in mind? Let&apos;s collaborate and bring your ideas to life.
                         </p>
                     </div>
 
@@ -382,7 +382,7 @@ const ContactSection = () => {
                             <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 text-white social-card">
                                 <h3 className="text-2xl font-bold mb-1 social-title">Connect With Me</h3>
                                 <p className="text-[1.1rem] text-gray-300 mb-4 social-description">
-                                    Follow my journey and see what I'm working on.
+                                    Follow my journey and see what I&apos;m working on.
                                 </p>
                                 <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (

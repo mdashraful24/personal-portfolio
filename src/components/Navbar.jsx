@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from '../../src/assets/logo3.png';
-import logoTab from '../../src/assets/logo4.png';
-import { Download, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import DarkLightTheme from "../shared/DarkLightTheme";
 
 const Navbar = () => {
-    const [activeSection, setActiveSection] = useState("");
+    const [rawActiveSection, setRawActiveSection] = useState("");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const isHomeRoute = location.pathname === "/";
+    const activeSection = isHomeRoute ? rawActiveSection : "";
 
     // Define nav items with support for both section scrolling and route paths
     const navItems = [
@@ -28,7 +28,6 @@ const Navbar = () => {
 
     useEffect(() => {
         if (location.pathname !== "/") {
-            setActiveSection("");
             return;
         }
 
@@ -37,7 +36,7 @@ const Navbar = () => {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
+                        setRawActiveSection(entry.target.id);
                     }
                 });
             },

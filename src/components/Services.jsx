@@ -87,7 +87,7 @@ const Services = () => {
                         onClick={() => scrollToContact("contact")}
                         className="inline-flex items-center gap-2 px-5 py-3 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-lg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group/btn cursor-pointer"
                     >
-                        Let's Discuss Your Project
+                        Let&apos;s Discuss Your Project
                         <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </button>
                 </div>
