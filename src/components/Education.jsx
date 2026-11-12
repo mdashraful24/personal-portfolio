@@ -67,11 +67,11 @@ const Education = () => {
                 {/* Heading */}
                 <div className="text-center mb-10">
                     <div className="flex items-center justify-center mb-6">
-                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                             My Education
                         </span>
-                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
                     <p className="md:text-[1.3rem] dark:text-gray-300 max-w-4xl mx-auto">
                         My educational background provides a solid foundation, while professional certifications showcase my dedication to staying current with industry standards and best practices.

@@ -135,8 +135,8 @@ const Navbar = () => {
                         {item.label}
                         <span className={`absolute left-1/2 bottom-0 h-0.5 from-blue-400 via-blue-500 to-blue-600 transition-all duration-300 ease-out
                             ${isItemActive(item)
-                                ? 'w-full -translate-x-1/2 opacity-100 bg-gradient-to-r'
-                                : 'w-0 -translate-x-1/2 opacity-0 group-hover:w-full group-hover:opacity-100 bg-gradient-to-l'
+                                ? 'w-full -translate-x-1/2 opacity-100 bg-linear-to-r'
+                                : 'w-0 -translate-x-1/2 opacity-0 group-hover:w-full group-hover:opacity-100 bg-linear-to-l'
                             }`} />
                     </a>
                 </li>

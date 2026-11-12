@@ -8,6 +8,7 @@ import Tooltip from "../shared/Tooltip";
 const ContactSection = () => {
     const form = useRef();
     const [status, setStatus] = useState({ type: "", message: "" });
+    const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [hasAnimated, setHasAnimated] = useState(false);
     const [copiedEmail, setCopiedEmail] = useState(false);
@@ -92,8 +93,67 @@ const ContactSection = () => {
         }, delay);
     };
 
+    const validateForm = () => {
+        const { user_name, user_email, message } = form.current.elements;
+        const nextErrors = {};
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!user_name.value.trim()) {
+            nextErrors.user_name = "Please enter your name.";
+        } else if (user_name.value.trim().length < 2) {
+            nextErrors.user_name = "Name must be at least 2 characters.";
+        }
+
+        const emailValue = user_email.value.trim();
+        if (!emailValue) {
+            nextErrors.user_email = "Please enter your email address.";
+        } else if (!emailPattern.test(emailValue)) {
+            nextErrors.user_email = "Please enter a valid email address.";
+        }
+
+        if (!message.value.trim()) {
+            nextErrors.message = "Please enter your message.";
+        } else if (message.value.trim().length < 10) {
+            nextErrors.message = "Message must be at least 10 characters.";
+        }
+
+        return nextErrors;
+    };
+
+    const clearFieldError = (field) => {
+        setErrors((prev) => {
+            if (!prev[field]) return prev;
+            const next = { ...prev };
+            delete next[field];
+            return next;
+        });
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        const nextErrors = validateForm();
+        if (Object.keys(nextErrors).length > 0) {
+            setErrors(nextErrors);
+            setStatus({ type: "", message: "" });
+            toast.error("Please fix the highlighted fields before sending.", {
+                style: {
+                    background: '#dc2626',
+                    color: '#fff',
+                    padding: '10px 16px',
+                    borderRadius: '12px',
+                },
+                iconTheme: {
+                    primary: '#fff',
+                    secondary: '#dc2626',
+                },
+            });
+            const firstInvalid = ["user_name", "user_email", "message"].find((field) => nextErrors[field]);
+            form.current.elements[firstInvalid]?.focus();
+            return;
+        }
+
+        setErrors({});
         setIsLoading(true);
         setStatus({ type: "", message: "" });
 
@@ -221,8 +281,8 @@ const ContactSection = () => {
             label: "Copy Email",
             tooltipText: copiedEmail ? "Email copied!" : "Copy my email address",
             url: "#",
-            color: "hover:bg-purple-600 hover:text-white",
-            iconColor: "text-purple-600 dark:text-purple-400",
+            color: "hover:bg-blue-600 hover:text-white",
+            iconColor: "text-blue-600 dark:text-blue-400",
             bgColor: "bg-white/10 dark:bg-gray-700",
             onClick: copyEmailToClipboard,
             isCopyButton: true
@@ -235,20 +295,20 @@ const ContactSection = () => {
             className="relative overflow-hidden contact-section dark:bg-black"
         >
             {/* Background Decoration - Hidden in dark mode */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-100 via-gray-100 to-white dark:hidden"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-gray-100 via-gray-100 to-white dark:hidden"></div>
             {/* <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full -translate-y-32 translate-x-32 opacity-20 bg-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div> */}
             {/* <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-200 rounded-full translate-y-48 -translate-x-48 opacity-20 bg-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div> */}
 
             <div className="relative px-4 pt-7 pb-14 lg:py-16">
-                <div className="container max-w-[78rem] mx-auto">
+                <div className="container max-w-312 mx-auto">
                     {/* Header */}
                     <div className="text-center mb-10 stagger-header">
                         <div className="flex items-center justify-center mb-4">
-                            <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                             <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                                 Get In Touch
                             </span>
-                            <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         </div>
                         <p className="md:text-[1.3rem] max-w-2xl mx-auto header-subtitle dark:text-gray-300">
                             Have a project in mind? Let&apos;s collaborate and bring your ideas to life.
@@ -267,9 +327,9 @@ const ContactSection = () => {
                                 style={{ transitionDelay: `${index * 0.1}s` }}
                             >
                                 <div className="flex flex-col drop-shadow">
-                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border ${info.borderColor} transition-all duration-300 hover:shadow-md hover:-translate-y-[0.2rem] flex flex-col flex-grow contact-card-inner dark:bg-gray-800 dark:border-gray-700`}>
+                                    <div className={`${info.bgColor} rounded-xl p-4 shadow border ${info.borderColor} transition-all duration-300 hover:shadow-md hover:translate-y-[-0.2rem] flex flex-col grow contact-card-inner dark:bg-gray-800 dark:border-gray-700`}>
                                         <div className="flex items-start gap-4">
-                                            <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} text-white flex-shrink-0 transition-all duration-300 group-hover:scale-110 contact-icon`}>
+                                            <div className={`p-3 rounded-xl bg-linear-to-br ${info.color} text-white shrink-0 transition-all duration-300 group-hover:scale-110 contact-icon`}>
                                                 {info.icon}
                                             </div>
                                             <div className="flex-1 min-w-0 space-y-0.5">
@@ -296,7 +356,7 @@ const ContactSection = () => {
                                     <h2 className="text-2xl font-bold form-title dark:text-white">Send Me a Message</h2>
                                 </div>
 
-                                <form ref={form} onSubmit={sendEmail}>
+                                <form ref={form} onSubmit={sendEmail} noValidate>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mb-8">
                                         <div className="input-field">
                                             <label className="block text-[1.1rem] font-semibold mb-2 dark:text-gray-300">
@@ -307,8 +367,16 @@ const ContactSection = () => {
                                                 name="user_name"
                                                 placeholder="Enter your name"
                                                 required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-blue-300 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300 hover:border-blue-400 dark:hover:border-blue-500"
+                                                aria-invalid={!!errors.user_name}
+                                                onChange={() => clearFieldError("user_name")}
+                                                className={`w-full px-4 py-3 rounded-xl border ${errors.user_name
+                                                    ? "border-red-500 dark:border-red-500 focus:border-red-500 dark:focus:border-red-500 focus:ring-red-500"
+                                                    : "border-gray-400 dark:border-gray-600 focus:border-blue-300 dark:focus:border-blue-500 focus:ring-blue-500 hover:border-blue-400 dark:hover:border-blue-500"
+                                                    } focus:ring-2 dark:bg-gray-700 dark:text-white outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300`}
                                             />
+                                            {errors.user_name && (
+                                                <p className="mt-1.5 text-sm font-medium text-red-500 dark:text-red-400">{errors.user_name}</p>
+                                            )}
                                         </div>
                                         <div className="input-field">
                                             <label className="block text-[1.1rem] font-semibold mb-2 dark:text-gray-300">
@@ -319,8 +387,16 @@ const ContactSection = () => {
                                                 name="user_email"
                                                 placeholder="xyz@example.com"
                                                 required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-blue-300 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300 hover:border-blue-400 dark:hover:border-blue-500"
+                                                aria-invalid={!!errors.user_email}
+                                                onChange={() => clearFieldError("user_email")}
+                                                className={`w-full px-4 py-3 rounded-xl border ${errors.user_email
+                                                    ? "border-red-500 dark:border-red-500 focus:border-red-500 dark:focus:border-red-500 focus:ring-red-500"
+                                                    : "border-gray-400 dark:border-gray-600 focus:border-blue-300 dark:focus:border-blue-500 focus:ring-blue-500 hover:border-blue-400 dark:hover:border-blue-500"
+                                                    } focus:ring-2 dark:bg-gray-700 dark:text-white outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300`}
                                             />
+                                            {errors.user_email && (
+                                                <p className="mt-1.5 text-sm font-medium text-red-500 dark:text-red-400">{errors.user_email}</p>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="textarea-field">
@@ -332,8 +408,16 @@ const ContactSection = () => {
                                             placeholder="Enter your message..."
                                             rows="6"
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-blue-300 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300 resize-none hover:border-blue-400 dark:hover:border-blue-500"
+                                            aria-invalid={!!errors.message}
+                                            onChange={() => clearFieldError("message")}
+                                            className={`w-full px-4 py-3 rounded-xl border ${errors.message
+                                                ? "border-red-500 dark:border-red-500 focus:border-red-500 dark:focus:border-red-500 focus:ring-red-500"
+                                                : "border-gray-400 dark:border-gray-600 focus:border-blue-300 dark:focus:border-blue-500 focus:ring-blue-500 hover:border-blue-400 dark:hover:border-blue-500"
+                                                } focus:ring-2 dark:bg-gray-700 dark:text-white outline-none transition-all placeholder:text-[1.05rem] placeholder:text-gray-700 dark:placeholder:text-gray-300 resize-none`}
                                         ></textarea>
+                                        {errors.message && (
+                                            <p className="mt-1.5 text-sm font-medium text-red-500 dark:text-red-400">{errors.message}</p>
+                                        )}
                                     </div>
 
                                     {/* Status Message */}
@@ -355,7 +439,7 @@ const ContactSection = () => {
                                         <button
                                             type="submit"
                                             disabled={isLoading}
-                                            className="relative w-full md:w-auto px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-[1.1rem] text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group submit-button"
+                                            className="relative w-full md:w-auto px-4 py-2 rounded-lg overflow-hidden bg-blue-600 text-[1.1rem] text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-linear-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-[0.98] group submit-button cursor-pointer"
                                         >
                                             <div className="flex items-center justify-center gap-2">
                                                 {isLoading ? (
@@ -379,7 +463,7 @@ const ContactSection = () => {
                         {/* Social & Location Info */}
                         <div className="space-y-5 info-sidebar">
                             {/* Social Links */}
-                            <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 text-white social-card">
+                            <div className="bg-linear-to-br from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 text-white social-card">
                                 <h3 className="text-2xl font-bold mb-1 social-title">Connect With Me</h3>
                                 <p className="text-[1.1rem] text-gray-300 mb-4 social-description">
                                     Follow my journey and see what I&apos;m working on.
@@ -387,11 +471,11 @@ const ContactSection = () => {
                                 <div className="flex items-center gap-3 social-icons">
                                     {socialLinks.map((social, index) => (
                                         social.isCopyButton ? (
-                                            <Tooltip key={index} text={social.tooltipText} position="topThree">
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={700}>
                                                 <button
                                                     onClick={social.onClick}
                                                     className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon cursor-pointer inline-flex items-center justify-center`}
-                                                    style={{ transitionDelay: `${index * 0.1}s` }}
+                                                    style={{ transitionDelay: `${index * 0.1}s, ${index * 0.1}s, 0s, 0s, 0s, 0s` }}
                                                 >
                                                     <div className={`p-1 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
                                                         {social.icon}
@@ -399,13 +483,13 @@ const ContactSection = () => {
                                                 </button>
                                             </Tooltip>
                                         ) : (
-                                            <Tooltip key={index} text={social.tooltipText} position="topThree">
+                                            <Tooltip key={index} text={social.tooltipText} position="topThree" delay={700}>
                                                 <a
                                                     href={social.url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className={`p-2 rounded-xl ${social.bgColor} transition-all duration-300 ${social.color} md:hover:scale-110 social-icon inline-flex items-center justify-center`}
-                                                    style={{ transitionDelay: `${index * 0.1}s` }}
+                                                    style={{ transitionDelay: `${index * 0.1}s, ${index * 0.1}s, 0s, 0s, 0s, 0s` }}
                                                 >
                                                     <div className={`p-1 rounded-lg bg-gray-50 dark:bg-gray-700 ${social.iconColor} transition-all duration-300`}>
                                                         {social.icon}
@@ -436,7 +520,7 @@ const ContactSection = () => {
                             </div>
 
                             {/* Quick Note */}
-                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-4 border border-blue-100 dark:border-gray-700 drop-shadow quick-note">
+                            <div className="bg-linear-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-4 border border-blue-100 dark:border-gray-700 drop-shadow quick-note">
                                 <h4 className="text-lg font-bold mb-1.5 dark:text-white">Quick Response</h4>
                                 <p className="text-[1.05rem] dark:text-gray-300 leading-relaxed">
                                     I typically respond within <span className="text-blue-600 dark:text-blue-400 font-semibold">24 hours.</span> For urgent matters, please use the phone or WhatsApp.

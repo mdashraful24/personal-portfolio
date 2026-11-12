@@ -9,12 +9,6 @@ import projectsData from "../data/project/projects.js";
 import "./css/Experience.css";
 import { Link } from "react-router-dom";
 
-const parseStartDate = (duration = "") => {
-    const [start] = duration.split("-");
-    const timestamp = Date.parse(`1 ${start?.trim()}`);
-    return Number.isNaN(timestamp) ? 0 : timestamp;
-};
-
 const Experience = () => {
     const sectionRef = useRef(null);
     const trackRef = useRef(null);
@@ -34,7 +28,7 @@ const Experience = () => {
         // ...(projectsData["my-project"] || []),
     ]
         .filter(exp => exp.experienceShow === true)
-        .sort((a, b) => parseStartDate(b.duration) - parseStartDate(a.duration));
+        .sort((a, b) => a.id - b.id);
 
     const carouselExperiences = experiences.slice(0, 3);
     const showViewAll = experiences.length > 3;

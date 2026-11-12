@@ -32,12 +32,12 @@ const Services = () => {
                     </p> */}
 
                     <div className="flex items-center justify-center mb-4">
-                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-blue-500"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-blue-500"></span>
                         <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                             My Services
                             {/* My <span className="text-blue-700 dark:text-blue-400">Services</span> */}
                         </span>
-                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-blue-500"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-blue-500"></span>
                     </div>
 
                     <p className="mt-6 max-w-3xl mx-auto text-[1.3rem] dark:text-gray-300 leading-relaxed">
@@ -58,9 +58,9 @@ const Services = () => {
                                 className="group rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500 drop-shadow hover:shadow-xl hover:shadow-blue-500/20"
                             >
                                 {/* Icon */}
-                                <div className="w-16 h-16 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-blue-600">
+                                <div className="w-14 h-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-blue-600">
                                     <Icon
-                                        size={36}
+                                        size={30}
                                         className="text-blue-600 group-hover:text-white transition-colors duration-300"
                                     />
                                 </div>
@@ -85,7 +85,7 @@ const Services = () => {
                 <div className="flex justify-center mt-8">
                     <button
                         onClick={() => scrollToContact("contact")}
-                        className="inline-flex items-center gap-2 px-5 py-3 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-lg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group/btn cursor-pointer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-lg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group/btn cursor-pointer"
                     >
                         Let&apos;s Discuss Your Project
                         <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />

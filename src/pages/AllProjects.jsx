@@ -126,14 +126,14 @@ const AllProjects = () => {
                 <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8">
 
                     {/* Left Sidebar */}
-                    <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-64 lg:w-80 flex-shrink-0 transition-all duration-300`}>
+                    <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-64 lg:w-80 shrink-0 transition-all duration-300`}>
                         <div className="md:sticky md:top-24">
                             {/* Header */}
                             <div className="hidden md:block text-center md:text-left mb-4">
                                 <div className="flex items-center justify-center md:justify-start mb-3 lg:mb-4">
-                                    <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-r from-transparent to-blue-700"></span>
+                                    <span className="h-0.5 w-8 lg:w-12 bg-linear-to-r from-transparent to-blue-700"></span>
                                     <span className="px-3 lg:px-4 text-3xl lg:text-4xl font-bold dark:text-white">All Projects</span>
-                                    <span className="h-0.5 w-8 lg:w-12 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                                    <span className="h-0.5 w-8 lg:w-12 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                                 </div>
                                 <p className="md:text-[1.15rem] dark:text-gray-300">Take a look at a selection of projects I&apos;ve created. Each one showcases my skills and creativity.</p>
                             </div>
@@ -154,7 +154,7 @@ const AllProjects = () => {
                             </div>
 
                             {/* Info Card */}
-                            <div className="hidden md:block mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 rounded-xl border border-gray-200 dark:border-gray-800">
+                            <div className="hidden md:block mt-6 p-4 bg-linear-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 rounded-xl border border-gray-200 dark:border-gray-800">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
                                         <Icon path="M13 10V3L4 14h7v7l9-11h-7z" className="w-5 h-5 text-blue-600" />

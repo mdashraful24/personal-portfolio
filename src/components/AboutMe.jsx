@@ -2,15 +2,15 @@
 
 const AboutMe = () => {
     return (
-        <div className="bg-gradient-to-t from-white via-white to-gray-50 dark:bg-gradient-to-t dark:from-black dark:via-black dark:to-black">
+        <div className="bg-linear-to-t from-white via-white to-gray-50 dark:bg-linear-to-t dark:from-black dark:via-black dark:to-black">
             <div className="container max-w-7xl mx-auto px-4 py-7 lg:py-24">
                 <div className="space-y-5">
                     <div className="flex items-center justify-center md:mb-6">
-                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         <span className="px-6 text-3xl md:text-4xl lg:text-5xl text-center font-bold dark:text-white">
                             About Me
                         </span>
-                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
                     <div className="md:text-[1.3rem] text-justify leading-relaxed space-y-5 dark:text-gray-300">
                         <p>
@@ -22,7 +22,7 @@ const AboutMe = () => {
                         </p>
 
                         <p>
-                            So far, I&apos;ve completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I&apos;m currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Next.js</strong> to build faster, scalable, and production-ready applications. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
+                            So far, I&apos;ve completed <strong className="text-blue-700 dark:text-blue-400">10+</strong> projects that have strengthened both my technical skills and problem-solving abilities. I&apos;m currently expanding my knowledge by learning <strong className="text-blue-700 dark:text-blue-400">Docker</strong> to improve my understanding of containerization and application deployment. I also completed my B.Sc. in Information and Communication Engineering from Daffodil International University.
                         </p>
 
                         <p>

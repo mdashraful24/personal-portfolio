@@ -166,7 +166,7 @@ const projectsData = {
             ],
             "demoLink": "https://fixitnow-frontend-six.vercel.app",
             "codeLink": "https://github.com/mdashraful24/l2b7a5-fixitnow-frontend",
-            "image": "/assets/project-cover/fixitnow.png",
+            "image": "/assets/project-cover/fix-it-now.png",
             "challenges": [
                 "Implementing role-based access control across customer, technician, and admin dashboards.",
                 "Integrating Stripe Checkout with protected booking and payment flows.",
@@ -555,7 +555,7 @@ const projectsData = {
             ],
             "demoLink": "https://fieldnexus-frontend.vercel.app",
             "codeLink": "https://github.com/mdashraful24/fieldnexus-frontend-l2b7a7",
-            "image": "/assets/project-cover/fieldnexus.png",
+            "image": "/assets/project-cover/field-nexus.png",
             "challenges": [
                 "Modeling a multi-role workflow across super admins, admins, technicians, customers, and vendor teams.",
                 "Enforcing the work order status state machine and optimistic locking to prevent lost updates.",
@@ -1454,7 +1454,7 @@ const projectsData = {
     "team-project": [
         {
             "id": 51,
-            "duration": "Jan 2025 - Ongoing",
+            "duration": "Jan 2025 - Dec 2025",
             "title": "Smart Mentoring System (SMS)",
             "organization": "Developed for Daffodil International University",
             "designation": "Full Stack Developer & Team Leader",
@@ -1847,7 +1847,7 @@ const projectsData = {
     "client-project": [
         {
             "id": 101,
-            "duration": "Jan 2026 - Ongoing",
+            "duration": "Jan 2026 - Apr 2026",
             "title": "Smart Irrigation System",
             "organization": "Developed for Daffodil International University",
             "location": "Remote",
@@ -1974,7 +1974,7 @@ const projectsData = {
         },
         {
             "id": 102,
-            "duration": "Sep 2024 - Ongoing",
+            "duration": "Feb 2026 - Mar 2026",
             "title": "DIU Admission Bot",
             "organization": "Client Project",
             "location": "Remote",

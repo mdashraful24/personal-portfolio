@@ -55,7 +55,7 @@ const ErrorPage = () => {
                                 {/* Left Side - Animation/GIF */}
                                 <div className="flex-1 relative">
                                     <div className="relative group">
-                                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                                        <div className="absolute -inset-1 bg-linear-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
                                         <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-4">
                                             <img
                                                 src={gif}

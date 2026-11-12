@@ -27,16 +27,22 @@ const getStripeStatus = (handling) => handling?.some(tech => tech.name.toLowerCa
 // ============== REUSABLE COMPONENTS ==============
 
 const ActionButton = ({ href, icon: Icon, children, variant = "primary" }) => {
-    const baseStyles = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 active:scale-95";
+    const baseStyles = "relative overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 active:scale-95 group/btn";
     const variants = {
-        primary: "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-500/25",
+        primary: "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25",
         secondary: "bg-white dark:bg-gray-800 text-[1.05rem] dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md"
     };
 
     return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={`${baseStyles} ${variants[variant]}`}>
-            <Icon className="text-lg" />
-            <span>{children}</span>
+            {variant === "primary" && (
+                <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"
+                />
+            )}
+            <Icon className="relative z-10 text-lg" />
+            <span className="relative z-10">{children}</span>
         </a>
     );
 };
@@ -68,7 +74,7 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
     <button
         ref={ref}
         onClick={() => onClick(id)}
-        className={`group relative px-5 py-3 font-semibold whitespace-nowrap transition-all duration-300 flex-shrink-0 
+        className={`group relative px-5 py-3 font-semibold whitespace-nowrap transition-all duration-300 shrink-0 
             ${isActive
                 ? "text-blue-700 dark:text-blue-300"
                 : "text-gray-500 dark:text-gray-400 hover:text-blue-700 dark:hover:text-gray-300"
@@ -92,12 +98,12 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
             </span>
         </div>
         {isActive && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full 
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-blue-500 to-blue-600 rounded-full 
                 transition-all duration-300"
             />
         )}
         {!isActive && (
-            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-blue-600/0 
+            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-blue-500/0 via-blue-500/0 to-blue-600/0 
                 group-hover:from-blue-500/50 group-hover:via-blue-500/70 group-hover:to-blue-600/50 rounded-full 
                 transition-all duration-300 group-hover:h-0.5"
             />
@@ -107,7 +113,7 @@ const TabButton = ({ id, label, icon: Icon, isActive, onClick, ref }) => (
 
 const ChallengeItem = ({ challenge }) => (
     <div className="group flex items-center gap-4 px-4 py-3 bg-amber-50 dark:bg-amber-900/10 rounded-xl border-l-4 border-amber-500 hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-all">
-        <div className="flex-shrink-0 w-2.5 h-2.5 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">
+        <div className="shrink-0 w-2.5 h-2.5 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold">
             {/* {index + 1} */}
         </div>
         <p className="text-[1.2rem] dark:text-gray-300 leading-relaxed flex-1">{challenge}</p>
@@ -250,7 +256,7 @@ const ProjectDetails = () => {
                     <div className="space-y-5">
                         <div>
                             <div className="flex items-start justify-between gap-4 flex-wrap">
-                                <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent">
+                                <h1 className="text-3xl lg:text-4xl font-bold bg-linear-to-r from-blue-600 to-blue-600 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent">
                                     {project.title}
                                 </h1>
 

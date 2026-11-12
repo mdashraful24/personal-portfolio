@@ -41,11 +41,11 @@ const ProjectsShowcase = () => {
                         viewport={{ once: true }}
                     >
                         <div className="flex items-center justify-center mb-4">
-                            <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                             <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                                 My Projects
                             </span>
-                            <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                            <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         </div>
                         <p className="md:text-[1.3rem] dark:text-gray-300">
                             Here are some of the projects I&apos;ve worked on.
@@ -88,11 +88,11 @@ const ProjectsShowcase = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             viewport={{ once: true, amount: 0.2 }}
-                            className="relative rounded-2xl overflow-hidden cursor-pointer h-full min-h-[25rem] bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
+                            className="relative rounded-2xl overflow-hidden cursor-pointer h-full min-h-100 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]"
                             onClick={handleViewMoreClick}
                         >
                             {/* Animated Gradient Border */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl p-[2px]">
+                            <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl p-0.5">
                                 <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl"></div>
                             </div>
 
@@ -101,7 +101,7 @@ const ProjectsShowcase = () => {
                                 {/* Animated Icon */}
                                 <div className="mb-6 relative">
                                     <div className="absolute inset-0 bg-blue-500 rounded-full blur-lg animate-pulse opacity-30"></div>
-                                    <div className="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform rotate-0 group-hover:rotate-12 transition-transform duration-500">
+                                    <div className="relative w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform rotate-0 group-hover:rotate-12 transition-transform duration-500">
                                         <FaFolderOpen className="w-10 h-10 text-white" />
                                     </div>
                                 </div>
@@ -148,10 +148,14 @@ const ProjectsShowcase = () => {
 
                                 {/* Explore Button */}
                                 <button
-                                    className="w-full flex items-center justify-between py-2 px-4 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg group/btn text-[1.1rem]"
+                                    className="relative overflow-hidden w-full flex items-center justify-between py-2 px-4 rounded-xl bg-linear-to-r from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-800 text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg group/btn text-[1.1rem] cursor-pointer"
                                 >
-                                    <span>View All Projects</span>
-                                    <FaArrowRightLong className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                                    <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0 bg-linear-to-r from-blue-600 to-blue-700 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"
+                                    />
+                                    <span className="relative z-10">View All Projects</span>
+                                    <FaArrowRightLong className="relative z-10 transform transition-transform duration-300 group-hover/btn:translate-x-1" />
                                 </button>
                             </div>
                         </motion.div>

@@ -203,11 +203,11 @@ const Skills = () => {
                 {/* Header Section */}
                 <div className="text-center mb-10" data-aos="fade-up">
                     <div className="flex items-center justify-center mb-4">
-                        <span className="h-0.5 w-16 bg-gradient-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-r from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                         <span className="px-6 text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white">
                             Skills & Technologies
                         </span>
-                        <span className="h-0.5 w-16 bg-gradient-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
+                        <span className="h-0.5 w-16 bg-linear-to-l from-transparent to-blue-700 dark:to-[#3b82f6]"></span>
                     </div>
                     <p className="md:text-[1.3rem] max-w-4xl mx-auto leading-relaxed dark:text-gray-300">
                         I work with frontend and backend development, databases, and deployment tools to build reliable, efficient, and easy-to-maintain digital projects.
@@ -219,13 +219,13 @@ const Skills = () => {
                     {allSkillCards.map((card, cardIndex) => (
                         <div
                             key={cardIndex}
-                            className={`group bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] ${visibleCards[cardIndex]
+                            className={`group bg-[#3b3b45] dark:bg-black rounded-2xl p-6 shadow-lg border border-gray-600/20 hover:border-blue-500 hover:scale-105 dark:hover:scale-100 dark:border-gray-700 dark:hover:border-blue-500 transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] cursor-default ${visibleCards[cardIndex]
                                 ? 'opacity-100 translate-y-0'
                                 : 'opacity-0 translate-y-12'
                                 }`}
                             style={{
                                 transitionDelay: `${cardIndex * 50}ms`,
-                                transitionProperty: 'opacity, transform, box-shadow'
+                                transitionProperty: 'opacity, transform, box-shadow, border-color'
                             }}
                         >
                             {/* Title */}

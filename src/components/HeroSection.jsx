@@ -80,7 +80,7 @@ const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
 // dark: bg - gradient - to - br dark: from - gray - 900 dark: via - gray - 800 dark: to - gray - 900
 const HeroSection = ({ onHireMeClick }) => {
     return (
-        <div className="bg-gradient-to-b from-white via-gray-50 to-gray-50 dark:bg-gradient-to-b dark:from-gray-900 dark:via-black dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
+        <div className="bg-linear-to-b from-white via-gray-50 to-gray-50 dark:bg-linear-to-b dark:from-gray-900 dark:via-black dark:to-black lg:min-h-[calc(100vh-4rem)] overflow-hidden relative animate-fade-in">
             {/* Background decorative elements - Hidden in dark mode */}
             {/* <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/20 rounded-full blur-3xl animate-float dark:hidden" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
@@ -128,7 +128,7 @@ const HeroSection = ({ onHireMeClick }) => {
                             <a
                                 href="/Ashraful_Islam_Ratul_Full_Stack_Developer_Resume.pdf"
                                 download="Ashraful_Islam_Ratul_Full_Stack_Developer_Resume.pdf"
-                                className="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group text-lg"
+                                className="relative inline-flex items-center gap-2 px-4 py-2 rounded-xl overflow-hidden bg-linear-to-r from-blue-600 to-blue-700 text-white font-semibold transition-all duration-300 ease-in-out before:absolute before:inset-0 before:bg-linear-to-r before:from-blue-700 before:to-blue-800 before:transition-all before:duration-500 before:-translate-x-full hover:before:translate-x-0 before:z-0 active:scale-95 group text-lg"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     <Download size={20} className="group-hover:animate-bounce" />
@@ -158,12 +158,12 @@ const HeroSection = ({ onHireMeClick }) => {
                     {/* RIGHT SIDE - Profile Image with Badge */}
                     <div className="flex justify-center items-center relative group animate-blur-in lg:mr-9">
                         {/* Decorative rings - grayscale initially, color on group hover */}
-                        <div className="absolute w-[310px] h-[310px] md:w-[380px] md:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 dark:group-hover:border-blue-400 transition-all duration-700 animate-rotate-in"></div>
+                        <div className="absolute w-77.5 h-77.5 md:w-95 md:h-95 lg:w-112.5 lg:h-112.5 rounded-full border-2 border-gray-400 grayscale group-hover:grayscale-0 group-hover:border-blue-600 dark:group-hover:border-blue-400 transition-all duration-700 animate-rotate-in"></div>
 
                         {/* Solar system orbiting icon - spins around the image, stops on group hover */}
-                        <div className="absolute w-[340px] h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] rounded-full animate-orbit group-hover:animation-none">
+                        <div className="absolute w-85 h-85 md:w-105 md:h-105 lg:w-120 lg:h-120 rounded-full animate-orbit group-hover:animation-none">
                             <div className="absolute top-4 md:top-5 lg:top-4 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <div className="bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-full p-2 md:p-2.5 shadow-lg animate-pulse-glow">
+                                <div className="bg-linear-to-r from-blue-500 to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-full p-2 md:p-2.5 shadow-lg animate-pulse-glow">
                                     <FaCode className="text-white text-sm md:text-base" />
                                 </div>
                             </div>

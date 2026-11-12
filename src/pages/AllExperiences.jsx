@@ -13,7 +13,9 @@ const allExperiences = [
     ...(projectsData['team-project'] || []),
     ...(projectsData['working-project'] || []),
     ...(projectsData['my-project'] || []),
-].filter(exp => exp.experienceShow === true);
+]
+    .filter(exp => exp.experienceShow === true)
+    .sort((a, b) => a.id - b.id);
 
 const AllExperiences = () => {
     const [selectedExp, setSelectedExp] = useState(null);
