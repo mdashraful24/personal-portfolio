@@ -47,30 +47,30 @@ A modern, responsive, and visually appealing personal portfolio built with **Rea
 
 3. Install dependencies:
    ```bash
-   npm install
+   bun install
    ```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm run dev`
+### `bun run dev`
 
 Runs the app in development mode.\
 Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 The page will reload when you make changes.
 
-### `npm run build`
+### `bun run build`
 
 Builds the app for production to the `dist` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `npm run preview`
+### `bun run preview`
 
 Locally preview the production build.
 
-### `npm run lint`
+### `bun run lint`
 
 Runs ESLint to check for code quality issues.
 
